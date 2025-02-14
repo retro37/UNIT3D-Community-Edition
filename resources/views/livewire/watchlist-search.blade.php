@@ -1,6 +1,6 @@
 <section class="panelV2">
     <header class="panel__header">
-        <h2 class="panel__heading">Watchlist</h2>
+        <h2 class="panel__heading">{{ __('user.watchlist') }}</h2>
         <div class="panel__actions">
             <div class="panel__action">
                 <p class="form__group">
@@ -40,15 +40,15 @@
                         @include('livewire.includes._sort-icon', ['field' => 'user_id'])
                     </th>
                     <th wire:click="sortBy('staff_id')" role="columnheader button">
-                        Watched By
+                        {{ __('user.watched-by') }}
                         @include('livewire.includes._sort-icon', ['field' => 'staff_id'])
                     </th>
                     <th wire:click="sortBy('message')" role="columnheader button">
-                        Message
+                        {{ __('common.note') }}
                         @include('livewire.includes._sort-icon', ['field' => 'message'])
                     </th>
                     <th wire:click="sortBy('created_at')" role="columnheader button">
-                        Created At
+                        {{ __('common.created_at') }}
                         @include('livewire.includes._sort-icon', ['field' => 'created_at'])
                     </th>
                     <th>{{ __('common.action') }}</th>
@@ -85,7 +85,7 @@
                                             data-b64-deletion-message="{{ base64_encode('Are you sure you want to unwatch this user: ' . $watching->user->username . '?') }}"
                                             class="form__button form__button--text"
                                         >
-                                            Unwatch
+                                            {{ __('user.unwatch') }}
                                         </button>
                                     </form>
                                 </li>

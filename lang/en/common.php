@@ -144,6 +144,7 @@ return [
     'no'                   => 'No',
     'no-comments'          => 'No Comments Yet',
     'no-result'            => 'There is no result in database for query',
+    'note'                 => 'Note',
     'notifications'        => 'Notifications',
     'older-than'           => 'Older than',
     'oldest'               => 'Oldest',

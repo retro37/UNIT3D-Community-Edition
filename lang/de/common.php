@@ -126,6 +126,7 @@ return [
     'no'                   => 'Nein',
     'no-comments'          => 'Noch keine Kommentare',
     'no-result'            => 'Es gibt für diese Abfrage kein Ergebnis in der Datenbank',
+    'note'                 => 'Anmerkung',
     'notifications'        => 'Benachrichtigungen',
     'older-than'           => 'Älter als',
     'oldest'               => 'Älteste',
