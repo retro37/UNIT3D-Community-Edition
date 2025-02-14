@@ -72,7 +72,7 @@
             x-bind:class="tab === 'automated' && 'panel__tab--active'"
             x-on:click="tab = 'automated'"
         >
-            Automated ({{ $automatedWarningsCount ?? 0 }})
+            {{ __('user.automated') }} ({{ $automatedWarningsCount ?? 0 }})
         </li>
         <li
             class="panel__tab"
@@ -80,7 +80,7 @@
             x-bind:class="tab === 'manual' && 'panel__tab--active'"
             x-on:click="tab = 'manual'"
         >
-            Manual ({{ $manualWarningsCount ?? 0 }})
+            {{ __('user.manual') }} ({{ $manualWarningsCount ?? 0 }})
         </li>
         <li
             class="panel__tab"
@@ -88,7 +88,7 @@
             x-bind:class="tab === 'deleted' && 'panel__tab--active'"
             x-on:click="tab = 'deleted'"
         >
-            Soft Deleted ({{ $deletedWarningsCount ?? 0 }})
+            {{ __('user.soft-deleted') }} ({{ $deletedWarningsCount ?? 0 }})
         </li>
     </menu>
     <div class="data-table-wrapper">

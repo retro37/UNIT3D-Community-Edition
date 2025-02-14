@@ -106,6 +106,7 @@ return [
     'logout'               => 'Ausloggen',
     'media-language'       => 'Medien Sprache',
     'media-languages'      => 'Medien Sprachen',
+    'manual'               => 'Manuell',
     'members'              => 'Mitglieder',
     'message'              => 'Nachricht',
     'minute'               => 'Minuten',

@@ -25,7 +25,7 @@
                         placeholder=" "
                     />
                     <label class="form__label form__label--floating" for="search">
-                        Search by message
+                        {{ __('user.search-by-message') }}
                     </label>
                 </p>
             </div>
@@ -36,7 +36,7 @@
             <tbody>
                 <tr>
                     <th wire:click="sortBy('user_id')" role="columnheader button">
-                        Watching
+                        {{ __('user.watching') }}
                         @include('livewire.includes._sort-icon', ['field' => 'user_id'])
                     </th>
                     <th wire:click="sortBy('staff_id')" role="columnheader button">
@@ -94,7 +94,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="5">No watched users</td>
+                        <td colspan="5">{{ __('user.no-watched-users') }}</td>
                     </tr>
                 @endforelse
             </tbody>
