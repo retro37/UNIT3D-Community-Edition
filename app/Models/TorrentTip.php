@@ -54,7 +54,7 @@ class TorrentTip extends Model
      */
     public function sender(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withTrashed();
     }
 
     /**
@@ -64,7 +64,7 @@ class TorrentTip extends Model
      */
     public function recipient(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withTrashed();
     }
 
     /**
