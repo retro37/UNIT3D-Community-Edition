@@ -327,7 +327,7 @@ class TorrentController extends Controller
         };
 
         return to_route('torrents.show', ['id' => $id])
-            ->with('success', 'Successfully Edited!');
+            ->with('success', 'Successfully edited!');
     }
 
     /**
@@ -387,7 +387,7 @@ class TorrentController extends Controller
         $torrent->delete();
 
         return to_route('torrents.index')
-            ->with('success', 'Torrent Has Been Deleted!');
+            ->with('success', 'Torrent has been deleted!');
     }
 
     /**
