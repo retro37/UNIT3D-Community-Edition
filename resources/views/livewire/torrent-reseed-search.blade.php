@@ -9,7 +9,7 @@
                             id="myRequests"
                             class="form__checkbox"
                             type="checkbox"
-                            wire:model.live="show"
+                            wire:model.live="myRequests"
                         />
                         <label class="form__label" for="myRequests">
                             {{ __('request.my-requests') }}
