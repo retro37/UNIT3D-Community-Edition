@@ -51,7 +51,7 @@ class PostTip extends Model
      */
     public function sender(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withTrashed();
     }
 
     /**
@@ -59,7 +59,7 @@ class PostTip extends Model
      */
     public function recipient(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withTrashed();
     }
 
     /**

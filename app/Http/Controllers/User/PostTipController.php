@@ -39,8 +39,8 @@ class PostTipController extends Controller
         return view('user.post-tip.index', [
             'user' => $user,
             'tips' => PostTip::with([
-                'sender'    => fn ($query) => $query->withTrashed()->with('group'),
-                'recipient' => fn ($query) => $query->withTrashed()->with('group'),
+                'sender.group',
+                'recipient.group',
                 'post.topic'
             ])
                 ->where('sender_id', '=', $user->id)
