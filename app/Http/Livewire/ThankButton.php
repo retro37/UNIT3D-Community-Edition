@@ -59,6 +59,8 @@ class ThankButton extends Component
         }
 
         $this->dispatch('success', type: 'success', message: 'Your thank was successfully applied!');
+
+        $this->torrent->loadCount('thanks');
     }
 
     final public function render(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
