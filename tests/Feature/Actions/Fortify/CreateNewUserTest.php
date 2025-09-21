@@ -15,9 +15,11 @@ declare(strict_types=1);
  */
 
 use App\Models\Invite;
+use App\Models\User;
 use Database\Seeders\GroupSeeder;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\URL;
 
 use function Pest\Laravel\assertDatabaseHas;
 use function Pest\Laravel\assertDatabaseMissing;
@@ -45,22 +47,37 @@ test('user registration is available when enabled', function (): void {
         'captcha.enabled'   => false,
     ]);
 
+    $email = fake()->safeEmail;
+
     $this->get('/register')
         ->assertOk()
         ->assertDontSeeText('Open Registration Is Disabled');
 
     $this->post('/register', [
         'username'              => 'testuser',
-        'email'                 => 'unit3d@protnmail.com',
+        'email'                 => $email,
         'password'              => 'password',
         'password_confirmation' => 'password',
     ])->assertRedirectToRoute('home.index');
 
     assertDatabaseHas('users', [
-        'username' => 'testuser',
-        'email'    => 'unit3d@protnmail.com',
+        'username'          => 'testuser',
+        'email'             => $email,
+        'email_verified_at' => null,
     ]);
     Event::assertDispatched(Registered::class);
+
+    // Email verification for newly registered user
+    $user = User::where('email', $email)->first();
+    $verificationUrl = URL::temporarySignedRoute(
+        'verification.verify',
+        now()->addMinutes(5),
+        ['id' => $user->id, 'hash' => sha1($user->email)]
+    );
+
+    $response = $this->get($verificationUrl);
+
+    $this->assertNotNull($user->fresh()->email_verified_at);
 });
 
 test('user can register using invite code', function (): void {
@@ -93,10 +110,23 @@ test('user can register using invite code', function (): void {
         ->assertRedirectToRoute('home.index');
 
     assertDatabaseHas('users', [
-        'username' => 'testuser',
-        'email'    => $email,
+        'username'          => 'testuser',
+        'email'             => $email,
+        'email_verified_at' => null,
     ]);
     Event::assertDispatched(Registered::class);
+
+    // Email verification for newly registered user
+    $user = User::where('email', $email)->first();
+    $verificationUrl = URL::temporarySignedRoute(
+        'verification.verify',
+        now()->addMinutes(5),
+        ['id' => $user->id, 'hash' => sha1($user->email)]
+    );
+
+    $response = $this->get($verificationUrl);
+
+    $this->assertNotNull($user->fresh()->email_verified_at);
 });
 
 test('user cannot register using invalid invite code', function (): void {
@@ -126,6 +156,55 @@ test('user cannot register using invalid invite code', function (): void {
         'email'    => $email,
     ]);
     Event::assertNotDispatched(Registered::class);
+});
+
+test('user cannot confirm email using invalid hash', function (): void {
+    $this->withoutMiddleware();
+    config([
+        'other.invite-only' => true,
+        'captcha.enabled'   => false,
+    ]);
+
+    Invite::factory()->create([
+        'code'        => 'testcode',
+        'accepted_at' => null,
+        'accepted_by' => null,
+        'expires_on'  => now()->addDays(7),
+    ]);
+
+    $email = fake()->safeEmail;
+
+    $this->get('/register?code=testcode')
+        ->assertOk()
+        ->assertDontSeeText('Open Registration Is Disabled');
+
+    $this->post('/register?code=testcode', [
+        'username'              => 'testuser',
+        'email'                 => $email,
+        'password'              => 'password',
+        'password_confirmation' => 'password',
+    ])
+        ->assertSessionHasNoErrors()
+        ->assertRedirectToRoute('home.index');
+
+    assertDatabaseHas('users', [
+        'username'          => 'testuser',
+        'email'             => $email,
+        'email_verified_at' => null,
+    ]);
+    Event::assertDispatched(Registered::class);
+
+    // Email verification for newly registered user with invalid email
+    $user = User::where('email', $email)->first();
+    $verificationUrl = URL::temporarySignedRoute(
+        'verification.verify',
+        now()->addMinutes(5),
+        ['id' => $user->id, 'hash' => sha1(fake()->safeEmail)]
+    );
+
+    $response = $this->get($verificationUrl);
+
+    $this->assertNull($user->fresh()->email_verified_at);
 });
 
 test('user can register using invite code with internal note assigned', function (): void {
@@ -159,8 +238,9 @@ test('user can register using invite code with internal note assigned', function
         ->assertRedirectToRoute('home.index');
 
     assertDatabaseHas('users', [
-        'username' => 'testuser',
-        'email'    => $email,
+        'username'          => 'testuser',
+        'email'             => $email,
+        'email_verified_at' => null,
     ]);
 
     $invite->refresh();
@@ -172,4 +252,16 @@ test('user can register using invite code with internal note assigned', function
     ]);
 
     Event::assertDispatched(Registered::class);
+
+    // Email verification for newly registered user
+    $user = User::where('email', $email)->first();
+    $verificationUrl = URL::temporarySignedRoute(
+        'verification.verify',
+        now()->addMinutes(5),
+        ['id' => $user->id, 'hash' => sha1($user->email)]
+    );
+
+    $response = $this->get($verificationUrl);
+
+    $this->assertNotNull($user->fresh()->email_verified_at);
 });
