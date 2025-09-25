@@ -1357,7 +1357,7 @@ DROP TABLE IF EXISTS `reports`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `reports` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id` int unsigned NOT NULL,
   `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `reporter_id` int unsigned NOT NULL,
@@ -1371,18 +1371,20 @@ CREATE TABLE `reports` (
   `snoozed_until` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `solved_by` int unsigned DEFAULT NULL,
+  `solved_at` timestamp NULL DEFAULT NULL,
   `closed_by` int unsigned DEFAULT NULL,
-  `closed_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `reports_reporter_id_foreign` (`reporter_id`),
+  KEY `reports_staff_id_foreign` (`closed_by`),
   KEY `reports_solved_snoozed_until_index` (`solved`,`snoozed_until`),
   KEY `reports_reported_user_id_index` (`reported_user_id`),
   KEY `reports_reported_torrent_id_index` (`reported_torrent_id`),
   KEY `reports_reported_request_id_index` (`reported_request_id`),
-  KEY `reports_closed_by_foreign` (`closed_by`),
-  CONSTRAINT `reports_closed_by_foreign` FOREIGN KEY (`closed_by`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  KEY `reports_solved_by_foreign` (`solved_by`),
   CONSTRAINT `reports_reported_user_id_foreign` FOREIGN KEY (`reported_user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `reports_reporter_id_foreign` FOREIGN KEY (`reporter_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `reports_solved_by_foreign` FOREIGN KEY (`solved_by`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `reports_torrent_id_foreign` FOREIGN KEY (`reported_torrent_id`) REFERENCES `torrents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
