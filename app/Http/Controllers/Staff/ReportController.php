@@ -58,7 +58,11 @@ class ReportController extends Controller
                 ->withErrors('This report has already been solved');
         }
 
-        $report->update(['solved' => true, 'staff_id' => $staff->id] + $request->validated());
+        $report->update([
+            'solved'    => true,
+            'closed_by' => $staff->id,
+            'closed_at' => now(),
+        ] + $request->validated());
 
         $conversation = Conversation::create(['subject' => 'Your Report Has A New Verdict']);
 

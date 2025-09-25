@@ -1011,6 +1011,8 @@ Route::middleware('language')->group(function (): void {
                 Route::get('/', [App\Http\Controllers\Staff\ReportController::class, 'index'])->name('index');
                 Route::get('/{report}', [App\Http\Controllers\Staff\ReportController::class, 'show'])->name('show');
                 Route::patch('/{report}', [App\Http\Controllers\Staff\ReportController::class, 'update'])->name('update');
+                Route::post('/{report}/assignee', [App\Http\Controllers\Staff\ReportAssigneeController::class, 'store'])->name('assignee.store');
+                Route::delete('/{report}/assignee', [App\Http\Controllers\Staff\ReportAssigneeController::class, 'destroy'])->name('assignee.destroy');
             });
 
             // Snoozed Reports

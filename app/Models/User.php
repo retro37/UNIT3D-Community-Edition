@@ -657,7 +657,7 @@ final class User extends Authenticatable implements MustVerifyEmail
      */
     public function solvedReports(): HasMany
     {
-        return $this->hasMany(Report::class, 'staff_id');
+        return $this->hasMany(Report::class, 'closed_by');
     }
 
     /**

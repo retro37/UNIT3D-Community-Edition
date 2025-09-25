@@ -98,27 +98,101 @@
 
 @section('sidebar')
     <section class="panelV2">
-        <h2 class="panel__heading">Reported {{ __('common.user') }}</h2>
-        <div class="panel__body">
-            <x-user-tag :anon="false" :user="$report->reported" />
-        </div>
+        <h2 class="panel__heading">{{ __('common.info') }}</h2>
+        <dl class="key-value">
+            <div class="key-value__group">
+                <dt>ID</dt>
+                <dd>{{ $report->id }}</dd>
+            </div>
+            <div class="key-value__group">
+                <dt>{{ __('ticket.category') }}</dt>
+                <dd>{{ $report->type }}</dd>
+            </div>
+            <div class="key-value__group">
+                <dt>{{ __('common.created_at') }}</dt>
+                <dd>{{ $report->created_at->format('Y-m-d') }}</dd>
+            </div>
+            <div class="key-value__group">
+                <dt>{{ __('common.reporter') }}</dt>
+                <dd>
+                    <x-user-tag :anon="false" :user="$report->reporter" />
+                </dd>
+            </div>
+            <div class="key-value__group">
+                <dt>Reported</dt>
+                <dd>
+                    <x-user-tag :anon="false" :user="$report->reported" />
+                </dd>
+            </div>
+            @if ($report->closed_by !== null)
+                <div class="key-value__group">
+                    <dt>Closed by</dt>
+                    <dd>
+                        <x-user-tag :anon="false" :user="$report->judge" />
+                    </dd>
+                </div>
+                <div class="key-value__group">
+                    <dt>{{ __('ticket.closed') }}</dt>
+                    <dd>
+                        <time
+                            datetime="{{ $report->closed_at }}"
+                            title="{{ $report->closed_at }}"
+                        >
+                            {{ $report->closed_at?->format('Y-m-d') }}
+                        </time>
+                    </dd>
+                </div>
+            @endif
+        </dl>
     </section>
     <section class="panelV2">
-        <h2 class="panel__heading">{{ __('common.reporter') }}</h2>
+        <h2 class="panel__heading">{{ __('common.actions') }}</h2>
         <div class="panel__body">
-            <x-user-tag :anon="false" :user="$report->reporter" />
-        </div>
-    </section>
-    <section class="panelV2">
-        <h2 class="panel__heading">Solved by</h2>
-        <div class="panel__body">
-            @if ($report->solved)
-                <x-user-tag :anon="false" :user="$report->staff" />
-            @else
-                <span class="text-red">
-                    <i class="{{ config('other.font-awesome') }} fa-times"></i>
-                    UNSOLVED
-                </span>
+            <form
+                class="form form--horizontal"
+                action="{{ route('staff.reports.assignee.store', ['report' => $report]) }}"
+                method="POST"
+                x-data
+            >
+                @csrf
+                <p class="form__group">
+                    <select
+                        id="staff_id"
+                        name="staff_id"
+                        class="form__select"
+                        x-on:change="$root.submit()"
+                    >
+                        <option hidden disabled selected value=""></option>
+                        @foreach (App\Models\User::select(['id', 'username'])->whereIn('group_id', App\Models\Group::where('is_modo', 1)->whereNotIn('id', [9])->pluck('id')->toArray())->get() as $user)
+                            <option
+                                value="{{ $user->id }}"
+                                @selected($user->id === $report->staff_id)
+                            >
+                                {{ $user->username }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <label class="form__label form__label--floating" for="staff_id">
+                        {{ __('ticket.assign') }}
+                    </label>
+                </p>
+            </form>
+
+            @if ($report->staff_id !== null)
+                <form
+                    action="{{ route('staff.reports.assignee.destroy', ['report' => $report]) }}"
+                    method="POST"
+                >
+                    @csrf
+                    @method('DELETE')
+                    <p class="form__group form__group--horizontal">
+                        <button
+                            class="form__button form__button--filled form__button--centered"
+                        >
+                            {{ __('ticket.unassign') }}
+                        </button>
+                    </p>
+                </form>
             @endif
         </div>
     </section>

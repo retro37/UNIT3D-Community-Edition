@@ -39,6 +39,9 @@ class ReportSearch extends Component
     public ?string $staff = null;
 
     #[Url(history: true)]
+    public ?string $judge = null;
+
+    #[Url(history: true)]
     public ?string $title = null;
 
     #[Url(history: true)]
@@ -72,6 +75,7 @@ class ReportSearch extends Component
             ->when($this->reporter !== null, fn ($query) => $query->whereRelation('reporter', 'username', 'LIKE', '%'.$this->reporter.'%'))
             ->when($this->reported !== null, fn ($query) => $query->whereRelation('reported', 'username', 'LIKE', '%'.$this->reported.'%'))
             ->when($this->staff !== null, fn ($query) => $query->whereRelation('staff', 'username', 'LIKE', '%'.$this->staff.'%'))
+            ->when($this->judge !== null, fn ($query) => $query->whereRelation('judge', 'username', 'LIKE', '%'.$this->judge.'%'))
             ->when($this->title !== null, fn ($query) => $query->where('title', 'LIKE', '%'.str_replace(' ', '%', '%'.$this->title.'%')))
             ->when($this->message !== null, fn ($query) => $query->where('message', 'LIKE', '%'.str_replace(' ', '%', '%'.$this->message.'%')))
             ->when($this->verdict !== null, fn ($query) => $query->where('verdict', 'LIKE', '%'.str_replace(' ', '%', '%'.$this->verdict.'%')))

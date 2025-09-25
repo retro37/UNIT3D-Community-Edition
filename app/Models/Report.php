@@ -58,13 +58,14 @@ final class Report extends Model
     /**
      * Get the attributes that should be cast.
      *
-     * @return array{solved: 'bool', snoozed_until: 'datetime'}
+     * @return array{solved: 'bool', snoozed_until: 'datetime', closed_at: 'datetime'}
      */
     protected function casts(): array
     {
         return [
             'solved'        => 'bool',
             'snoozed_until' => 'datetime',
+            'closed_at'     => 'datetime',
         ];
     }
 
@@ -75,7 +76,7 @@ final class Report extends Model
      */
     public function request(): BelongsTo
     {
-        return $this->belongsTo(TorrentRequest::class, 'request_id');
+        return $this->belongsTo(TorrentRequest::class, 'reported_request_id');
     }
 
     /**
@@ -85,7 +86,7 @@ final class Report extends Model
      */
     public function torrent(): BelongsTo
     {
-        return $this->belongsTo(Torrent::class, 'torrent_id');
+        return $this->belongsTo(Torrent::class, 'reported_torrent_id');
     }
 
     /**
@@ -105,7 +106,17 @@ final class Report extends Model
      */
     public function reported(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'reported_user')->withTrashed();
+        return $this->belongsTo(User::class, 'reported_user_id');
+    }
+
+    /**
+     * Get the staff user that is assigned to the report.
+     *
+     * @return BelongsTo<User, $this>
+     */
+    public function staff(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'staff_id')->withTrashed();
     }
 
     /**
@@ -113,8 +124,8 @@ final class Report extends Model
      *
      * @return BelongsTo<User, $this>
      */
-    public function staff(): BelongsTo
+    public function judge(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'staff_id')->withTrashed();
+        return $this->belongsTo(User::class, 'closed_by')->withTrashed();
     }
 }
