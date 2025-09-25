@@ -28,7 +28,7 @@ class ReportAssigneeController extends Controller
     final public function store(StoreReportAssigneeRequest $request, Report $report): \Illuminate\Http\RedirectResponse
     {
         $report->update([
-            'staff_id'   => $request->staff_id,
+            'staff_id' => $request->staff_id,
         ]);
 
         $assignedStaff = User::find($request->staff_id);

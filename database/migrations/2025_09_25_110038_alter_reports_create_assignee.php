@@ -34,7 +34,7 @@ return new class () extends Migration {
             $table->renameColumn('torrent_id', 'reported_torrent_id');
             $table->renameColumn('request_id', 'reported_request_id');
             $table->renameColumn('staff_id', 'closed_by');
-            
+
             // Reorder
             $table->string('type', 255)->collation('utf8mb4_unicode_ci')->change()->after('id');
             $table->string('title', 255)->collation('utf8mb4_unicode_ci')->change()->after('type');

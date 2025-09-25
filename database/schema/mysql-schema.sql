@@ -1357,30 +1357,33 @@ DROP TABLE IF EXISTS `reports`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `reports` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `reporter_id` int unsigned NOT NULL,
+  `reported_user_id` int unsigned DEFAULT NULL,
+  `reported_torrent_id` int unsigned DEFAULT NULL,
+  `reported_request_id` int unsigned DEFAULT NULL,
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `staff_id` int unsigned DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `verdict` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `solved` tinyint(1) NOT NULL DEFAULT '0',
-  `verdict` text COLLATE utf8mb4_unicode_ci,
+  `snoozed_until` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `reported_user` int unsigned DEFAULT NULL,
-  `torrent_id` int unsigned DEFAULT NULL,
-  `request_id` int unsigned DEFAULT NULL,
-  `snoozed_until` timestamp NULL DEFAULT NULL,
+  `closed_by` int unsigned DEFAULT NULL,
+  `closed_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `reports_reporter_id_foreign` (`reporter_id`),
-  KEY `reports_staff_id_foreign` (`staff_id`),
-  KEY `reports_reported_user_foreign` (`reported_user`),
-  KEY `reports_torrent_id_foreign` (`torrent_id`),
   KEY `reports_solved_snoozed_until_index` (`solved`,`snoozed_until`),
-  CONSTRAINT `reports_reported_user_foreign` FOREIGN KEY (`reported_user`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  KEY `reports_reported_user_id_index` (`reported_user_id`),
+  KEY `reports_reported_torrent_id_index` (`reported_torrent_id`),
+  KEY `reports_reported_request_id_index` (`reported_request_id`),
+  KEY `reports_closed_by_foreign` (`closed_by`),
+  CONSTRAINT `reports_closed_by_foreign` FOREIGN KEY (`closed_by`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `reports_reported_user_id_foreign` FOREIGN KEY (`reported_user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `reports_reporter_id_foreign` FOREIGN KEY (`reporter_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `reports_staff_id_foreign` FOREIGN KEY (`staff_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `reports_torrent_id_foreign` FOREIGN KEY (`torrent_id`) REFERENCES `torrents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `reports_torrent_id_foreign` FOREIGN KEY (`reported_torrent_id`) REFERENCES `torrents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `request_bounty`;
@@ -3039,3 +3042,4 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (361,'2025_09_02_14
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (362,'2025_09_07_235939_add_adult_content_setting_to_user_settings',1);
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (363,'2025_09_07_235945_add_adult_column_to_tmdb_tv',1);
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (364,'2025_09_08_000029_make_audits_morphable',1);
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (365,'2025_09_25_110038_alter_reports_create_assignee',1);

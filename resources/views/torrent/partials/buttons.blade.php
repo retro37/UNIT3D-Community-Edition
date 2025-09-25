@@ -389,9 +389,10 @@
             <button
                 class="form__button form__button--outlined form__button--centered"
                 x-bind="showDialog"
+                title="This torrent currently has {{ $torrent->reports->where('solved', '=', 0)->count() }} unsolved report(s)"
             >
                 <i class="{{ config('other.font-awesome') }} fa-fw fa-eye"></i>
-                {{ __('common.report') }}
+                {{ __('common.report') }} ({{ $torrent->reports->where('solved', '=', 0)->count() }})
             </button>
             <dialog class="dialog" x-bind="dialogElement">
                 <h4 class="dialog__heading">

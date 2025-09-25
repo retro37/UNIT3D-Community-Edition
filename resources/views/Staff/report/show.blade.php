@@ -186,9 +186,7 @@
                     @csrf
                     @method('DELETE')
                     <p class="form__group form__group--horizontal">
-                        <button
-                            class="form__button form__button--filled form__button--centered"
-                        >
+                        <button class="form__button form__button--filled form__button--centered">
                             {{ __('ticket.unassign') }}
                         </button>
                     </p>
