@@ -20,7 +20,7 @@ return [
     'agent'                    => 'Agent',
     'alive'                    => 'Alive',
     'announce-url'             => 'Announce URL',
-    'announce-url-desc'        => 'Please use the announce URL above when creating a new torrent. If you want to use your torrent without downloading it from the site you need to set the private flag and the source to :source',
+    'announce-url-desc'        => 'Please use the announce URL above when creating a new torrent.',
     'announce-url-desc-url'    => 'Having Trouble? See Our Guide <a href=":url">HERE</a>',
     'announce-url-desc2'       => 'TMDB and IMDB is required for all Movie/TV uploads! It is used to grab Posters/Backdrops and ExtraInfo',
     'approved'                 => 'Approved',
