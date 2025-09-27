@@ -261,6 +261,51 @@ return [
                 'facetSearch'        => false,
                 'proximityPrecision' => 'byAttribute',
             ],
+            'people' => [
+                'searchableAttributes' => [
+                    'name',
+                ],
+                'filterableAttributes' => [
+                    [
+                        'attributePatterns' => [
+                            'id',
+                        ],
+                        "features" => [
+                            "facetSearch" => false,
+                            "filter"      => [
+                                "equality"   => true,
+                                "comparison" => false,
+                            ],
+                        ]
+                    ],
+                    [
+                        'attributePatterns' => [
+                            'birthday',
+                        ],
+                        "features" => [
+                            "facetSearch" => false,
+                            "filter"      => [
+                                "equality"   => true,
+                                "comparison" => true,
+                            ],
+                        ]
+                    ],
+                ],
+                'sortableAttributes' => [
+                    'name',
+                    'birthday',
+                ],
+                'rankingRules' => [
+                    'sort',
+                    'attribute',
+                    'exactness',
+                    'words',
+                    'typo',
+                    'proximity',
+                ],
+                'facetSearch'        => false,
+                'proximityPrecision' => 'byAttribute',
+            ],
         ],
     ],
 
