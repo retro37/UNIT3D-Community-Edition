@@ -173,8 +173,8 @@ class SystemBot
 
             if ($echoes->doesntContain(fn ($echo) => $echo->bot_id == $this->bot->id)) {
                 $echoes->push(UserEcho::create([
-                    'user_id'   => $target->id,
-                    'target_id' => $this->bot->id,
+                    'user_id' => $target->id,
+                    'bot_id'  => $this->bot->id,
                 ]));
 
                 cache()->put('user-echoes'.$target->id, $echoes, 3600);
@@ -191,9 +191,9 @@ class SystemBot
 
             if ($audibles->doesntContain(fn ($audible) => $audible->bot_id == $this->bot->id)) {
                 $audibles->push(UserAudible::create([
-                    'user_id'   => $target->id,
-                    'target_id' => $this->bot->id,
-                    'status'    => 0,
+                    'user_id' => $target->id,
+                    'bot_id'  => $this->bot->id,
+                    'status'  => 0,
                 ]));
 
                 cache()->put('user-audibles'.$target->id, $audibles, 3600);
