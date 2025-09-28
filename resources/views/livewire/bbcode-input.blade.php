@@ -325,7 +325,7 @@
                     this.insert('\n[right]\n', '\n[/right]\n');
                 },
                 insertQuote() {
-                    this.insert('[quote]', '[/quote]');
+                    this.insert('\n[quote]\n', '\n[/quote]\n');
                 },
                 insertCode() {
                     this.insert('[code]', '[/code]');
