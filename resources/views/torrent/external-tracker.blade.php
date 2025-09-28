@@ -2,7 +2,7 @@
 
 @section('title')
     <title>
-        External Tracker - {{ $torrent?->name ?? 'Not Found' }} - {{ config('other.title') }}
+        External tracker - {{ $torrent?->name ?? 'Not found' }} - {{ config('other.title') }}
     </title>
 @endsection
 
@@ -18,7 +18,7 @@
     </li>
     <li class="breadcrumbV2">
         <a href="{{ route('torrents.show', ['id' => $id]) }}" class="breadcrumb__link">
-            {{ $torrent?->name ?? 'Not Found' }}
+            {{ $torrent?->name ?? 'Not found' }}
         </a>
     </li>
     <li class="breadcrumb--active">
@@ -42,7 +42,7 @@
             class="nav-tab--active__link"
             href="{{ route('torrents.external_tracker', ['id' => $id]) }}"
         >
-            External Tracker
+            External tracker
         </a>
     </li>
 @endsection
@@ -199,11 +199,11 @@
                         <dd>{{ $externalTorrent['times_completed'] }}</dd>
                     </div>
                     <div class="key-value__group">
-                        <dt>Download Factor</dt>
+                        <dt>Download factor</dt>
                         <dd>{{ $externalTorrent['download_factor'] }}</dd>
                     </div>
                     <div class="key-value__group">
-                        <dt>Upload Factor</dt>
+                        <dt>Upload factor</dt>
                         <dd>{{ $externalTorrent['upload_factor'] }}</dd>
                     </div>
                     <div class="key-value__group">

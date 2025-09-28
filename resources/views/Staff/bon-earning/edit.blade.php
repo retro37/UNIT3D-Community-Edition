@@ -375,13 +375,13 @@
                         x-on:click.prevent="conditions.push({ 'id': 0, 'operand1': '', 'operator': '', 'operand2': '' })"
                         class="form__button form__button--outlined"
                     >
-                        Add Condition
+                        Add condition
                     </button>
                     <button
                         class="form__button form__button--outlined"
                         x-on:click.prevent="conditions.length > 0 ? conditions.pop() : null"
                     >
-                        Delete Condition
+                        Delete condition
                     </button>
                 </p>
                 <p class="form__group">

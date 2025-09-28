@@ -154,10 +154,10 @@
                                     name="approve"
                                     placeholder=" "
                                 >
-Application Approved!</textarea
+Application approved!</textarea
                                 >
                                 <label class="form__label form__label--floating" for="approve">
-                                    Invitation Message
+                                    Invitation message
                                 </label>
                             </p>
                             <p class="form__group">
@@ -206,10 +206,10 @@ Application Approved!</textarea
                             />
                             <p class="form__group">
                                 <textarea id="message" class="form__textarea" name="deny" required>
-Insufficient Proofs.</textarea
+Insufficient proofs.</textarea
                                 >
                                 <label class="form__label form__label--floating" for="message">
-                                    Rejection Message
+                                    Rejection message
                                 </label>
                             </p>
                             <p class="form__group">

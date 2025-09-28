@@ -81,7 +81,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4">No Rsskey History</td>
+                            <td colspan="4">No rsskey history</td>
                         </tr>
                     @endforelse
                 </tbody>

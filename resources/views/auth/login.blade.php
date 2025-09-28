@@ -23,9 +23,9 @@
         @vite('resources/sass/pages/_auth.scss')
     </head>
     <body>
-        <!-- Do NOT Change! For Jackett Support -->
+        <!-- Do NOT change! For Jackett support -->
         <div class="Jackett" style="display: none">{{ config('unit3d.powered-by') }}</div>
-        <!-- Do NOT Change! For Jackett Support -->
+        <!-- Do NOT change! For Jackett support -->
         <main>
             <section class="auth-form">
                 <form class="auth-form__form" method="POST" action="{{ route('login') }}">

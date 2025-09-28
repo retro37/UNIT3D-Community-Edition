@@ -14,7 +14,7 @@
 @section('main')
     <section class="panelV2">
         <header class="panel__header">
-            <h2 class="panel__heading">Automatic Torrent Freeleeches</h2>
+            <h2 class="panel__heading">Automatic torrent freeleeches</h2>
             <div class="panel__actions">
                 <a
                     href="{{ route('staff.automatic_torrent_freeleeches.create') }}"
@@ -29,12 +29,12 @@
                 <thead>
                     <tr>
                         <th>{{ __('common.position') }}</th>
-                        <th>Name Regex</th>
-                        <th>Min. Torrent Size</th>
+                        <th>Name regex</th>
+                        <th>Min. torrent size</th>
                         <th>{{ __('common.category') }}</th>
                         <th>{{ __('common.type') }}</th>
                         <th>{{ __('common.resolution') }}</th>
-                        <th>Freeleech Percentage</th>
+                        <th>Freeleech percentage</th>
                         <th>{{ __('common.created_at') }}</th>
                         <th>{{ __('torrent.updated_at') }}</th>
                         <th>{{ __('common.actions') }}</th>

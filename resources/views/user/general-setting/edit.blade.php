@@ -73,56 +73,56 @@
                                 value="2"
                                 @selected($user->settings->style === 2)
                             >
-                                Dark Blue
+                                Dark blue
                             </option>
                             <option
                                 class="form__option"
                                 value="3"
                                 @selected($user->settings->style === 3)
                             >
-                                Dark Green
+                                Dark green
                             </option>
                             <option
                                 class="form__option"
                                 value="4"
                                 @selected($user->settings->style === 4)
                             >
-                                Dark Pink
+                                Dark pink
                             </option>
                             <option
                                 class="form__option"
                                 value="5"
                                 @selected($user->settings->style === 5)
                             >
-                                Dark Purple
+                                Dark purple
                             </option>
                             <option
                                 class="form__option"
                                 value="6"
                                 @selected($user->settings->style === 6)
                             >
-                                Dark Red
+                                Dark red
                             </option>
                             <option
                                 class="form__option"
                                 value="7"
                                 @selected($user->settings->style === 7)
                             >
-                                Dark Teal
+                                Dark teal
                             </option>
                             <option
                                 class="form__option"
                                 value="8"
                                 @selected($user->settings->style === 8)
                             >
-                                Dark Yellow
+                                Dark yellow
                             </option>
                             <option
                                 class="form__option"
                                 value="9"
                                 @selected($user->settings->style === 9)
                             >
-                                Cosmic Void
+                                Cosmic void
                             </option>
                             <option
                                 class="form__option"
@@ -143,21 +143,21 @@
                                 value="12"
                                 @selected($user->settings->style === 12)
                             >
-                                Material Design 3 Light
+                                Material design 3 light
                             </option>
                             <option
                                 class="form__option"
                                 value="13"
                                 @selected($user->settings->style === 13)
                             >
-                                Material Design 3 Dark
+                                Material design 3 dark
                             </option>
                             <option
                                 class="form__option"
                                 value="15"
                                 @selected($user->settings->style === 15)
                             >
-                                Material Design 3 Navy
+                                Material design 3 navy
                             </option>
 
                             <option
@@ -165,7 +165,7 @@
                                 value="14"
                                 @selected($user->settings->style === 14)
                             >
-                                Material Design 3 Amoled
+                                Material design 3 amoled
                             </option>
                         </select>
                         <label class="form__label form__label--floating" for="style">Theme</label>
@@ -180,7 +180,7 @@
                             value="{{ $user->settings->custom_css }}"
                         />
                         <label class="form__label form__label--floating" for="custom_css">
-                            External CSS Stylesheet (Stacks on top of above theme)
+                            External CSS stylesheet (stacks on top of above theme)
                         </label>
                     </p>
                     <p class="form__group">
@@ -193,7 +193,7 @@
                             value="{{ $user->settings->standalone_css }}"
                         />
                         <label class="form__label form__label--floating" for="standalone_css">
-                            Standalone CSS Stylesheet (No site theme used)
+                            Standalone CSS stylesheet (no site theme used)
                         </label>
                     </p>
                 </fieldset>
@@ -209,14 +209,14 @@
                                 value="1"
                                 @checked($user->settings->censor)
                             />
-                            Language Censor Chat
+                            Language censor chat
                         </label>
                     </p>
                 </fieldset>
                 <fieldset class="form form__fieldset">
                     <legend class="form__legend">{{ __('user.homepage-blocks') }}</legend>
                     <fieldset class="form__fieldset">
-                        <legend class="form__legend">Block Visibility</legend>
+                        <legend class="form__legend">Block visibility</legend>
                         <p class="form__group">
                             <label class="form__label">
                                 <input type="hidden" name="news_block_visible" value="0" />
@@ -366,7 +366,7 @@
                         </p>
                     </fieldset>
                     <fieldset class="form__fieldset">
-                        <legend class="form__legend">Block Order</legend>
+                        <legend class="form__legend">Block order</legend>
                         <ul
                             x-data="{
             blocks: [
@@ -374,14 +374,14 @@
                     'news' => __('blocks.check-news'),
                     'chat' => __('blocks.chatbox'),
                     'featured' => __('blocks.featured-torrents'),
-                    'random_media' => 'Random Media',
+                    'random_media' => 'Random media',
                     'poll' => 'Polls',
                     'top_torrents' => __('blocks.top-torrents'),
-                    'top_users' => 'Top Users',
+                    'top_users' => 'Top users',
                     'latest_topics' => __('blocks.latest-topics'),
                     'latest_posts' => __('blocks.latest-posts'),
                     'latest_comments' => __('blocks.latest-comments'),
-                    'online' => 'Online Users'
+                    'online' => 'Online users'
                 ] as $block => $label)
                     {
                         key: '{{ $block }}',
@@ -517,7 +517,7 @@
                                     value="1"
                                     @checked($user->settings->show_poster)
                                 />
-                                Show Posters On Torrent List View
+                                Show posters on torrent list view
                             </label>
                         </p>
                         <p class="form__group">

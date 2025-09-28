@@ -7,7 +7,7 @@
                     {{ __('common.add') }}
                 </button>
                 <dialog class="dialog" x-bind="dialogElement">
-                    <h3 class="dialog__heading">Block Ip Address</h3>
+                    <h3 class="dialog__heading">Block IP Address</h3>
                     <form class="dialog__form" x-bind="dialogForm">
                         <p class="form__group">
                             <input
@@ -20,7 +20,7 @@
                                 wire:model="ipAddress"
                             />
                             <label class="form__label form__label--floating" for="ipAddress">
-                                Ip Address
+                                Ip address
                             </label>
                         </p>
                         <p class="form__group">

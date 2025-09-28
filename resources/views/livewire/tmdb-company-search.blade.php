@@ -41,7 +41,7 @@
                         </h2>
                         <h3 class="mediahub-card__subheading">
                             <i class="{{ config('other.font-awesome') }} fa-tv-retro"></i>
-                            {{ $company->tv_count }} Shows | {{ $company->movie_count }} Movies
+                            {{ $company->tv_count }} shows | {{ $company->movie_count }} movies
                         </h3>
                     </a>
                 </li>

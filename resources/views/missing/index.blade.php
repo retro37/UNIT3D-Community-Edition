@@ -1,11 +1,11 @@
 @extends('layout.with-main')
 
 @section('title')
-    <title>Missing Media</title>
+    <title>Missing media</title>
 @endsection
 
 @section('breadcrumbs')
-    <li class="breadcrumb--active">Missing Media</li>
+    <li class="breadcrumb--active">Missing media</li>
 @endsection
 
 @section('page', 'page__missing--index')

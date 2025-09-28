@@ -34,21 +34,21 @@
                         <th>{{ __('common.name') }}</th>
                         <th>{{ __('common.position') }}</th>
                         <th>Level</th>
-                        <th>DL Slots</th>
+                        <th>DL slots</th>
                         <th>Color</th>
                         <th>Icon</th>
                         <th>Effect</th>
                         <th>Uploader</th>
                         <th>Internal</th>
                         <th>Editor</th>
-                        <th>Torrent Modo</th>
+                        <th>Torrent modo</th>
                         <th>Modo</th>
                         <th>Admin</th>
                         <th>Owner</th>
                         <th>Trusted</th>
                         <th>Immune</th>
                         <th>Freeleech</th>
-                        <th>Double Upload</th>
+                        <th>Double upload</th>
                         <th>Refundable</th>
                         <th>Incognito</th>
                         <th>Chat</th>
@@ -57,12 +57,12 @@
                         <th>Request</th>
                         <th>Upload</th>
                         <th>Autogroup</th>
-                        <th>Min Upload</th>
-                        <th>Min Ratio</th>
-                        <th>Min Age</th>
-                        <th>Min Avg Seedtime</th>
-                        <th>Min Seedsize</th>
-                        <th>Min Uploads</th>
+                        <th>Min upload</th>
+                        <th>Min ratio</th>
+                        <th>Min age</th>
+                        <th>Min avg seedtime</th>
+                        <th>Min seedsize</th>
+                        <th>Min uploads</th>
                         <th>{{ __('common.action') }}</th>
                     </tr>
                 </thead>

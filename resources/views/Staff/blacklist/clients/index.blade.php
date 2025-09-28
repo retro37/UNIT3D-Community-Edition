@@ -6,7 +6,7 @@
             {{ __('staff.staff-dashboard') }}
         </a>
     </li>
-    <li class="breadcrumb--active">Client Blacklist</li>
+    <li class="breadcrumb--active">Client blacklist</li>
 @endsection
 
 @section('page', 'page__staff-blacklisted-client--index')
@@ -14,7 +14,7 @@
 @section('main')
     <section class="panelV2">
         <header class="panel__header">
-            <h2 class="panel__heading">Blacklisted Clients</h2>
+            <h2 class="panel__heading">Blacklisted clients</h2>
             <div class="panel__actions">
                 <div class="panel__action">
                     <a
@@ -31,7 +31,7 @@
                 <thead>
                     <tr>
                         <th>{{ __('common.name') }}</th>
-                        <th>Peer ID Prefix</th>
+                        <th>Peer ID prefix</th>
                         <th>{{ __('common.reason') }}</th>
                         <th>{{ __('common.actions') }}</th>
                     </tr>

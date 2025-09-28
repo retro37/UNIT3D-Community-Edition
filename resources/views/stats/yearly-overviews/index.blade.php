@@ -21,7 +21,7 @@
 
 @section('main')
     <section class="panelV2">
-        <h2 class="panel__heading">Yearly Overviews</h2>
+        <h2 class="panel__heading">Yearly overviews</h2>
         <div class="panel__body">
             <ul class="mediahub-card__list">
                 @foreach ($siteYears as $siteYear)

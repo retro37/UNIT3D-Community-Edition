@@ -28,7 +28,7 @@
         "
     >
         <section class="panelV2">
-            <h2 class="panel__heading">Maintenance Mode</h2>
+            <h2 class="panel__heading">Maintenance mode</h2>
             <div class="panel__body">
                 <div class="form__group form__group--horizontal">
                     <form
@@ -41,7 +41,7 @@
                             class="form__button form__button--text"
                             title="This commands enables maintenance mode while whitelisting only your IP Address."
                         >
-                            Enable Maintenance Mode
+                            Enable maintenance mode
                         </button>
                     </form>
                 </div>
@@ -56,7 +56,7 @@
                             class="form__button form__button--text"
                             title="This commands disables maintenance mode. Bringing the site backup for all to access."
                         >
-                            Disable Maintenance Mode
+                            Disable maintenance mode
                         </button>
                     </form>
                 </div>

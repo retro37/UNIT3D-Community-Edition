@@ -59,7 +59,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="4">No Password Resets</td>
+                        <td colspan="4">No password resets</td>
                     </tr>
                 @endforelse
             </tbody>

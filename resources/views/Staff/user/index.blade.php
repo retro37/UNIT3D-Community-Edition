@@ -8,7 +8,7 @@
 @endsection
 
 @section('meta')
-    <meta name="description" content="User Search - {{ __('staff.staff-dashboard') }}" />
+    <meta name="description" content="User search - {{ __('staff.staff-dashboard') }}" />
 @endsection
 
 @section('nav-tabs')

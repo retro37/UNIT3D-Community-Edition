@@ -117,7 +117,7 @@
             <div class="torrent-search--list__resolution-and-type">
                 @if ($torrent->category->movie_meta || $torrent->category->tv_meta)
                     <span class="torrent-search--list__resolution">
-                        {{ $torrent->resolution->name ?? 'No Res' }}
+                        {{ $torrent->resolution->name ?? 'No res' }}
                     </span>
                 @endif
 
@@ -200,7 +200,7 @@
             <span>{{ round($meta->rating ?? 0) }}%</span>
         </td>
     @elseif ($torrent->category->movie_meta || $torrent->category->tv_meta)
-        <td class="torrent-search--list__rating" title="{{ $meta->vote_count ?? 0 }} Votes">
+        <td class="torrent-search--list__rating" title="{{ $meta->vote_count ?? 0 }} votes">
             <span class="{{ rating_color($meta->vote_average ?? 0) ?? 'text-white' }}">
                 {{ round(($meta->vote_average ?? 0) * 10) }}%
             </span>

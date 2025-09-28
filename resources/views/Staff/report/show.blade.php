@@ -19,7 +19,7 @@
             {{ __('staff.reports-log') }}
         </a>
     </li>
-    <li class="breadcrumb--active">{{ __('common.report') }} Details</li>
+    <li class="breadcrumb--active">{{ __('common.report') }} details</li>
 @endsection
 
 @section('page', 'page__staff-report--show')
@@ -55,7 +55,7 @@
     </section>
     @if (count($urls) > 0)
         <section class="panelV2">
-            <h2 class="panel__heading">Referenced Links:</h2>
+            <h2 class="panel__heading">Referenced links:</h2>
             <div class="panel__body">
                 <ul style="margin: 0; padding-left: 20px">
                     @foreach ($urls as $url)
@@ -154,7 +154,7 @@
                             type="text"
                         />
                         <label for="snoozed_days" class="form__label form__label--floating">
-                            Custom Days
+                            Custom days
                         </label>
                     </p>
                     <div class="form__group--short-horizontal">

@@ -255,7 +255,7 @@
                                             title="Connectable"
                                         ></i>
                                     @else
-                                        <span title="Not Connectable">-</span>
+                                        <span title="Not connectable">-</span>
                                     @endif
                                 </td>
                                 <td class="user-earnings__seedtime">

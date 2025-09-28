@@ -8,7 +8,7 @@
 @endsection
 
 @section('meta')
-    <meta name="description" content="Watchlist Search - {{ __('staff.staff-dashboard') }}" />
+    <meta name="description" content="Watchlist search - {{ __('staff.staff-dashboard') }}" />
 @endsection
 
 @section('breadcrumbs')

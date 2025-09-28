@@ -6,7 +6,7 @@
             {{ __('staff.staff-dashboard') }}
         </a>
     </li>
-    <li class="breadcrumb--active">Whitelisted Image URLs</li>
+    <li class="breadcrumb--active">Whitelisted image URLs</li>
 @endsection
 
 @section('page', 'page__staff-whitelisted-image-url--index')
@@ -14,7 +14,7 @@
 @section('main')
     <section class="panelV2">
         <header class="panel__header">
-            <h2 class="panel__heading">Whitelisted Image URLs</h2>
+            <h2 class="panel__heading">Whitelisted image URLs</h2>
             <div class="panel__actions">
                 <div class="panel__action" x-data="dialog">
                     <button class="form__button form__button--text" x-bind="showDialog">
@@ -63,7 +63,7 @@
             <table class="data-table">
                 <thead>
                     <th>ID</th>
-                    <th>URL Pattern</th>
+                    <th>URL pattern</th>
                     <th>Example bypassed URL</th>
                     <th>{{ __('common.created_at') }}</th>
                     <th>{{ __('forum.updated-at') }}</th>
@@ -128,7 +128,7 @@
                                                         class="form__label form__label--floating"
                                                         for="pattern"
                                                     >
-                                                        URL Pattern
+                                                        URL pattern
                                                     </label>
                                                 </p>
                                                 <p class="form__group">

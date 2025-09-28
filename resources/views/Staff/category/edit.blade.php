@@ -76,7 +76,7 @@
                         {{ __('common.select') }}
                         {{ trans_choice('common.a-an-art', false) }}
                         {{ __('common.image') }}
-                        (If Not Using A FontAwesome Icon)
+                        (If not using a FontAwesome icon)
                     </label>
                     <input id="file" class="form__file" type="file" name="image" />
                 </p>

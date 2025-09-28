@@ -23,7 +23,7 @@
                     <div class="error__body">@yield('description')</div>
                     <a href="{{ url('/') }}" class="error__home-link">
                         <i class="{{ config('other.font-awesome') }} fa-home"></i>
-                        Go Home
+                        Go home
                     </a>
                 </section>
             </article>

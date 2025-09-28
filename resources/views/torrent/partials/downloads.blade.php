@@ -1,7 +1,7 @@
 <section class="panelV2" x-data="toggle">
     <h2 class="panel__heading" style="cursor: pointer" x-on:click="toggle">
         <i class="{{ config('other.font-awesome') }} fa-clipboard-list"></i>
-        Torrent File Downloads ({{ $torrent->downloads_count }} Total)
+        Torrent file downloads ({{ $torrent->downloads_count }} total)
         <i
             class="{{ config('other.font-awesome') }} fa-plus-circle fa-pull-right"
             x-show="isToggledOff"

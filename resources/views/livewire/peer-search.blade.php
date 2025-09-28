@@ -16,12 +16,12 @@
                             placeholder=" "
                         />
                         <label class="form__label form__label--floating" for="torrent">
-                            Torrent Name
+                            Torrent name
                         </label>
                     </p>
                     <p class="form__group">
                         <input id="ip" wire:model.live="ip" class="form__text" placeholder=" " />
-                        <label class="form__label form__label--floating" for="ip">IP Address</label>
+                        <label class="form__label form__label--floating" for="ip">IP address</label>
                     </p>
                     <p class="form__group">
                         <input
@@ -81,12 +81,12 @@
                             placeholder=" "
                         >
                             <option value="none">None</option>
-                            <option value="user_session">User Session</option>
+                            <option value="user_session">User session</option>
                             <option value="user_ip">User IP</option>
                             <option value="user">User</option>
                         </select>
                         <label class="form__label form__label--floating" for="groupBy">
-                            Group By
+                            Group by
                         </label>
                     </p>
                     <p class="form__group">
@@ -96,7 +96,7 @@
                                 type="checkbox"
                                 class="form__checkbox"
                             />
-                            Shared IPs Only
+                            Shared IPs only
                         </label>
                     </p>
                     <p class="form__group">
@@ -106,7 +106,7 @@
                                 type="checkbox"
                                 class="form__checkbox"
                             />
-                            Shared Sockets Only
+                            Shared sockets only
                         </label>
                     </p>
                     <p class="form__group">
@@ -116,7 +116,7 @@
                                 type="checkbox"
                                 class="form__checkbox"
                             />
-                            Include Seedsize
+                            Include seedsize
                         </label>
                     </p>
                 </div>
@@ -414,7 +414,7 @@
                                         @else
                                             <i
                                                 class="{{ config('other.font-awesome') }} text-red fa-times"
-                                                title="Not Connectable"
+                                                title="Not connectable"
                                             ></i>
                                         @endif
                                     </td>

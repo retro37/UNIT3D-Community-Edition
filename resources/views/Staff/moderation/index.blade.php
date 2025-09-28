@@ -53,11 +53,11 @@
                             <td>
                                 <i
                                     class="{{ $torrent->category->icon }} category__icon"
-                                    data-original-title="{{ $torrent->category->name }} Torrent"
+                                    data-original-title="{{ $torrent->category->name }} torrent"
                                 ></i>
                             </td>
                             <td>{{ $torrent->type->name }}</td>
-                            <td>{{ $torrent->resolution->name ?? 'No Res' }}</td>
+                            <td>{{ $torrent->resolution->name ?? 'No res' }}</td>
                             <td>{{ $torrent->getSize() }}</td>
                             <td>
                                 <x-user-tag :anon="false" :user="$torrent->user" />
@@ -138,11 +138,11 @@
                             <td>
                                 <i
                                     class="{{ $torrent->category->icon }} category__icon"
-                                    title="{{ $torrent->category->name }} Torrent"
+                                    title="{{ $torrent->category->name }} torrent"
                                 ></i>
                             </td>
                             <td>{{ $torrent->type->name }}</td>
-                            <td>{{ $torrent->resolution->name ?? 'No Res' }}</td>
+                            <td>{{ $torrent->resolution->name ?? 'No res' }}</td>
                             <td>{{ $torrent->getSize() }}</td>
                             <td>
                                 <x-user-tag :anon="false" :user="$torrent->user" />
@@ -236,11 +236,11 @@
                             <td>
                                 <i
                                     class="{{ $torrent->category->icon }} category__icon"
-                                    title="{{ $torrent->category->name }} Torrent"
+                                    title="{{ $torrent->category->name }} torrent"
                                 ></i>
                             </td>
                             <td>{{ $torrent->type->name }}</td>
-                            <td>{{ $torrent->resolution->name ?? 'No Res' }}</td>
+                            <td>{{ $torrent->resolution->name ?? 'No res' }}</td>
                             <td>{{ $torrent->getSize() }}</td>
                             <td>
                                 <x-user-tag :anon="false" :user="$torrent->user" />

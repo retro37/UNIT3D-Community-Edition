@@ -38,14 +38,14 @@
                                     ->getName() !== 'users.show',
                             'vertical-align: text-bottom',
                         ])
-                        title="Custom User Icon"
+                        title="Custom user icon"
                         src="{{ route('authenticated_images.user_icon', ['user' => $user]) }}"
                     />
                 </i>
             @endif
 
             @if ($user->is_lifetime == 1)
-                <i class="fal fa-star" id="lifeline" title="Lifetime Donor"></i>
+                <i class="fal fa-star" id="lifeline" title="Lifetime donor"></i>
             @endif
 
             @if ($user->is_donor == 1 && $user->is_lifetime == 0)
@@ -91,14 +91,14 @@
                                 ->getName() !== 'users.show',
                         'vertical-align: text-bottom',
                     ])
-                    title="Custom User Icon"
+                    title="Custom user icon"
                     src="{{ route('authenticated_images.user_icon', ['user' => $user]) }}"
                 />
             </i>
         @endif
 
         @if ($user->is_lifetime == 1)
-            <i class="fal fa-star" id="lifeline" title="Lifetime Donor"></i>
+            <i class="fal fa-star" id="lifeline" title="Lifetime donor"></i>
         @endif
 
         @if ($user->is_donor == 1 && $user->is_lifetime == 0)

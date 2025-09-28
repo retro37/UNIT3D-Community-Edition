@@ -9,7 +9,7 @@
     <li class="breadcrumbV2">
         <a href="{{ route('staff.gateways.index') }}" class="breadcrumb__link">Gateways</a>
     </li>
-    <li class="breadcrumb--active">Edit Gateway</li>
+    <li class="breadcrumb--active">Edit gateway</li>
 @endsection
 
 @section('page', 'page__staff-donation-gateway--edit')

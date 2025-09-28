@@ -81,7 +81,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4">No Apikey History</td>
+                            <td colspan="4">No apikey history</td>
                         </tr>
                     @endforelse
                 </tbody>
@@ -106,7 +106,7 @@
                     <p>You currently do not have an API key.</p>
                     <p class="form__group--horizontal">
                         <button class="form__button form__button--filled form__button--centered">
-                            Generate API Key
+                            Generate API key
                         </button>
                     </p>
                 @else

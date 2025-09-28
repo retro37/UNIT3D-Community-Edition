@@ -9,7 +9,7 @@
             <span class="torrent-card__category">{{ $torrent->category->name }}</span>
             <span class="torrent-card__meta-separator">&bull;</span>
             <span class="torrent-card__resolution">
-                {{ $torrent->resolution->name ?? 'No Res' }}
+                {{ $torrent->resolution->name ?? 'No res' }}
             </span>
             <span class="torrent-card__meta-separator"></span>
             <span class="torrent-card__type">{{ $torrent->type->name }}</span>

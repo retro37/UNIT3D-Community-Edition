@@ -117,7 +117,7 @@
                             type="checkbox"
                             wire:model.live="show"
                         />
-                        <label class="form__label" for="show">Include Soft Deletes</label>
+                        <label class="form__label" for="show">Include soft deletes</label>
                     </p>
                     <p class="form__group">
                         <select

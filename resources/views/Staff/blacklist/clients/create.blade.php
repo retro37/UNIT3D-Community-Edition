@@ -8,7 +8,7 @@
     </li>
     <li class="breadcrumbV2">
         <a href="{{ route('staff.blacklisted_clients.index') }}" class="breadcrumb__link">
-            Blacklisted Clients
+            Blacklisted clients
         </a>
     </li>
     <li class="breadcrumb--active">
@@ -55,7 +55,7 @@
                         value="{{ old('peer_id_prefix') }}"
                     />
                     <label class="form__label form__label--floating" for="peer_id_prefix">
-                        Peer ID Prefix
+                        Peer ID prefix
                     </label>
                 </p>
                 <p class="form__group">

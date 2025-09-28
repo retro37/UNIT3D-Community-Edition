@@ -92,7 +92,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="4">No API Keys</td>
+                        <td colspan="4">No API keys</td>
                     </tr>
                 @endforelse
             </tbody>

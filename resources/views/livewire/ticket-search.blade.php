@@ -38,7 +38,7 @@
                             type="checkbox"
                             wire:model.live="show"
                         />
-                        <label class="form__label" for="show">My Assigned Tickets</label>
+                        <label class="form__label" for="show">My assigned tickets</label>
                     </div>
                 </div>
             @endif

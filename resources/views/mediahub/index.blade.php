@@ -26,7 +26,7 @@
                         href="{{ route('torrents.index', ['view' => 'group', 'categoryIds' => $tvCategoryIds]) }}"
                         class="mediahub-card"
                     >
-                        <h2 class="mediahub-card__heading">{{ __('mediahub.shows') }} Hub</h2>
+                        <h2 class="mediahub-card__heading">{{ __('mediahub.shows') }} hub</h2>
                         <h3 class="mediahub-card__subheading">
                             {{ $tv }} {{ __('mediahub.shows') }}
                         </h3>
@@ -37,7 +37,7 @@
                         href="{{ route('torrents.index', ['view' => 'group', 'categoryIds' => $movieCategoryIds]) }}"
                         class="mediahub-card"
                     >
-                        <h2 class="mediahub-card__heading">{{ __('mediahub.movies') }} Hub</h2>
+                        <h2 class="mediahub-card__heading">{{ __('mediahub.movies') }} hub</h2>
                         <h3 class="mediahub-card__subheading">
                             {{ $movies }} {{ __('mediahub.movies') }}
                         </h3>
@@ -46,7 +46,7 @@
                 <li class="mediahub-card__list-item">
                     <a href="{{ route('mediahub.collections.index') }}" class="mediahub-card">
                         <h2 class="mediahub-card__heading">
-                            {{ __('mediahub.collections') }} Hub
+                            {{ __('mediahub.collections') }} hub
                         </h2>
                         <h3 class="mediahub-card__subheading">
                             {{ $collections }} {{ __('mediahub.collections') }}
@@ -55,7 +55,7 @@
                 </li>
                 <li class="mediahub-card__list-item">
                     <a href="{{ route('mediahub.persons.index') }}" class="mediahub-card">
-                        <h2 class="mediahub-card__heading">{{ __('mediahub.persons') }} Hub</h2>
+                        <h2 class="mediahub-card__heading">{{ __('mediahub.persons') }} hub</h2>
                         <h3 class="mediahub-card__subheading">
                             {{ $persons }} {{ __('mediahub.persons') }}
                         </h3>
@@ -63,7 +63,7 @@
                 </li>
                 <li class="mediahub-card__list-item">
                     <a href="{{ route('mediahub.genres.index') }}" class="mediahub-card">
-                        <h2 class="mediahub-card__heading">{{ __('mediahub.genres') }} Hub</h2>
+                        <h2 class="mediahub-card__heading">{{ __('mediahub.genres') }} hub</h2>
                         <h3 class="mediahub-card__subheading">
                             {{ $genres }} {{ __('mediahub.genres') }}
                         </h3>
@@ -71,7 +71,7 @@
                 </li>
                 <li class="mediahub-card__list-item">
                     <a href="{{ route('mediahub.networks.index') }}" class="mediahub-card">
-                        <h2 class="mediahub-card__heading">{{ __('mediahub.networks') }} Hub</h2>
+                        <h2 class="mediahub-card__heading">{{ __('mediahub.networks') }} hub</h2>
                         <h3 class="mediahub-card__subheading">
                             {{ $networks }} {{ __('mediahub.networks') }}
                         </h3>
@@ -79,7 +79,7 @@
                 </li>
                 <li class="mediahub-card__list-item">
                     <a href="{{ route('mediahub.companies.index') }}" class="mediahub-card">
-                        <h2 class="mediahub-card__heading">{{ __('mediahub.companies') }} Hub</h2>
+                        <h2 class="mediahub-card__heading">{{ __('mediahub.companies') }} hub</h2>
                         <h3 class="mediahub-card__subheading">
                             {{ $companies }} {{ __('mediahub.companies') }}
                         </h3>

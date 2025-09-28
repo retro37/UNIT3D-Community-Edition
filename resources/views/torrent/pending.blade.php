@@ -38,7 +38,7 @@
                             <td>{{ $torrent->name }}</td>
                             <td>{{ $torrent->category->name }}</td>
                             <td>{{ $torrent->type->name }}</td>
-                            <td>{{ $torrent->resolution->name ?? 'No Res' }}</td>
+                            <td>{{ $torrent->resolution->name ?? 'No res' }}</td>
                             <td>{{ $torrent->getSize() }}</td>
                             <td>{{ $torrent->created_at->diffForHumans() }}</td>
                             <td>

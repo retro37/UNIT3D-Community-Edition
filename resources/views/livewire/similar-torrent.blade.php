@@ -117,7 +117,7 @@
                                 placeholder=" "
                             />
                             <label class="form__label form__label--floating" for="minSize">
-                                Minimum Size
+                                Minimum size
                             </label>
                         </p>
                         <p class="form__group">
@@ -156,7 +156,7 @@
                                 placeholder=" "
                             />
                             <label class="form__label form__label--floating" for="maxSize">
-                                Maximum Size
+                                Maximum size
                             </label>
                         </p>
                         <p class="form__group">
@@ -310,7 +310,7 @@
                                             value="1"
                                             wire:model.live="doubleup"
                                         />
-                                        Double Upload
+                                        Double upload
                                     </label>
                                 </p>
                                 <p class="form__group">
@@ -474,7 +474,7 @@
                                             value="1"
                                             wire:model.live="notDownloaded"
                                         />
-                                        Not Downloaded
+                                        Not downloaded
                                     </label>
                                 </p>
                                 <p class="form__group">
@@ -545,7 +545,7 @@
                     @if ($user->group->is_modo)
                         <div class="panel__action" title="{{ __('common.select') }}">
                             <label class="form__label">
-                                Select All
+                                Select all
                                 <input
                                     class="form__checkbox"
                                     type="checkbox"
@@ -567,7 +567,7 @@
                     <section>
                         @if ($similarTorrents->has('Complete Pack'))
                             <details class="torrent-search--grouped__dropdown" open>
-                                <summary x-bind="complete">Complete Pack</summary>
+                                <summary x-bind="complete">Complete pack</summary>
                                 <table class="similar-torrents__torrents">
                                     <tbody>
                                         @foreach ($similarTorrents['Complete Pack'] as $type => $torrents)
@@ -705,7 +705,7 @@
                                     </table>
                                 @elseif ($season->has('Season Pack'))
                                     <details open class="torrent-search--grouped__dropdown">
-                                        <summary x-bind="pack">Season Pack</summary>
+                                        <summary x-bind="pack">Season pack</summary>
                                         <table class="similar-torrents__torrents">
                                             @foreach ($season['Season Pack'] as $type => $torrents)
                                                 <tbody>
@@ -926,7 +926,7 @@
                 <div class="panel__actions">
                     <div class="panel__action">
                         <label class="form__label">
-                            Hide Filled Requests
+                            Hide filled requests
                             <input
                                 class="form__checkbox"
                                 type="checkbox"
@@ -1109,7 +1109,7 @@
             window.addEventListener('swal:confirm', event => {
               const { value: text } = Swal.fire({
                 input: 'textarea',
-                inputLabel: 'Delete Reason',
+                inputLabel: 'Delete reason',
                 inputPlaceholder: 'Type your reason here...',
                 inputAttributes: {
                   'aria-label': 'Type your reason here'

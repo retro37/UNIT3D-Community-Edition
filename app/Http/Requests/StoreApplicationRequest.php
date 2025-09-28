@@ -32,7 +32,7 @@ class StoreApplicationRequest extends FormRequest
         return  [
             'application.type' => [
                 'required',
-                Rule::in(['New To The Game', 'Experienced With Private Trackers']),
+                Rule::in(['New to the game', 'Experienced with private trackers']),
             ],
             'application.email' => [
                 'required',

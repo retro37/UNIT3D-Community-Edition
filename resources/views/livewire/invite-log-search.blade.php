@@ -96,7 +96,7 @@
                                 max="100"
                                 wire:model.live="threshold"
                                 placeholder=" "
-                                title="Colors 'Percent Inactive' red if above this threshold"
+                                title="Colors 'Percent inactive' red if above this threshold"
                             />
                             <label class="form__label form__label--floating" for="threshold">
                                 Threshold
@@ -115,7 +115,7 @@
                             <option value="user_id">Sender</option>
                         </select>
                         <label class="form__label form__label--floating" for="groupBy">
-                            Group By
+                            Group by
                         </label>
                     </div>
                     <div class="form__group">
@@ -179,46 +179,46 @@
                                     wire:click="sortBy('created_at_min')"
                                     role="columnheader button"
                                 >
-                                    First Sent At
+                                    First sent at
                                     @include('livewire.includes._sort-icon', ['field' => 'created_at_min'])
                                 </th>
                                 <th
                                     wire:click="sortBy('created_at_avg')"
                                     role="columnheader button"
                                 >
-                                    Average Sent At
+                                    Average sent at
                                     @include('livewire.includes._sort-icon', ['field' => 'created_at_avg'])
                                 </th>
                                 <th
                                     wire:click="sortBy('created_at_max')"
                                     role="columnheader button"
                                 >
-                                    Last Sent At
+                                    Last sent at
                                     @include('livewire.includes._sort-icon', ['field' => 'created_at_max'])
                                 </th>
                                 <th wire:click="sortBy('sent_count')" role="columnheader button">
-                                    Invites Sent
+                                    Invites sent
                                     @include('livewire.includes._sort-icon', ['field' => 'sent_count'])
                                 </th>
                                 <th
                                     wire:click="sortBy('accepted_by_count')"
                                     role="columnheader button"
                                 >
-                                    Invites Accepted
+                                    Invites accepted
                                     @include('livewire.includes._sort-icon', ['field' => 'accepted_by_count'])
                                 </th>
                                 <th
                                     wire:click="sortBy('inactive_count')"
                                     role="columnheader button"
                                 >
-                                    Inactive Count
+                                    Inactive count
                                     @include('livewire.includes._sort-icon', ['field' => 'banned_count'])
                                 </th>
                                 <th
                                     wire:click="sortBy('inactive_ratio')"
                                     role="columnheader button"
                                 >
-                                    Percent Inactive
+                                    Percent inactive
                                     @include('livewire.includes._sort-icon', ['field' => 'inactive_ratio'])
                                 </th>
                             </tr>

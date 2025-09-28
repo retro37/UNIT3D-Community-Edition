@@ -133,7 +133,7 @@
                     <select id="resolution_id" name="resolution_id" class="form__select">
                         @if (! $torrent->resolution)
                             <option hidden="" disabled="disabled" selected="selected" value="">
-                                --Select Resolution--
+                                --Select resolution--
                             </option>
                             )
                         @else
@@ -165,7 +165,7 @@
                         <select id="distributor_id" name="distributor_id" class="form__select">
                             @if (! $torrent->distributor)
                                 <option hidden="" disabled="disabled" selected="selected" value="">
-                                    --Select Distributor--
+                                    --Select distributor--
                                 </option>
                                 )
                             @else
@@ -181,7 +181,7 @@
                                     ({{ __('torrent.current') }})
                                 </option>
                             @endif
-                            <option value="">No Distributor</option>
+                            <option value="">No distributor</option>
                             @foreach ($distributors as $distributor)
                                 <option
                                     x-bind:value="
@@ -204,7 +204,7 @@
                         <select id="region_id" name="region_id" class="form__select">
                             @if (! $torrent->region)
                                 <option hidden="" disabled="disabled" selected="selected" value="">
-                                    --Select Region--
+                                    --Select region--
                                 </option>
                                 )
                             @else
@@ -219,7 +219,7 @@
                                     {{ $torrent->region->name }} ({{ __('torrent.current') }})
                                 </option>
                             @endif
-                            <option value="">No Region</option>
+                            <option value="">No region</option>
                             @foreach ($regions as $region)
                                 <option
                                     x-bind:value="
@@ -251,7 +251,7 @@
                             value="{{ old('season_number') ?? $torrent->season_number }}"
                         />
                         <label class="form__label form__label--floating" for="season_number">
-                            {{ __('torrent.season-number') }} ({{ __('common.required') }} For TV)
+                            {{ __('torrent.season-number') }} ({{ __('common.required') }} for TV)
                         </label>
                     </p>
                     <p class="form__group">
@@ -266,8 +266,8 @@
                             value="{{ old('episode_number') ?? $torrent->episode_number }}"
                         />
                         <label class="form__label form__label--floating" for="episode_number">
-                            {{ __('torrent.episode-number') }} ({{ __('common.required') }} For
-                            TV. Use "0" For Season Packs.)
+                            {{ __('torrent.episode-number') }} ({{ __('common.required') }} for
+                            TV. Use "0" for season packs.)
                         </label>
                     </p>
                 </div>
@@ -309,7 +309,7 @@
                                 x-bind:required="cats[cat].type === 'movie' && tmdb_movie_exists"
                             />
                             <label class="form__label form__label--floating" for="tmdb_movie_id">
-                                TMDB Movie ID
+                                TMDB movie ID
                             </label>
                             <span class="form__hint">Numeric digits only.</span>
                         </p>
@@ -551,7 +551,7 @@
 {{ old('bdinfo') ?? $torrent->bdinfo }}</textarea
                     >
                     <label class="form__label form__label--floating" for="bdinfo">
-                        BDInfo (Quick Summary)
+                        BDInfo (quick summary)
                     </label>
                 </p>
 
@@ -598,7 +598,7 @@
                             value="1"
                             @checked(old('personal_release') ?? $torrent->personal_release)
                         />
-                        <label class="form__label" for="personal_release">Personal Release?</label>
+                        <label class="form__label" for="personal_release">Personal release?</label>
                     </p>
                 @endif
 

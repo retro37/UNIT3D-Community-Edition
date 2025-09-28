@@ -43,7 +43,7 @@
                 class="nav-tab__link"
                 href="{{ route('torrents.external_tracker', ['id' => $torrent]) }}"
             >
-                External Tracker
+                External tracker
             </a>
         </li>
     @endif
@@ -59,11 +59,11 @@
             </h2>
             <div class="panel__actions">
                 <div class="panel__action">
-                    Total Up:
+                    Total up:
                     {{ App\Helpers\StringHelper::formatBytes($histories->sum('actual_uploaded'), 2) }}
                 </div>
                 <div class="panel__action">
-                    Total Down:
+                    Total down:
                     {{ App\Helpers\StringHelper::formatBytes($histories->sum('actual_downloaded'), 2) }}
                 </div>
             </div>

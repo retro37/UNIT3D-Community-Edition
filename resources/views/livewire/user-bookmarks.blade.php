@@ -7,7 +7,7 @@
                     class="form__button form__button--text"
                     href="{{ route('torrents.index', ['bookmarked' => 1]) }}"
                 >
-                    Torrents List
+                    Torrents list
                 </a>
             </div>
         </div>

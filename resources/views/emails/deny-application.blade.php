@@ -1,5 +1,5 @@
 @component('mail::message')
-# Your {{ config('other.title') }} Application
+# Your {{ config('other.title') }} application
 Your application has been denied for the following reason:
 {{ $deniedMessage }}
 Thanks,

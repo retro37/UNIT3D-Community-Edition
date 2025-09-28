@@ -12,7 +12,7 @@
             value="{{ old('new_password') }}"
             wire:model.live="password"
         />
-        <label class="form__label form__label--floating" for="new_password">New Password</label>
+        <label class="form__label form__label--floating" for="new_password">New password</label>
     </p>
     <p class="form__group">
         <input
@@ -27,7 +27,7 @@
             value="{{ old('new_password') }}"
         />
         <label class="form__label form__label--floating" for="new_password_confirmation">
-            Repeat Password
+            Repeat password
         </label>
     </p>
     <p class="form__group">

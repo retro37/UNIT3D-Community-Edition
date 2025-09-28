@@ -17,10 +17,10 @@
                         name="interval"
                         wire:model.live="interval"
                     >
-                        <option value="day">Past Day</option>
-                        <option value="week">Past Week</option>
-                        <option value="month">Past Month</option>
-                        <option value="year">Past Year</option>
+                        <option value="day">Past day</option>
+                        <option value="week">Past week</option>
+                        <option value="month">Past month</option>
+                        <option value="year">Past year</option>
                         <option value="all">All-time</option>
                         <option value="weekly">Weekly</option>
                         <option value="monthly">Monthly</option>

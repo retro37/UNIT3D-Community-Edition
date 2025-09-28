@@ -64,7 +64,7 @@
                         class="form__button form__button--text"
                     >
                         <i class="{{ config('other.font-awesome') }} fa-eye"></i>
-                        Collection Torrents List
+                        Collection torrents list
                     </a>
                 </div>
             </div>

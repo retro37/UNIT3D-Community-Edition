@@ -34,7 +34,7 @@
                                         @if ($package->donor_value === null)
                                             Lifetime
                                         @else
-                                            {{ $package->donor_value }} Days
+                                            {{ $package->donor_value }} days
                                         @endif
                                     </span>
                                 </div>
@@ -45,54 +45,54 @@
                             <div class="donation-package__benefits-list">
                                 <ol class="benefits-list">
                                     @if ($package->donor_value === null)
-                                        <li>Unlimited Download Slots</li>
+                                        <li>Unlimited download slots</li>
                                     @endif
 
                                     @if ($package->donor_value === null)
-                                        <li>Custom User Icon</li>
+                                        <li>Custom user icon</li>
                                     @endif
 
-                                    <li>Global Freeleech</li>
-                                    <li>Immunity To Automated Warnings (Don't Abuse)</li>
+                                    <li>Global freeleech</li>
+                                    <li>Immunity to automated warnings (don't abuse)</li>
                                     <li
                                         style="
                                             background-image: url(/img/sparkels.gif);
                                             width: auto;
                                         "
                                     >
-                                        Sparkle Effect On Username
+                                        Sparkle effect on username
                                     </li>
                                     <li>
-                                        Donor Star By Username
+                                        Donor star by username
                                         @if ($package->donor_value === null)
                                             <i
                                                 id="lifeline"
                                                 class="fal fa-star"
-                                                title="Lifetime Donor"
+                                                title="Lifetime donor"
                                             ></i>
                                         @else
                                             <i class="fal fa-star text-gold" title="Donor"></i>
                                         @endif
                                     </li>
                                     <li>
-                                        Warm Fuzzy Feeling By Supporting
+                                        Warm fuzzy feeling by supporting
                                         {{ config('other.title') }}
                                     </li>
                                     @if ($package->upload_value !== null)
                                         <li>
                                             {{ App\Helpers\StringHelper::formatBytes($package->upload_value) }}
-                                            Upload Credit
+                                            Upload credit
                                         </li>
                                     @endif
 
                                     @if ($package->bonus_value !== null)
                                         <li>
-                                            {{ number_format($package->bonus_value) }} Bonus Points
+                                            {{ number_format($package->bonus_value) }} bonus points
                                         </li>
                                     @endif
 
                                     @if ($package->invite_value !== null)
-                                        <li>{{ $package->invite_value }} Invites</li>
+                                        <li>{{ $package->invite_value }} invites</li>
                                     @endif
                                 </ol>
                             </div>
