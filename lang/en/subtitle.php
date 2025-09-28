@@ -16,10 +16,10 @@ declare(strict_types=1);
 return [
     'downloads'      => 'Downloads',
     'extension'      => 'Extension',
-    'delete-confirm' => 'Are You Sure You Want To Delete This?',
+    'delete-confirm' => 'Are you sure you want to delete this?',
     'note'           => 'Note',
-    'note-help'      => 'Extra Info for this subtitle',
-    'rules-title'    => 'Subtitle Rules',
+    'note-help'      => 'Extra info for this subtitle',
+    'rules-title'    => 'Subtitle rules',
     'rules'          => '<ul>
                                         <li>Only proper subtitles are allowed (correct frame rate, translation, spelling, timing)</li>
                                         <li>No Google-translated, machine-translated and incorrect subtitles</li>
@@ -29,7 +29,7 @@ return [
                                         <li>Keep the Note of the subtitle short, NO urls/links are allowed</li>
                                       </ul>',
     'size'                => 'Size',
-    'subtitle-file'       => 'Subtitle File',
+    'subtitle-file'       => 'Subtitle file',
     'subtitle-file-types' => 'Accepted files are SRT, ASS, SUP and ZIP',
     'uploaded'            => 'Uploaded',
     'uploader'            => 'Uploader',
