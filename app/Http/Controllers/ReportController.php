@@ -51,7 +51,6 @@ class ReportController extends Controller
             'reported_user_id'    => $reportedUser->id,
             'title'               => $torrentRequest->name,
             'message'             => $request->string('message'),
-            'solved'              => false,
         ]);
 
         return to_route('requests.show', ['torrentRequest' => $torrentRequest])
@@ -82,7 +81,6 @@ class ReportController extends Controller
             'reported_user_id'    => $reportedUser->id,
             'title'               => $torrent->name,
             'message'             => $request->string('message'),
-            'solved'              => false,
         ]);
 
         return to_route('torrents.show', ['id' => $id])
@@ -112,7 +110,6 @@ class ReportController extends Controller
             'reported_user_id'    => $reportedUser->id,
             'title'               => $reportedUser->username,
             'message'             => $request->string('message'),
-            'solved'              => false,
         ]);
 
         return to_route('users.show', ['user' => $reportedUser])

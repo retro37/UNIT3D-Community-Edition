@@ -74,11 +74,11 @@ class TopNavComposer
                 fn () => $user->peers()->where('active', '=', 1)->where('seeder', '=', false)->count(),
             ),
             'hasActiveWarning'    => $user->warnings()->where('active', '=', true)->exists(),
-            'hasUnresolvedReport' => $user->group->is_modo && Report::query()->whereNull('snoozed_until')->where(
-                'solved',
-                '=',
-                false
-            )->exists(),
+            'hasUnresolvedReport' => $user->group->is_modo && Report::query()
+                ->whereNull('snoozed_until')
+                ->whereNull('solved_by')
+                ->where(fn ($query) => $query->whereNull('assigned_to')->orWhere('assigned_to', '=', $user->id))
+                ->exists(),
             'hasUnmoderatedTorrent' => $user->group->is_torrent_modo && Torrent::query()
                 ->withoutGlobalScope(ApprovedScope::class)
                 ->where('status', '=', ModerationStatus::PENDING)

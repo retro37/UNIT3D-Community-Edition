@@ -64,7 +64,6 @@ test('update validates with a form request', function (): void {
 
 test('update a report returns an ok response', function (): void {
     $report = Report::factory()->create([
-        'solved'  => 0,
         'verdict' => '',
     ]);
     $group = Group::factory()->create([
@@ -83,8 +82,7 @@ test('update a report returns an ok response', function (): void {
     $response->assertRedirect(route('staff.reports.index'));
     $this->assertDatabaseHas('reports', [
         'id'        => $report->id,
-        'solved'    => 1,
         'verdict'   => $verdictMessage,
-        'closed_by' => $user->id,
+        'solved_by' => $user->id,
     ]);
 });

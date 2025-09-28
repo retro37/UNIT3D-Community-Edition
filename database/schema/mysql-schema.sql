@@ -1357,7 +1357,7 @@ DROP TABLE IF EXISTS `reports`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `reports` (
-  `id` int unsigned NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
   `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `reporter_id` int unsigned NOT NULL,
@@ -1367,7 +1367,6 @@ CREATE TABLE `reports` (
   `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `staff_id` int unsigned DEFAULT NULL,
   `verdict` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `solved` tinyint(1) NOT NULL DEFAULT '0',
   `snoozed_until` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -1377,11 +1376,10 @@ CREATE TABLE `reports` (
   PRIMARY KEY (`id`),
   KEY `reports_reporter_id_foreign` (`reporter_id`),
   KEY `reports_staff_id_foreign` (`closed_by`),
-  KEY `reports_solved_snoozed_until_index` (`solved`,`snoozed_until`),
   KEY `reports_reported_user_id_index` (`reported_user_id`),
   KEY `reports_reported_torrent_id_index` (`reported_torrent_id`),
   KEY `reports_reported_request_id_index` (`reported_request_id`),
-  KEY `reports_solved_by_foreign` (`solved_by`),
+  KEY `reports_solved_by_snoozed_until_staff_id_index` (`solved_by`,`snoozed_until`,`staff_id`),
   CONSTRAINT `reports_reported_user_id_foreign` FOREIGN KEY (`reported_user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `reports_reporter_id_foreign` FOREIGN KEY (`reporter_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `reports_solved_by_foreign` FOREIGN KEY (`solved_by`) REFERENCES `users` (`id`) ON UPDATE CASCADE,

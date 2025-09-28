@@ -162,17 +162,17 @@
                             {{ __('common.reporter') }}
                             @include('livewire.includes._sort-icon', ['field' => 'reporter_id'])
                         </th>
-                        <th wire:click="sortBy('staff_id')" role="columnheader button">
+                        <th wire:click="sortBy('assigned_to')" role="columnheader button">
                             {{ __('ticket.assigned-staff') }}
-                            @include('livewire.includes._sort-icon', ['field' => 'staff_id'])
+                            @include('livewire.includes._sort-icon', ['field' => 'assigned_to'])
                         </th>
                         <th wire:click="sortBy('created_at')" role="columnheader button">
                             {{ __('user.created-on') }}
                             @include('livewire.includes._sort-icon', ['field' => 'created_at'])
                         </th>
-                        <th wire:click="sortBy('closed_by')" role="columnheader button">
+                        <th wire:click="sortBy('solved_by')" role="columnheader button">
                             {{ __('user.judge') }}
-                            @include('livewire.includes._sort-icon', ['field' => 'closed_by'])
+                            @include('livewire.includes._sort-icon', ['field' => 'solved_by'])
                         </th>
                     </tr>
                 </thead>
@@ -193,8 +193,8 @@
                                 <x-user-tag :anon="false" :user="$report->reporter" />
                             </td>
                             <td>
-                                @if ($report->staff)
-                                    <x-user-tag :anon="false" :user="$report->staff" />
+                                @if ($report->assignee)
+                                    <x-user-tag :anon="false" :user="$report->assignee" />
                                 @else
                                         Unassigned
                                 @endif
@@ -208,7 +208,7 @@
                                 </time>
                             </td>
                             <td>
-                                @if ($report->closed_by !== null)
+                                @if ($report->judge)
                                     <x-user-tag :anon="false" :user="$report->judge" />
                                 @else
                                     <i

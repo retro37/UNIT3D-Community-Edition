@@ -124,9 +124,9 @@
                     <x-user-tag :anon="false" :user="$report->reported" />
                 </dd>
             </div>
-            @if ($report->closed_by !== null)
+            @if ($report->solved_by !== null)
                 <div class="key-value__group">
-                    <dt>Closed by</dt>
+                    <dt>Solved by</dt>
                     <dd>
                         <x-user-tag :anon="false" :user="$report->judge" />
                     </dd>
@@ -135,10 +135,10 @@
                     <dt>{{ __('ticket.closed') }}</dt>
                     <dd>
                         <time
-                            datetime="{{ $report->closed_at }}"
-                            title="{{ $report->closed_at }}"
+                            datetime="{{ $report->solved_at }}"
+                            title="{{ $report->solved_at }}"
                         >
-                            {{ $report->closed_at?->format('Y-m-d') }}
+                            {{ $report->solved_at?->format('Y-m-d') }}
                         </time>
                     </dd>
                 </div>
@@ -163,12 +163,12 @@
                         x-on:change="$root.submit()"
                     >
                         <option hidden disabled selected value=""></option>
-                        @foreach (App\Models\User::select(['id', 'username'])->whereIn('group_id', App\Models\Group::where('is_modo', 1)->whereNotIn('id', [9])->pluck('id')->toArray())->get() as $user)
+                        @foreach ($staff as $staffUser)
                             <option
-                                value="{{ $user->id }}"
-                                @selected($user->id === $report->staff_id)
+                                value="{{ $staffUser->id }}"
+                                @selected($staffUser->id === $report->staff_id)
                             >
-                                {{ $user->username }}
+                                {{ $staffUser->username }}
                             </option>
                         @endforeach
                     </select>
@@ -178,7 +178,7 @@
                 </p>
             </form>
 
-            @if ($report->staff_id !== null)
+            @if ($report->assigned_to !== null)
                 <form
                     action="{{ route('staff.reports.assignee.destroy', ['report' => $report]) }}"
                     method="POST"

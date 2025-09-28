@@ -27,15 +27,11 @@ class ReportAssigneeController extends Controller
 {
     final public function store(StoreReportAssigneeRequest $request, Report $report): \Illuminate\Http\RedirectResponse
     {
-        $report->update([
-            'staff_id' => $request->staff_id,
-        ]);
+        $report->update($request->validated());
 
-        $assignedStaff = User::find($request->staff_id);
+        $assignedStaff = User::findOrFail($request->integer('staff_id'));
 
-        if ($assignedStaff instanceof User) {
-            $assignedStaff->notify(new NewReportAssigned($report));
-        }
+        $assignedStaff->notify(new NewReportAssigned($report));
 
         return to_route('staff.reports.show', ['report' => $report])
             ->with('success', trans('ticket.assigned-success'));
@@ -44,7 +40,7 @@ class ReportAssigneeController extends Controller
     final public function destroy(Request $request, Report $report): \Illuminate\Http\RedirectResponse
     {
         $report->update([
-            'staff_id' => null,
+            'assigned_to' => null,
         ]);
 
         return to_route('staff.reports.show', ['report' => $report])

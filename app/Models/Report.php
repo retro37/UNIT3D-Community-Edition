@@ -31,7 +31,8 @@ use AllowDynamicProperties;
  * @property int|null                        $staff_id
  * @property string                          $title
  * @property string                          $message
- * @property bool                            $solved
+ * @property int|null                        $solved_by
+ * @property int|null                        $assigned_to
  * @property string|null                     $verdict
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -58,12 +59,11 @@ final class Report extends Model
     /**
      * Get the attributes that should be cast.
      *
-     * @return array{solved: 'bool', snoozed_until: 'datetime', closed_at: 'datetime'}
+     * @return array{snoozed_until: 'datetime', closed_at: 'datetime'}
      */
     protected function casts(): array
     {
         return [
-            'solved'        => 'bool',
             'snoozed_until' => 'datetime',
             'closed_at'     => 'datetime',
         ];
@@ -106,7 +106,7 @@ final class Report extends Model
      */
     public function reported(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'reported_user_id');
+        return $this->belongsTo(User::class, 'reported_user_id')->withTrashed();
     }
 
     /**
@@ -114,9 +114,9 @@ final class Report extends Model
      *
      * @return BelongsTo<User, $this>
      */
-    public function staff(): BelongsTo
+    public function assignee(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'staff_id')->withTrashed();
+        return $this->belongsTo(User::class, 'assigned_to')->withTrashed();
     }
 
     /**
@@ -126,6 +126,6 @@ final class Report extends Model
      */
     public function judge(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'closed_by')->withTrashed();
+        return $this->belongsTo(User::class, 'solved_by')->withTrashed();
     }
 }

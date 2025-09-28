@@ -28,12 +28,13 @@ return new class () extends Migration {
             // Drop existing indexes and foreign keys
             $table->dropForeign('reports_staff_id_foreign');
             $table->dropForeign('reports_reported_user_foreign');
+            $table->dropIndex('reports_solved_snoozed_until_index');
 
             // Rename columns
             $table->renameColumn('reported_user', 'reported_user_id');
             $table->renameColumn('torrent_id', 'reported_torrent_id');
             $table->renameColumn('request_id', 'reported_request_id');
-            $table->renameColumn('staff_id', 'closed_by');
+            $table->renameColumn('staff_id', 'solved_by');
 
             // Reorder
             $table->string('type', 255)->collation('utf8mb4_unicode_ci')->change()->after('id');
@@ -44,22 +45,33 @@ return new class () extends Migration {
             $table->unsignedInteger('reported_request_id')->nullable()->change()->after('reported_torrent_id');
             $table->text('message')->collation('utf8mb4_unicode_ci')->change()->after('reported_request_id');
             $table->text('verdict')->collation('utf8mb4_unicode_ci')->change()->after('message');
-            $table->boolean('solved')->default(0)->change()->after('verdict');
-            $table->timestamp('snoozed_until')->nullable()->change()->after('solved');
+            $table->timestamp('snoozed_until')->nullable()->change()->after('verdict');
             $table->timestamp('created_at')->nullable()->change()->after('snoozed_until');
             $table->timestamp('updated_at')->nullable()->change()->after('created_at');
 
             // Create
-            $table->unsignedInteger('staff_id')->nullable()->after('message');
-            $table->unsignedInteger('solved_by')->nullable()->after('updated_at');
+            $table->unsignedInteger('assigned_to')->nullable()->after('message');
             $table->timestamp('solved_at')->nullable()->after('solved_by');
 
             // Create/update indexes and foreign keys
             $table->index('reported_user_id');
             $table->index('reported_torrent_id');
             $table->index('reported_request_id');
+            $table->index(['solved_by', 'snoozed_until', 'staff_id']);
             $table->foreign('reported_user_id')->references('id')->on('users')->onUpdate('cascade');
             $table->foreign('solved_by')->references('id')->on('users')->onUpdate('cascade');
+        });
+
+        // Update existing reports with new columns
+        $reports = DB::table('reports')
+            ->where('solved', 1)
+            ->update([
+                'solved_at' => DB::raw('updated_at'),
+            ]);
+
+        Schema::table('reports', function (Blueprint $table): void {
+            // Remove
+            $table->dropColumn('solved');
         });
     }
 };

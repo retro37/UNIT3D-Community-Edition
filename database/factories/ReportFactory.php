@@ -45,7 +45,6 @@ class ReportFactory extends Factory
             'message'             => $this->faker->text(),
             'staff_id'            => User::factory(),
             'verdict'             => $this->faker->text(),
-            'solved'              => $this->faker->boolean(),
             'created_at'          => $this->faker->dateTime(),
             'updated_at'          => $this->faker->optional()->dateTime(),
         ];

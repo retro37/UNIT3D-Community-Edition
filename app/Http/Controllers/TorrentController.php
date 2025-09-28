@@ -122,8 +122,9 @@ class TorrentController extends Controller
                 'bookmarks',
                 'files',
                 'thanks',
-                'seeds'   => fn ($query) => $query->where('active', '=', true)->where('visible', '=', true),
-                'leeches' => fn ($query) => $query->where('active', '=', true)->where('visible', '=', true),
+                'seeds'                      => fn ($query) => $query->where('active', '=', true)->where('visible', '=', true),
+                'leeches'                    => fn ($query) => $query->where('active', '=', true)->where('visible', '=', true),
+                'reports as unsolvedReports' => fn ($query) => $query->whereNull('solved_by'),
             ])
             ->withExists([
                 'featured as featured',

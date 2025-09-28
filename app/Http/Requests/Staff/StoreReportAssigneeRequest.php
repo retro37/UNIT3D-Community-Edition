@@ -38,7 +38,7 @@ class StoreReportAssigneeRequest extends FormRequest
     public function rules(Request $request): array
     {
         return [
-            'staff_id' => [
+            'assigned_to' => [
                 'required',
                 'integer',
                 Rule::exists('users', 'id'),
