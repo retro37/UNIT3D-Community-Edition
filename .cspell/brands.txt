@@ -16,3 +16,4 @@ tmdb
 tvdb
 tvrage
 weblate
+hdinnovations
