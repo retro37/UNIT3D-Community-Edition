@@ -625,19 +625,19 @@ parameters:
 			path: app/Providers/AppServiceProvider.php
 
 		-
-			message: '#^Method Laravel\\Fortify\\Contracts\\LoginResponse@anonymous/app/Providers/FortifyServiceProvider\.php\:51\:\:toResponse\(\) should return Illuminate\\Http\\RedirectResponse but returns Illuminate\\Http\\RedirectResponse\|true\.$#'
+			message: '#^Method Laravel\\Fortify\\Contracts\\LoginResponse@anonymous/app/Providers/FortifyServiceProvider\.php\:55\:\:toResponse\(\) should return Illuminate\\Http\\RedirectResponse but returns Illuminate\\Http\\RedirectResponse\|true\.$#'
 			identifier: return.type
 			count: 1
 			path: app/Providers/FortifyServiceProvider.php
 
 		-
-			message: '#^Method Laravel\\Fortify\\Contracts\\RegisterViewResponse@anonymous/app/Providers/FortifyServiceProvider\.php\:96\:\:toResponse\(\) never returns Illuminate\\Http\\RedirectResponse so it can be removed from the return type\.$#'
+			message: '#^Method Laravel\\Fortify\\Contracts\\RegisterViewResponse@anonymous/app/Providers/FortifyServiceProvider\.php\:100\:\:toResponse\(\) never returns Illuminate\\Http\\RedirectResponse so it can be removed from the return type\.$#'
 			identifier: return.unusedType
 			count: 1
 			path: app/Providers/FortifyServiceProvider.php
 
 		-
-			message: '#^Method Laravel\\Fortify\\Contracts\\VerifyEmailResponse@anonymous/app/Providers/FortifyServiceProvider\.php\:107\:\:toResponse\(\) never returns Illuminate\\View\\View so it can be removed from the return type\.$#'
+			message: '#^Method Laravel\\Fortify\\Contracts\\VerifyEmailResponse@anonymous/app/Providers/FortifyServiceProvider\.php\:111\:\:toResponse\(\) never returns Illuminate\\View\\View so it can be removed from the return type\.$#'
 			identifier: return.unusedType
 			count: 1
 			path: app/Providers/FortifyServiceProvider.php
