@@ -259,18 +259,6 @@ parameters:
 			path: app/Helpers/CacheUser.php
 
 		-
-			message: '#^Method App\\Helpers\\TorrentTools\:\:normalizeTorrent\(\) has no return type specified\.$#'
-			identifier: missingType.return
-			count: 1
-			path: app/Helpers/TorrentTools.php
-
-		-
-			message: '#^PHPDoc tag @return has invalid value \(array\<mixed\>\>\)\: Unexpected token "\>", expected TOKEN_HORIZONTAL_WS at offset 76 on line 4$#'
-			identifier: phpDoc.parseError
-			count: 1
-			path: app/Helpers/TorrentTools.php
-
-		-
 			message: '#^Method App\\Http\\Controllers\\API\\BaseController\:\:sendError\(\) has parameter \$code with no type specified\.$#'
 			identifier: missingType.parameter
 			count: 1
