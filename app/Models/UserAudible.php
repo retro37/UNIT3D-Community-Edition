@@ -28,7 +28,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int|null                        $room_id
  * @property int|null                        $target_id
  * @property int|null                        $bot_id
- * @property int                             $status
+ * @property bool                            $status
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
@@ -43,6 +43,20 @@ class UserAudible extends Model
      * @var string[]
      */
     protected $guarded = [];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array{
+     *     status: 'bool',
+     * }
+     */
+    protected function casts(): array
+    {
+        return [
+            'status' => 'bool',
+        ];
+    }
 
     /**
      * Get the user that owns the audible.

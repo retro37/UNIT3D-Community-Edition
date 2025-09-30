@@ -307,7 +307,7 @@ class NerdBot
                 $audibles->push(UserAudible::create([
                     'user_id' => $target->id,
                     'bot_id'  => $this->bot->id,
-                    'status'  => 0,
+                    'status'  => false,
                 ]));
 
                 cache()->put('user-audibles'.$target->id, $audibles, 3600);

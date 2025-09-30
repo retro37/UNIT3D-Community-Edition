@@ -158,7 +158,7 @@ class ChatController extends Controller
             $audibles->push(UserAudible::create([
                 'user_id' => $user->id,
                 'bot_id'  => $bot->id,
-                'status'  => 0,
+                'status'  => false,
             ]));
 
             cache()->put('user-audibles'.$user->id, $audibles, 3600);
@@ -252,7 +252,7 @@ class ChatController extends Controller
                     $audibles->push(UserAudible::create([
                         'user_id'   => $user1Id,
                         'target_id' => $user2Id,
-                        'status'    => 1,
+                        'status'    => true,
                     ]));
 
                     cache()->put('user-audibles'.$user1Id, $audibles, 3600);

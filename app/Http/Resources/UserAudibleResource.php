@@ -34,7 +34,7 @@ class UserAudibleResource extends JsonResource
      *     target: ChatUserResource,
      *     room: \App\Models\Chatroom|null,
      *     bot: \App\Models\Bot|null,
-     *     status: int,
+     *     status: bool,
      * }
      */
     public function toArray(Request $request): array
