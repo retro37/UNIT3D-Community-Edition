@@ -14,10 +14,10 @@ declare(strict_types=1);
  */
 
 return [
-    'added'          => 'Your Comment Has Been Added!',
-    'deleted'        => 'Comment Has Been Deleted.',
-    'edited'         => 'Comment Has Been Edited.',
-    'rights-revoked' => 'Your Comment Rights Have Been Revoked!',
-    'slow-down'      => 'Slow Down - Too Many Comments!',
+    'added'          => 'Your comment has been added!',
+    'deleted'        => 'Comment has been deleted.',
+    'edited'         => 'Comment has been edited.',
+    'rights-revoked' => 'Your comment rights have been revoked!',
+    'slow-down'      => 'Slow down - too many comments!',
     'torrent-status' => 'Torrent needs to be moderated before you can comment on it.',
 ];

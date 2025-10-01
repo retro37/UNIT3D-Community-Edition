@@ -52,7 +52,7 @@
                             </td>
                             <td>
                                 @if ($tip->post === null)
-                                    Post Deleted
+                                    Post deleted
                                 @else
                                     <x-user-tag :user="$tip->recipient" :anon="false" />
                                 @endif

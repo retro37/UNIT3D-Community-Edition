@@ -64,12 +64,12 @@
                                 name="application[type]"
                                 required
                             >
-                                <option class="auth-form__option" value="New To The Game" selected>
+                                <option class="auth-form__option" value="New to the game" selected>
                                     {{ __('auth.newbie') }}
                                 </option>
                                 <option
                                     class="auth-form__option"
-                                    value="Experienced With Private Trackers"
+                                    value="Experienced with private trackers"
                                 >
                                     {{ __('auth.veteran') }}
                                 </option>

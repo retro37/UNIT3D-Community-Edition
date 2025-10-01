@@ -14,17 +14,17 @@ declare(strict_types=1);
  */
 
 return [
-    'add-event'  => 'Add Event',
-    'add-prize'  => 'Add Prize',
-    'edit-event' => 'Edit Event',
-    'edit-prize' => 'Edit Prize',
-    'ends-at'    => 'Ends At',
+    'add-event'  => 'Add event',
+    'add-prize'  => 'Add prize',
+    'edit-event' => 'Edit event',
+    'edit-prize' => 'Edit prize',
+    'ends-at'    => 'Ends at',
     'events'     => 'Events',
     'minimum'    => 'Minimum',
     'maximum'    => 'Maximum',
     'no-prizes'  => 'No prizes.',
     'prize'      => 'Prize',
     'prizes'     => 'Prizes',
-    'starts-at'  => 'Starts At',
+    'starts-at'  => 'Starts at',
     'weight'     => 'Weight',
 ];

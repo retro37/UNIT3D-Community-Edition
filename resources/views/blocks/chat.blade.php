@@ -17,7 +17,7 @@
             <div class="dot"></div>
             <div class="dot"></div>
         </div>
-        <div class="spinner__text">Chatbox Loading</div>
+        <div class="spinner__text">Chatbox loading</div>
     </div>
 
     <div x-show="!state.ui.loading">
@@ -133,7 +133,7 @@
                     <button
                         id="panel-fullscreen"
                         class="form__button form__standard-icon-button"
-                        title="Toggle Fullscreen"
+                        title="Toggle fullscreen"
                         @click.prevent="changeFullscreen()"
                     >
                         <i :class="state.ui.fullscreen ? 'fas fa-compress' : 'fas fa-expand'"></i>
@@ -245,7 +245,7 @@
                                                     <i>
                                                         <img
                                                             :style="'max-height: 16px; vertical-align: text-bottom;'"
-                                                            title="Custom User Icon"
+                                                            title="Custom user icon"
                                                             :src="'/authenticated-images/user-icons/' + message.user.username"
                                                             loading="lazy"
                                                         />
@@ -255,7 +255,7 @@
                                                     x-show="message.user?.is_lifetime == 1"
                                                     class="fal fa-star"
                                                     id="lifeline"
-                                                    title="Lifetime Donor"
+                                                    title="Lifetime donor"
                                                 ></i>
                                                 <i
                                                     x-show="message.user?.is_donor == 1 && message.user?.is_lifetime == 0"
@@ -298,7 +298,7 @@
                                         <figure class="chatbox-message__figure">
                                             <i
                                                 class="fa fa-bell"
-                                                title="System Notification"
+                                                title="System notification"
                                                 x-show="message.bot && message.bot.id >= 1 && (! message.user || message.user.id < 2)"
                                             ></i>
                                             <a
@@ -330,7 +330,7 @@
                                         <li class="chatbox-message__menu-item">
                                             <button
                                                 class="chatbox-message__delete-button"
-                                                title="Delete Message"
+                                                title="Delete message"
                                                 @click.prevent="deleteMessage(message.id)"
                                                 style="
                                                     cursor: pointer;

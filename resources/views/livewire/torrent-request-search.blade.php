@@ -164,7 +164,7 @@
                 </div>
                 <div class="form__group">
                     <fieldset class="form__fieldset">
-                        <legend class="form__legend">Primary Language</legend>
+                        <legend class="form__legend">Primary language</legend>
                         <div class="form__fieldset-checkbox-container">
                             @foreach ($primaryLanguages as $primaryLanguage)
                                 <p class="form__group">

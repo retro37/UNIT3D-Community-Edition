@@ -196,7 +196,7 @@
                                     class="form__label form__label--floating"
                                     for="tmdb_movie_id"
                                 >
-                                    TMDB Movie ID
+                                    TMDB movie ID
                                 </label>
                                 <span class="form__hint">Numeric digits only.</span>
                             </p>

@@ -8,7 +8,7 @@
         href="{{ $tmdb ? route('torrents.similar', ['category_id' => $category->id, 'tmdb' => $tmdb]) : '#' }}"
     >
         <h1 class="meta__title">
-            {{ $meta->title ?? 'No Meta Found' }}
+            {{ $meta->title ?? 'No meta found' }}
             ({{ substr($meta->release_date ?? '', 0, 4) ?? '' }})
         </h1>
     </a>
@@ -73,7 +73,7 @@
                             style="cursor: pointer"
                             title="Receive notifications every time a new torrent is uploaded."
                         >
-                            Notify of New Uploads
+                            Notify of new uploads
                         </button>
                     </form>
                 </li>
@@ -95,7 +95,7 @@
                             @endif
                             style="cursor: pointer"
                         >
-                            Update Metadata
+                            Update metadata
                         </button>
                     </form>
                 </li>
@@ -282,7 +282,7 @@
             @endforeach
         </section>
         <section class="meta__chip-container">
-            <h2 class="meta__heading">Extra Information</h2>
+            <h2 class="meta__heading">Extra information</h2>
             @if ($meta?->genres?->isNotEmpty())
                 <article class="meta__genres">
                     <a
@@ -422,7 +422,7 @@
                 background: 'rgb(35,35,35)',
                 width: 970,
                 html: '<iframe width="930" height="523" src="https://www.youtube-nocookie.com/embed/{{ $meta->trailer }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-                title: '<i style="color: #a5a5a5;">{{ $meta->title }} Trailer</i>',
+                title: '<i style="color: #a5a5a5;">{{ $meta->title }} trailer</i>',
                 text: '',
             });
         });

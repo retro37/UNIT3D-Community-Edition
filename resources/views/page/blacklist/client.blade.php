@@ -15,7 +15,7 @@
             <table class="data-table">
                 <thead>
                     <tr>
-                        <th>Client Name</th>
+                        <th>Client name</th>
                         <th>Reason</th>
                     </tr>
                 </thead>

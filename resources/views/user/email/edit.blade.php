@@ -54,12 +54,12 @@
                         value="{{ $user->email }}"
                     />
                     <label class="form__label form__label--floating" for="current_email">
-                        Current Email
+                        Current email
                     </label>
                 </p>
                 <p class="form__group">
                     <input id="email" class="form__text" name="email" required type="email" />
-                    <label class="form__label form__label--floating" for="email">New Email</label>
+                    <label class="form__label form__label--floating" for="email">New email</label>
                 </p>
                 <p class="form__group">
                     <button class="form__button form__button--filled">

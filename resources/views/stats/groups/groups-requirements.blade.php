@@ -15,7 +15,7 @@
             {{ __('stat.groups') }}
         </a>
     </li>
-    <li class="breadcrumb--active">{{ __('common.groups') }} Requirements</li>
+    <li class="breadcrumb--active">{{ __('common.groups') }} requirements</li>
 @endsection
 
 @section('nav-tabs')
@@ -57,7 +57,7 @@
                                             <tr>
                                                 <td></td>
                                                 <td>Requirement</td>
-                                                <td>To Advance</td>
+                                                <td>To advance</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -97,7 +97,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Min. Account Age</td>
+                                                <td>Min. account age</td>
                                                 <td>
                                                     @if ($group->min_age > 0)
                                                         {{ \App\Helpers\StringHelper::timeElapsed($group->min_age ?? 0) }}
@@ -120,7 +120,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Min. Average Seedtime</td>
+                                                <td>Min. average seedtime</td>
                                                 <td>
                                                     {{ \App\Helpers\StringHelper::timeElapsed($group->min_avg_seedtime ?? 0) }}
                                                 </td>
@@ -190,7 +190,7 @@
                                                 <i
                                                     class="{{ config('other.font-awesome') }} fa-arrow-down-short-wide text-blue"
                                                 ></i>
-                                                DL Slots: {{ $group->download_slots ?? '∞' }}
+                                                DL slots: {{ $group->download_slots ?? '∞' }}
                                             </td>
                                         </tr>
 

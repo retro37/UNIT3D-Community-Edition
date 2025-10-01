@@ -46,7 +46,7 @@
                     class="form__button form__button--filled form__button--centered"
                     href="{{ route('tickets.index') }}"
                 >
-                    Open Helpdesk
+                    Open helpdesk
                 </a>
             </p>
         </div>

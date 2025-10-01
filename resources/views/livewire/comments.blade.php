@@ -50,7 +50,7 @@
         @if ($comments->hasMorePages())
             <div class="text-center">
                 <button class="form__button form__button--filled" wire:click.prevent="loadMore">
-                    Load More Comments
+                    Load more comments
                 </button>
             </div>
         @endif

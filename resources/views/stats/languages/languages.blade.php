@@ -26,7 +26,7 @@
                     <tr>
                         <td>{{ $name }}</td>
                         <td>
-                            Used By
+                            Used by
                             {{ App\Models\UserSetting::where('locale', '=', $code)->count() }}
                             Users
                         </td>

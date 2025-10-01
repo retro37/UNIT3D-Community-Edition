@@ -54,10 +54,10 @@
 
                 if (totalHeight >= scrollHeight) {
                     Swal.fire({
-                        title: '<strong>Read The <u>Rules?</u></strong>',
-                        text: 'Do You Fully Understand Our Rules?',
+                        title: '<strong>Read the <u>rules?</u></strong>',
+                        text: 'Do you fully understand our rules?',
                         icon: 'question',
-                        confirmButtonText: '<i class="fa fa-thumbs-up"></i> I Do!',
+                        confirmButtonText: '<i class="fa fa-thumbs-up"></i> I do!',
                     }).then((result) => {
                         if (result.isConfirmed) {
                             axios.post(
@@ -74,7 +74,7 @@
 
                             Toast.fire({
                                 icon: 'success',
-                                title: 'Thanks For Accepting Our Rules!',
+                                title: 'Thanks for accepting our rules!',
                             });
                         } else {
                             const Toast = Swal.mixin({
@@ -86,7 +86,7 @@
 
                             Toast.fire({
                                 icon: 'error',
-                                title: 'Something Went Wrong!',
+                                title: 'Something went wrong!',
                             });
                         }
                     });

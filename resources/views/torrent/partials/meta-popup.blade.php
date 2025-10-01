@@ -3,14 +3,14 @@
         <div class="meta__poster-popup-backdrop">
             <img
                 src="{{ isset($meta->backdrop) ? tmdb_image('back_mid', $meta->backdrop) : (isset($meta->poster) ? tmdb_image('poster_mid', $meta->poster) : 'https://via.placeholder.com/500x280') }}"
-                alt="{{ $meta->title ?? ($meta->name ?? 'No Title') }}"
+                alt="{{ $meta->title ?? ($meta->name ?? 'No title') }}"
             />
             <div class="meta__poster-popup-backdrop-overlay"></div>
         </div>
         <div class="meta__poster-popup-content">
             <div class="meta__poster-popup-header">
                 <h3 class="meta__poster-popup-title">
-                    {{ $meta->title ?? ($meta->name ?? 'No Meta Found') }}
+                    {{ $meta->title ?? ($meta->name ?? 'No meta found') }}
                     <span class="meta__poster-popup-year">
                         ({{ substr($meta->release_date ?? ($meta->first_air_date ?? ''), 0, 4) ?? 'Unknown' }})
                     </span>

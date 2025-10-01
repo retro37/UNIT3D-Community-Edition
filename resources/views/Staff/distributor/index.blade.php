@@ -6,7 +6,7 @@
             {{ __('staff.staff-dashboard') }}
         </a>
     </li>
-    <li class="breadcrumb--active">Torrent Distributors</li>
+    <li class="breadcrumb--active">Torrent distributors</li>
 @endsection
 
 @section('page', 'page__staff-distributor--index')
@@ -14,7 +14,7 @@
 @section('main')
     <section class="panelV2">
         <header class="panel__header">
-            <h2 class="panel__heading">Torrent Distributors</h2>
+            <h2 class="panel__heading">Torrent distributors</h2>
             <div class="panel__actions">
                 <a
                     href="{{ route('staff.distributors.create') }}"

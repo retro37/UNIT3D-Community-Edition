@@ -21,7 +21,7 @@
 
 @section('main')
     <section class="panelV2">
-        <h2 class="panel__heading">{{ __('common.edit') }} Wiki: {{ $wiki->name }}</h2>
+        <h2 class="panel__heading">{{ __('common.edit') }} wiki: {{ $wiki->name }}</h2>
         <div class="panel__body">
             <form
                 class="form"

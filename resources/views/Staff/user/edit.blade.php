@@ -208,7 +208,7 @@
                         x-bind:checked="override_can_chat"
                         x-model="override_can_chat"
                     />
-                    <label for="override_can_chat">Override Group Can Chat</label>
+                    <label for="override_can_chat">Override group can chat</label>
                 </p>
                 <div class="form__group" x-show="override_can_chat" x-cloak>
                     <fieldset class="form__fieldset">
@@ -238,7 +238,7 @@
                         x-bind:checked="override_can_comment"
                         x-model="override_can_comment"
                     />
-                    <label for="override_can_comment">Override Group Can Comment</label>
+                    <label for="override_can_comment">Override group can comment</label>
                 </p>
                 <div class="form__group" x-show="override_can_comment" x-cloak>
                     <fieldset class="form__fieldset">
@@ -267,7 +267,7 @@
                         x-bind:checked="override_can_invite"
                         x-model="override_can_invite"
                     />
-                    <label for="override_can_invite">Override Group Can Invite</label>
+                    <label for="override_can_invite">Override group can invite</label>
                 </p>
                 <div class="form__group" x-show="override_can_invite" x-cloak>
                     <fieldset class="form__fieldset">
@@ -296,7 +296,7 @@
                         x-bind:checked="override_can_request"
                         x-model="override_can_request"
                     />
-                    <label for="override_can_request">Override Group Can Request</label>
+                    <label for="override_can_request">Override group can request</label>
                 </p>
                 <div class="form__group" x-show="override_can_request" x-cloak>
                     <fieldset class="form__fieldset">
@@ -325,7 +325,7 @@
                         x-bind:checked="override_can_upload"
                         x-model="override_can_upload"
                     />
-                    <label for="override_can_upload">Override Group Can Upload</label>
+                    <label for="override_can_upload">Override group can upload</label>
                 </p>
                 <div class="form__group" x-show="override_can_upload" x-cloak>
                     <fieldset class="form__fieldset">
@@ -356,7 +356,7 @@
                         value="1"
                         @checked($user->is_donor)
                     />
-                    <label for="is_donor">Active Donor?</label>
+                    <label for="is_donor">Active donor?</label>
                 </p>
                 <p class="form__group">
                     <input type="hidden" name="is_lifetime" value="0" />
@@ -368,7 +368,7 @@
                         value="1"
                         @checked($user->is_lifetime)
                     />
-                    <label for="is_donor">Lifetime Donor?</label>
+                    <label for="is_donor">Lifetime donor?</label>
                 </p>
                 <p class="form__group">
                     <button class="form__button form__button--filled">

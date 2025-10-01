@@ -5,7 +5,7 @@
                 @forelse ($meta->recommendedMovies ?? [] as $movie)
                     <x-movie.poster :$movie :categoryId="$movie->torrents_min_category_id" />
                 @empty
-                    No Recommendations Found!
+                    No recommendations found!
                 @endforelse
 
                 @break
@@ -13,7 +13,7 @@
                 @forelse ($meta->recommendedTv ?? [] as $tv)
                     <x-tv.poster :$tv :categoryId="$tv->torrents_min_category_id" />
                 @empty
-                    No Recommendations Found!
+                    No recommendations found!
                 @endforelse
 
                 @break

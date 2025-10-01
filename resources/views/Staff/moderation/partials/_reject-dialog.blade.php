@@ -28,7 +28,7 @@
 {{ old('message') }}</textarea
                 >
                 <label for="message" class="form__label form__label__floating">
-                    Rejection Message
+                    Rejection message
                 </label>
             </p>
             <p class="form__group">

@@ -33,8 +33,8 @@
                 <thead>
                     <tr>
                         <th>{{ __('common.name') }}</th>
-                        <th>Starts At</th>
-                        <th>Ends At</th>
+                        <th>Starts at</th>
+                        <th>Ends at</th>
                         <th>{{ __('common.active') }}</th>
                         <th>{{ __('common.actions') }}</th>
                     </tr>

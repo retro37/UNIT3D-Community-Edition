@@ -2,7 +2,7 @@
 
 @section('title')
     <title>
-        {{ __('common.user') }} Unregistered Info Hashes - {{ __('staff.staff-dashboard') }} -
+        {{ __('common.user') }} unregistered info hashes - {{ __('staff.staff-dashboard') }} -
         {{ config('other.title') }}
     </title>
 @endsection
@@ -10,7 +10,7 @@
 @section('meta')
     <meta
         name="description"
-        content="Unregistered Info Hashes - {{ __('staff.staff-dashboard') }}"
+        content="Unregistered info hashes - {{ __('staff.staff-dashboard') }}"
     />
 @endsection
 
@@ -20,7 +20,7 @@
             {{ __('staff.staff-dashboard') }}
         </a>
     </li>
-    <li class="breadcrumb--active">Unregistered Info Hashes</li>
+    <li class="breadcrumb--active">Unregistered info hashes</li>
 @endsection
 
 @section('page', 'page__staff-unregistered-info-hash--index')

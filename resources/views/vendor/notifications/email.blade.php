@@ -10,13 +10,13 @@
 @endif
 @endif
 
-{{-- Intro Lines --}}
+{{-- Intro lines --}}
 @foreach ($introLines as $line)
 {{ $line }}
 
 @endforeach
 
-{{-- Action Button --}}
+{{-- Action button --}}
 @isset($actionText)
 <?php
     switch ($level) {
@@ -33,7 +33,7 @@
 @endcomponent
 @endisset
 
-{{-- Outro Lines --}}
+{{-- Outro lines --}}
 @foreach ($outroLines as $line)
 {{ $line }}
 

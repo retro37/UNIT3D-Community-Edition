@@ -35,10 +35,10 @@
 
 @section('main')
     <section class="panelV2">
-        <h2 class="panel__heading">Yearly Overview</h2>
+        <h2 class="panel__heading">Yearly overview</h2>
         <div class="panel__body">
             <div class="overview__opening">
-                <h1 class="overview__opening-heading">That's A Wrap!</h1>
+                <h1 class="overview__opening-heading">That's a wrap!</h1>
                 <h2 class="overview__opening-subheading">{{ $year }}</h2>
                 <p class="overview__opening-text">
                     Another strong year here at {{ config('app.name') }}. To every user who made a
@@ -69,7 +69,7 @@
         </div>
     </section>
     <section class="panelV2">
-        <h2 class="panel__heading">5 Worst Movies (Based on downloads count)</h2>
+        <h2 class="panel__heading">5 worst movies (based on downloads count)</h2>
         <div class="panel__body overview__poster-grid">
             @foreach ($bottomMovies as $work)
                 <figure class="trending-poster overview__poster">
@@ -89,7 +89,7 @@
         </div>
     </section>
     <section class="panelV2">
-        <h2 class="panel__heading">Top 10 TV Shows (Based on downloads count)</h2>
+        <h2 class="panel__heading">Top 10 TV shows (based on downloads count)</h2>
         <div class="panel__body overview__poster-grid">
             @foreach ($topTv as $work)
                 <figure class="trending-poster overview__poster">
@@ -109,7 +109,7 @@
         </div>
     </section>
     <section class="panelV2">
-        <h2 class="panel__heading">5 Worst TV Shows (Based on downloads count)</h2>
+        <h2 class="panel__heading">5 worst TV shows (based on downloads count)</h2>
         <div class="panel__body overview__poster-grid">
             @foreach ($bottomTv as $work)
                 <figure class="trending-poster overview__poster">
@@ -260,7 +260,7 @@
                 <dd>{{ $movieUploads }}</dd>
             </div>
             <div class="key-value__group">
-                <dt>TV Shows uploaded this year</dt>
+                <dt>TV shows uploaded this year</dt>
                 <dd>{{ $tvUploads }}</dd>
             </div>
             <div class="key-value__group">
@@ -274,9 +274,9 @@
         </dl>
     </section>
     <section class="panelV2">
-        <h2 class="panel__heading">Closing Remarks</h2>
+        <h2 class="panel__heading">Closing remarks</h2>
         <div class="panel__body overview__closing">
-            <h3 class="overview__closing-heading">Thank You!</h3>
+            <h3 class="overview__closing-heading">Thank you!</h3>
             <h4 class="overview__closing-subheading">
                 For a wonderful {{ $year }} at {{ config('app.name') }}
             </h4>

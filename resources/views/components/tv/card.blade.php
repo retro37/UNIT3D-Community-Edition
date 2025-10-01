@@ -60,7 +60,7 @@
     <section>
         @if (array_key_exists('Complete Pack', $media->torrents))
             <details class="torrent-search--grouped__dropdown" open>
-                <summary x-bind="complete">Complete Pack</summary>
+                <summary x-bind="complete">Complete pack</summary>
                 <table class="torrent-search--grouped__torrents">
                     <tbody>
                         @foreach ($media->torrents['Complete Pack'] as $type => $torrents)
@@ -159,7 +159,7 @@
                     </table>
                 @elseif (array_key_exists('Season Pack', $season))
                     <details open class="torrent-search--grouped__dropdown">
-                        <summary x-bind="pack">Season Pack</summary>
+                        <summary x-bind="pack">Season pack</summary>
                         <table class="torrent-search--grouped__torrents">
                             @foreach ($season['Season Pack'] as $type => $torrents)
                                 <tbody>

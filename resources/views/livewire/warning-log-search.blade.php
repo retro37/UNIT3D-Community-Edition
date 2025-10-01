@@ -10,7 +10,7 @@
                         type="checkbox"
                         wire:model.live="show"
                     />
-                    <label class="form__label" for="show">Show Soft Deletes</label>
+                    <label class="form__label" for="show">Show soft deletes</label>
                 </div>
             </div>
             <div class="panel__action">

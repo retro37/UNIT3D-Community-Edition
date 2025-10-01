@@ -2,14 +2,14 @@
 
 @section('title')
     <title>
-        Possible Leech Cheaters - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}
+        Possible leech cheaters - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}
     </title>
 @endsection
 
 @section('meta')
     <meta
         name="description"
-        content="Possible Leech Cheaters - {{ __('staff.staff-dashboard') }}"
+        content="Possible leech cheaters - {{ __('staff.staff-dashboard') }}"
     />
 @endsection
 
@@ -28,7 +28,7 @@
 
 @section('main')
     <section class="panelV2">
-        <h2 class="panel__heading">{{ __('staff.possible-leech-cheaters') }} (Ghost Leechers)</h2>
+        <h2 class="panel__heading">{{ __('staff.possible-leech-cheaters') }} (Ghost leechers)</h2>
         <div class="data-table-wrapper">
             <table class="data-table">
                 <thead>

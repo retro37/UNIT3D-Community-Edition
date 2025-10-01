@@ -2,7 +2,7 @@
     <header class="panel__header">
         <h2 class="panel__heading">
             <i class="{{ config('other.font-awesome') }} fa-user-astronaut"></i>
-            Random Media
+            Random media
         </h2>
         <div class="panel__actions">
             <div class="panel__action">

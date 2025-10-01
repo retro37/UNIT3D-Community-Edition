@@ -51,41 +51,41 @@
     @include('torrent.partials.general')
     @include('torrent.partials.buttons')
 
-    {{-- Tools Block --}}
+    {{-- Tools block --}}
     @if (auth()->user()->internals()->exists() ||auth()->user()->group->is_editor ||auth()->user()->group->is_modo ||(auth()->id() === $torrent->user_id && $canEdit))
         @include('torrent.partials.tools')
     @endif
 
-    {{-- Audits, Reports, Downloads Block --}}
+    {{-- Audits, reports, downloads block --}}
     @if (auth()->user()->group->is_modo)
         @include('torrent.partials.audits')
         @include('torrent.partials.reports')
         @include('torrent.partials.downloads')
     @endif
 
-    {{-- MediaInfo Block --}}
+    {{-- MediaInfo block --}}
     @if ($torrent->mediainfo !== null)
         @include('torrent.partials.mediainfo')
     @endif
 
-    {{-- BDInfo Block --}}
+    {{-- BDInfo block --}}
     @if ($torrent->bdinfo !== null)
         @include('torrent.partials.bdinfo')
     @endif
 
-    {{-- Description Block --}}
+    {{-- Description block --}}
     @include('torrent.partials.description')
 
-    {{-- Subtitles Block --}}
+    {{-- Subtitles block --}}
     @if ($torrent->category->movie_meta || $torrent->category->tv_meta)
         @include('torrent.partials.subtitles')
     @endif
 
-    {{-- Extra Meta Block --}}
+    {{-- Extra meta block --}}
     @include('torrent.partials.extra-meta', ['meta' => $torrent->movie ?? $torrent->tv ?? $torrent->game ?? null])
 
-    {{-- Comments Block --}}
-    @if ($torrent->status == \App\Enums\ModerationStatus::APPROVED)
+    {{-- Comments block --}}
+    @if ($torrent->status === \App\Enums\ModerationStatus::APPROVED)
         @include('torrent.partials.comments')
     @endif
 @endsection

@@ -14,7 +14,7 @@
                             placeholder=" "
                         />
                         <label class="form__label form__label--floating" for="torrent">
-                            Torrent IDs (Comma-separated)
+                            Torrent IDs (comma-separated)
                         </label>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                             Torrents matched
                             @include('livewire.includes._sort-icon', ['field' => 'leak_count'])
                         </th>
-                        <th>User Agents</th>
+                        <th>User agents</th>
                         <th>IPs</th>
                     </tr>
                 </thead>

@@ -88,7 +88,7 @@
             x-bind:class="tab === 'deleted' && 'panel__tab--active'"
             x-on:click="tab = 'deleted'"
         >
-            Soft Deleted ({{ $deletedWarningsCount ?? 0 }})
+            Soft deleted ({{ $deletedWarningsCount ?? 0 }})
         </li>
     </menu>
     <div class="data-table-wrapper">

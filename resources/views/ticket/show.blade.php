@@ -32,7 +32,7 @@
                             {{ __('common.add') }}
                         </button>
                         <dialog class="dialog" x-bind="dialogElement">
-                            <h4 class="dialog__heading">Add Staff Note</h4>
+                            <h4 class="dialog__heading">Add staff note</h4>
                             <form
                                 class="dialog__form"
                                 method="POST"
@@ -265,7 +265,7 @@
     @livewire('attachment-upload', ['id' => $ticket->id])
     @if ($pastUserTickets->count() > 0)
         <section class="panelV2">
-            <h2 class="panel__heading">Other Tickets</h2>
+            <h2 class="panel__heading">Other tickets</h2>
             <div class="data-table-wrapper">
                 <table class="data-table">
                     <thead>

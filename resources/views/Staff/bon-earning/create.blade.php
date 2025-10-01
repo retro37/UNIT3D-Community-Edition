@@ -240,13 +240,13 @@
                         x-on:click.prevent="conditions++"
                         class="form__button form__button--outlined"
                     >
-                        Add Condition
+                        Add condition
                     </button>
                     <button
                         class="form__button form__button--outlined"
                         x-on:click.prevent="conditions = Math.max(0, conditions - 1)"
                     >
-                        Delete Condition
+                        Delete condition
                     </button>
                 </p>
                 <p class="form__group">

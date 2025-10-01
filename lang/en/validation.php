@@ -16,7 +16,7 @@ declare(strict_types=1);
 return [
     /*
     |--------------------------------------------------------------------------
-    | Validation Language Lines
+    | Validation language lines
     |--------------------------------------------------------------------------
     |
     | The following language lines contain the default error messages used by
@@ -149,7 +149,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Custom Validation Language Lines
+    | Custom validation language lines
     |--------------------------------------------------------------------------
     |
     | Here you may specify custom validation messages for attributes using the
@@ -159,7 +159,7 @@ return [
     */
 
     'email_list' => 'Sorry, this email domain is not allowed to be used on this site. Please see sites email whitelist.',
-    'recaptcha'  => 'Please Complete The ReCaptcha.',
+    'recaptcha'  => 'Please complete the ReCaptcha.',
 
     'custom' => [
         'attribute-name' => [
@@ -169,7 +169,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Custom Validation Attributes
+    | Custom validation attributes
     |--------------------------------------------------------------------------
     |
     | The following language lines are used to swap our attribute placeholder

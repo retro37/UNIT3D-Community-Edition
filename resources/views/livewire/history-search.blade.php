@@ -16,7 +16,7 @@
                             placeholder=" "
                         />
                         <label class="form__label form__label--floating" for="torrent">
-                            Torrent Name
+                            Torrent name
                         </label>
                     </p>
                     <p class="form__group">
@@ -80,7 +80,7 @@
                             <option value="user_id">User</option>
                         </select>
                         <label class="form__label form__label--floating" for="groupBy">
-                            Group By
+                            Group by
                         </label>
                     </p>
                 </div>
@@ -122,7 +122,7 @@
                                     wire:click="sortBy('client_uploaded_sum')"
                                     role="columnheader button"
                                 >
-                                    Client Upload
+                                    Client upload
                                     @include('livewire.includes._sort-icon', ['field' => 'history.client_uploaded_sum'])
                                 </th>
                                 <th
@@ -143,7 +143,7 @@
                                     wire:click="sortBy('client_downloaded_sum')"
                                     role="columnheader button"
                                 >
-                                    Client Download
+                                    Client download
                                     @include('livewire.includes._sort-icon', ['field' => 'history.client_downloaded_sum'])
                                 </th>
                                 <th
@@ -320,7 +320,7 @@
                                     wire:click="sortBy('history.client_uploaded')"
                                     role="columnheader button"
                                 >
-                                    Client Upload
+                                    Client upload
                                     @include('livewire.includes._sort-icon', ['field' => 'history.client_uploaded'])
                                 </th>
                                 <th
@@ -341,7 +341,7 @@
                                     wire:click="sortBy('history.client_downloaded')"
                                     role="columnheader button"
                                 >
-                                    Client Download
+                                    Client download
                                     @include('livewire.includes._sort-icon', ['field' => 'history.client_downloaded'])
                                 </th>
                                 <th

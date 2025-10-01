@@ -25,7 +25,7 @@
 
 @section('main')
     <section class="panelV2">
-        <h2 class="panel__heading">Invite Tree</h2>
+        <h2 class="panel__heading">Invite tree</h2>
         <div class="data-table-wrapper">
             <table class="data-table">
                 <thead>
@@ -138,7 +138,7 @@
                     @empty
                         <tr>
                             <td colspan="{{ auth()->user()->group->is_modo ? 9 : 6 }}">
-                                No Invitees
+                                No invitees
                             </td>
                         </tr>
                     @endforelse

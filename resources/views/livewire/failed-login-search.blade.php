@@ -95,7 +95,7 @@
                                 <x-user-tag :anon="false" :user="$failedLogin->user" />
                             @endif
                         </td>
-                        <td>{{ $failedLogin->user_id ?? 'Not Found' }}</td>
+                        <td>{{ $failedLogin->user_id ?? 'Not found' }}</td>
                         <td>{{ $failedLogin->ip_address }}</td>
                         <td>
                             <time
@@ -119,7 +119,7 @@
 
 @section('sidebar')
     <section class="panelV2">
-        <h2 class="panel__heading">Top 10 Failed Logins By IP</h2>
+        <h2 class="panel__heading">Top 10 failed logins by IP</h2>
         <div class="data-table-wrapper">
             <table class="data-table">
                 <thead>

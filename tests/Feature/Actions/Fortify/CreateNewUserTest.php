@@ -36,7 +36,7 @@ test('user registration is not available when disabled', function (): void {
 
     $this->get('/register')
         ->assertOk()
-        ->assertSeeText('Open Registration Is Disabled');
+        ->assertSeeText('Open registration is disabled');
     Event::assertNotDispatched(Registered::class);
 });
 
@@ -51,7 +51,7 @@ test('user registration is available when enabled', function (): void {
 
     $this->get('/register')
         ->assertOk()
-        ->assertDontSeeText('Open Registration Is Disabled');
+        ->assertDontSeeText('Open registration is disabled');
 
     $this->post('/register', [
         'username'              => 'testuser',
@@ -98,7 +98,7 @@ test('user can register using invite code', function (): void {
 
     $this->get('/register?code=testcode')
         ->assertOk()
-        ->assertDontSeeText('Open Registration Is Disabled');
+        ->assertDontSeeText('Open registration is disabled');
 
     $this->post('/register?code=testcode', [
         'username'              => 'testuser',
@@ -140,7 +140,7 @@ test('user cannot register using invalid invite code', function (): void {
 
     $this->get('/register?code=testcode')
         ->assertOk()
-        ->assertDontSeeText('Open Registration Is Disabled');
+        ->assertDontSeeText('Open registration is disabled');
 
     $this->post('/register?code=testcode', [
         'username'              => 'testuser',
@@ -176,7 +176,7 @@ test('user cannot confirm email using invalid hash', function (): void {
 
     $this->get('/register?code=testcode')
         ->assertOk()
-        ->assertDontSeeText('Open Registration Is Disabled');
+        ->assertDontSeeText('Open registration is disabled');
 
     $this->post('/register?code=testcode', [
         'username'              => 'testuser',
@@ -226,7 +226,7 @@ test('user can register using invite code with internal note assigned', function
 
     $this->get('/register?code=testcode')
         ->assertOk()
-        ->assertDontSeeText('Open Registration Is Disabled');
+        ->assertDontSeeText('Open registration is disabled');
 
     $this->post('/register?code=testcode', [
         'username'              => 'testuser',

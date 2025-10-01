@@ -8,7 +8,7 @@
     </li>
     <li class="breadcrumbV2">
         <a href="{{ route('staff.wiki_categories.index') }}" class="breadcrumb__link">
-            Wiki Categories
+            Wiki categories
         </a>
     </li>
     <li class="breadcrumb--active">

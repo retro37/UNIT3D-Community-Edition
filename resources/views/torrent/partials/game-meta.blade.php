@@ -12,7 +12,7 @@
         href="{{ $igdb ? route('torrents.similar', ['category_id' => $category->id, 'tmdb' => $igdb]) : '#' }}"
     >
         <h1 class="meta__title">
-            {{ $meta->name ?? 'No Meta Found' }}
+            {{ $meta->name ?? 'No meta found' }}
             ({{ substr($meta->first_release_date ?? '', 0, 4) ?? '' }})
         </h1>
     </a>
@@ -82,7 +82,7 @@
                             @endif
                             style="cursor: pointer"
                         >
-                            Update Metadata
+                            Update metadata
                         </button>
                     </form>
                 </li>
@@ -147,7 +147,7 @@
             @endforeach
         </section>
         <section class="meta__chip-container">
-            <h2 class="meta__heading">Extra Information</h2>
+            <h2 class="meta__heading">Extra information</h2>
             <article class="meta-chip-wrapper meta-chip">
                 <i class="{{ config('other.font-awesome') }} fa-star meta-chip__icon"></i>
                 <h2 class="meta-chip__name">{{ __('torrent.rating') }}</h2>
@@ -193,7 +193,7 @@
                 background: 'rgb(35,35,35)',
                 width: 970,
                 html: '<iframe width="930" height="523" src="https://www.youtube-nocookie.com/embed/{{ $meta->trailer }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-                title: '<i style="color: #a5a5a5;">{{ $meta->title }} Trailer</i>',
+                title: '<i style="color: #a5a5a5;">{{ $meta->title }} trailer</i>',
                 text: '',
             });
         });

@@ -8,7 +8,7 @@
     </li>
     <li class="breadcrumbV2">
         <a href="{{ route('staff.distributors.index') }}" class="breadcrumb__link">
-            Torrent Distributors
+            Torrent distributors
         </a>
     </li>
     <li class="breadcrumbV2">
@@ -24,7 +24,7 @@
 @section('main')
     <section class="panelV2">
         <h2 class="panel__heading">
-            {{ __('common.delete') }} Torrent Distributor: {{ $distributor->name }}
+            {{ __('common.delete') }} torrent distributor: {{ $distributor->name }}
         </h2>
         <div class="panel__body">
             <form

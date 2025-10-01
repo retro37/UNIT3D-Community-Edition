@@ -1,11 +1,11 @@
 @section('title')
     <title>
-        Torrent Trumps - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}
+        Torrent trumps - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}
     </title>
 @endsection
 
 @section('meta')
-    <meta name="description" content="Torrent Trumps - {{ __('staff.staff-dashboard') }}" />
+    <meta name="description" content="Torrent trumps - {{ __('staff.staff-dashboard') }}" />
 @endsection
 
 @section('breadcrumbs')
@@ -14,14 +14,14 @@
             {{ __('staff.staff-dashboard') }}
         </a>
     </li>
-    <li class="breadcrumb--active">Torrent Trumps</li>
+    <li class="breadcrumb--active">Torrent trumps</li>
 @endsection
 
 @section('page', 'page__staff-torrent-trump--index')
 
 <section class="panelV2">
     <header class="panel__header">
-        <h2 class="panel__heading">Torrent Trumps</h2>
+        <h2 class="panel__heading">Torrent trumps</h2>
         <div class="panel__actions">
             <div class="panel__action">
                 <div class="form__group">

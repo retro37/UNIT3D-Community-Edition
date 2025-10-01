@@ -52,7 +52,7 @@
                             </td>
                             <td>
                                 @if ($tip->torrent === null)
-                                    Torrent Deleted
+                                    Torrent deleted
                                 @else
                                     <x-user-tag
                                         :user="$tip->recipient"
@@ -63,7 +63,7 @@
                             <td>{{ $tip->bon }}</td>
                             <td>
                                 @if ($tip->torrent === null)
-                                    Torrent Deleted
+                                    Torrent deleted
                                 @else
                                     <a
                                         href="{{ route('torrents.show', ['id' => $tip->torrent->id]) }}"

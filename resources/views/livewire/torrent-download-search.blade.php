@@ -1,11 +1,11 @@
 @section('title')
     <title>
-        Torrent Downloads - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}
+        Torrent downloads - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}
     </title>
 @endsection
 
 @section('meta')
-    <meta name="description" content="Torrent Downloads - {{ __('staff.staff-dashboard') }}" />
+    <meta name="description" content="Torrent downloads - {{ __('staff.staff-dashboard') }}" />
 @endsection
 
 @section('breadcrumbs')
@@ -14,7 +14,7 @@
             {{ __('staff.staff-dashboard') }}
         </a>
     </li>
-    <li class="breadcrumb--active">Torrent Downloads</li>
+    <li class="breadcrumb--active">Torrent downloads</li>
 @endsection
 
 @section('page', 'page__staff-torrent-download--index')
@@ -48,7 +48,7 @@
                             placeholder=" "
                         />
                         <label class="form__label form__label--floating" for="torrentName">
-                            Torrent Name
+                            Torrent name
                         </label>
                     </div>
                     <div class="form__group">
@@ -93,7 +93,7 @@
                             <option value="user_id">User</option>
                         </select>
                         <label class="form__label form__label--floating" for="groupBy">
-                            Group By
+                            Group by
                         </label>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
     </section>
     <section class="panelV2">
         <header class="panel__header">
-            <h2 class="panel__heading">Torrent Downloads</h2>
+            <h2 class="panel__heading">Torrent downloads</h2>
             <div class="panel__actions">
                 <div class="panel__action">
                     <div class="form__group">
@@ -138,28 +138,28 @@
                                     wire:click="sortBy('download_count')"
                                     role="columnheader button"
                                 >
-                                    Download Count
+                                    Download count
                                     @include('livewire.includes._sort-icon', ['field' => 'download_count'])
                                 </th>
                                 <th
                                     wire:click="sortBy('distinct_torrent_count')"
                                     role="columnheader button"
                                 >
-                                    Distinct Torrent Count
+                                    Distinct torrent count
                                     @include('livewire.includes._sort-icon', ['field' => 'distinct_torrent_count'])
                                 </th>
                                 <th
                                     wire:click="sortBy('created_at_min')"
                                     role="columnheader button"
                                 >
-                                    First Downloaded At
+                                    First downloaded At
                                     @include('livewire.includes._sort-icon', ['field' => 'created_at_min'])
                                 </th>
                                 <th
                                     wire:click="sortBy('created_at_max')"
                                     role="columnheader button"
                                 >
-                                    Last Downloaded At
+                                    Last downloaded At
                                     @include('livewire.includes._sort-icon', ['field' => 'created_at_max'])
                                 </th>
                             </tr>
@@ -237,16 +237,16 @@
                                             :anon="false"
                                         />
                                     </td>
-                                    <td>{{ $torrentDownload->torrent?->id ?? 'Not Found' }}</td>
+                                    <td>{{ $torrentDownload->torrent?->id ?? 'Not found' }}</td>
                                     <td>
                                         @if ($torrentDownload->torrent !== null)
                                             <a
                                                 href="{{ route('torrents.show', ['id' => $torrentDownload->torrent->id]) }}"
                                             >
-                                                {{ $torrentDownload->torrent->name ?? 'Not Found' }}
+                                                {{ $torrentDownload->torrent->name ?? 'Not found' }}
                                             </a>
                                         @else
-                                                Not Found
+                                                Not found
                                         @endif
                                     </td>
                                     <td>{{ $torrentDownload->type }}</td>

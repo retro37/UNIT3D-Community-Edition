@@ -53,7 +53,7 @@
                             confirmAction() {
                                 Swal.fire({
                                     title: 'Are you sure?',
-                                    text: 'This will use one of your Freeleech Tokens!',
+                                    text: 'This will use one of your freeleech tokens!',
                                     icon: 'warning',
                                     showConfirmButton: true,
                                     showCloseButton: true,
@@ -276,7 +276,7 @@
                 {{ __('torrent.add-to-playlist') }}
             </button>
             <dialog class="dialog" x-bind="dialogElement">
-                <h4 class="dialog__heading">Add Torrent To Playlist</h4>
+                <h4 class="dialog__heading">Add torrent to playlist</h4>
                 <form
                     class="dialog__form"
                     method="POST"
@@ -292,7 +292,7 @@
                             @endforeach
                         </select>
                         <label for="playlist_id" class="form__label form__label--floating">
-                            Your Playlists
+                            Your playlists
                         </label>
                     </p>
                     <p class="form__group" style="text-align: left">
@@ -458,7 +458,7 @@
                     x-bind="showDialog"
                 >
                     <i class="{{ config('other.font-awesome') }} fa-skull-crossbones"></i>
-                    Mark Trumpable
+                    Mark trumpable
                 </button>
                 <dialog class="dialog" x-bind="dialogElement">
                     <h4 class="dialog__heading">
@@ -514,7 +514,7 @@
                     @method('DELETE')
                     <button class="form__button form__button--outlined form__button--centered">
                         <i class="{{ config('other.font-awesome') }} fa-skull-crossbones"></i>
-                        Unmark Trumpable
+                        Unmark trumpable
                     </button>
                 </form>
             </li>

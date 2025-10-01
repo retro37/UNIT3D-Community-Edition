@@ -12,7 +12,7 @@
             data-b64-deletion-message="{{ base64_encode('Are you sure you want revoke the torrent request fill\'s approval and revert the filler\'s bon reward?') }}"
             class="form__button form__button--outlined form__button--centered"
         >
-            Revoke Approval
+            Revoke approval
         </button>
     </form>
 </li>

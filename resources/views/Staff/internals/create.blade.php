@@ -18,7 +18,7 @@
 
 @section('main')
     <section class="panelV2">
-        <h2 class="panel__heading">{{ __('common.add') }} Internal Group</h2>
+        <h2 class="panel__heading">{{ __('common.add') }} internal group</h2>
         <div class="panel__body">
             <form
                 class="form"

@@ -1,6 +1,6 @@
 <section class="panelV2">
     <header class="panel__header">
-        <h2 class="panel__heading">Unregistered Info Hashes</h2>
+        <h2 class="panel__heading">Unregistered info hashes</h2>
         <div class="panel__actions">
             <div class="panel__action">
                 <div class="form__group">
@@ -24,9 +24,9 @@
                         placeholder=" "
                     >
                         <option value="none">None</option>
-                        <option value="info_hash">Info Hash</option>
+                        <option value="info_hash">Info hash</option>
                     </select>
-                    <label class="form__label form__label--floating" for="groupBy">Group By</label>
+                    <label class="form__label form__label--floating" for="groupBy">Group by</label>
                 </div>
             </div>
             <div class="panel__action">
@@ -37,7 +37,7 @@
                             type="checkbox"
                             class="form__checkbox"
                         />
-                        Exclude Soft-Deleted Torrents
+                        Exclude soft-deleted torrents
                     </label>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                                 @include('livewire.includes._sort-icon', ['field' => 'updated_at'])
                             </th>
                             <th wire:click="sortBy('amount')" role="columnheader button">
-                                User Count
+                                User count
                                 @include('livewire.includes._sort-icon', ['field' => 'amount'])
                             </th>
                         </tr>

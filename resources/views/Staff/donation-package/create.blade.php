@@ -9,7 +9,7 @@
     <li class="breadcrumbV2">
         <a href="{{ route('staff.packages.index') }}" class="breadcrumb__link">Packages</a>
     </li>
-    <li class="breadcrumb--active">Create Package</li>
+    <li class="breadcrumb--active">Create package</li>
 @endsection
 
 @section('page', 'page__staff-donation-package--create')
@@ -17,7 +17,7 @@
 @section('main')
     <section class="panelV2">
         <header class="panel__header">
-            <h2 class="panel__heading">Add New Package</h2>
+            <h2 class="panel__heading">Add new package</h2>
         </header>
         <div class="data-table-wrapper">
             <form role="form" method="POST" action="{{ route('staff.packages.store') }}">

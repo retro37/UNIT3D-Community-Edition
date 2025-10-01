@@ -306,7 +306,7 @@
             </div>
         </section>
         <section class="panelV2">
-            <h2 class="panel__heading">Edit Topic Priority</h2>
+            <h2 class="panel__heading">Edit topic priority</h2>
             <div class="panel__body">
                 <form
                     class="form"

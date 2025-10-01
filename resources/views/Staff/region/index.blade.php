@@ -6,7 +6,7 @@
             {{ __('staff.staff-dashboard') }}
         </a>
     </li>
-    <li class="breadcrumb--active">Torrent Regions</li>
+    <li class="breadcrumb--active">Torrent regions</li>
 @endsection
 
 @section('page', 'page__staff-region--index')
@@ -14,7 +14,7 @@
 @section('main')
     <section class="panelV2">
         <header class="panel__header">
-            <h2 class="panel__heading">Torrent Regions</h2>
+            <h2 class="panel__heading">Torrent regions</h2>
             <div class="panel__actions">
                 <a
                     href="{{ route('staff.regions.create') }}"
@@ -61,7 +61,7 @@
                                         </button>
                                         <dialog class="dialog" x-bind="dialogElement">
                                             <h4 class="dialog__heading">
-                                                Delete Torrent Region: {{ $region->name }}
+                                                Delete torrent region: {{ $region->name }}
                                             </h4>
                                             <form
                                                 class="dialog__form"

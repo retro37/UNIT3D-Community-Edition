@@ -11,7 +11,7 @@
             href="{{ route('staff.automatic_torrent_freeleeches.index') }}"
             class="breadcrumb__link"
         >
-            Automatic Torrent Freeleeches
+            Automatic torrent freeleeches
         </a>
     </li>
     <li class="breadcrumb--active">
@@ -23,7 +23,7 @@
 
 @section('main')
     <section class="panelV2">
-        <h2 class="panel__heading">Add An Automatic Torrent Freeleech</h2>
+        <h2 class="panel__heading">Add an automatic torrent freeleech</h2>
         <div class="panel__body">
             <form
                 class="form"
@@ -56,7 +56,7 @@
                         value="{{ old('name_regex') }}"
                     />
                     <label class="form__label form__label--floating" for="name_regex">
-                        Regex Torrent Name
+                        Regex torrent name
                     </label>
                 </p>
                 <p class="form__group">
@@ -71,7 +71,7 @@
                         value="{{ old('size') }}"
                     />
                     <label class="form__label form__label--floating" for="size">
-                        Minimum Torrent Size (Bytes)
+                        Minimum torrent size (bytes)
                     </label>
                 </p>
                 <p class="form__group">
@@ -135,7 +135,7 @@
                         value="{{ old('freeleech_percentage') }}"
                     />
                     <label class="form__label form__label--floating" for="freeleech_percentage">
-                        Freeleech Percentage
+                        Freeleech percentage
                     </label>
                 </p>
                 <p class="form__group">
