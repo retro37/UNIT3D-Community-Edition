@@ -127,18 +127,6 @@ parameters:
 			path: app/Events/Chatter.php
 
 		-
-			message: '#^Method App\\Events\\Ping\:\:__construct\(\) has parameter \$room with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/Events/Ping.php
-
-		-
-			message: '#^Property App\\Events\\Ping\:\:\$ping type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: app/Events/Ping.php
-
-		-
 			message: '#^Method App\\Exceptions\\TrackerException\:\:__construct\(\) has parameter \$replace with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
