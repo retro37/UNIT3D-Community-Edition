@@ -394,7 +394,7 @@ document.addEventListener('alpine:init', () => {
                 }
 
                 let currentAudio = this.audibles.find((o) => o.room && o.room.id == newVal);
-                this.state.chat.listening = currentAudio && currentAudio.status == 1 ? 1 : 0;
+                this.state.chat.listening = currentAudio && currentAudio.status ? 1 : 0;
             } else if (typeVal == 'target') {
                 this.state.chat.bot = 0;
                 this.state.chat.tab = newVal;
@@ -410,7 +410,7 @@ document.addEventListener('alpine:init', () => {
                 }
 
                 let currentAudio = this.audibles.find((o) => o.target && o.target.id == newVal);
-                this.state.chat.listening = currentAudio && currentAudio.status == 1 ? 1 : 0;
+                this.state.chat.listening = currentAudio && currentAudio.status ? 1 : 0;
             } else if (typeVal == 'bot') {
                 this.state.chat.target = 0;
                 this.state.chat.tab = newVal;
@@ -426,7 +426,7 @@ document.addEventListener('alpine:init', () => {
                 }
 
                 let currentAudio = this.audibles.find((o) => o.bot && o.bot.id == newVal);
-                this.state.chat.listening = currentAudio && currentAudio.status == 1 ? 1 : 0;
+                this.state.chat.listening = currentAudio && currentAudio.status ? 1 : 0;
             }
         },
 
