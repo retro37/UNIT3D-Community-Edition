@@ -25,7 +25,7 @@ class TorrentTools
     /**
      * Moves and decodes the torrent.
      *
-     * @return array<mixed>>
+     * @return array<mixed>
      */
     public static function normalizeTorrent(UploadedFile $torrentFile)
     {
