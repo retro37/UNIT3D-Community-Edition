@@ -36,8 +36,11 @@
                             if (input.value !== '') {
                                 input.value += '\n\n';
                             }
-                            input.value += '[quote={{ $comment->anon ? 'Anonymous' : '@' . $comment->user->username }}]\n';
-                            input.value += decodeURIComponent(escape(atob('{{ base64_encode($comment->content) }}')));
+                            input.value +=
+                                '[quote={{ $comment->anon ? 'Anonymous' : '@' . $comment->user->username }}]\n';
+                            input.value += decodeURIComponent(
+                                escape(atob('{{ base64_encode($comment->content) }}'))
+                            );
                             input.value += '\n[/quote]\n\n';
                             input.dispatchEvent(new Event('input'));
                             input.focus();
