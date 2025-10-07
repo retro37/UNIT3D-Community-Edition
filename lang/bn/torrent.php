@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'শীর্ষ বীজযুক্ত',
     'torrent' => 'টরেন্ট',
     'torrent-request' => 'টরেন্ট অনুরোধ',
-    'torrent-tips' => 'মোট <span class="text-red text-bold">: মোট</span> বন আপলোডারের কাছে পাঠানো হয়েছে, যার মধ্যে <span class="text-red text-bold">: ব্যবহারকারী</span> আপনার কাছ থেকে',
+    'torrent-tips' => 'মোট : মোট বন আপলোডারের কাছে পাঠানো হয়েছে, যার মধ্যে : ব্যবহারকারী আপনার কাছ থেকে',
     'torrent-tips-desc' => 'এটি আপনার উপলব্ধ বোনাস পয়েন্ট থেকে কাটা হবে',
     'torrents' => 'তথ্যপ্রবাহের',
     'trailer' => 'ট্রেলার দেখুন',

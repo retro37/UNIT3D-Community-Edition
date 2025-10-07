@@ -223,7 +223,7 @@ return [
     'top-seeded' => 'המשותפים ביותר',
     'torrent' => 'טורנט',
     'torrent-request' => 'בקשת טורנט',
-    'torrent-tips' => 'בסך הכל <span class="text-red text-bold">:total</span> BON נתרם למעלה, כאשר <span class="text-red text-bold">:user</span> ממך',
+    'torrent-tips' => 'בסך הכל :total BON נתרם למעלה, כאשר :user ממך',
     'torrent-tips-desc' => 'זה יופחת מהבונוסים הזמינים שלך',
     'torrents' => 'טורנטים',
     'torrents-matched' => 'טורנטים תואמים',

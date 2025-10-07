@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Sementes superiores',
     'torrent' => 'Torrent',
     'torrent-request' => 'Solicitude de Torrent',
-    'torrent-tips' => 'En Total <span class="text-red text-bold">: o</span> BON <span class="text-red text-bold">total</span> foi enviado ao usuario que o cargou, do cal <span class="text-red text-bold">: o usuario</span> é de ti',
+    'torrent-tips' => 'En Total : o BON total foi enviado ao usuario que o cargou, do cal <span class="text-red text-bold">: o usuario</span> é de ti',
     'torrent-tips-desc' => 'Isto descontarase dos puntos de bonos dispoñibles',
     'torrents' => 'Torrents',
     'trailer' => 'Ver o trailer',

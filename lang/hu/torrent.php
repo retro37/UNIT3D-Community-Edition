@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Felülvetve',
     'torrent' => 'özön',
     'torrent-request' => 'Torrent kérés',
-    'torrent-tips' => 'Összesen <span class="text-red text-bold">: a teljes</span> BON-t a feltöltő felé fordították, amelyből <span class="text-red text-bold">: a felhasználó</span> Öntől származik',
+    'torrent-tips' => 'Összesen : a teljes BON-t a feltöltő felé fordították, amelyből : a felhasználó Öntől származik',
     'torrent-tips-desc' => 'Ez levonásra kerül a rendelkezésre álló bónuszpontokból',
     'torrents' => 'Torrents',
     'trailer' => 'Pótkocsi megtekintése',

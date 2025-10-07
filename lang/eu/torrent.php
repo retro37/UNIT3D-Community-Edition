@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Gehien landutakoa',
     'torrent' => 'torrent',
     'torrent-request' => 'Torrent eskaera',
-    'torrent-tips' => 'In Total <span class="text-red text-bold">:</span> BON guztira kargatzaileari eman zaio, eta horietatik <span class="text-red text-bold">: erabiltzaileak</span> zuretzako dira',
+    'torrent-tips' => 'In Total : BON guztira kargatzaileari eman zaio, eta horietatik : erabiltzaileak zuretzako dira',
     'torrent-tips-desc' => 'Hau erabilgarri dagoen bonus puntuetatik kenduko da',
     'torrents' => 'torrents',
     'trailer' => 'Ikusi trailerra',

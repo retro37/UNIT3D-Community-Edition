@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Top seedade',
     'torrent' => 'torrent',
     'torrent-request' => 'Torrent-förfrågan',
-    'torrent-tips' => 'Totalt <span class="text-red text-bold">: totalt</span> BON har getts i dricks till uppladdaren, av vilket <span class="text-red text-bold">: användaren</span> är från dig',
+    'torrent-tips' => 'Totalt : totalt BON har getts i dricks till uppladdaren, av vilket : användaren är från dig',
     'torrent-tips-desc' => 'Detta kommer att dras av från dina tillgängliga bonuspoäng',
     'torrents' => 'torrents',
     'trailer' => 'trailer',

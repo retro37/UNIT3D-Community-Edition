@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'ยอดเมล็ด',
     'torrent' => 'ฝนตกหนัก',
     'torrent-request' => 'คำขอ Torrent',
-    'torrent-tips' => 'โดยรวม <span class="text-red text-bold">: ยอดรวม</span> โบนัสได้ถูกทิปไปยังผู้อัปโหลดซึ่ง <span class="text-red text-bold">ผู้ใช้</span> มาจากคุณ',
+    'torrent-tips' => 'โดยรวม : ยอดรวม โบนัสได้ถูกทิปไปยังผู้อัปโหลดซึ่ง ผู้ใช้ มาจากคุณ',
     'torrent-tips-desc' => 'สิ่งนี้จะถูกหักออกจากคะแนนโบนัสที่คุณมี',
     'torrents' => 'torrents',
     'trailer' => 'ดูตัวอย่าง',

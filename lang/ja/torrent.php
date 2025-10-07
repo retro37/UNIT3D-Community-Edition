@@ -183,7 +183,7 @@ return [
     'top-seeded' => '上シード',
     'torrent' => '急流',
     'torrent-request' => 'トレントリクエスト',
-    'torrent-tips' => '合計<span class="text-red text-bold">：合計</span> BONは、そのうちのアップローダーに傾けてきた<span class="text-red text-bold">：ユーザーが</span>あなたからあります',
+    'torrent-tips' => '合計：合計 BONは、そのうちのアップローダーに傾けてきた：ユーザーがあなたからあります',
     'torrent-tips-desc' => 'これはあなたの利用可能なボーナスポイントから差し引かれます',
     'torrents' => '急流',
     'trailer' => '予告編を見る',

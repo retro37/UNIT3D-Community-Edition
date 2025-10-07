@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Top seeded',
     'torrent' => 'Torrent',
     'torrent-request' => 'Torrent Request',
-    'torrent-tips' => 'Samtals <span class="text-red text-bold">: Samtals</span> BON hefur verið áfengi til sendanda, þar af <span class="text-red text-bold">: notandi</span> er frá þér',
+    'torrent-tips' => 'Samtals : Samtals BON hefur verið áfengi til sendanda, þar af : notandi er frá þér',
     'torrent-tips-desc' => 'Þetta verður dregið af lausu bónuspunktunum þínum',
     'torrents' => 'Torrents',
     'trailer' => 'Skoða eftirvagn',

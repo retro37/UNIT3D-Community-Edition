@@ -216,7 +216,7 @@ return [
     'top-seeded' => '最健康',
     'torrent' => '資源',
     'torrent-request' => '懸賞',
-    'torrent-tips' => '總共獎給了 <span class="text-red text-bold">:total</span> 魔力, 其中 <span class="text-red text-bold">:user</span> 由你打賞',
+    'torrent-tips' => '總共獎給了 :total 魔力, 其中 :user 由你打賞',
     'torrent-tips-desc' => '你的魔力將被減除',
     'torrents' => '資源',
     'torrents-matched' => 'Torrents Matched',

@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'ඉහළට',
     'torrent' => 'ටොරන්ට්',
     'torrent-request' => 'ටොරන්ට් ඉල්ලීම්',
-    'torrent-tips' => 'එකතුව <span class="text-red text-bold">: සම්පූර්ණ</span> BON උඩුගත <span class="text-red text-bold">කරන්නන්ට</span> ටොප් ටොප් කර ඇත, එයින් <span class="text-red text-bold">: පරිශීලක</span> ඔබ වෙතින් වේ',
+    'torrent-tips' => 'එකතුව : සම්පූර්ණ BON උඩුගත කරන්නන්ට ටොප් ටොප් කර ඇත, එයින් <span class="text-red text-bold">: පරිශීලක</span> ඔබ වෙතින් වේ',
     'torrent-tips-desc' => 'ඔබට ලබා ගත හැකි ප්රසාද ලකුණු ලබාගත හැකිය',
     'torrents' => 'ටොරන්ට්',
     'trailer' => 'ට්රේලරය බලන්න',

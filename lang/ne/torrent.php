@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'शीर्ष बीउ',
     'torrent' => 'टोरेन्ट',
     'torrent-request' => 'टोरेंट अनुरोध',
-    'torrent-tips' => '<span class="text-red text-bold">कुलमा: कुल</span> BON अपलोडरमा ट्याप गरिएको छ, जसको मध्ये <span class="text-red text-bold">: प्रयोगकर्ता</span> तपाईंबाट हो',
+    'torrent-tips' => 'कुलमा: कुल BON अपलोडरमा ट्याप गरिएको छ, जसको मध्ये : प्रयोगकर्ता तपाईंबाट हो',
     'torrent-tips-desc' => 'यो तपाईंको उपलब्ध बोनस अंकहरूबाट कटौती गरिनेछ',
     'torrents' => 'Torrents',
     'trailer' => 'ट्रेलर हेर्नुहोस्',

@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Najlepiej rozstawione',
     'torrent' => 'Torrent',
     'torrent-request' => 'Żądanie Torrent',
-    'torrent-tips' => 'W sumie <span class="text-red text-bold">: całkowita wartość</span> BON została przekazana do przesyłającego, z czego <span class="text-red text-bold">: użytkownik</span> pochodzi od Ciebie',
+    'torrent-tips' => 'W sumie : całkowita wartość BON została przekazana do przesyłającego, z czego : użytkownik pochodzi od Ciebie',
     'torrent-tips-desc' => 'Zostanie to potrącone z dostępnych punktów bonusowych',
     'torrents' => 'Torrenty',
     'trailer' => 'Zobacz zwiastun',

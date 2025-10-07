@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Top Seedů',
     'torrent' => 'Torrent',
     'torrent-request' => 'Požadavek o Torrent',
-    'torrent-tips' => '<span class="text-red text-bold">Celkem: celkový</span> BON byl hrotem, který video nahrál, z <span class="text-red text-bold">toho: uživatelem</span> se od vás',
+    'torrent-tips' => 'Celkem: celkový BON byl hrotem, který video nahrál, z toho: uživatelem se od vás',
     'torrent-tips-desc' => 'Bude odečteno z vašich bonusových bodů',
     'torrents' => 'Torrenty',
     'trailer' => 'Trailer',

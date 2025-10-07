@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Најсодржајниот врвот',
     'torrent' => 'Torrent',
     'torrent-request' => 'Барање за Torrent',
-    'torrent-tips' => 'Во Вкупно <span class="text-red text-bold">: вкупно</span> BON е доставен до поставувачот, од кои <span class="text-red text-bold">: корисникот</span> е од вас',
+    'torrent-tips' => 'Во Вкупно : вкупно BON е доставен до поставувачот, од кои : корисникот е од вас',
     'torrent-tips-desc' => 'Ова ќе биде одземено од вашите достапни бонус поени',
     'torrents' => 'Torrents',
     'trailer' => 'Прегледај ја приколката',

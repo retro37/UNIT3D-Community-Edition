@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'أعلى المصنفة',
     'torrent' => 'سيل',
     'torrent-request' => 'طلب سيل',
-    'torrent-tips' => 'في المجموع <span class="text-red text-bold">: تم نقل إجمالي</span> BON إلى القائم بالتحميل ، منها <span class="text-red text-bold">: مستخدم</span> منك',
+    'torrent-tips' => 'في المجموع : تم نقل إجمالي BON إلى القائم بالتحميل ، منها : مستخدم منك',
     'torrent-tips-desc' => 'سيتم خصم هذا من نقاط المكافآت المتوفرة لديك',
     'torrents' => 'السيول',
     'trailer' => 'عرض مقطورة',

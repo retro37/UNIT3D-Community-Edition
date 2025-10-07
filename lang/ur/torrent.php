@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'اوپر بیج',
     'torrent' => 'ٹارٹ',
     'torrent-request' => 'ٹارٹ کی درخواست',
-    'torrent-tips' => 'کل میں <span class="text-red text-bold">: کل</span> بون اپ لوڈر کو بھیج دیا گیا ہے، جن میں سے <span class="text-red text-bold">: صارف</span> آپ سے ہیں',
+    'torrent-tips' => 'کل میں : کل بون اپ لوڈر کو بھیج دیا گیا ہے، جن میں سے : صارف آپ سے ہیں',
     'torrent-tips-desc' => 'یہ آپ کے دستیاب بونس پوائنٹس سے کمایا جائے گا',
     'torrents' => 'تورات',
     'trailer' => 'ٹریلر دیکھیں',

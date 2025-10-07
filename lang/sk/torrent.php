@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Najvyššie nasadené',
     'torrent' => 'bystrina',
     'torrent-request' => 'Požiadavka Torrent',
-    'torrent-tips' => 'Celkom <span class="text-red text-bold">: celkový počet</span> BONov bol tipovaný používateľovi, ktorý ho odovzdal, z toho <span class="text-red text-bold">: používateľ</span> je od vás',
+    'torrent-tips' => 'Celkom : celkový počet BONov bol tipovaný používateľovi, ktorý ho odovzdal, z toho : používateľ je od vás',
     'torrent-tips-desc' => 'Toto bude odpočítané z vašich bonusových bodov',
     'torrents' => 'torrentov',
     'trailer' => 'Zobraziť príves',

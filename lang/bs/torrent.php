@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Top seeded',
     'torrent' => 'Torrent',
     'torrent-request' => 'Torrent Request',
-    'torrent-tips' => 'Ukupno <span class="text-red text-bold">: ukupan</span> BON je preusmjeren korisniku koji je <span class="text-red text-bold">korisnik</span> , od čega <span class="text-red text-bold">: korisnik</span> je od vas',
+    'torrent-tips' => 'Ukupno : ukupan BON je preusmjeren korisniku koji je korisnik , od čega <span class="text-red text-bold">: korisnik</span> je od vas',
     'torrent-tips-desc' => 'Ovo će se oduzeti od vaših dostupnih bonus poena',
     'torrents' => 'Torrents',
     'trailer' => 'View trailer',
