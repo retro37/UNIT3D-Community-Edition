@@ -21,7 +21,7 @@ return [
     'alive'                    => 'Alive',
     'announce-url'             => 'Announce URL',
     'announce-url-desc'        => 'Please use the announce URL above when creating a new torrent.',
-    'announce-url-desc-url'    => 'Having trouble? See our guide <a href=":url">HERE</a>',
+    'announce-url-desc-url'    => 'Having trouble? See our guide.',
     'announce-url-desc2'       => 'TMDB and IMDB is required for all movie/TV uploads! It is used to grab posters/backdrops and extrainfo',
     'approved'                 => 'Approved',
     'audio'                    => 'Audio',
