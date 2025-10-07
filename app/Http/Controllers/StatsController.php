@@ -17,7 +17,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Models\Group;
-use App\Models\Language;
+use App\Helpers\Language;
 use App\Models\Peer;
 use App\Models\Torrent;
 use App\Models\TorrentRequest;
