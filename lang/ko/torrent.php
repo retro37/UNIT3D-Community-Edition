@@ -183,7 +183,7 @@ return [
     'top-seeded' => '탑 시드',
     'torrent' => '토런트',
     'torrent-request' => '토런트 요청',
-    'torrent-tips' => '총계 <span class="text-red text-bold">: 전체</span> 보너스 포인트가  업로더에게 보내졌습니다 <span class="text-red text-bold">.</span>',
+    'torrent-tips' => '총계 : 전체 보너스 포인트가  업로더에게 보내졌습니다 .',
     'torrent-tips-desc' => '이것은 보너스 포인트에서 공제됩니다.',
     'torrents' => '급류',
     'trailer' => '예고편보기',

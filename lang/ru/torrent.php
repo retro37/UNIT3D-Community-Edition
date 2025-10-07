@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Топ посеянный',
     'torrent' => 'поток',
     'torrent-request' => 'Torrent Request',
-    'torrent-tips' => 'Итого <span class="text-red text-bold">: всего</span> BON было отправлено пользователю, из которого <span class="text-red text-bold">: пользователь</span> от вас',
+    'torrent-tips' => 'Итого : всего BON было отправлено пользователю, из которого : пользователь от вас',
     'torrent-tips-desc' => 'Это будет вычтено из ваших доступных бонусных баллов',
     'torrents' => 'Torrents',
     'trailer' => 'Посмотреть трейлер',

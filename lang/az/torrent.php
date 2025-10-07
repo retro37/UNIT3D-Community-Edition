@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Top süzülmüşdür',
     'torrent' => 'Torrent',
     'torrent-request' => 'Torrent İsteği',
-    'torrent-tips' => 'Toplamda <span class="text-red text-bold">:</span> Toplam BON yükləyiciyə çatdırılıb: bunlardan <span class="text-red text-bold">istifadəçi</span> sizdəndir',
+    'torrent-tips' => 'Toplamda : Toplam BON yükləyiciyə çatdırılıb: bunlardan istifadəçi sizdəndir',
     'torrent-tips-desc' => 'Bu, mövcud bonus xalından çıxılacaq',
     'torrents' => 'Torrents',
     'trailer' => 'Römorka baxmaq',

@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Vrh sjemena',
     'torrent' => 'Bujica',
     'torrent-request' => 'Zahtjev za usporavanje',
-    'torrent-tips' => 'Ukupno <span class="text-red text-bold">: ukupni</span> BON je poslan <span class="text-red text-bold">korisniku</span> koji je <span class="text-red text-bold">korisnik: korisnik</span> je od vas',
+    'torrent-tips' => 'Ukupno : ukupni BON je poslan korisniku koji je <span class="text-red text-bold">korisnik: korisnik</span> je od vas',
     'torrent-tips-desc' => 'To će se oduzeti od vaših dostupnih bonus bodova',
     'torrents' => 'torrents',
     'trailer' => 'Pogledajte prikolicu',

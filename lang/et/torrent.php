@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Üles külvatud',
     'torrent' => 'Torrent',
     'torrent-request' => 'Torrent päring',
-    'torrent-tips' => 'Kokku <span class="text-red text-bold">: kogu</span> BON on üleslaadijale kallutatud, millest <span class="text-red text-bold">: kasutaja</span> on sinult',
+    'torrent-tips' => 'Kokku : kogu BON on üleslaadijale kallutatud, millest : kasutaja on sinult',
     'torrent-tips-desc' => 'See arvatakse maha teie olemasolevatest boonuspunktidest',
     'torrents' => 'Torrents',
     'trailer' => 'Vaata haagist',

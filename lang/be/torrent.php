@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'лепшыя адабраны',
     'torrent' => 'паток',
     'torrent-request' => 'торэнт Запыт',
-    'torrent-tips' => '<span class="text-red text-bold">Усяго: агульная</span> BON была зачышчана ад карыстальніка, з <span class="text-red text-bold">якіх: карыстальніка</span> знаходзяцца ад вас',
+    'torrent-tips' => 'Усяго: агульная BON была зачышчана ад карыстальніка, з якіх: карыстальніка знаходзяцца ад вас',
     'torrent-tips-desc' => 'Гэта будзе вылічана з вашых даступных бонусных ачкоў',
     'torrents' => 'Torrents',
     'trailer' => 'паглядзець трэйлер',

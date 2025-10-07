@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'بالا بذر',
     'torrent' => 'تورنت',
     'torrent-request' => 'درخواست تورنت',
-    'torrent-tips' => 'در مجموع <span class="text-red text-bold">: کل</span> BON به آپلود کننده متصل شده است، که از آن <span class="text-red text-bold">: کاربر</span> از شما است',
+    'torrent-tips' => 'در مجموع : کل BON به آپلود کننده متصل شده است، که از آن : کاربر از شما است',
     'torrent-tips-desc' => 'این از نقاط جایزه موجود شما کسر می شود',
     'torrents' => 'تورنت ها',
     'trailer' => 'نمایش تریلر',

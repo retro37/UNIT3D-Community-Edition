@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Nangungunang seeded',
     'torrent' => 'Torrent',
     'torrent-request' => 'Torrent Request',
-    'torrent-tips' => 'Sa Kabuuan <span class="text-red text-bold">: kabuuang</span> BON ay nai-tipped sa uploader, kung saan <span class="text-red text-bold">: ang gumagamit</span> ay mula sa iyo',
+    'torrent-tips' => 'Sa Kabuuan : kabuuang BON ay nai-tipped sa uploader, kung saan : ang gumagamit ay mula sa iyo',
     'torrent-tips-desc' => 'Ito ay ibawas mula sa iyong magagamit na mga puntos ng bonus',
     'torrents' => 'Torrents',
     'trailer' => 'Tingnan ang trailer',

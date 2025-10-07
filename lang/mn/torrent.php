@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Топ үрийн',
     'torrent' => 'Torrent',
     'torrent-request' => 'Torrent хүсэлт',
-    'torrent-tips' => 'Нийтдээ <span class="text-red text-bold">: нийт</span> BON байршуулагч руу чиглүүлсэн бөгөөд үүнд <span class="text-red text-bold">: хэрэглэгч</span> таных байна',
+    'torrent-tips' => 'Нийтдээ : нийт BON байршуулагч руу чиглүүлсэн бөгөөд үүнд : хэрэглэгч таных байна',
     'torrent-tips-desc' => 'Энэ нь таны урамшууллын цэгээс хасагдах болно',
     'torrents' => 'Торрент',
     'trailer' => 'Чиргүүлийг харах',

@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Încărcat în vârf',
     'torrent' => 'Torent',
     'torrent-request' => 'Cerere Torrent',
-    'torrent-tips' => 'În total <span class="text-red text-bold">:</span> BON-ul <span class="text-red text-bold">total</span> a fost înclinat la persoana care a încărcat-o, din care <span class="text-red text-bold">: utilizatorul</span> este de la dvs.',
+    'torrent-tips' => 'În total : BON-ul total a fost înclinat la persoana care a încărcat-o, din care <span class="text-red text-bold">: utilizatorul</span> este de la dvs.',
     'torrent-tips-desc' => 'Aceasta va fi dedusă din punctele dvs. bonus disponibile',
     'torrents' => 'Torrents',
     'trailer' => 'Vezi trailer',

@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Top sembrat',
     'torrent' => 'Torrent',
     'torrent-request' => 'Torrent Request',
-    'torrent-tips' => 'En Total <span class="text-red text-bold">: el total de</span> BON s ha enviat al destinatari, del qual <span class="text-red text-bold">: l’usuari</span> és de vosaltres',
+    'torrent-tips' => 'En Total : el total de BON s ha enviat al destinatari, del qual : l’usuari és de vosaltres',
     'torrent-tips-desc' => 'Es deduiran dels punts de bonificació disponibles',
     'torrents' => 'Torrents',
     'trailer' => 'Veure tràiler',

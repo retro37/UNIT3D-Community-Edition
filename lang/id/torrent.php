@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Unggulan teratas',
     'torrent' => 'Torrent',
     'torrent-request' => 'Permintaan Torrent',
-    'torrent-tips' => 'Di Total <span class="text-red text-bold">: total</span> BON telah diarahkan ke pengunggah, di antaranya <span class="text-red text-bold">: pengguna</span> berasal dari Anda',
+    'torrent-tips' => 'Di Total : total BON telah diarahkan ke pengunggah, di antaranya : pengguna berasal dari Anda',
     'torrent-tips-desc' => 'Ini akan dikurangkan dari poin bonus Anda yang tersedia',
     'torrents' => 'Torrent',
     'trailer' => 'Lihat cuplikan',

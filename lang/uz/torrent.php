@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Eng yaxshi urug langanlar',
     'torrent' => 'Torrent',
     'torrent-request' => 'Torrent so rovi',
-    'torrent-tips' => 'Hammasi bo lib <span class="text-red text-bold">: jami</span> BON yuklovchiga yuklangan, ulardan <span class="text-red text-bold">: foydalanuvchi</span> sizdan',
+    'torrent-tips' => 'Hammasi bo lib : jami BON yuklovchiga yuklangan, ulardan : foydalanuvchi sizdan',
     'torrent-tips-desc' => 'Bu sizning bonus ballaringizdan tushiriladi',
     'torrents' => 'Torrents',
     'trailer' => 'Treylerni ko rish',

@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Top gezaaid',
     'torrent' => 'stortvloed',
     'torrent-request' => 'Torrent-aanvraag',
-    'torrent-tips' => 'In totaal <span class="text-red text-bold">: de totale</span> BON is getipt voor de uploader, waarvan <span class="text-red text-bold">: de gebruiker</span> is van jou',
+    'torrent-tips' => 'In totaal : de totale BON is getipt voor de uploader, waarvan : de gebruiker is van jou',
     'torrent-tips-desc' => 'Dit wordt afgetrokken van uw beschikbare bonuspunten',
     'torrents' => 'torrents',
     'trailer' => 'Bekijk trailer',

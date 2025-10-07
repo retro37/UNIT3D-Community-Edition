@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'शीर्ष वरीयता प्राप्त',
     'torrent' => 'धार',
     'torrent-request' => 'टोरेंट अनुरोध',
-    'torrent-tips' => 'टोटल <span class="text-red text-bold">: टोटल</span> BON को अपलोडर पर टैप किया गया है, जिनमें से <span class="text-red text-bold">: यूजर</span> आप से हैं',
+    'torrent-tips' => 'टोटल : टोटल BON को अपलोडर पर टैप किया गया है, जिनमें से : यूजर आप से हैं',
     'torrent-tips-desc' => 'यह आपके उपलब्ध बोनस अंकों से काट लिया जाएगा',
     'torrents' => 'टोरेंट',
     'trailer' => 'ट्रेलर देखें',

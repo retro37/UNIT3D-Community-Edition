@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Тухмии тухмдор',
     'torrent' => 'Torrent',
     'torrent-request' => 'Талаботи Torrent',
-    'torrent-tips' => 'Дар маҷмӯъ <span class="text-red text-bold">: маҷмӯи</span> BON барои боргузоркунанда, ки аз он <span class="text-red text-bold">истифодабаранда иборат аст</span> , нигаронида шудааст',
+    'torrent-tips' => 'Дар маҷмӯъ : маҷмӯи BON барои боргузоркунанда, ки аз он истифодабаранда иборат аст , нигаронида шудааст',
     'torrent-tips-desc' => 'Ин аз нуқтаҳои бонуси дастраси шумо тарҳ карда мешавад',
     'torrents' => 'Torrents',
     'trailer' => 'Намоишро тамошо кунед',

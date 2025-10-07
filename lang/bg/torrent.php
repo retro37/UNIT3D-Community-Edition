@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Най-посевен',
     'torrent' => 'порой',
     'torrent-request' => 'Заявка за торент',
-    'torrent-tips' => 'В Общо <span class="text-red text-bold">: Общият</span> BON е бил изпратен на потребителя, който е качил, от които <span class="text-red text-bold">: потребителят</span> е от вас',
+    'torrent-tips' => 'В Общо : Общият BON е бил изпратен на потребителя, който е качил, от които : потребителят е от вас',
     'torrent-tips-desc' => 'Това ще бъде приспаднато от наличните ви бонус точки',
     'torrents' => 'Torrents',
     'trailer' => 'Преглед на трейлъра',

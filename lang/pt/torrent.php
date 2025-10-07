@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Top semeado',
     'torrent' => 'Torrent',
     'torrent-request' => 'Pedido de Torrent',
-    'torrent-tips' => 'Em Total <span class="text-red text-bold">: o total de</span> BONs foi direcionado para o uploader, dos quais <span class="text-red text-bold">: usuário</span> é de você',
+    'torrent-tips' => 'Em Total : o total de BONs foi direcionado para o uploader, dos quais : usuário é de você',
     'torrent-tips-desc' => 'Isso será deduzido dos seus pontos de bônus disponíveis',
     'torrents' => 'Torrents',
     'trailer' => 'Ver trailer',

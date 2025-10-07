@@ -210,7 +210,7 @@ return [
     'top-seeded' => 'Topp seeded',
     'torrent' => 'Torrent',
     'torrent-request' => 'Torrent ønske',
-    'torrent-tips' => 'Totalt <span class="text-red text-bold">:total</span> BON er blitt tipset til opplasteren, hvorav <span class="text-red text-bold">:user</span> er fra deg',
+    'torrent-tips' => 'Totalt :total BON er blitt tipset til opplasteren, hvorav :user er fra deg',
     'torrent-tips-desc' => 'Dette vil bli trukket fra dine tilgjengelige bonuspoeng',
     'torrents' => 'Torrents',
     'torrents-matched' => 'Torrents Matched',

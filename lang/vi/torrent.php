@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Hạt giống hàng đầu',
     'torrent' => 'Torrent',
     'torrent-request' => 'Yêu cầu torrent',
-    'torrent-tips' => 'Tổng cộng <span class="text-red text-bold">: tổng số</span> BON đã được đưa cho người tải lên, trong đó <span class="text-red text-bold">: người dùng</span> đến từ bạn',
+    'torrent-tips' => 'Tổng cộng : tổng số BON đã được đưa cho người tải lên, trong đó : người dùng đến từ bạn',
     'torrent-tips-desc' => 'Điều này sẽ được khấu trừ từ điểm thưởng có sẵn của bạn',
     'torrents' => 'Torrent',
     'trailer' => 'Xem trailer',

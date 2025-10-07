@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'ყველაზე სეზონი',
     'torrent' => 'ტორენტი',
     'torrent-request' => 'ტორენტის მოთხოვნა',
-    'torrent-tips' => 'სულ <span class="text-red text-bold">: სულ</span> BON უკვე გადაუშვა uploader, რომელიც <span class="text-red text-bold">: მომხმარებელი</span> ხართ თქვენგან',
+    'torrent-tips' => 'სულ : სულ BON უკვე გადაუშვა uploader, რომელიც : მომხმარებელი ხართ თქვენგან',
     'torrent-tips-desc' => 'ეს გამოითვლება თქვენი ხელმისაწვდომი ბონუს ქულებისგან',
     'torrents' => 'ტორენტები',
     'trailer' => 'ტრეილერის ნახვა',

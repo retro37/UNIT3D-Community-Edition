@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Жоғарыдан егілген',
     'torrent' => 'Torrent',
     'torrent-request' => 'Торрент сұрауы',
-    'torrent-tips' => 'Барлығы <span class="text-red text-bold">: жалпы</span> БОН жүктеушіге жіберілді, оның ішінде <span class="text-red text-bold">: пайдаланушы</span> сізден',
+    'torrent-tips' => 'Барлығы : жалпы БОН жүктеушіге жіберілді, оның ішінде : пайдаланушы сізден',
     'torrent-tips-desc' => 'Бұл сіздің қол жетімді бонус ұпайларынан шегеріледі',
     'torrents' => 'Torrents',
     'trailer' => 'Трейлерді көру',

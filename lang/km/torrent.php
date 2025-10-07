@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'ខាងលើគ្រាប់',
     'torrent' => 'Torrent',
     'torrent-request' => 'សំណើ Torrent',
-    'torrent-tips' => 'សរុប <span class="text-red text-bold">: សរុប</span> BON ត្រូវបានប្រាប់ដល់អ្នកបង្ហោះដែល <span class="text-red text-bold">អ្នកប្រើ</span> មកពីអ្នក',
+    'torrent-tips' => 'សរុប : សរុប BON ត្រូវបានប្រាប់ដល់អ្នកបង្ហោះដែល អ្នកប្រើ មកពីអ្នក',
     'torrent-tips-desc' => 'នេះនឹងត្រូវដកចេញពីពិន្ទុប្រាក់រង្វាន់ដែលអ្នកមាន',
     'torrents' => 'Torrents',
     'trailer' => 'មើលភាពយន្ត',

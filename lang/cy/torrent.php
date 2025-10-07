@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Top hadu',
     'torrent' => 'Torrent',
     'torrent-request' => 'Cais Cenllif',
-    'torrent-tips' => 'Cyfanswm <span class="text-red text-bold">: mae cyfanswm y</span> BON wedi ei dipio i r llwythwr, gyda <span class="text-red text-bold">: defnyddiwr yn</span> dod oddi wrthych',
+    'torrent-tips' => 'Cyfanswm : mae cyfanswm y BON wedi ei dipio i r llwythwr, gyda : defnyddiwr yn dod oddi wrthych',
     'torrent-tips-desc' => 'Bydd hyn yn cael ei dynnu o ch pwyntiau bonws sydd ar gael',
     'torrents' => 'Cenllifau',
     'trailer' => 'Gweld y trelar',

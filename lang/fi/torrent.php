@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Top kylvetty',
     'torrent' => 'ryöppy',
     'torrent-request' => 'Torrentin pyyntö',
-    'torrent-tips' => 'Yhteensä <span class="text-red text-bold">: yhteensä</span> BON on käännetty lataajaan, josta <span class="text-red text-bold">: käyttäjä</span> on sinulta',
+    'torrent-tips' => 'Yhteensä : yhteensä BON on käännetty lataajaan, josta : käyttäjä on sinulta',
     'torrent-tips-desc' => 'Tämä vähennetään käytettävissä olevista bonuspisteistä',
     'torrents' => 'torrentit',
     'trailer' => 'Näytä perävaunu',

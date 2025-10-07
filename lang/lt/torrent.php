@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Į viršų sėjama',
     'torrent' => 'Torrent',
     'torrent-request' => 'Torrent užklausa',
-    'torrent-tips' => 'Iš viso <span class="text-red text-bold">: bendras</span> BON buvo nukreiptas į įkėlimo programą, iš kurių <span class="text-red text-bold">: vartotojas</span> yra iš jūsų',
+    'torrent-tips' => 'Iš viso : bendras BON buvo nukreiptas į įkėlimo programą, iš kurių : vartotojas yra iš jūsų',
     'torrent-tips-desc' => 'Tai bus atimama iš jūsų turimų premijų taškų',
     'torrents' => 'Torrents',
     'trailer' => 'Peržiūrėti priekabą',

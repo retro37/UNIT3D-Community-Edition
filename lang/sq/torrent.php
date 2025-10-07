@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Top seeded',
     'torrent' => 'përrua',
     'torrent-request' => 'Kërkesë për Torrent',
-    'torrent-tips' => 'Në Total <span class="text-red text-bold">: total</span> BON është informuar për ngarkuesin, nga të cilat <span class="text-red text-bold">: përdoruesi</span> është nga ju',
+    'torrent-tips' => 'Në Total : total BON është informuar për ngarkuesin, nga të cilat : përdoruesi është nga ju',
     'torrent-tips-desc' => 'Kjo do të zbritet nga pikat e bonusit tuaj në dispozicion',
     'torrents' => 'torrents',
     'trailer' => 'Shikoni rimorkio',

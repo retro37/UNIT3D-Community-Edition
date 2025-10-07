@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Juu ya mbegu',
     'torrent' => 'Torrent',
     'torrent-request' => 'Ombi la Torrent',
-    'torrent-tips' => 'Kwa Jumla <span class="text-red text-bold">: Jumla ya</span> BON imefungwa kwa mchezaji, ambayo <span class="text-red text-bold">: mtumiaji</span> anatoka kwako',
+    'torrent-tips' => 'Kwa Jumla : Jumla ya BON imefungwa kwa mchezaji, ambayo : mtumiaji anatoka kwako',
     'torrent-tips-desc' => 'Hii itatolewa kwa pointi zako za bonus zilizopo',
     'torrents' => 'Torrents',
     'trailer' => 'Tazama trailer',

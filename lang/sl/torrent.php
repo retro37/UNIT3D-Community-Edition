@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Vrh semena',
     'torrent' => 'Torrent',
     'torrent-request' => 'Zahteva za torent',
-    'torrent-tips' => 'V skupnem <span class="text-red text-bold">znesku: skupno število</span> BON je bilo poslano osebi, ki je prenesla vsebino, od tega <span class="text-red text-bold">: uporabnik</span> je od vas',
+    'torrent-tips' => 'V skupnem znesku: skupno število BON je bilo poslano osebi, ki je prenesla vsebino, od tega : uporabnik je od vas',
     'torrent-tips-desc' => 'To se bo odštelo od vaših razpoložljivih bonus točk',
     'torrents' => 'Tokovi',
     'trailer' => 'Ogled priklopnika',
