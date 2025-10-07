@@ -13,7 +13,7 @@ return [
  */
     'aboutus-advantage' => 'Avantaj',
     'aboutus-advantage1' => 'HD video / ses ve teknik destek dünyasında tecrübeli üyelerimiz ve çalışanlarımız var.',
-    'aboutus-advantage2' => 'Filmlere ve TV şovlarına olan geniş tutkumuzun yanı sıra, en iyi olmayan şeylerin en iyi seçimlerinden birini sunuyoruz - FANRES! <em>BÜYÜK bir</em> içerik getiricilerimize <em>teşekkür ederiz</em> .',
+    'aboutus-advantage2' => 'Filmlere ve TV şovlarına olan geniş tutkumuzun yanı sıra, en iyi olmayan şeylerin en iyi seçimlerinden birini sunuyoruz - FANRES! BÜYÜK bir içerik getiricilerimize teşekkür ederiz .',
     'aboutus-advantage3' => 'Siteyi çalışır halde tutmak için bağış kabul etmemize rağmen, site içinde PM pankartları veya pankartlar yoktur. Bizden yalvarmak yok.',
     'aboutus-advantage4' => 'Topluluğumuz erken yaşta hiçbiri ikinci. Personelimiz ve kullanıcı tabanımız arasında her zaman yardım etmek için buradaydık. Tecrübelerinizden emin olmak konusunda tutkuluydunuz: title inanılmaz bir şey değil.',
     'aboutus-advantage5' => 'Hizmetimiz, dünya genelinde birçok kişi tarafından günlük olarak kullanılmaktadır. Kod tabanımızın işlevselliğine ve güvenliğine önem verdiğimizi kanıtladık ve güvenilir ve güvenilebilir. Geliştiricilerimiz gerçekten nex gen kod temeli sağlamak için günlük olarak çalışıyor.',
@@ -23,7 +23,7 @@ return [
     'aboutus-rules2' => 'Kuralları eksiksiz okumak ve lütfen onlara saygı duymak için!',
     'aboutus-rules3' => 'Öneride bulunun! Yapmak için çabalıyoruz: unvan her gün daha iyi. Her önerinin kullanılacağını söylemiyoruz, ancak yeni fikirleri görmek asla zarar vermez.',
     'aboutus-welcome' => 'Hadi hakkında konuşalım',
-    'aboutus-welcome-desc' => ': title <em>topluluk tarafından oluşturulan bir</em> Movie / TV / FANRES veritabanıdır. Verilerin her parça 2017 yılından beri inanılmaz topluluk tarafından eklendi: başlıklarının güçlü <em>odak</em> HD içerik, proaktif userbase, müthiş / güvenli kod tabanı ve yararlı ve samimi personel ekibi üzerindedir.',
+    'aboutus-welcome-desc' => ': title topluluk tarafından oluşturulan bir Movie / TV / FANRES veritabanıdır. Verilerin her parça 2017 yılından beri inanılmaz topluluk tarafından eklendi: başlıklarının güçlü odak HD içerik, proaktif userbase, müthiş / güvenli kod tabanı ve yararlı ve samimi personel ekibi üzerindedir.',
     'blacklist-browsers' => 'Tarayıcılar',
     'blacklist-btclient' => 'BitTorrent İstemcisi',
     'blacklist-clients' => 'Müşteriler',

@@ -13,7 +13,7 @@ return [
  */
     'aboutus-advantage' => 'Fördelen',
     'aboutus-advantage1' => 'Vi har upplevt medlemmar och personal som är välkända i världen av HD-video / ljud och teknisk support.',
-    'aboutus-advantage2' => 'Tillsammans med vår omfattande passion för filmer och TV-serier erbjuder vi också en av de bästa valen av något som mest inte - FANRES! <em>En stor tack</em> till våra innehållsbröder.',
+    'aboutus-advantage2' => 'Tillsammans med vår omfattande passion för filmer och TV-serier erbjuder vi också en av de bästa valen av något som mest inte - FANRES! En stor tack till våra innehållsbröder.',
     'aboutus-advantage3' => 'Medan vi accepterar donationer för att hålla webbplatsen igång, kommer det inte att finnas några pestering-PM eller banners på webbplatsen. Ingen ber om oss.',
     'aboutus-advantage4' => 'Vår gemenskap är oöverträffad för sin tidiga ålder. Mellan vår personal och användarbas var det alltid här för att hjälpa. Var passionerad att se till att din erfarenhet på: titel är inget annat än fantastiskt.',
     'aboutus-advantage5' => 'Vår service används dagligen av många människor över hela världen. Weve bevisat att vi bryr oss om funktionaliteten och säkerheten i vårt kodbas och det kan lita på och åberopa sig. Våra utvecklare arbetar dagligen för att ge en riktigt nex-gen-kodbas.',
@@ -23,7 +23,7 @@ return [
     'aboutus-rules2' => 'Att läsa reglerna i sin helhet och respektera dem!',
     'aboutus-rules3' => 'Ge förslag! Vi strävar efter att göra titeln bättre varje dag. Vi arent säger att alla förslag kommer att användas, men det gör aldrig ont för att se nya idéer.',
     'aboutus-welcome' => 'Låt oss prata om',
-    'aboutus-welcome-desc' => ': Titel är en <em>community-built</em> Movie / TV / FANRES-databas. Varje bit data har lagts till av vår fantastiska community sedan 2017.: titlar starkt <em>fokus</em> på HD-innehåll, en proaktiv användargränssnitt, en fantastisk / säker kodbas och ett bra och vänligt personalteam.',
+    'aboutus-welcome-desc' => ': Titel är en community-built Movie / TV / FANRES-databas. Varje bit data har lagts till av vår fantastiska community sedan 2017.: titlar starkt fokus på HD-innehåll, en proaktiv användargränssnitt, en fantastisk / säker kodbas och ett bra och vänligt personalteam.',
     'blacklist-browsers' => 'webbläsare',
     'blacklist-btclient' => 'BitTorrent Client',
     'blacklist-clients' => 'kunder',

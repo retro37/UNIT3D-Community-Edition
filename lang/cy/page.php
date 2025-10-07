@@ -13,7 +13,7 @@ return [
  */
     'aboutus-advantage' => 'Y fantais',
     'aboutus-advantage1' => 'Mae gennym aelodau profiadol a staff sy n hyddysg ym myd cymorth fideo / sain a thechnegol HD.',
-    'aboutus-advantage2' => 'Ynghyd â n brwdfrydedd helaeth am ffilmiau a sioeau teledu, rydym hefyd yn cynnig un o r dewisiadau gorau o rywbeth sydd ddim fwyaf - FANRES! <em>DIOLCH YN FAWR</em> i n cynnwyswyr.',
+    'aboutus-advantage2' => 'Ynghyd â n brwdfrydedd helaeth am ffilmiau a sioeau teledu, rydym hefyd yn cynnig un o r dewisiadau gorau o rywbeth sydd ddim fwyaf - FANRES! DIOLCH YN FAWR i n cynnwyswyr.',
     'aboutus-advantage3' => 'Er ein bod yn derbyn rhoddion i gadw r safle ar waith, ni fydd unrhyw PMs na baneri ar y safle. Dim cardio oddi wrthym ni.',
     'aboutus-advantage4' => 'Mae ein cymuned heb ei hail am ei oedran cynnar. Rhwng ein staff a n userbase, roeddem bob amser yma i ch helpu. A oedd yn angerddol am wneud yn siŵr bod eich profiad yn: Nid yw teitl yn brin o anhygoel.',
     'aboutus-advantage5' => 'Defnyddir ein gwasanaeth yn ddyddiol gan lawer o bobl ar draws y byd. Profwyd ein bod yn poeni am ymarferoldeb a diogelwch ein codebase a gellir ymddiried ynddo a dibynnu arno. Mae ein datblygwyr yn gweithio bob dydd i ddarparu codebase nex-gen gwirioneddol.',
@@ -23,7 +23,7 @@ return [
     'aboutus-rules2' => 'I ddarllen y rheolau yn llawn a pharchwch nhw!',
     'aboutus-rules3' => 'Gwnewch awgrymiadau! Rydym yn ymdrechu i wneud: teitl yn well bob dydd. Nid ydym yn dweud y bydd pob awgrym yn cael ei ddefnyddio, ond nid yw byth yn brifo i weld syniadau newydd.',
     'aboutus-welcome' => 'Gadewch i ni siarad am',
-    'aboutus-welcome-desc' => ': teitl yw cronfa ddata Ffilm / Teledu / FANRES a <em>adeiladwyd</em> yn y <em>gymuned</em> . Mae pob darn o ddata wedi cael ei ychwanegu gan ein cymuned anhygoel ers 2017.: mae <em>ffocws</em> cryf ar deitlau ar gynnwys HD, userbase rhagweithiol, codebase anhygoel / diogel a thîm Staff cyfeillgar a chyfeillgar.',
+    'aboutus-welcome-desc' => ': teitl yw cronfa ddata Ffilm / Teledu / FANRES a adeiladwyd yn y gymuned . Mae pob darn o ddata wedi cael ei ychwanegu gan ein cymuned anhygoel ers 2017.: mae <em>ffocws</em> cryf ar deitlau ar gynnwys HD, userbase rhagweithiol, codebase anhygoel / diogel a thîm Staff cyfeillgar a chyfeillgar.',
     'blacklist-browsers' => 'Porwyr',
     'blacklist-btclient' => 'Cleient BitTorrent',
     'blacklist-clients' => 'Cleientiaid',

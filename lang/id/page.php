@@ -13,7 +13,7 @@ return [
  */
     'aboutus-advantage' => 'Keuntungan',
     'aboutus-advantage1' => 'Kami memiliki anggota dan staf berpengalaman yang berpengalaman dalam dunia video HD / audio dan dukungan teknis.',
-    'aboutus-advantage2' => 'Seiring dengan hasrat kami yang luas untuk film dan acara TV, kami juga menawarkan salah satu pilihan terbaik dari sesuatu yang paling tidak - KIPAS! <em>A BESAR TERIMA KASIH</em> kepada pembawa konten kami.',
+    'aboutus-advantage2' => 'Seiring dengan hasrat kami yang luas untuk film dan acara TV, kami juga menawarkan salah satu pilihan terbaik dari sesuatu yang paling tidak - KIPAS! A BESAR TERIMA KASIH kepada pembawa konten kami.',
     'aboutus-advantage3' => 'Meskipun kami menerima sumbangan untuk menjaga situs tetap berjalan dan tidak akan ada PM atau spanduk yang mengganggu di situs. Tidak ada permintaan dari kami.',
     'aboutus-advantage4' => 'Komunitas kami tidak ada duanya untuk usia dini. Antara staf kami dan basis pengguna, selalu ada di sini untuk membantu. Sangat bersemangat untuk memastikan pengalaman Anda: judul tidak kekurangan menakjubkan.',
     'aboutus-advantage5' => 'Layanan kami digunakan setiap hari oleh banyak orang di seluruh dunia. Kami telah membuktikan bahwa kami peduli dengan fungsi dan keamanan basis kode kami dan dapat dipercaya dan diandalkan. Pengembang kami bekerja setiap hari untuk menyediakan basis kode nex-gen yang benar-benar.',
@@ -23,7 +23,7 @@ return [
     'aboutus-rules2' => 'Untuk membaca aturan secara lengkap dan harap hormati mereka!',
     'aboutus-rules3' => 'Membuat saran! Kami berusaha keras untuk membuat: judul lebih baik setiap hari. Kami tidak mengatakan bahwa setiap saran akan digunakan, tetapi tidak ada salahnya untuk melihat ide-ide baru.',
     'aboutus-welcome' => 'Mari Bicara tentang',
-    'aboutus-welcome-desc' => ': title adalah basis data Movie / TV / FANRES yang <em>dibangun komunitas</em> . Setiap bagian dari data telah ditambahkan oleh komunitas kami yang luar biasa sejak 2017.: judul <em>fokus yang</em> kuat adalah pada konten HD, basis pengguna proaktif, basis kode yang mengagumkan / aman dan tim Staf yang membantu dan ramah.',
+    'aboutus-welcome-desc' => ': title adalah basis data Movie / TV / FANRES yang dibangun komunitas . Setiap bagian dari data telah ditambahkan oleh komunitas kami yang luar biasa sejak 2017.: judul fokus yang kuat adalah pada konten HD, basis pengguna proaktif, basis kode yang mengagumkan / aman dan tim Staf yang membantu dan ramah.',
     'blacklist-browsers' => 'Browser',
     'blacklist-btclient' => 'Klien BitTorrent',
     'blacklist-clients' => 'Klien',

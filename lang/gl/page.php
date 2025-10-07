@@ -13,7 +13,7 @@ return [
  */
     'aboutus-advantage' => 'A vantaxe',
     'aboutus-advantage1' => 'Temos membros experimentados e persoal ben coñecido no mundo do vídeo / son HD e soporte técnico.',
-    'aboutus-advantage2' => 'Xunto á nosa extensa paixón polos filmes e programas de televisión, ofrecemos tamén unha das mellores seleccións de algo que a maioría non - FANRES! <em>UN GRAN GRACIAS</em> aos nosos contedores.',
+    'aboutus-advantage2' => 'Xunto á nosa extensa paixón polos filmes e programas de televisión, ofrecemos tamén unha das mellores seleccións de algo que a maioría non - FANRES! UN GRAN GRACIAS aos nosos contedores.',
     'aboutus-advantage3' => 'Aínda que aceptamos doazóns para manter o sitio en funcionamento non haberá banderas nin pancartas no lugar. Non pedimos de nós.',
     'aboutus-advantage4' => 'A nosa comunidade non ten ningún bo para a súa idade temperá. Entre os nosos empregados e userbase, sempre estabamos aquí para axudar. Foi un apaixonado por asegurarte de que a túa experiencia en: title sexa nada menos que incrible.',
     'aboutus-advantage5' => 'O noso servizo é utilizado diariamente por moitas persoas en todo o mundo. Temos probado que nos preocupamos pola funcionalidade e seguridade do noso código de base e pódese confiar e confiar. Os nosos desenvolvedores traballan a diario para proporcionar un código de código nex-gen.',
@@ -23,7 +23,7 @@ return [
     'aboutus-rules2' => 'Para ler as regras e respectalas.',
     'aboutus-rules3' => 'Facer suxestións. Procuramos que o título sexa mellor cada día. Non estamos dicindo que se usarán todas as suxestións, pero nunca está de máis ver novas ideas.',
     'aboutus-welcome' => 'Imos falar',
-    'aboutus-welcome-desc' => ': title é unha base de datos de película / TV / FANRES <em>construída pola comunidade</em> . Toda a información foi engadida pola nosa incrible comunidade dende 2017.: os títulos están <em>enfocados</em> a contidos en alta definición, un servidor activo activo, un código de código incrible e seguro e un equipo de persoal amigable.',
+    'aboutus-welcome-desc' => ': title é unha base de datos de película / TV / FANRES construída pola comunidade . Toda a información foi engadida pola nosa incrible comunidade dende 2017.: os títulos están enfocados a contidos en alta definición, un servidor activo activo, un código de código incrible e seguro e un equipo de persoal amigable.',
     'blacklist-browsers' => 'Navegadores',
     'blacklist-btclient' => 'Cliente BitTorrent',
     'blacklist-clients' => 'Clientes',
