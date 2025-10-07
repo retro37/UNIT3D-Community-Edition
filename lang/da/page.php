@@ -13,7 +13,7 @@ return [
  */
     'aboutus-advantage' => 'Fordelen',
     'aboutus-advantage1' => 'Vi har erfarne medlemmer og staff, der er velbevandrede i en verden med HD video / audio og teknisk support.',
-    'aboutus-advantage2' => 'Sammen med vores omfattende passion for film og tv-shows tilbyder vi også et af de bedste udvalg af noget, som andre ikke gør - FANRES! <em>STOR TAK</em> til vores indholdsleverandøre.',
+    'aboutus-advantage2' => 'Sammen med vores omfattende passion for film og tv-shows tilbyder vi også et af de bedste udvalg af noget, som andre ikke gør - FANRES! STOR TAK til vores indholdsleverandøre.',
     'aboutus-advantage3' => 'Selvom vi accepterer donationer for at holde webstedet i gang og sikkert, vil der ikke være irriterende PMs er eller bannere sitet. Du vil ikke se noget tiggeri fra os.',
     'aboutus-advantage4' => 'Vores fællesskab kan ikke sammenlignes til trods for sin unge alder. Mellem vores staff og brugerbase er vi altid til at hjælpe. Vi er passionere omkring at gøre din oplevelse på :title intet mindre end fantastisk.',
     'aboutus-advantage5' => 'Vores service bruges dagligt af mange mennesker over hele kloden. Vi har højeste interesse i funktionalitet og sikkerhed omkring vores kodebase, hvor vores udviklere dagligt arbejder for at løfte den til det næste niveau.',
@@ -23,7 +23,7 @@ return [
     'aboutus-rules2' => 'At læse reglerne fuldt ud og at respektere dem!',
     'aboutus-rules3' => 'Komme med forslag! Vi stræber efter at gøre :title bedre hver dag. Vi siger ikke, at ethvert forslag vil blive brugt, men det gør aldrig ondt at se på nye ideer.',
     'aboutus-welcome' => 'Lad os snakke om',
-    'aboutus-welcome-desc' => ':title er et <em>fælleskab-skabt</em> Film/TV/FANRES database. Alle data er blevet tilføjet af vores fantastiske fælleskabd siden 2017. :title har et stærkt <em>fokus</em> på HD-indhold, en proaktiv brugerbase, en fantastisk/sikker kodebase og et hjælpsomt og venligt staff.',
+    'aboutus-welcome-desc' => ':title er et fælleskab-skabt Film/TV/FANRES database. Alle data er blevet tilføjet af vores fantastiske fælleskabd siden 2017. :title har et stærkt fokus på HD-indhold, en proaktiv brugerbase, en fantastisk/sikker kodebase og et hjælpsomt og venligt staff.',
     'blacklist-browsers' => 'Browsere',
     'blacklist-btclient' => 'BitTorrent Klient',
     'blacklist-clients' => 'Klienter',

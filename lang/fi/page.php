@@ -13,7 +13,7 @@ return [
  */
     'aboutus-advantage' => 'Hyöty',
     'aboutus-advantage1' => 'Meillä on kokeneita jäseniä ja henkilöstöä, jotka ovat hyvin perehtyneet HD-videon / äänen ja teknisen tuen maailmaan.',
-    'aboutus-advantage2' => 'Laajan intohimomme elokuvia ja tv-ohjelmia kohtaan tarjoamme myös yhden parhaista valinnoista, joita useimmat dont - FANRES! <em>SUURI KIITOS</em> sisällöntuottajille.',
+    'aboutus-advantage2' => 'Laajan intohimomme elokuvia ja tv-ohjelmia kohtaan tarjoamme myös yhden parhaista valinnoista, joita useimmat dont - FANRES! SUURI KIITOS sisällöntuottajille.',
     'aboutus-advantage3' => 'Vaikka emme hyväksy lahjoituksia sivuston ylläpitämiseksi ja ylläpitämiseksi, paikan päällä ei ole tuhoisia PM- tai bannereita. Ei meiltä kerjäämistä.',
     'aboutus-advantage4' => 'Yhteisömme on toiseksi ikääntynyt sen varhaisessa iässä. Henkilökuntamme ja käyttäjätietokannan välillä oli aina apua auttaaksemme. Oliko intohimoinen siitä, että kokemuksesi on: otsikko ei ole mitään hämmästyttävää.',
     'aboutus-advantage5' => 'Palvelujamme käyttävät päivittäin monet ihmiset ympäri maailmaa. Todistimme, että välitämme koodisivumme toimivuudesta ja turvallisuudesta ja että sitä voidaan luottaa ja luottaa. Kehittäjät työskentelevät päivittäin tarjoamaan todella nex-gen-koodia.',
@@ -23,7 +23,7 @@ return [
     'aboutus-rules2' => 'Voit lukea säännöt kokonaisuudessaan ja kunnioittaa niitä!',
     'aboutus-rules3' => 'Tee ehdotuksia! Pyrimme tekemään: otsikko paremmin joka päivä. Me sanomme, että jokainen ehdotus on käytössä, mutta se ei koskaan haittaa uusia ideoita.',
     'aboutus-welcome' => 'Puhutaan',
-    'aboutus-welcome-desc' => ': title on <em>yhteisöllisesti rakennettu</em> Movie / TV / FANRES-tietokanta. Hämmästyttävä yhteisömme on lisännyt kaikki tiedot vuodesta 2017 lähtien: otsikot <em>keskittyvät</em> voimakkaasti HD-sisältöön, ennakoivaan käyttäjäkantaan, mahtavaan / turvalliseen koodisarjaan ja avulias ja ystävällinen henkilökuntajoukkue.',
+    'aboutus-welcome-desc' => ': title on yhteisöllisesti rakennettu Movie / TV / FANRES-tietokanta. Hämmästyttävä yhteisömme on lisännyt kaikki tiedot vuodesta 2017 lähtien: otsikot keskittyvät voimakkaasti HD-sisältöön, ennakoivaan käyttäjäkantaan, mahtavaan / turvalliseen koodisarjaan ja avulias ja ystävällinen henkilökuntajoukkue.',
     'blacklist-browsers' => 'selaimet',
     'blacklist-btclient' => 'BitTorrent-asiakas',
     'blacklist-clients' => 'asiakkaat',

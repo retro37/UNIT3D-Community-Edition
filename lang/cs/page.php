@@ -13,7 +13,7 @@ return [
  */
     'aboutus-advantage' => 'Výhoda',
     'aboutus-advantage1' => 'Máme zkušené členy a zaměstnance, kteří se dobře orientují ve světě HD video / audio a technické podpory.',
-    'aboutus-advantage2' => 'Spolu s naší rozsáhlou vášní pro filmy a televizní pořady, nabízíme také jeden z nejlepších výběrů něčeho, co nejvíce dont - FANRES! <em>VELKÝM DĚKUJEM</em> našim nositelům obsahu.',
+    'aboutus-advantage2' => 'Spolu s naší rozsáhlou vášní pro filmy a televizní pořady, nabízíme také jeden z nejlepších výběrů něčeho, co nejvíce dont - FANRES! VELKÝM DĚKUJEM našim nositelům obsahu.',
     'aboutus-advantage3' => 'Zatímco přijímáme dary, abychom udrželi stránku v chodu, nebudou na místě žádné otřesy nebo bannery. Žádný prosit od nás.',
     'aboutus-advantage4' => 'Naše komunita je v předčasném věku na špičkové úrovni. Mezi našimi pracovníky a uživatelskou základnou jsme vždy pomáhali. Byli vášniví o tom, že vaše zkušenosti na: titul není nic menšího než úžasné.',
     'aboutus-advantage5' => 'Naše služba je denně využívána mnoha lidmi po celém světě. Dokázali jsme, že se staráme o funkčnost a bezpečnost naší databáze a lze na ni spolehnout a spoléhat se na ni. Naši vývojáři pracují denně a poskytují skutečně nex-gen codebase.',
@@ -23,7 +23,7 @@ return [
     'aboutus-rules2' => 'Přečtěte si pravidla v plném rozsahu a respektujte je!',
     'aboutus-rules3' => 'Dělat návrhy! Snažíme se, aby každý den byl lepší. Neříkáme, že každý návrh bude použit, ale nikdy neublíží vidět nové myšlenky.',
     'aboutus-welcome' => 'Promluvme si o',
-    'aboutus-welcome-desc' => ': název je <em>komunitní</em> databáze Movie / TV / FANRES. Každý kus dat byl přidán naší úžasnou komunitou od roku 2017.: tituly se <em>zaměřují především</em> na HD obsah, proaktivní userbase, úžasnou / bezpečnou codebase a vstřícný a přátelský tým zaměstnanců.',
+    'aboutus-welcome-desc' => ': název je komunitní databáze Movie / TV / FANRES. Každý kus dat byl přidán naší úžasnou komunitou od roku 2017.: tituly se zaměřují především na HD obsah, proaktivní userbase, úžasnou / bezpečnou codebase a vstřícný a přátelský tým zaměstnanců.',
     'blacklist-browsers' => 'Prohlížeče',
     'blacklist-btclient' => 'BitTorrent Client',
     'blacklist-clients' => 'Klienti',
