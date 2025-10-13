@@ -30,19 +30,19 @@ class Chatter implements ShouldBroadcastNow
     use InteractsWithSockets;
     use SerializesModels;
 
-    public AnonymousResourceCollection $echoes;
+    public ?AnonymousResourceCollection $echoes = null;
 
-    public ChatMessageResource $message;
+    public ?ChatMessageResource $message = null;
 
     /**
-     * @var array{
+     * @var null|array{
      *     type: 'bot'|'target',
      *     id: int
      * }
      */
-    public array $ping;
+    public ?array $ping = null;
 
-    public AnonymousResourceCollection $audibles;
+    public ?AnonymousResourceCollection $audibles = null;
 
     /**
      * Chatter Constructor.
