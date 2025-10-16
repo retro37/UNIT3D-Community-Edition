@@ -22,13 +22,6 @@
             </h2>
             <div class="data-table-wrapper">
                 <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>{{ __('common.name') }}</th>
-                            <th>Created</th>
-                            <th>Updated</th>
-                        </tr>
-                    </thead>
                     <tbody>
                         @forelse ($category->wikis->sortBy('name') as $wiki)
                             <tr>
@@ -37,16 +30,10 @@
                                         {{ $wiki->name }}
                                     </a>
                                 </td>
-                                <td>
-                                    {{ $wiki->created_at }}
-                                </td>
-                                <td>
-                                    {{ $wiki->updated_at }}
-                                </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="3">No wikis in category.</td>
+                                <td>No wikis in category.</td>
                             </tr>
                         @endforelse
                     </tbody>
