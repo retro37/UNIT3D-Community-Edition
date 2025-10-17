@@ -20,7 +20,6 @@ use App\Enums\ModerationStatus;
 use App\Helpers\StringHelper;
 use App\Models\Scopes\ApprovedScope;
 use App\Traits\Auditable;
-use App\Traits\GroupedLastScope;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -87,7 +86,6 @@ use Laravel\Scout\Searchable;
 class Torrent extends Model
 {
     use Auditable;
-    use GroupedLastScope;
 
     /** @use HasFactory<\Database\Factories\TorrentFactory> */
     use HasFactory;
