@@ -566,7 +566,11 @@
                 @if ($category->tv_meta)
                     <section>
                         @if ($similarTorrents->has('Complete Pack'))
-                            <details class="torrent-search--grouped__dropdown" open>
+                            <details
+                                class="torrent-search--grouped__dropdown"
+                                open
+                                wire:ignore.self
+                            >
                                 <summary x-bind="complete">Complete pack</summary>
                                 <table class="similar-torrents__torrents">
                                     <tbody>
@@ -611,6 +615,7 @@
                                 @if ($checked || (! $similarTorrents->has('Complete Pack') && ! $similarTorrents->has('Seasons')))
                                     open
                                 @endif
+                                wire:ignore.self
                             >
                                 <summary x-bind="specials">Specials</summary>
                                 @foreach ($similarTorrents['Specials'] as $specialName => $special)
@@ -619,6 +624,7 @@
                                         @if ($checked || $loop->first)
                                             open
                                         @endif
+                                        wire:ignore.self
                                     >
                                         <summary x-bind="special">{{ $specialName }}</summary>
                                         <table class="similar-torrents__torrents">
@@ -666,6 +672,7 @@
                                 @if ($checked || $loop->first)
                                     open
                                 @endif
+                                wire:ignore.self
                             >
                                 <summary x-bind="season">{{ $seasonName }}</summary>
                                 @if ($season->has('Season Pack') && ! $season->has('Episodes'))
@@ -704,7 +711,11 @@
                                         @endforeach
                                     </table>
                                 @elseif ($season->has('Season Pack'))
-                                    <details open class="torrent-search--grouped__dropdown">
+                                    <details
+                                        open
+                                        class="torrent-search--grouped__dropdown"
+                                        wire:ignore.self
+                                    >
                                         <summary x-bind="pack">Season pack</summary>
                                         <table class="similar-torrents__torrents">
                                             @foreach ($season['Season Pack'] as $type => $torrents)
@@ -749,6 +760,7 @@
                                         @if ($checked || ($loop->first && ! $season->has('Season Pack')))
                                             open
                                         @endif
+                                        wire:ignore.self
                                     >
                                         <summary x-bind="episode">{{ $episodeName }}</summary>
                                         <table class="similar-torrents__torrents">
