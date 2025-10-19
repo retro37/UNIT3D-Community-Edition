@@ -207,6 +207,11 @@ document.addEventListener('alpine:init', () => {
                 this.syncStatus();
             });
 
+            this.$watch('state.chat.room', (chatroom, oldChatroom) => {
+                if (chatroom === oldChatroom) return;
+                this.changeRoom(chatroom);
+            });
+
             this.$cleanup = () => {
                 if (this.channel) {
                     window.Echo.leave(`chatroom.${this.state.chat.room}`);
