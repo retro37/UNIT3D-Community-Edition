@@ -74,6 +74,7 @@ return [
     'featured-until'           => 'This is a featured torrent until',
     'file'                     => 'File',
     'filters'                  => 'Filters',
+    'first-to-comment'         => 'Be the first to comment',
     'fl-tokens-left'           => 'You have :tokens tokens left',
     'freeleech'                => 'Freeleech',
     'freeleech-token'          => 'Freeleech token',

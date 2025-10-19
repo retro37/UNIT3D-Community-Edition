@@ -4,7 +4,7 @@
             @if ($torrent->comments_count === 0)
                 <i
                     class="{{ config('other.font-awesome') }} fa-comment-alt-plus torrent-icons__comments"
-                    title="{{ __('torrent.comments-left') }}"
+                    title="{{ __('torrent.first-to-comment') }}"
                 ></i>
             @else
                 <i
