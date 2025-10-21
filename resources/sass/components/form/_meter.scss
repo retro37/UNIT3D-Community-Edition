@@ -11,3 +11,11 @@
 .form__meter::-moz-meter-bar {
     background: var(--meter-fg);
 }
+
+.form__meter::-webkit-meter-bar {
+    background: var(--meter-bg);
+}
+
+.form__meter::-webkit-meter-optimum-value {
+    background: var(--meter-fg);
+}
