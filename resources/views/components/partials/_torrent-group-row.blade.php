@@ -27,6 +27,10 @@
                         {{ str_contains($torrent->name, ' / ') ? $torrent->name : \preg_replace('/^.*( ' . implode(' | ', $firstAirDateRange) . ' | (?=S\d{2,4}(?:-S\d{2,4})?(?:-?E\d{2,4})*? |' . implode('-|', $fullRange) . '-))/i', '', $torrent->name) }}
 
                         @break
+                    @case('game')
+                        {{ Str::of($torrent->name)->after($media->name) }}
+
+                        @break
                 @endswitch
             </a>
         </h3>

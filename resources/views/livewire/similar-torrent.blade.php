@@ -565,7 +565,7 @@
             <div class="data-table-wrapper">
                 @if ($category->tv_meta)
                     <section>
-                        @if ($similarTorrents->has('Complete Pack'))
+                        @if (array_key_exists('Complete Pack', $similarTorrents))
                             <details
                                 class="torrent-search--grouped__dropdown"
                                 open
@@ -609,10 +609,10 @@
                             </details>
                         @endif
 
-                        @if ($similarTorrents->has('Specials'))
+                        @if (array_key_exists('Specials', $similarTorrents))
                             <details
                                 class="torrent-search--grouped__dropdown"
-                                @if ($checked || (! $similarTorrents->has('Complete Pack') && ! $similarTorrents->has('Seasons')))
+                                @if ($checked || (! array_key_exists('Complete Pack', $similarTorrents) && ! array_key_exists('Seasons', $similarTorrents)))
                                     open
                                 @endif
                                 wire:ignore.self
@@ -675,7 +675,7 @@
                                 wire:ignore.self
                             >
                                 <summary x-bind="season">{{ $seasonName }}</summary>
-                                @if ($season->has('Season Pack') && ! $season->has('Episodes'))
+                                @if (array_key_exists('Season Pack', $season) && ! array_key_exists('Episodes', $season))
                                     <table class="similar-torrents__torrents">
                                         @foreach ($season['Season Pack'] as $type => $torrents)
                                             <tbody>
@@ -710,7 +710,7 @@
                                             </tbody>
                                         @endforeach
                                     </table>
-                                @elseif ($season->has('Season Pack'))
+                                @elseif (array_key_exists('Season Pack', $season))
                                     <details
                                         open
                                         class="torrent-search--grouped__dropdown"
@@ -757,7 +757,7 @@
                                 @foreach ($season['Episodes'] ?? [] as $episodeName => $episode)
                                     <details
                                         class="torrent-search--grouped__dropdown"
-                                        @if ($checked || ($loop->first && ! $season->has('Season Pack')))
+                                        @if ($checked || ($loop->first && ! array_key_exists('Season Pack', $season)))
                                             open
                                         @endif
                                         wire:ignore.self
@@ -888,45 +888,90 @@
                         @endforeach
                     </table>
                 @elseif ($category->game_meta)
-                    @foreach ($similarTorrents->sortBy('type.position')->values()->groupBy('type.name') as $type => $torrents)
-                        <section class="panelV2" x-data>
-                            <h2 class="panel__heading">{{ $type }}</h2>
-                            <div class="data-table-wrapper">
-                                <table class="data-table">
-                                    @foreach ($torrents->sortBy('resolution.position')->values()->groupBy('resolution.name') as $resolution => $torrents)
-                                        <tbody>
-                                            <tr>
-                                                <th colspan="100">{{ $resolution }}</th>
-                                            </tr>
-                                            @foreach ($torrents as $torrent)
-                                                @if ($user->group->is_modo)
-                                                    <tr>
-                                                        <td
-                                                            colspan="0"
-                                                            rowspan="2"
-                                                            x-on:click.self="$el.firstElementChild.click()"
-                                                        >
-                                                            <input
-                                                                type="checkbox"
-                                                                value="{{ $torrent->id }}"
-                                                                wire:model.live="checked"
-                                                            />
-                                                        </td>
-                                                    </tr>
-                                                @endif
+                    <table class="similar-torrents__torrents">
+                        <thead>
+                            <tr class="similar-torrents__headers">
+                                <th class="similar-torrents__type-header">
+                                    {{ __('torrent.type') }}
+                                </th>
+                                @if ($user->group->is_modo)
+                                    <th
+                                        class="similar-torrents__checkbox-header"
+                                        title="{{ __('common.select') }}"
+                                    >
+                                        <input
+                                            type="checkbox"
+                                            wire:model.live="selectPage"
+                                            style="vertical-align: middle"
+                                        />
+                                    </th>
+                                @endif
 
-                                                <x-torrent.row
-                                                    :torrent="$torrent"
-                                                    :meta="$work"
-                                                    :personal_freeleech="$personalFreeleech"
+                                <th class="similar-torrents__name-header">
+                                    {{ __('torrent.name') }}
+                                </th>
+                                <th class="similar-torrents__actions-header" colspan="3">
+                                    {{ __('common.actions') }}
+                                </th>
+                                <th class="similar-torrents__size-header">
+                                    {{ __('torrent.size') }}
+                                </th>
+                                <th
+                                    class="similar-torrents__seeders-header"
+                                    title="{{ __('torrent.seeders') }}"
+                                >
+                                    <i class="fas fa-arrow-alt-circle-up"></i>
+                                </th>
+                                <th
+                                    class="similar-torrents__leechers-header"
+                                    title="{{ __('torrent.leechers') }}"
+                                >
+                                    <i class="fas fa-arrow-alt-circle-down"></i>
+                                </th>
+                                <th
+                                    class="similar-torrents__completed-header"
+                                    title="{{ __('torrent.completed') }}"
+                                >
+                                    <i class="fas fa-check-circle"></i>
+                                </th>
+                                <th class="similar-torrents__age-header">
+                                    {{ __('torrent.age') }}
+                                </th>
+                            </tr>
+                        </thead>
+                        @foreach ($similarTorrents as $type => $torrents)
+                            <tbody>
+                                @foreach ($torrents as $torrent)
+                                    <tr>
+                                        @if ($loop->first)
+                                            <th
+                                                class="similar-torrents__type"
+                                                scope="rowgroup"
+                                                rowspan="{{ $loop->count }}"
+                                            >
+                                                {{ $type }}
+                                            </th>
+                                        @endif
+
+                                        @if ($user->group->is_modo)
+                                            <td
+                                                class="similar-torrents__checkbox"
+                                                x-on:click.self="$el.firstElementChild.click()"
+                                            >
+                                                <input
+                                                    type="checkbox"
+                                                    value="{{ $torrent->id }}"
+                                                    wire:model.live="checked"
                                                 />
-                                            @endforeach
-                                        </tbody>
-                                    @endforeach
-                                </table>
-                            </div>
-                        </section>
-                    @endforeach
+                                            </td>
+                                        @endif
+
+                                        @include('components.partials._torrent-group-row')
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        @endforeach
+                    </table>
                 @endif
             </div>
         </section>
