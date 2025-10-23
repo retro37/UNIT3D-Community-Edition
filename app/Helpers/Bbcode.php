@@ -286,27 +286,27 @@ class Bbcode
         $source = str_replace('[hr]', '<hr>', $source);
         $source = preg_replace_callback(
             '/\[url](.*?)\[\/url]/i',
-            fn ($matches) => '<a href="'.$this->sanitizeUrl($matches[1]).'">'.$this->sanitizeUrl($matches[1]).'</a>',
+            fn ($matches) => '<a href="'.self::sanitizeUrl($matches[1]).'">'.self::sanitizeUrl($matches[1]).'</a>',
             $source
         );
         $source = preg_replace_callback(
             '/\[url=(.*?)](.*?)\[\/url]/i',
-            fn ($matches) => '<a href="'.$this->sanitizeUrl($matches[1]).'">'.$matches[2].'</a>',
+            fn ($matches) => '<a href="'.self::sanitizeUrl($matches[1]).'">'.$matches[2].'</a>',
             $source ?? ''
         );
         $source = preg_replace_callback(
             '/\[img](.*?)\[\/img]/i',
-            fn ($matches) => '<img src="'.$this->sanitizeUrl($matches[1], isImage: true).'" loading="lazy" class="img-responsive" style="display: inline !important;">',
+            fn ($matches) => '<img src="'.self::sanitizeUrl($matches[1], isImage: true).'" loading="lazy" class="img-responsive" style="display: inline !important;">',
             $source ?? ''
         );
         $source = preg_replace_callback(
             '/\[img width=(\d+)](.*?)\[\/img]/i',
-            fn ($matches) => '<img src="'.$this->sanitizeUrl($matches[2], isImage: true).'" loading="lazy" width="'.$matches[1].'px">',
+            fn ($matches) => '<img src="'.self::sanitizeUrl($matches[2], isImage: true).'" loading="lazy" width="'.$matches[1].'px">',
             $source ?? ''
         );
         $source = preg_replace_callback(
             '/\[img=(\d+)(?:x\d+)?](.*?)\[\/img]/i',
-            fn ($matches) => '<img src="'.$this->sanitizeUrl($matches[2], isImage: true).'" loading="lazy" width="'.$matches[1].'px">',
+            fn ($matches) => '<img src="'.self::sanitizeUrl($matches[2], isImage: true).'" loading="lazy" width="'.$matches[1].'px">',
             $source ?? ''
         );
 
@@ -340,7 +340,7 @@ class Bbcode
                     return 'Broken comparison';
                 }
 
-                $validatedUrls = collect($urls)->map(fn ($url) => $this->sanitizeUrl($url, isImage: true));
+                $validatedUrls = collect($urls)->map(fn ($url) => self::sanitizeUrl($url, isImage: true));
                 $chunkedUrls = $validatedUrls->chunk(\count($comparates));
                 $html = view('partials.comparison', ['comparates' => $comparates, 'urls' => $chunkedUrls])->render();
                 $html = preg_replace('/\s+/', ' ', $html);
@@ -387,7 +387,7 @@ class Bbcode
                     $source = substr_replace((string) $source, (string) $el['closeHtml'], $index, \strlen((string) $el['closeBbcode']));
 
                     if ($replaceLineBreaks === true && $el['block'] === true) {
-                        $this->handleBlockElementSpacing($source, $index, $index, $index + \strlen((string) $el['closeHtml']) - 1);
+                        self::handleBlockElementSpacing($source, $index, $index, $index + \strlen((string) $el['closeHtml']) - 1);
                     }
                 } else {
                     $openedElements[] = $name;
@@ -404,7 +404,7 @@ class Bbcode
                         $source = substr_replace((string) $source, $replacement, $index, \strlen($matches[0]));
 
                         if ($replaceLineBreaks === true && $el['block'] === true) {
-                            $this->handleBlockElementSpacing($source, $index, $index, $index + \strlen($replacement) - 1);
+                            self::handleBlockElementSpacing($source, $index, $index, $index + \strlen($replacement) - 1);
                         }
 
                         $openedElements[] = $name;
@@ -446,7 +446,7 @@ class Bbcode
      * @param int    $tagStartIndex The index of the first character of the tag being parsed inside `$source`. Should be the `[` character.
      * @param int    $tagStopIndex  The index of the last character of the tag being parsed inside `$source`. Should be the `]` character.
      */
-    private function handleBlockElementSpacing(string &$source, int &$index, int $tagStartIndex, int $tagStopIndex): void
+    private static function handleBlockElementSpacing(string &$source, int &$index, int $tagStartIndex, int $tagStopIndex): void
     {
         // Remove two line breaks (if they exist) instead of one, since a
         // line break after a block element is positioned on the line after
@@ -479,7 +479,7 @@ class Bbcode
         }
     }
 
-    private function sanitizeUrl(string $url, ?bool $isImage = null): string
+    private static function sanitizeUrl(string $url, ?bool $isImage = null): string
     {
         // Do NOT add `javascript`, `data` or `vbscript` here
         // or else you will allow an XSS vulnerability!
