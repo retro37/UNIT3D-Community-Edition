@@ -1,4 +1,4 @@
-<section class="panelV2" x-data="tabs" data-default-tab="recommendations" id="tab_wrapper">
+<section class="panelV2" x-data="tabs" data-default-tab="also-downloaded" id="tab_wrapper">
     <header class="panel__header">
         <h2 class="panel__heading">Relations</h2>
         <div class="panel__actions" x-data="posterRow">
@@ -15,10 +15,14 @@
         </div>
     </header>
     <menu class="panel__tabs">
+        <li class="panel__tab" x-bind="tabButton" data-tab="also-downloaded">Also Downloaded</li>
         <li class="panel__tab" x-bind="tabButton" data-tab="recommendations">Recommendations</li>
         <li class="panel__tab" x-bind="tabButton" data-tab="collection">Collection</li>
         <li class="panel__tab" x-bind="tabButton" data-tab="playlists">Playlists</li>
     </menu>
+    <div x-bind="tabPanel" data-tab="also-downloaded">
+        @include('torrent.partials.also-downloaded')
+    </div>
     <div x-bind="tabPanel" data-tab="recommendations">
         @include('torrent.partials.recommendations')
     </div>

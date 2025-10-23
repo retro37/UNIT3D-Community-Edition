@@ -1109,6 +1109,11 @@
             </section>
         @endif
 
+        <livewire:also-downloaded-works
+            :work="$work->withoutRelations()"
+            :categoryId="$category->id"
+        />
+
         @if ($playlistCategories->isNotEmpty())
             <section class="panelV2">
                 <h2 class="panel__heading">{{ __('playlist.playlists') }}</h2>
