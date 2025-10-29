@@ -204,13 +204,11 @@ class SimilarTorrent extends Component
 
     final public function boot(): void
     {
-        if ($this->work instanceof TmdbMovie) {
-            $this->work->setAttribute('meta', 'movie');
-        } elseif ($this->work instanceof TmdbTv) {
-            $this->work->setAttribute('meta', 'tv');
-        } elseif ($this->work instanceof IgdbGame) {
-            $this->work->setAttribute('meta', 'game');
-        }
+        $this->work->setAttribute('meta', match ($this->work::class) {
+            TmdbMovie::class => 'movie',
+            TmdbTv::class    => 'tv',
+            IgdbGame::class  => 'game',
+        });
     }
 
     final public function updating(string $field, mixed &$value): void
@@ -338,7 +336,6 @@ class SimilarTorrent extends Component
                 ->orderBy($this->sortField, $this->sortDirection)
                 ->get();
 
-            /** @phpstan-ignore match.unhandled (These classes need to be marked as final to not upset phpstan) */
             return match ($this->work::class) {
                 /** @phpstan-ignore offsetAccess.notFound ('movie' offset exists if the torrent is a movie) */
                 TmdbMovie::class => self::groupTorrents($torrents)['movie'][$this->tmdbId]['Movie'],
