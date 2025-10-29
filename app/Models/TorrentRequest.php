@@ -23,6 +23,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use AllowDynamicProperties;
 
 /**
  * App\Models\TorrentRequest.
@@ -53,7 +54,8 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property int|null                        $season_number
  * @property int|null                        $episode_number
  */
-class TorrentRequest extends Model
+#[AllowDynamicProperties]
+final class TorrentRequest extends Model
 {
     use Auditable;
 
