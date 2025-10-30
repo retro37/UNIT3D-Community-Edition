@@ -57,7 +57,7 @@ return new class () extends Migration {
             $table->index('reported_user_id');
             $table->index('reported_torrent_id');
             $table->index('reported_request_id');
-            $table->index(['solved_by', 'snoozed_until', 'staff_id']);
+            $table->index(['solved_by', 'assigned_to', 'snoozed_until']);
             $table->foreign('reported_user_id')->references('id')->on('users')->onUpdate('cascade');
             $table->foreign('solved_by')->references('id')->on('users')->onUpdate('cascade');
         });
