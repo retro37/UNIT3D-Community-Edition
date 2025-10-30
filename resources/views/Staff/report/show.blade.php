@@ -157,8 +157,8 @@
                 @csrf
                 <p class="form__group">
                     <select
-                        id="staff_id"
-                        name="staff_id"
+                        id="assigned_to"
+                        name="assigned_to"
                         class="form__select"
                         x-on:change="$root.submit()"
                     >
@@ -166,13 +166,13 @@
                         @foreach ($staff as $staffUser)
                             <option
                                 value="{{ $staffUser->id }}"
-                                @selected($staffUser->id === $report->staff_id)
+                                @selected($staffUser->id === $report->assigned_to)
                             >
                                 {{ $staffUser->username }}
                             </option>
                         @endforeach
                     </select>
-                    <label class="form__label form__label--floating" for="staff_id">
+                    <label class="form__label form__label--floating" for="assigned_to">
                         {{ __('ticket.assign') }}
                     </label>
                 </p>

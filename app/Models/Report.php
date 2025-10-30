@@ -28,7 +28,9 @@ use AllowDynamicProperties;
  * @property int                             $id
  * @property string                          $type
  * @property int                             $reporter_id
- * @property int|null                        $staff_id
+ * @property int                             $reported_user_id
+ * @property int                             $reported_torrent_id
+ * @property int                             $reported_request_id
  * @property string                          $title
  * @property string                          $message
  * @property int|null                        $solved_by
@@ -59,13 +61,13 @@ final class Report extends Model
     /**
      * Get the attributes that should be cast.
      *
-     * @return array{snoozed_until: 'datetime', closed_at: 'datetime'}
+     * @return array{snoozed_until: 'datetime', solved_at: 'datetime'}
      */
     protected function casts(): array
     {
         return [
             'snoozed_until' => 'datetime',
-            'closed_at'     => 'datetime',
+            'solved_at'     => 'datetime',
         ];
     }
 

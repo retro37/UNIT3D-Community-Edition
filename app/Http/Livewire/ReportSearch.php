@@ -70,7 +70,7 @@ class ReportSearch extends Component
      */
     final protected \Illuminate\Pagination\LengthAwarePaginator $reports {
         get => Report::query()
-            ->with('reported.group', 'reporter.group', 'staff.group')
+            ->with('reported.group', 'reporter.group', 'assignee.group')
             ->when($this->type !== null, fn ($query) => $query->where('type', '=', $this->type))
             ->when($this->reporter !== null, fn ($query) => $query->whereRelation('reporter', 'username', 'LIKE', '%'.$this->reporter.'%'))
             ->when($this->reported !== null, fn ($query) => $query->whereRelation('reported', 'username', 'LIKE', '%'.$this->reported.'%'))

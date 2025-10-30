@@ -43,7 +43,7 @@ class ReportFactory extends Factory
             'reported_torrent_id' => Torrent::factory(),
             'reported_request_id' => TorrentRequest::factory(),
             'message'             => $this->faker->text(),
-            'staff_id'            => User::factory(),
+            'assigned_to'         => User::factory(),
             'verdict'             => $this->faker->text(),
             'created_at'          => $this->faker->dateTime(),
             'updated_at'          => $this->faker->optional()->dateTime(),

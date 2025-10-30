@@ -34,14 +34,14 @@ test('assign a staff member to a report returns an ok response', function (): vo
     ]);
 
     $response = $this->actingAs($staff1)->post(route('staff.reports.assignee.store', [$report]), [
-        'staff_id' => $staff2->id,
+        'assigned_to' => $staff2->id,
     ]);
 
     $response->assertRedirect(route('staff.reports.show', $report));
 
     $this->assertDatabaseHas('reports', [
-        'id'       => $report->id,
-        'staff_id' => $staff2->id,
+        'id'          => $report->id,
+        'assigned_to' => $staff2->id,
     ]);
 
     Notification::assertSentTo(
