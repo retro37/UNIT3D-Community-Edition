@@ -176,7 +176,7 @@
                         <a href="{{ route('events.show', ['event' => $event]) }}">
                             <i class="{{ config('other.font-awesome') }} fa-calendar-star"></i>
                             {{ $event->name }}
-                            @if (! $event->claimed_prizes_exists && $event->ends_at->isFuture())
+                            @if (! $event->claimed_prizes_exists && $event->ends_at->endOfDay()->isFuture())
                                 <x-animation.notification />
                             @endif
                         </a>
