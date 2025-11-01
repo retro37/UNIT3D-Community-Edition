@@ -30,6 +30,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Scout\Searchable;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Torrent.
@@ -83,7 +84,8 @@ use Laravel\Scout\Searchable;
  * @property int                             $balance_offset
  * @property int|null                        $balance_reset_at
  */
-class Torrent extends Model
+#[AllowDynamicProperties]
+final class Torrent extends Model
 {
     use Auditable;
 

@@ -19,6 +19,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use AllowDynamicProperties;
 
 /**
  * App\Models\DonationPackage.
@@ -36,7 +37,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Support\Carbon $created_at
  * @property \Illuminate\Support\Carbon $updated_at
  */
-class DonationPackage extends Model
+#[AllowDynamicProperties]
+final class DonationPackage extends Model
 {
     /** @use HasFactory<\Database\Factories\DonationPackageFactory> */
     use HasFactory;

@@ -18,6 +18,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\ClaimedPrize.
@@ -30,7 +31,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class ClaimedPrize extends Model
+#[AllowDynamicProperties]
+final class ClaimedPrize extends Model
 {
     /**
      * The attributes that aren't mass assignable.

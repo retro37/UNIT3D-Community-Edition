@@ -19,6 +19,7 @@ namespace App\Models;
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Event.
@@ -32,7 +33,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class Event extends Model
+#[AllowDynamicProperties]
+final class Event extends Model
 {
     use Auditable;
 

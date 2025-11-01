@@ -20,6 +20,7 @@ use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Report.
@@ -39,7 +40,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int|null                        $request_id
  * @property \Illuminate\Support\Carbon|null $snoozed_until
  */
-class Report extends Model
+#[AllowDynamicProperties]
+final class Report extends Model
 {
     use Auditable;
 

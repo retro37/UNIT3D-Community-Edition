@@ -20,6 +20,7 @@ use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Group.
@@ -61,7 +62,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int      $min_age
  * @property int      $min_uploads
  */
-class Group extends Model
+#[AllowDynamicProperties]
+final class Group extends Model
 {
     use Auditable;
 

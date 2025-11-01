@@ -33,6 +33,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
+use AllowDynamicProperties;
 
 /**
  * App\Models\User.
@@ -80,7 +81,8 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
  * @property int                             $own_flushes
  * @property string|null                     $email_verified_at
  */
-class User extends Authenticatable implements MustVerifyEmail
+#[AllowDynamicProperties]
+final class User extends Authenticatable implements MustVerifyEmail
 {
     use Achiever;
 
