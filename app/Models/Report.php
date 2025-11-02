@@ -28,10 +28,13 @@ use AllowDynamicProperties;
  * @property int                             $id
  * @property string                          $type
  * @property int                             $reporter_id
- * @property int|null                        $staff_id
+ * @property int                             $reported_user_id
+ * @property int                             $reported_torrent_id
+ * @property int                             $reported_request_id
  * @property string                          $title
  * @property string                          $message
- * @property bool                            $solved
+ * @property int|null                        $solved_by
+ * @property int|null                        $assigned_to
  * @property string|null                     $verdict
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -58,13 +61,13 @@ final class Report extends Model
     /**
      * Get the attributes that should be cast.
      *
-     * @return array{solved: 'bool', snoozed_until: 'datetime'}
+     * @return array{snoozed_until: 'datetime', solved_at: 'datetime'}
      */
     protected function casts(): array
     {
         return [
-            'solved'        => 'bool',
             'snoozed_until' => 'datetime',
+            'solved_at'     => 'datetime',
         ];
     }
 
@@ -75,7 +78,7 @@ final class Report extends Model
      */
     public function request(): BelongsTo
     {
-        return $this->belongsTo(TorrentRequest::class, 'request_id');
+        return $this->belongsTo(TorrentRequest::class, 'reported_request_id');
     }
 
     /**
@@ -85,7 +88,7 @@ final class Report extends Model
      */
     public function torrent(): BelongsTo
     {
-        return $this->belongsTo(Torrent::class, 'torrent_id');
+        return $this->belongsTo(Torrent::class, 'reported_torrent_id');
     }
 
     /**
@@ -105,7 +108,17 @@ final class Report extends Model
      */
     public function reported(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'reported_user')->withTrashed();
+        return $this->belongsTo(User::class, 'reported_user_id')->withTrashed();
+    }
+
+    /**
+     * Get the staff user that is assigned to the report.
+     *
+     * @return BelongsTo<User, $this>
+     */
+    public function assignee(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'assigned_to')->withTrashed();
     }
 
     /**
@@ -113,8 +126,8 @@ final class Report extends Model
      *
      * @return BelongsTo<User, $this>
      */
-    public function staff(): BelongsTo
+    public function judge(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'staff_id')->withTrashed();
+        return $this->belongsTo(User::class, 'solved_by')->withTrashed();
     }
 }

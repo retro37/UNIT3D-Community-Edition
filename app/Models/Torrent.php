@@ -766,7 +766,7 @@ final class Torrent extends Model
      */
     public function reports(): HasMany
     {
-        return $this->hasMany(Report::class);
+        return $this->hasMany(Report::class, 'reported_torrent_id');
     }
 
     /**

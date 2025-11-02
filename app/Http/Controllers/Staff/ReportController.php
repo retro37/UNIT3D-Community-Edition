@@ -19,8 +19,10 @@ namespace App\Http\Controllers\Staff;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Staff\UpdateReportRequest;
 use App\Models\Conversation;
+use App\Models\Group;
 use App\Models\PrivateMessage;
 use App\Models\Report;
+use App\Models\User;
 
 /**
  * @see \Tests\Todo\Feature\Http\Controllers\ReportControllerTest
@@ -43,7 +45,11 @@ class ReportController extends Controller
         // cspell:ignore punct
         preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', (string) $report->message, $match);
 
-        return view('Staff.report.show', ['report' => $report, 'urls' => $match[0]]);
+        return view('Staff.report.show', [
+            'report' => $report,
+            'urls'   => $match[0],
+            'staff'  => User::whereIn('group_id', Group::where('is_modo', '=', 1)->whereNot('slug', '=', 'bot')->select('id'))->get(),
+        ]);
     }
 
     /**
@@ -53,12 +59,15 @@ class ReportController extends Controller
     {
         $staff = auth()->user();
 
-        if ($report->solved) {
+        if ($report->solved_by !== null) {
             return to_route('staff.reports.index')
                 ->withErrors('This report has already been solved');
         }
 
-        $report->update(['solved' => true, 'staff_id' => $staff->id] + $request->validated());
+        $report->update([
+            'solved_by' => $staff->id,
+            'solved_at' => now(),
+        ] + $request->validated());
 
         $conversation = Conversation::create(['subject' => 'Your Report Has A New Verdict']);
 

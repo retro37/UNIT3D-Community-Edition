@@ -44,14 +44,13 @@ class ReportController extends Controller
         ]);
 
         Report::create([
-            'type'          => 'Request',
-            'request_id'    => $torrentRequest->id,
-            'torrent_id'    => null,
-            'reporter_id'   => $reportedBy->id,
-            'reported_user' => $reportedUser->id,
-            'title'         => $torrentRequest->name,
-            'message'       => $request->string('message'),
-            'solved'        => false,
+            'type'                => 'Request',
+            'reported_request_id' => $torrentRequest->id,
+            'reported_torrent_id' => null,
+            'reporter_id'         => $reportedBy->id,
+            'reported_user_id'    => $reportedUser->id,
+            'title'               => $torrentRequest->name,
+            'message'             => $request->string('message'),
         ]);
 
         return to_route('requests.show', ['torrentRequest' => $torrentRequest])
@@ -75,14 +74,13 @@ class ReportController extends Controller
         ]);
 
         Report::create([
-            'type'          => 'Torrent',
-            'torrent_id'    => $torrent->id,
-            'request_id'    => null,
-            'reporter_id'   => $reportedBy->id,
-            'reported_user' => $reportedUser->id,
-            'title'         => $torrent->name,
-            'message'       => $request->string('message'),
-            'solved'        => false,
+            'type'                => 'Torrent',
+            'reported_torrent_id' => $torrent->id,
+            'reported_request_id' => null,
+            'reporter_id'         => $reportedBy->id,
+            'reported_user_id'    => $reportedUser->id,
+            'title'               => $torrent->name,
+            'message'             => $request->string('message'),
         ]);
 
         return to_route('torrents.show', ['id' => $id])
@@ -105,14 +103,13 @@ class ReportController extends Controller
         ]);
 
         Report::create([
-            'type'          => 'User',
-            'torrent_id'    => null,
-            'request_id'    => null,
-            'reporter_id'   => $reportedBy->id,
-            'reported_user' => $reportedUser->id,
-            'title'         => $reportedUser->username,
-            'message'       => $request->string('message'),
-            'solved'        => false,
+            'type'                => 'User',
+            'reported_torrent_id' => null,
+            'reported_request_id' => null,
+            'reporter_id'         => $reportedBy->id,
+            'reported_user_id'    => $reportedUser->id,
+            'title'               => $reportedUser->username,
+            'message'             => $request->string('message'),
         ]);
 
         return to_route('users.show', ['user' => $reportedUser])
