@@ -396,6 +396,12 @@
                         alt="{{ __('user.my-profile') }}"
                         class="top-nav__profile-image"
                     />
+                    @if (auth()->user()->privacy?->private_profile)
+                        <i
+                            class="{{ config('other.font-awesome') }} fa-ghost top-nav__profile-image-private-icon"
+                            title="{{ __('user.profile-is-private') }}"
+                        ></i>
+                    @endif
                 </a>
                 <a class="top-nav__dropdown--touch" tabindex="0">
                     <img
@@ -403,6 +409,12 @@
                         alt="{{ __('user.my-profile') }}"
                         class="top-nav__profile-image"
                     />
+                    @if (auth()->user()->privacy?->private_profile)
+                        <i
+                            class="{{ config('other.font-awesome') }} fa-ghost top-nav__profile-image-private-icon"
+                            title="{{ __('user.profile-is-private') }}"
+                        ></i>
+                    @endif
                 </a>
                 <ul>
                     <li>
