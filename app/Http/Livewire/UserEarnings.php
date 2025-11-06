@@ -97,7 +97,7 @@ class UserEarnings extends Component
                 }
 
                 $innerQuery->selectRaw("MAX({$conditionQuery}) AS bon_earning_{$bonEarning->id}");
-                $outerQuery->selectRaw("SUM(bon_earning_{$bonEarning->id}) AS bon_earning_{$bonEarning->id}");
+                $outerQuery->selectRaw("COALESCE(SUM(bon_earning_{$bonEarning->id}), 0) AS bon_earning_{$bonEarning->id}");
             }
 
             $torrentCounts = $outerQuery->fromSub($innerQuery, 'peers_per_torrent')->first();
