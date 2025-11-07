@@ -117,10 +117,17 @@ class PostController extends Controller
                 $staffer->notify(new NewPost('staff', $user, $post));
             }
         } else {
-            if ($post->anon) {
-                $this->chatRepository->systemMessage(\sprintf('An anonymous user has left a reply on topic [url=%s]%s[/url]', $postUrl, $topic->name));
-            } else {
-                $this->chatRepository->systemMessage(\sprintf('[url=%s]%s[/url] has left a reply on topic [url=%s]%s[/url]', $profileUrl, $user->username, $postUrl, $topic->name));
+            $isChatboxPrivy = $forum->permissions()
+                ->where('read_topic', '=', true)
+                ->whereRelation('group', 'slug', '=', 'user')
+                ->exists();
+
+            if ($isChatboxPrivy) {
+                if ($post->anon) {
+                    $this->chatRepository->systemMessage(\sprintf('An anonymous user has left a reply on topic [url=%s]%s[/url]', $postUrl, $topic->name));
+                } else {
+                    $this->chatRepository->systemMessage(\sprintf('[url=%s]%s[/url] has left a reply on topic [url=%s]%s[/url]', $profileUrl, $user->username, $postUrl, $topic->name));
+                }
             }
 
             $topicStarter = $topic->user;
