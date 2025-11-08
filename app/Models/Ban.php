@@ -51,7 +51,7 @@ final class Ban extends Model
      *
      * @return BelongsTo<User, $this>
      */
-    public function banneduser(): BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'owned_by')->withDefault([
             'username' => 'System',
@@ -64,7 +64,7 @@ final class Ban extends Model
      *
      * @return BelongsTo<User, $this>
      */
-    public function staffuser(): BelongsTo
+    public function staff(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by')->withDefault([
             'username' => 'System',

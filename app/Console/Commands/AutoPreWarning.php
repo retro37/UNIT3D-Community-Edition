@@ -62,7 +62,7 @@ class AutoPreWarning extends Command
             ->whereRelation('user.group', 'is_immune', '=', false)
             ->whereRelation('user', 'is_donor', '=', false)
             ->whereHas('torrent', fn ($query) => $query->whereRaw('history.actual_downloaded > torrents.size * ?', [config('hitrun.buffer') / 100]))
-            ->whereDoesntHave('user.warnings', fn ($query) => $query->withTrashed()->whereColumn('warnings.torrent', '=', 'history.torrent_id'))
+            ->whereDoesntHave('user.warnings', fn ($query) => $query->withTrashed()->whereColumn('warnings.torrent_id', '=', 'history.torrent_id'))
             ->get();
 
         $usersWithPreWarnings = [];

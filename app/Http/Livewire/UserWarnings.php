@@ -61,14 +61,14 @@ class UserWarnings extends Component
      */
     final protected \Illuminate\Pagination\LengthAwarePaginator $warnings {
         get => $this->user
-            ->userwarning()
+            ->warnings()
             ->when(
                 auth()->user()->group->is_modo,
-                fn ($query) => $query->with('warneduser', 'staffuser', 'torrenttitle'),
-                fn ($query) => $query->with('warneduser', 'torrenttitle'),
+                fn ($query) => $query->with('user', 'staff', 'torrent'),
+                fn ($query) => $query->with('user', 'torrent'),
             )
-            ->when($this->warningTab === 'automated', fn ($query) => $query->whereNotNull('torrent'))
-            ->when($this->warningTab === 'manual', fn ($query) => $query->whereNull('torrent'))
+            ->when($this->warningTab === 'automated', fn ($query) => $query->whereNotNull('torrent_id'))
+            ->when($this->warningTab === 'manual', fn ($query) => $query->whereNull('torrent_id'))
             ->when($this->warningTab === 'deleted', fn ($query) => $query->onlyTrashed())
             ->when(
                 $this->sortField === null,
@@ -79,15 +79,15 @@ class UserWarnings extends Component
     }
 
     final protected int $automatedWarningsCount {
-        get => $this->user->userwarning()->whereNotNull('torrent')->count();
+        get => $this->user->warnings()->whereNotNull('torrent_id')->count();
     }
 
     final protected int $manualWarningsCount {
-        get => $this->user->userwarning()->whereNull('torrent')->count();
+        get => $this->user->warnings()->whereNull('torrent_id')->count();
     }
 
     final protected int $deletedWarningsCount {
-        get => $this->user->userwarning()->onlyTrashed()->count();
+        get => $this->user->warnings()->onlyTrashed()->count();
     }
 
     /**
