@@ -73,7 +73,7 @@ class UserNotes extends Component
      */
     final protected \Illuminate\Pagination\LengthAwarePaginator $notes {
         get => Note::query()
-            ->with('staffuser', 'staffuser.group')
+            ->with('staff', 'staff.group')
             ->where('user_id', '=', $this->user->id)
             ->paginate($this->perPage);
     }

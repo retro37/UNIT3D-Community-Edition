@@ -66,7 +66,7 @@ class AutoWarning extends Command
             ->whereRelation('user.group', 'is_immune', '=', false)
             ->whereRelation('user', 'is_donor', '=', false)
             ->whereHas('torrent', fn ($query) => $query->whereRaw('history.actual_downloaded > torrents.size * ?', [config('hitrun.buffer') / 100]))
-            ->whereDoesntHave('user.warnings', fn ($query) => $query->withTrashed()->whereColumn('warnings.torrent', '=', 'history.torrent_id'))
+            ->whereDoesntHave('user.warnings', fn ($query) => $query->withTrashed()->whereColumn('warnings.torrent_id', '=', 'history.torrent_id'))
             ->get();
 
         $usersWithWarnings = [];
@@ -103,19 +103,19 @@ class AutoWarning extends Command
 
         // Calculate User Warning Count and Disable DL Priv If Required.
         Warning::query()
-            ->with('warneduser')
+            ->with('user')
             ->select(DB::raw('user_id, count(*) as value'))
             ->where('active', '=', 1)
             ->groupBy('user_id')
             ->having('value', '>=', config('hitrun.max_warnings'))
-            ->whereRelation('warneduser', 'can_download', '=', true)
+            ->whereRelation('user', 'can_download', '=', true)
             ->chunkById(100, function ($warnings): void {
                 foreach ($warnings as $warning) {
-                    $warning->warneduser->update(['can_download' => 0]);
+                    $warning->user->update(['can_download' => 0]);
 
-                    cache()->forget('user:'.$warning->warneduser->passkey);
+                    cache()->forget('user:'.$warning->user->passkey);
 
-                    Unit3dAnnounce::addUser($warning->warneduser);
+                    Unit3dAnnounce::addUser($warning->user);
                 }
             }, 'user_id');
 

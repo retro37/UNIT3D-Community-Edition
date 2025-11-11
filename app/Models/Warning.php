@@ -68,9 +68,9 @@ final class Warning extends Model
      *
      * @return BelongsTo<Torrent, $this>
      */
-    public function torrenttitle(): BelongsTo
+    public function torrent(): BelongsTo
     {
-        return $this->belongsTo(Torrent::class, 'torrent');
+        return $this->belongsTo(Torrent::class);
     }
 
     /**
@@ -78,7 +78,7 @@ final class Warning extends Model
      *
      * @return BelongsTo<User, $this>
      */
-    public function warneduser(): BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id')->withDefault([
             'username' => 'System',
@@ -91,7 +91,7 @@ final class Warning extends Model
      *
      * @return BelongsTo<User, $this>
      */
-    public function staffuser(): BelongsTo
+    public function staff(): BelongsTo
     {
         return $this->belongsTo(User::class, 'warned_by')->withDefault([
             'username' => 'System',

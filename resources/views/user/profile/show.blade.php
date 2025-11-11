@@ -452,7 +452,7 @@
         @endif
 
         @if (auth()->user()->group->is_modo)
-            @include('user.profile.partials.bans', ['bans' => $user->userban])
+            @include('user.profile.partials.bans', ['bans' => $user->bans])
         @endif
 
         @if (auth()->user()->group->is_modo ||auth()->user()->is($user))

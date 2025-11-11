@@ -2577,7 +2577,7 @@ CREATE TABLE `warnings` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int unsigned NOT NULL,
   `warned_by` int unsigned NOT NULL,
-  `torrent` int unsigned DEFAULT NULL,
+  `torrent_id` int unsigned DEFAULT NULL,
   `reason` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `expires_on` datetime DEFAULT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '0',
@@ -2588,11 +2588,11 @@ CREATE TABLE `warnings` (
   PRIMARY KEY (`id`),
   KEY `warnings_user_id_foreign` (`user_id`),
   KEY `warnings_warned_by_foreign` (`warned_by`),
-  KEY `warnings_torrent_foreign` (`torrent`),
+  KEY `warnings_torrent_foreign` (`torrent_id`),
   KEY `warnings_deleted_by_foreign` (`deleted_by`),
   KEY `warnings_user_id_active_deleted_at_index` (`user_id`,`active`,`deleted_at`),
   CONSTRAINT `warnings_deleted_by_foreign` FOREIGN KEY (`deleted_by`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `warnings_torrent_foreign` FOREIGN KEY (`torrent`) REFERENCES `torrents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `warnings_torrent_foreign` FOREIGN KEY (`torrent_id`) REFERENCES `torrents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `warnings_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `warnings_warned_by_foreign` FOREIGN KEY (`warned_by`) REFERENCES `users` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3041,3 +3041,4 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (362,'2025_09_07_23
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (363,'2025_09_07_235945_add_adult_column_to_tmdb_tv',1);
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (364,'2025_09_08_000029_make_audits_morphable',1);
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (365,'2025_09_25_110038_alter_reports_create_assignee',1);
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (366,'2025_11_08_094209_rename_warnings_torrent_to_torrent_id',1);

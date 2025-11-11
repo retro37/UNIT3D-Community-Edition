@@ -644,9 +644,9 @@ final class Torrent extends Model
      *
      * @return HasMany<Warning, $this>
      */
-    public function hitrun(): HasMany
+    public function warnings(): HasMany
     {
-        return $this->hasMany(Warning::class, 'torrent');
+        return $this->hasMany(Warning::class);
     }
 
     /**
