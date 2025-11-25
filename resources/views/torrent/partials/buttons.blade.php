@@ -102,8 +102,8 @@
                 <div class="dialog__form" x-bind="dialogForm">
                     <div class="bbcode-rendered" style="text-align: left">
                         <pre
-                            style="width: max-content"
-                        ><code class="torrent__nfo" style="white-space: pre;">{{ iconv('cp437', 'utf8', $torrent->nfo) }}</code></pre>
+                            class="torrent__nfo-pre"
+                        ><code class="torrent__nfo">{{ iconv('cp437', 'utf8', $torrent->nfo) }}</code></pre>
                     </div>
                 </div>
             </dialog>

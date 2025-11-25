@@ -98,7 +98,14 @@
 ---------------------------------------------------------------------------- */
 
 .torrent__nfo {
-    line-height: 1;
+    line-height: 1 !important;
+    letter-spacing: -1px;
+    white-space: pre;
+}
+
+.torrent__nfo-pre {
+    width: max-content;
+    line-height: 1 !important;
 }
 
 /* Peer counts
