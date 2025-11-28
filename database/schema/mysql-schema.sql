@@ -2259,10 +2259,12 @@ CREATE TABLE `user_audibles` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `user_audibles_user_id_room_id_unique` (`user_id`,`room_id`),
+  UNIQUE KEY `user_audibles_user_id_target_id_unique` (`user_id`,`target_id`),
+  UNIQUE KEY `user_audibles_user_id_bot_id_unique` (`user_id`,`bot_id`),
   KEY `user_audibles_room_id_index` (`room_id`),
   KEY `user_audibles_bot_id_index` (`bot_id`),
   KEY `user_audibles_status_index` (`status`),
-  KEY `user_audibles_user_id_foreign` (`user_id`),
   KEY `user_audibles_target_id_foreign` (`target_id`),
   CONSTRAINT `user_audibles_target_id_foreign` FOREIGN KEY (`target_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `user_audibles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE
@@ -2280,9 +2282,11 @@ CREATE TABLE `user_echoes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `user_echoes_user_id_room_id_unique` (`user_id`,`room_id`),
+  UNIQUE KEY `user_echoes_user_id_target_id_unique` (`user_id`,`target_id`),
+  UNIQUE KEY `user_echoes_user_id_bot_id_unique` (`user_id`,`bot_id`),
   KEY `user_echoes_room_id_index` (`room_id`),
   KEY `user_echoes_bot_id_index` (`bot_id`),
-  KEY `user_echoes_user_id_foreign` (`user_id`),
   KEY `user_echoes_target_id_foreign` (`target_id`),
   CONSTRAINT `user_echoes_target_id_foreign` FOREIGN KEY (`target_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `user_echoes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE
@@ -3042,3 +3046,4 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (363,'2025_09_07_23
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (364,'2025_09_08_000029_make_audits_morphable',1);
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (365,'2025_09_25_110038_alter_reports_create_assignee',1);
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (366,'2025_11_08_094209_rename_warnings_torrent_to_torrent_id',1);
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (367,'2025_11_18_080804_echoes_audibles_unique_keys',1);
