@@ -103,7 +103,7 @@ class SystemInformation
     protected function formatBytes(int|float $bytes, int $precision = 2): string
     {
         $bytes = max($bytes, 0);
-        $pow = floor(($bytes ? log($bytes) : 0) / log(1_024));
+        $pow = (int) floor(($bytes ? log($bytes) : 0) / log(1_024));
         $pow = min($pow, (\count(self::UNITS)) - 1);
         // Uncomment one of the following alternatives
         $bytes /= 1_024 ** $pow;

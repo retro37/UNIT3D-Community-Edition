@@ -36,7 +36,7 @@ use AllowDynamicProperties;
  * @property int|null                        $tmdb_movie_id
  * @property int|null                        $tmdb_tv_id
  * @property int|null                        $mal
- * @property int                             $igdb
+ * @property int|null                        $igdb
  * @property string                          $description
  * @property int                             $user_id
  * @property string                          $bounty

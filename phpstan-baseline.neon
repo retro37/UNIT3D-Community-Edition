@@ -421,6 +421,24 @@ parameters:
 			path: app/Http/Livewire/MissingMediaSearch.php
 
 		-
+			message: '#^Offset ''game'' might not exist on array\{movie\?\: non\-empty\-array\<int, array\{Movie\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, category_id\: int\}\>, tv\?\: non\-empty\-array\<int, array\{''Complete Pack''\?\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, Specials\?\: non\-empty\-array\<string, array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>\>, Seasons\?\: non\-empty\-array\<string, array\{''Season Pack''\?\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, Episodes\?\: non\-empty\-array\<string, array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>\>\}\>, category_id\: int\}\>, game\?\: non\-empty\-array\<int, array\{Game\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, category_id\: int\}\>\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: app/Http/Livewire/SimilarTorrent.php
+
+		-
+			message: '#^Offset ''movie'' might not exist on array\{movie\?\: non\-empty\-array\<int, array\{Movie\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, category_id\: int\}\>, tv\?\: non\-empty\-array\<int, array\{''Complete Pack''\?\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, Specials\?\: non\-empty\-array\<string, array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>\>, Seasons\?\: non\-empty\-array\<string, array\{''Season Pack''\?\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, Episodes\?\: non\-empty\-array\<string, array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>\>\}\>, category_id\: int\}\>, game\?\: non\-empty\-array\<int, array\{Game\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, category_id\: int\}\>\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: app/Http/Livewire/SimilarTorrent.php
+
+		-
+			message: '#^Offset ''tv'' might not exist on array\{movie\?\: non\-empty\-array\<int, array\{Movie\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, category_id\: int\}\>, tv\?\: non\-empty\-array\<int, array\{''Complete Pack''\?\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, Specials\?\: non\-empty\-array\<string, array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>\>, Seasons\?\: non\-empty\-array\<string, array\{''Season Pack''\?\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, Episodes\?\: non\-empty\-array\<string, array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>\>\}\>, category_id\: int\}\>, game\?\: non\-empty\-array\<int, array\{Game\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, category_id\: int\}\>\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: app/Http/Livewire/SimilarTorrent.php
+
+		-
 			message: '#^Anonymous function should return Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\> but returns Illuminate\\Database\\Eloquent\\Builder\<App\\Models\\Group\>\.$#'
 			identifier: return.type
 			count: 1
