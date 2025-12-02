@@ -102,7 +102,7 @@ class UserWarnings extends Component
         Warning::create([
             'user_id'    => $this->user->id,
             'warned_by'  => auth()->user()->id,
-            'torrent'    => null,
+            'torrent_id' => null,
             'reason'     => $this->message,
             'expires_on' => Carbon::now()->addDays(config('hitrun.expire')),
             'active'     => true,
