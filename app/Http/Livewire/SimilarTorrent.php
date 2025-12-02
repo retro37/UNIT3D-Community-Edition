@@ -337,12 +337,9 @@ class SimilarTorrent extends Component
                 ->get();
 
             return match ($this->work::class) {
-                /** @phpstan-ignore offsetAccess.notFound ('movie' offset exists if the torrent is a movie) */
-                TmdbMovie::class => self::groupTorrents($torrents)['movie'][$this->tmdbId]['Movie'],
-                /** @phpstan-ignore offsetAccess.notFound ('tv' offset exists if the torrent is a tv) */
-                TmdbTv::class => self::groupTorrents($torrents)['tv'][$this->tmdbId],
-                /** @phpstan-ignore offsetAccess.notFound ('game' offset exists if the torrent is a game) */
-                IgdbGame::class => self::groupTorrents($torrents)['game'][$this->igdbId]['Game'],
+                TmdbMovie::class => self::groupTorrents($torrents)['movie'][$this->tmdbId]['Movie'] ?? [],
+                TmdbTv::class    => self::groupTorrents($torrents)['tv'][$this->tmdbId] ?? [],
+                IgdbGame::class  => self::groupTorrents($torrents)['game'][$this->igdbId]['Game'] ?? [],
             };
         }
     }
