@@ -73,18 +73,21 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function configureRateLimiting(): void
     {
-        RateLimiter::for(GlobalRateLimit::WEB, fn (Request $request): Limit => $request->user()
-            ? Limit::perMinute(
+        RateLimiter::for(GlobalRateLimit::WEB, function (Request $request): Limit {
+            $user = $request->user();
+
+            return $user ? Limit::perMinute(
                 cache()->flexible(
-                    'group:'.$request->user()->group_id.':is_modo',
+                    'group:'.$user->group_id.':is_modo',
                     [5, 10],
-                    fn () => $request->user()->group()->value('is_modo')
+                    fn () => $user->group()->value('is_modo')
                 )
                     ? 60
                     : 30
             )
-                ->by('web'.$request->user()->id)
-            : Limit::perMinute(8)->by('web'.$request->ip()));
+                ->by('web'.$user->id)
+            : Limit::perMinute(8)->by('web'.$request->ip());
+        });
         RateLimiter::for(GlobalRateLimit::API, fn (Request $request) => Limit::perMinute(30)->by('api'.$request->user()->id));
         RateLimiter::for(GlobalRateLimit::ANNOUNCE, fn (Request $request) => Limit::perMinute(500)->by('announce'.$request->ip()));
         RateLimiter::for(GlobalRateLimit::CHAT, fn (Request $request) => Limit::perMinute(60)->by('chat'.$request->user()->id));
