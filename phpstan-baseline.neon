@@ -313,12 +313,6 @@ parameters:
 			path: app/Http/Controllers/Staff/DonationController.php
 
 		-
-			message: '#^Strict comparison using \=\=\= between int and null will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
-			count: 1
-			path: app/Http/Controllers/Staff/DonationController.php
-
-		-
 			message: '#^Access to an undefined property App\\Models\\Group\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\Group\>\:\:\$level\.$#'
 			identifier: property.notFound
 			count: 1
