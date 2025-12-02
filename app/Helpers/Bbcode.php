@@ -28,7 +28,7 @@ class Bbcode
      *         closeBbcode: string,
      *         openHtml: string,
      *         closeHtml: string,
-     *         block: boolean
+     *         block: bool
      *     }
      * > $parsers.
      */
