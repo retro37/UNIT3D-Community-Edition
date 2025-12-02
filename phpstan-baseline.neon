@@ -289,12 +289,6 @@ parameters:
 			path: app/Http/Controllers/RequestController.php
 
 		-
-			message: '#^Strict comparison using \!\=\= between int and null will always evaluate to true\.$#'
-			identifier: notIdentical.alwaysTrue
-			count: 2
-			path: app/Http/Controllers/RequestController.php
-
-		-
 			message: '#^Anonymous function should return Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\> but returns Illuminate\\Database\\Eloquent\\Builder\<App\\Models\\Group\>\.$#'
 			identifier: return.type
 			count: 1
@@ -352,12 +346,6 @@ parameters:
 			message: '#^Anonymous function should return Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\> but returns Illuminate\\Database\\Eloquent\\Builder\<App\\Models\\History\>\.$#'
 			identifier: return.type
 			count: 1
-			path: app/Http/Controllers/TorrentController.php
-
-		-
-			message: '#^Strict comparison using \!\=\= between int and null will always evaluate to true\.$#'
-			identifier: notIdentical.alwaysTrue
-			count: 2
 			path: app/Http/Controllers/TorrentController.php
 
 		-

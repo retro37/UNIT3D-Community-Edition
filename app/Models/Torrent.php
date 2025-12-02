@@ -56,7 +56,7 @@ use AllowDynamicProperties;
  * @property int|null                        $tmdb_movie_id
  * @property int|null                        $tmdb_tv_id
  * @property int                             $mal
- * @property int                             $igdb
+ * @property int|null                        $igdb
  * @property int|null                        $season_number
  * @property int|null                        $episode_number
  * @property int                             $free
