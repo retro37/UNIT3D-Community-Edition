@@ -43,6 +43,18 @@ parameters:
 			path: app/Console/Commands/AutoGroup.php
 
 		-
+			message: '#^Strict comparison using \=\=\= between int and null will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 5
+			path: app/Console/Commands/AutoGroup.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between string and null will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: app/Console/Commands/AutoGroup.php
+
+		-
 			message: '#^Anonymous function should return Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\> but returns Illuminate\\Database\\Eloquent\\Builder\<App\\Models\\Torrent\>\.$#'
 			identifier: return.type
 			count: 1
@@ -211,6 +223,12 @@ parameters:
 			path: app/Helpers/CacheUser.php
 
 		-
+			message: '#^Possibly invalid array key type float\|int\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 1
+			path: app/Helpers/SystemInformation.php
+
+		-
 			message: '#^Method App\\Http\\Controllers\\API\\BaseController\:\:sendError\(\) has parameter \$code with no type specified\.$#'
 			identifier: missingType.parameter
 			count: 1
@@ -283,6 +301,12 @@ parameters:
 			path: app/Http/Controllers/RequestController.php
 
 		-
+			message: '#^Strict comparison using \!\=\= between int and null will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 2
+			path: app/Http/Controllers/RequestController.php
+
+		-
 			message: '#^Anonymous function should return Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\> but returns Illuminate\\Database\\Eloquent\\Builder\<App\\Models\\Group\>\.$#'
 			identifier: return.type
 			count: 1
@@ -303,6 +327,12 @@ parameters:
 		-
 			message: '#^Binary operation "\+\=" between string and int results in an error\.$#'
 			identifier: assignOp.invalid
+			count: 1
+			path: app/Http/Controllers/Staff/DonationController.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between int and null will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
 			count: 1
 			path: app/Http/Controllers/Staff/DonationController.php
 
@@ -334,6 +364,12 @@ parameters:
 			message: '#^Anonymous function should return Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\> but returns Illuminate\\Database\\Eloquent\\Builder\<App\\Models\\History\>\.$#'
 			identifier: return.type
 			count: 1
+			path: app/Http/Controllers/TorrentController.php
+
+		-
+			message: '#^Strict comparison using \!\=\= between int and null will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 2
 			path: app/Http/Controllers/TorrentController.php
 
 		-
@@ -419,6 +455,24 @@ parameters:
 			identifier: missingType.iterableValue
 			count: 1
 			path: app/Http/Livewire/MissingMediaSearch.php
+
+		-
+			message: '#^Offset ''game'' might not exist on array\{movie\?\: non\-empty\-array\<int, array\{Movie\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, category_id\: int\}\>, tv\?\: non\-empty\-array\<int, array\{''Complete Pack''\?\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, Specials\?\: non\-empty\-array\<string, array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>\>, Seasons\?\: non\-empty\-array\<string, array\{''Season Pack''\?\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, Episodes\?\: non\-empty\-array\<string, array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>\>\}\>, category_id\: int\}\>, game\?\: non\-empty\-array\<int, array\{Game\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, category_id\: int\}\>\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: app/Http/Livewire/SimilarTorrent.php
+
+		-
+			message: '#^Offset ''movie'' might not exist on array\{movie\?\: non\-empty\-array\<int, array\{Movie\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, category_id\: int\}\>, tv\?\: non\-empty\-array\<int, array\{''Complete Pack''\?\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, Specials\?\: non\-empty\-array\<string, array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>\>, Seasons\?\: non\-empty\-array\<string, array\{''Season Pack''\?\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, Episodes\?\: non\-empty\-array\<string, array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>\>\}\>, category_id\: int\}\>, game\?\: non\-empty\-array\<int, array\{Game\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, category_id\: int\}\>\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: app/Http/Livewire/SimilarTorrent.php
+
+		-
+			message: '#^Offset ''tv'' might not exist on array\{movie\?\: non\-empty\-array\<int, array\{Movie\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, category_id\: int\}\>, tv\?\: non\-empty\-array\<int, array\{''Complete Pack''\?\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, Specials\?\: non\-empty\-array\<string, array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>\>, Seasons\?\: non\-empty\-array\<string, array\{''Season Pack''\?\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, Episodes\?\: non\-empty\-array\<string, array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>\>\}\>, category_id\: int\}\>, game\?\: non\-empty\-array\<int, array\{Game\: non\-empty\-array\<string, non\-empty\-list\<App\\Models\\Torrent\>\>, category_id\: int\}\>\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: app/Http/Livewire/SimilarTorrent.php
 
 		-
 			message: '#^Anonymous function should return Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\> but returns Illuminate\\Database\\Eloquent\\Builder\<App\\Models\\Group\>\.$#'
@@ -539,6 +593,12 @@ parameters:
 			identifier: identical.alwaysFalse
 			count: 1
 			path: app/Models/User.php
+
+		-
+			message: '#^Strict comparison using \!\=\= between int and null will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 1
+			path: app/Notifications/NewComment.php
 
 		-
 			message: '#^Cannot access offset ''validator'' on Illuminate\\Contracts\\Foundation\\Application\.$#'
