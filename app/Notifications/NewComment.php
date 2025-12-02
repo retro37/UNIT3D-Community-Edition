@@ -87,9 +87,7 @@ class NewComment extends Notification
                 // the expression will return false.
                 return ! \in_array($this->comment->user->group_id, $notifiable->notification?->json_request_groups ?? [], true);
             case Ticket::class:
-                return ! ($this->model->staff_id === $this->comment->id && $this->model->staff_id !== null)
-                ;
-
+                return $notifiable->id !== $this->comment->user_id;
             case Playlist::class:
             case Article::class:
                 break;
