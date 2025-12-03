@@ -92,4 +92,4 @@ bun run build
 
 ## 5. Meilisearch maintenance
 
-Refer [Meilisearch setup for UNIT3D](https://github.com/HDInnovations/UNIT3D-Community-Edition/wiki/Meilisearch-Setup-for-UNIT3D), specifically the [maintenance](https://github.com/HDInnovations/UNIT3D-Community-Edition/wiki/Meilisearch-Setup-for-UNIT3D#3-maintenance) section, for managing upgrades and syncing indexes.
+Refer [Meilisearch setup for UNIT3D](https://github.com/HDInnovations/UNIT3D/wiki/Meilisearch-Setup-for-UNIT3D), specifically the [maintenance](https://github.com/HDInnovations/UNIT3D/wiki/Meilisearch-Setup-for-UNIT3D#3-maintenance) section, for managing upgrades and syncing indexes.

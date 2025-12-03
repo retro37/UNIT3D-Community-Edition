@@ -5,11 +5,11 @@
 <p align="center">
     <a href="http://laravel.com"><img src="https://img.shields.io/badge/Laravel-12-f4645f.svg" /></a>
     <a href="https://github.com/HDInnovations/UNIT3D/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-AGPL%20v3.0-yellow.svg" /></a>
-    <a href="https://github.com/HDInnovations/UNIT3D-Community-Edition/actions/workflows/lint.yml/badge.svg?branch=master"><img src="https://github.com/HDInnovations/UNIT3D-Community-Edition/actions/workflows/lint.yml/badge.svg?branch=master" /></a>
-    <a href="https://github.com/HDInnovations/UNIT3D-Community-Edition/actions/workflows/phpunit-test.yml/badge.svg?branch=master"><img src="https://github.com/HDInnovations/UNIT3D-Community-Edition/actions/workflows/phpunit-test.yml/badge.svg?branch=master" /></a>
-    <a href="https://github.com/HDInnovations/UNIT3D-Community-Edition/actions/workflows/compile-assets-test.yml/badge.svg?branch=master"><img src="https://github.com/HDInnovations/UNIT3D-Community-Edition/actions/workflows/compile-assets-test.yml/badge.svg?branch=master" /></a>
-    <a href="https://github.com/HDInnovations/UNIT3D-Community-Edition/actions/workflows/larastan.yml/badge.svg?branch=master"><img src="https://github.com/HDInnovations/UNIT3D-Community-Edition/actions/workflows/larastan.yml/badge.svg?branch=master" /></a>
-    <a href="https://github.com/HDInnovations/UNIT3D-Community-Edition/actions/workflows/prettier-blade.yml/badge.svg?branch=master"><img src="https://github.com/HDInnovations/UNIT3D-Community-Edition/actions/workflows/prettier-blade.yml/badge.svg?branch=master" /></a>
+    <a href="https://github.com/HDInnovations/UNIT3D/actions/workflows/lint.yml/badge.svg?branch=master"><img src="https://github.com/HDInnovations/UNIT3D/actions/workflows/lint.yml/badge.svg?branch=master" /></a>
+    <a href="https://github.com/HDInnovations/UNIT3D/actions/workflows/phpunit-test.yml/badge.svg?branch=master"><img src="https://github.com/HDInnovations/UNIT3D/actions/workflows/phpunit-test.yml/badge.svg?branch=master" /></a>
+    <a href="https://github.com/HDInnovations/UNIT3D/actions/workflows/compile-assets-test.yml/badge.svg?branch=master"><img src="https://github.com/HDInnovations/UNIT3D/actions/workflows/compile-assets-test.yml/badge.svg?branch=master" /></a>
+    <a href="https://github.com/HDInnovations/UNIT3D/actions/workflows/larastan.yml/badge.svg?branch=master"><img src="https://github.com/HDInnovations/UNIT3D/actions/workflows/larastan.yml/badge.svg?branch=master" /></a>
+    <a href="https://github.com/HDInnovations/UNIT3D/actions/workflows/prettier-blade.yml/badge.svg?branch=master"><img src="https://github.com/HDInnovations/UNIT3D/actions/workflows/prettier-blade.yml/badge.svg?branch=master" /></a>
     <a href="https://hosted.weblate.org/engage/unit3d/">
     <img src="https://hosted.weblate.org/widget/unit3d/svg-badge.svg" alt="Translation status" />
     </a>
@@ -53,7 +53,7 @@ https://hdinnovations.github.io/HDInnovations
 
 ## <a name="contributing"></a> 🤝 Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/HDInnovations/UNIT3D-Community-Edition/blob/master/CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests to us. A massive thank you to all of our <a href="https://github.com/HDInnovations/UNIT3D-Community-Edition/graphs/contributors">contributors</a>.
+Please read [CONTRIBUTING.md](https://github.com/HDInnovations/UNIT3D/blob/master/CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests to us. A massive thank you to all of our <a href="https://github.com/HDInnovations/UNIT3D/graphs/contributors">contributors</a>.
 
 ## <a name="translations"></a> 🌎 Translations
 
@@ -65,6 +65,6 @@ We use Weblate for translations. You can easily contribute to translations at ht
 
 ## <a name="license"></a> 📜 License
 
-This project is licensed under the AGPL v3.0 License. See the [LICENSE](https://github.com/HDInnovations/UNIT3D-Community-Edition/blob/master/LICENSE.md) file for details.
+This project is licensed under the AGPL v3.0 License. See the [LICENSE](https://github.com/HDInnovations/UNIT3D/blob/master/LICENSE.md) file for details.
 
 
