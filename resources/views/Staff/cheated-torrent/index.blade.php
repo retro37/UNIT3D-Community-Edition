@@ -2,12 +2,12 @@
 
 @section('title')
     <title>
-        Cheated Torrents - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}
+        Cheated torrents - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}
     </title>
 @endsection
 
 @section('meta')
-    <meta name="description" content="Cheated Torrents - {{ __('staff.staff-dashboard') }}" />
+    <meta name="description" content="Cheated torrents - {{ __('staff.staff-dashboard') }}" />
 @endsection
 
 @section('breadcrumbs')
@@ -16,7 +16,7 @@
             {{ __('staff.staff-dashboard') }}
         </a>
     </li>
-    <li class="breadcrumb--active">Cheated Torrents</li>
+    <li class="breadcrumb--active">Cheated torrents</li>
 @endsection
 
 @section('page', 'page__staff-cheated-torrent--index')
@@ -24,7 +24,7 @@
 @section('main')
     <section class="panelV2">
         <header class="panel__header">
-            <h2 class="panel__heading">Cheated Torrents</h2>
+            <h2 class="panel__heading">Cheated torrents</h2>
             <div class="panel__actions">
                 <form
                     class="panel__action"
@@ -60,7 +60,7 @@
                         </th>
                         <th>{{ __('torrent.size') }}</th>
                         <th>Balance</th>
-                        <th>Times Cheated</th>
+                        <th>Times cheated</th>
                         <th>{{ __('torrent.uploaded') }}</th>
                         <th>{{ __('common.actions') }}</th>
                     </tr>
@@ -122,7 +122,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button class="form__button form__button--text">
-                                                Reset Balance
+                                                Reset balance
                                             </button>
                                         </form>
                                     </li>

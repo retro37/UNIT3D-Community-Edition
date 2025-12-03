@@ -61,14 +61,14 @@ class UserWarnings extends Component
      */
     final protected \Illuminate\Pagination\LengthAwarePaginator $warnings {
         get => $this->user
-            ->userwarning()
+            ->warnings()
             ->when(
                 auth()->user()->group->is_modo,
-                fn ($query) => $query->with('warneduser', 'staffuser', 'torrenttitle'),
-                fn ($query) => $query->with('warneduser', 'torrenttitle'),
+                fn ($query) => $query->with('user', 'staff', 'torrent'),
+                fn ($query) => $query->with('user', 'torrent'),
             )
-            ->when($this->warningTab === 'automated', fn ($query) => $query->whereNotNull('torrent'))
-            ->when($this->warningTab === 'manual', fn ($query) => $query->whereNull('torrent'))
+            ->when($this->warningTab === 'automated', fn ($query) => $query->whereNotNull('torrent_id'))
+            ->when($this->warningTab === 'manual', fn ($query) => $query->whereNull('torrent_id'))
             ->when($this->warningTab === 'deleted', fn ($query) => $query->onlyTrashed())
             ->when(
                 $this->sortField === null,
@@ -79,15 +79,15 @@ class UserWarnings extends Component
     }
 
     final protected int $automatedWarningsCount {
-        get => $this->user->userwarning()->whereNotNull('torrent')->count();
+        get => $this->user->warnings()->whereNotNull('torrent_id')->count();
     }
 
     final protected int $manualWarningsCount {
-        get => $this->user->userwarning()->whereNull('torrent')->count();
+        get => $this->user->warnings()->whereNull('torrent_id')->count();
     }
 
     final protected int $deletedWarningsCount {
-        get => $this->user->userwarning()->onlyTrashed()->count();
+        get => $this->user->warnings()->onlyTrashed()->count();
     }
 
     /**
@@ -102,7 +102,7 @@ class UserWarnings extends Component
         Warning::create([
             'user_id'    => $this->user->id,
             'warned_by'  => auth()->user()->id,
-            'torrent'    => null,
+            'torrent_id' => null,
             'reason'     => $this->message,
             'expires_on' => Carbon::now()->addDays(config('hitrun.expire')),
             'active'     => true,
@@ -131,7 +131,7 @@ class UserWarnings extends Component
 
         $this->user->notify(new WarningDeactivated($staff, $warning));
 
-        $this->dispatch('success', type: 'success', message: 'Warning Was Successfully Deactivated');
+        $this->dispatch('success', type: 'success', message: 'Warning was successfully deactivated');
     }
 
     /**
@@ -146,7 +146,7 @@ class UserWarnings extends Component
             'active'     => true,
         ]);
 
-        $this->dispatch('success', type: 'success', message: 'Warning Was Successfully Reactivated');
+        $this->dispatch('success', type: 'success', message: 'Warning was successfully reactivated');
     }
 
     /**
@@ -168,7 +168,7 @@ class UserWarnings extends Component
 
         $this->user->notify(new WarningsDeactivated($staff));
 
-        $this->dispatch('success', type: 'success', message: 'All Warnings Were Successfully Deactivated');
+        $this->dispatch('success', type: 'success', message: 'All warnings were successfully deactivated');
     }
 
     /**
@@ -190,7 +190,7 @@ class UserWarnings extends Component
 
         $this->user->notify(new WarningTorrentDeleted($staff, $warning));
 
-        $this->dispatch('success', type: 'success', message: 'Warning Was Successfully Deleted');
+        $this->dispatch('success', type: 'success', message: 'Warning was successfully deleted');
     }
 
     /**
@@ -212,7 +212,7 @@ class UserWarnings extends Component
 
         $this->user->notify(new WarningsDeleted($staff));
 
-        $this->dispatch('success', type: 'success', message: 'All Warnings Were Successfully Deleted');
+        $this->dispatch('success', type: 'success', message: 'All warnings were successfully deleted');
     }
 
     /**
@@ -224,7 +224,7 @@ class UserWarnings extends Component
 
         Warning::withTrashed()->findOrFail($id)->restore();
 
-        $this->dispatch('success', type: 'success', message: 'Warning Was Successfully Restored');
+        $this->dispatch('success', type: 'success', message: 'Warning was successfully restored');
     }
 
     final public function render(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application

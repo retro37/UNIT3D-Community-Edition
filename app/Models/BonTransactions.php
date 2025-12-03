@@ -18,6 +18,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\BonTransactions.
@@ -33,20 +35,21 @@ use Illuminate\Database\Eloquent\Model;
  * @property string   $comment
  * @property string   $created_at
  */
-class BonTransactions extends Model
+#[AllowDynamicProperties]
+final class BonTransactions extends Model
 {
     /** @use HasFactory<\Database\Factories\BonTransactionsFactory> */
     use HasFactory;
 
     /**
-     * Indicates If The Model Should Be Timestamped.
+     * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = false;
 
     /**
-     * The Storage Format Of The Model's Date Columns.
+     * The storage format of the model's date columns.
      *
      * @var string
      */
@@ -72,11 +75,11 @@ class BonTransactions extends Model
     }
 
     /**
-     * Belongs To A Sender.
+     * Get the user that sent the bon.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function sender(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function sender(): BelongsTo
     {
         return $this->belongsTo(User::class)->withDefault([
             'username' => 'System',
@@ -85,11 +88,11 @@ class BonTransactions extends Model
     }
 
     /**
-     * Belongs To A Receiver.
+     * Get the user that received the bon.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function receiver(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function receiver(): BelongsTo
     {
         return $this->belongsTo(User::class)->withDefault([
             'username' => 'System',
@@ -98,11 +101,11 @@ class BonTransactions extends Model
     }
 
     /**
-     * Belongs To BonExchange.
+     * Get the exchange that was transacted.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<BonExchange, $this>
+     * @return BelongsTo<BonExchange, $this>
      */
-    public function exchange(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function exchange(): BelongsTo
     {
         return $this->belongsTo(BonExchange::class)->withDefault([
             'value' => 0,

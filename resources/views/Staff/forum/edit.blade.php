@@ -2,7 +2,7 @@
 
 @section('title')
     <title>
-        {{ __('common.edit') }} Forums - {{ __('staff.staff-dashboard') }} -
+        {{ __('common.edit') }} forums - {{ __('staff.staff-dashboard') }} -
         {{ config('other.title') }}
     </title>
 @endsection
@@ -10,7 +10,7 @@
 @section('meta')
     <meta
         name="description"
-        content="{{ __('common.edit') }} Forums - {{ __('staff.staff-dashboard') }}"
+        content="{{ __('common.edit') }} forums - {{ __('staff.staff-dashboard') }}"
     />
 @endsection
 
@@ -22,7 +22,7 @@
     </li>
     <li class="breadcrumbV2">
         <a href="{{ route('staff.forum_categories.index') }}" class="breadcrumb__link">
-            Forum Categories
+            Forum categories
         </a>
     </li>
     <li class="breadcrumbV2">
@@ -110,7 +110,7 @@
                         @endforeach
                     </select>
                     <label class="form__label form__label--floating" for="forum_category_id">
-                        Forum Category
+                        Forum category
                     </label>
                 </p>
                 <p class="form__group">
@@ -137,7 +137,7 @@
                         class="form__label form__label--floating"
                         for="default_topic_state_filter"
                     >
-                        Topic State Filter
+                        Topic state filter
                     </label>
                 </p>
                 <div class="form__group">
@@ -212,7 +212,7 @@
                     </div>
                 </div>
                 <p class="form__group">
-                    <button class="form__button form__button--filled">Save Forum</button>
+                    <button class="form__button form__button--filled">Save forum</button>
                 </p>
             </form>
         </div>

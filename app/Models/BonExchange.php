@@ -18,6 +18,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use AllowDynamicProperties;
 
 /**
  * App\Models\BonExchange.
@@ -31,13 +32,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property bool        $personal_freeleech
  * @property bool        $invite
  */
-class BonExchange extends Model
+#[AllowDynamicProperties]
+final class BonExchange extends Model
 {
     /** @use HasFactory<\Database\Factories\BonExchangeFactory> */
     use HasFactory;
 
     /**
-     * Indicates If The Model Should Be Timestamped.
+     * Indicates if the model should be timestamped.
      *
      * @var bool
      */

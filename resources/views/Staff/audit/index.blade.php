@@ -1,11 +1,11 @@
 @extends('layout.with-main')
 
 @section('title')
-    <title>Audits Log - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}</title>
+    <title>Audits log - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}</title>
 @endsection
 
 @section('meta')
-    <meta name="description" content="Audits Log - {{ __('staff.staff-dashboard') }}" />
+    <meta name="description" content="Audits log - {{ __('staff.staff-dashboard') }}" />
 @endsection
 
 @section('breadcrumbs')

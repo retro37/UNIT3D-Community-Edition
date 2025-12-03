@@ -44,8 +44,8 @@ class GiftController extends Controller
         return view('user.gift.index', [
             'user'  => $user,
             'gifts' => Gift::with([
-                'sender'    => fn ($query) => $query->withTrashed()->with('group'),
-                'recipient' => fn ($query) => $query->withTrashed()->with('group'),
+                'sender.group',
+                'recipient.group',
             ])
                 ->where('sender_id', '=', $user->id)
                 ->orWhere('recipient_id', '=', $user->id)

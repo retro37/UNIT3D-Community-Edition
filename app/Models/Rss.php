@@ -19,8 +19,10 @@ namespace App\Models;
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use stdClass;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Rss.
@@ -36,7 +38,8 @@ use stdClass;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class Rss extends Model
+#[AllowDynamicProperties]
+final class Rss extends Model
 {
     use Auditable;
 
@@ -45,7 +48,7 @@ class Rss extends Model
     use SoftDeletes;
 
     /**
-     * The Database Table Used By The Model.
+     * The table associated with the mode.
      *
      * @var string
      */
@@ -74,11 +77,11 @@ class Rss extends Model
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /**
-     * Belongs To A User.
+     * Get the user that owns the rss feed.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class)->withDefault([
             'username' => 'System',
@@ -87,11 +90,11 @@ class Rss extends Model
     }
 
     /**
-     * Belongs To A Staff Member.
+     * Get the staff user that created the rss feed.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function staff(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function staff(): BelongsTo
     {
         // Not needed yet. Just added for future extendability.
         return $this->belongsTo(User::class, 'staff_id');

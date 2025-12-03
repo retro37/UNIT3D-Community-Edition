@@ -61,6 +61,17 @@
     }
 }
 
+/* Also Downloaded
+---------------------------------------------------------------------------- */
+
+.also-downloaded {
+    display: grid;
+    grid-auto-columns: 150px;
+    grid-auto-flow: column;
+    gap: 12px 24px;
+    overflow-x: auto;
+}
+
 /* Recommendations
 ---------------------------------------------------------------------------- */
 
@@ -87,7 +98,14 @@
 ---------------------------------------------------------------------------- */
 
 .torrent__nfo {
-    line-height: 1;
+    line-height: 1 !important;
+    letter-spacing: -1px;
+    white-space: pre;
+}
+
+.torrent__nfo-pre {
+    width: max-content;
+    line-height: 1 !important;
 }
 
 /* Peer counts

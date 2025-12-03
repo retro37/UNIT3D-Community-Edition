@@ -34,6 +34,7 @@ use App\Notifications\TorrentsDeleted;
 use App\Services\Unit3dAnnounce;
 use App\Traits\CastLivewireProperties;
 use App\Traits\LivewireSort;
+use App\Traits\TorrentMeta;
 use Illuminate\Support\Facades\Notification;
 use Livewire\Attributes\Url;
 use Livewire\Component;
@@ -42,6 +43,7 @@ class SimilarTorrent extends Component
 {
     use CastLivewireProperties;
     use LivewireSort;
+    use TorrentMeta;
 
     public Category $category;
 
@@ -202,11 +204,11 @@ class SimilarTorrent extends Component
 
     final public function boot(): void
     {
-        if ($this->work instanceof TmdbMovie) {
-            $this->work->setAttribute('meta', 'movie');
-        } elseif ($this->work instanceof TmdbTv) {
-            $this->work->setAttribute('meta', 'tv');
-        }
+        $this->work->setAttribute('meta', match ($this->work::class) {
+            TmdbMovie::class => 'movie',
+            TmdbTv::class    => 'tv',
+            IgdbGame::class  => 'game',
+        });
     }
 
     final public function updating(string $field, mixed &$value): void
@@ -216,7 +218,7 @@ class SimilarTorrent extends Component
 
     final public function updatedSelectPage(bool $value): void
     {
-        $this->checked = $value ? $this->torrents->flatten()->pluck('id')->toArray() : [];
+        $this->checked = $value ? collect($this->torrents)->flatten()->pluck('id')->toArray() : [];
     }
 
     final public function updatedChecked(): void
@@ -225,13 +227,22 @@ class SimilarTorrent extends Component
     }
 
     /**
-     * @phpstan-ignore missingType.generics (The return type is too complex for phpstan, something to do with lack of support of Collection array shapes)
+     * @var array<string, non-empty-list<Torrent>>|array{
+     *         'Complete Pack'?: non-empty-array<string, non-empty-list<Torrent>>,
+     *         'Specials'?: non-empty-array<string, array<string, non-empty-list<Torrent>>>,
+     *         'Seasons'?: non-empty-array<string, array{
+     *             'Season Pack': non-empty-array<string, non-empty-list<Torrent>>,
+     *             'Episodes': non-empty-array<string, array<string, non-empty-list<Torrent>>>,
+     *         }>,
+     *         category_id?: int,
+     *     }
+     * }
      */
-    final protected \Illuminate\Support\Collection $torrents {
+    final protected array $torrents {
         get {
             $user = auth()->user();
 
-            return Torrent::query()
+            $torrents = Torrent::query()
                 ->with('type:id,name,position', 'resolution:id,name,position')
                 ->withCount([
                     'comments',
@@ -260,15 +271,25 @@ class SimilarTorrent extends Component
                 ])
                 ->when(
                     $this->category->movie_meta,
-                    fn ($query) => $query->whereRelation('category', 'movie_meta', '=', true),
+                    fn ($query) => $query
+                        ->whereRelation('category', 'movie_meta', '=', true)
+                        ->where('tmdb_movie_id', '=', $this->tmdbId)
+                        ->selectRaw("'movie' as meta"),
                 )
                 ->when(
                     $this->category->tv_meta,
-                    fn ($query) => $query->whereRelation('category', 'tv_meta', '=', true),
+                    fn ($query) => $query
+                        ->whereRelation('category', 'tv_meta', '=', true)
+                        ->where('tmdb_tv_id', '=', $this->tmdbId)
+                        ->selectRaw("'tv' as meta"),
                 )
-                ->when($this->category->tv_meta, fn ($query) => $query->where('tmdb_tv_id', '=', $this->tmdbId))
-                ->when($this->category->movie_meta, fn ($query) => $query->where('tmdb_movie_id', '=', $this->tmdbId))
-                ->when($this->category->game_meta, fn ($query) => $query->where('igdb', '=', $this->igdbId))
+                ->when(
+                    $this->category->game_meta,
+                    fn ($query) => $query
+                        ->whereRelation('category', 'game_meta', '=', true)
+                        ->where('igdb', '=', $this->igdbId)
+                        ->selectRaw("'game' as meta"),
+                )
                 ->where((new TorrentSearchFiltersDTO(
                     name: $this->name,
                     description: $this->description,
@@ -313,60 +334,14 @@ class SimilarTorrent extends Component
                     },
                 ))->toSqlQueryBuilder())
                 ->orderBy($this->sortField, $this->sortDirection)
-                ->get()
-                ->when(
-                    $this->category->movie_meta,
-                    fn ($torrents) => $this->groupByTypeAndSort($torrents),
-                    fn ($torrents) => $torrents
-                        ->when($this->category->tv_meta, function ($torrents) {
-                            return $torrents
-                                ->groupBy(fn ($torrent) => $torrent->season_number === 0 ? ($torrent->episode_number === 0 ? 'Complete Pack' : 'Specials') : 'Seasons')
-                                ->map(fn ($packOrSpecialOrSeasons, $key) => match ($key) {
-                                    'Complete Pack' => $this->groupByTypeAndSort($packOrSpecialOrSeasons),
-                                    'Specials'      => $packOrSpecialOrSeasons
-                                        ->groupBy(fn ($torrent) => 'Special '.$torrent->episode_number)
-                                        ->sortKeysDesc(SORT_NATURAL)
-                                        ->map(fn ($episode) => $this->groupByTypeAndSort($episode)),
-                                    'Seasons' => $packOrSpecialOrSeasons
-                                        ->groupBy(fn ($torrent) => 'Season '.$torrent->season_number)
-                                        ->sortKeysDesc(SORT_NATURAL)
-                                        ->map(
-                                            fn ($season) => $season
-                                                ->groupBy(fn ($torrent) => $torrent->episode_number === 0 ? 'Season Pack' : 'Episodes')
-                                                ->map(fn ($packOrEpisodes, $key) => match ($key) {
-                                                    'Season Pack' => $this->groupByTypeAndSort($packOrEpisodes),
-                                                    'Episodes'    => $packOrEpisodes
-                                                        ->groupBy(fn ($torrent) => 'Episode '.$torrent->episode_number)
-                                                        ->sortKeysDesc(SORT_NATURAL)
-                                                        ->map(fn ($episode) => $this->groupByTypeAndSort($episode)),
-                                                    default => abort(500, 'Group found that isn\'t one of: Season Pack, Episodes.'),
-                                                })
-                                        ),
-                                    default => abort(500, 'Group found that isn\'t one of: Complete Pack, Specials, Seasons'),
-                                });
-                        })
-                );
-        }
-    }
+                ->get();
 
-    /**
-     * @param  \Illuminate\Support\Collection<int, Torrent>                                         $torrents
-     * @return \Illuminate\Support\Collection<string, \Illuminate\Support\Collection<int, Torrent>>
-     */
-    private function groupByTypeAndSort(\Illuminate\Support\Collection $torrents): \Illuminate\Support\Collection
-    {
-        return $torrents
-            ->sortBy('type.position')
-            ->values()
-            ->groupBy(fn ($torrent) => $torrent->type->name)
-            ->map(
-                fn ($torrentsByType) => $torrentsByType
-                    ->sortBy([
-                        ['resolution.position', 'asc'],
-                        ['name', 'asc'],
-                    ])
-                    ->values()
-            );
+            return match ($this->work::class) {
+                TmdbMovie::class => self::groupTorrents($torrents)['movie'][$this->tmdbId]['Movie'] ?? [],
+                TmdbTv::class    => self::groupTorrents($torrents)['tv'][$this->tmdbId] ?? [],
+                IgdbGame::class  => self::groupTorrents($torrents)['game'][$this->igdbId]['Game'] ?? [],
+            };
+        }
     }
 
     /**
@@ -378,7 +353,7 @@ class SimilarTorrent extends Component
             ->withExists('claim')
             ->when($this->category->movie_meta, fn ($query) => $query->where('tmdb_movie_id', '=', $this->tmdbId))
             ->when($this->category->tv_meta, fn ($query) => $query->where('tmdb_tv_id', '=', $this->tmdbId))
-            ->when($this->category->game_meta, fn ($query) => $query->where('igdb', '=', $this->tmdbId))
+            ->when($this->category->game_meta, fn ($query) => $query->where('igdb', '=', $this->igdbId))
             ->where('category_id', '=', $this->category->id)
             ->when(
                 $this->hideFilledRequests,
@@ -407,7 +382,7 @@ class SimilarTorrent extends Component
                     )
                     ->when($this->category->movie_meta, fn ($query) => $query->whereRelation('torrents', 'tmdb_movie_id', '=', $this->tmdbId))
                     ->when($this->category->tv_meta, fn ($query) => $query->whereRelation('torrents', 'tmdb_tv_id', '=', $this->tmdbId))
-                    ->when($this->category->game_meta, fn ($query) => $query->whereRelation('torrents', 'igdb', '=', $this->tmdbId))
+                    ->when($this->category->game_meta, fn ($query) => $query->whereRelation('torrents', 'igdb', '=', $this->igdbId))
                     ->when(!($this->category->movie_meta || $this->category->tv_meta || $this->category->game_meta), fn ($query) => $query->whereRaw('0 = 1'))
             ])
             ->orderBy('position')
@@ -425,7 +400,7 @@ class SimilarTorrent extends Component
     final public function alertConfirm(): void
     {
         if (!auth()->user()->group->is_modo) {
-            $this->dispatch('error', type: 'error', message: 'Permission Denied!');
+            $this->dispatch('error', type: 'error', message: 'Permission denied!');
 
             return;
         }
@@ -444,7 +419,7 @@ class SimilarTorrent extends Component
     final public function deleteRecords(): void
     {
         if (!auth()->user()->group->is_modo) {
-            $this->dispatch('error', type: 'error', message: 'Permission Denied!');
+            $this->dispatch('error', type: 'error', message: 'Permission denied!');
 
             return;
         }
@@ -476,7 +451,7 @@ class SimilarTorrent extends Component
             $torrent->comments()->delete();
             $torrent->peers()->delete();
             $torrent->history()->delete();
-            $torrent->hitrun()->delete();
+            $torrent->warnings()->delete();
             $torrent->files()->delete();
             $torrent->playlists()->detach();
             $torrent->subtitles()->delete();
@@ -509,7 +484,7 @@ class SimilarTorrent extends Component
         $this->dispatch(
             'swal:modal',
             type: 'success',
-            message: 'Torrents Deleted Successfully!',
+            message: 'Torrents deleted successfully!',
             text: 'A personal message has been sent to all users that have downloaded these torrents.',
         );
     }

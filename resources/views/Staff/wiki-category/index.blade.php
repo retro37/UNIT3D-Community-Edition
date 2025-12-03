@@ -6,7 +6,7 @@
             {{ __('staff.staff-dashboard') }}
         </a>
     </li>
-    <li class="breadcrumb--active">Wiki Categories</li>
+    <li class="breadcrumb--active">Wiki categories</li>
 @endsection
 
 @section('page', 'page__staff-wiki-category--index')
@@ -103,7 +103,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="4">No Wikis</td>
+                                <td colspan="4">No wikis</td>
                             </tr>
                         @endforelse
                     </tbody>

@@ -1,11 +1,11 @@
 @extends('layout.with-main')
 
 @section('title')
-    <title>Add Forums - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}</title>
+    <title>Add forums - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}</title>
 @endsection
 
 @section('meta')
-    <meta name="description" content="Add Forums - {{ __('staff.staff-dashboard') }}" />
+    <meta name="description" content="Add forums - {{ __('staff.staff-dashboard') }}" />
 @endsection
 
 @section('breadcrumbs')
@@ -80,7 +80,7 @@
                         @endforeach
                     </select>
                     <label class="form__label form__label--floating" for="forum_category_id">
-                        Forum Category
+                        Forum category
                     </label>
                 </p>
                 <p class="form__group">
@@ -97,7 +97,7 @@
                         class="form__label form__label--floating"
                         for="default_topic_state_filter"
                     >
-                        Default Topic State Filter
+                        Default topic state filter
                     </label>
                 </p>
                 <div class="form__group">
@@ -169,7 +169,7 @@
                     </div>
                 </div>
                 <p class="form__group">
-                    <button class="form__button form__button--filled">Save Forum</button>
+                    <button class="form__button form__button--filled">Save forum</button>
                 </p>
             </form>
         </div>

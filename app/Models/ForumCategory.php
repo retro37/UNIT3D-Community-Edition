@@ -19,6 +19,9 @@ namespace App\Models;
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Forum.
@@ -31,7 +34,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class ForumCategory extends Model
+#[AllowDynamicProperties]
+final class ForumCategory extends Model
 {
     use Auditable;
 
@@ -46,21 +50,21 @@ class ForumCategory extends Model
     protected $guarded = ['id', 'created_at'];
 
     /**
-     * Has Many Sub Topics.
+     * Has the topics for the category.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough<Topic, Forum, $this>
+     * @return HasManyThrough<Topic, Forum, $this>
      */
-    public function topics(): \Illuminate\Database\Eloquent\Relations\HasManyThrough
+    public function topics(): HasManyThrough
     {
         return $this->hasManyThrough(Topic::class, Forum::class);
     }
 
     /**
-     * Has Many Sub Forums.
+     * Get the forums for the category.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Forum, $this>
+     * @return HasMany<Forum, $this>
      */
-    public function forums(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function forums(): HasMany
     {
         return $this->hasMany(Forum::class);
     }

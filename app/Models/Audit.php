@@ -18,6 +18,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Audit.
@@ -31,7 +34,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class Audit extends Model
+#[AllowDynamicProperties]
+final class Audit extends Model
 {
     /** @use HasFactory<\Database\Factories\AuditFactory> */
     use HasFactory;
@@ -51,11 +55,11 @@ class Audit extends Model
     ];
 
     /**
-     * Belongs To A User.
+     * Get the user who triggered the audit.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class)->withDefault([
             'username' => 'System',
@@ -64,9 +68,11 @@ class Audit extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo<Model, $this>
+     * Get the parent auditable model.
+     *
+     * @return MorphTo<Model, $this>
      */
-    public function auditable(): \Illuminate\Database\Eloquent\Relations\MorphTo
+    public function auditable(): MorphTo
     {
         return $this->morphTo();
     }

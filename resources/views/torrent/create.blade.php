@@ -217,7 +217,7 @@
                             @endforeach
                         </select>
                         <label class="form__label form__label--floating" for="autodis">
-                            {{ __('torrent.distributor') }} (Only For Full Disc)
+                            {{ __('torrent.distributor') }} (only for full disc)
                         </label>
                     </p>
                     <p class="form__group">
@@ -241,7 +241,7 @@
                             @endforeach
                         </select>
                         <label class="form__label form__label--floating" for="autoreg">
-                            {{ __('torrent.region') }} (Only For Full Disc)
+                            {{ __('torrent.region') }} (only for full disc)
                         </label>
                     </p>
                 </div>
@@ -317,7 +317,7 @@
                                 x-bind:required="cats[cat].type === 'movie' && tmdb_movie_exists"
                             />
                             <label class="form__label form__label--floating" for="auto_tmdb_movie">
-                                TMDB Movie ID
+                                TMDB movie ID
                             </label>
                             <span class="form__hint">Numeric digits only.</span>
                         </p>
@@ -559,7 +559,7 @@
 {{ old('bdinfo') }}</textarea
                     >
                     <label class="form__label form__label--floating" for="upload-form-bdinfo">
-                        BDInfo (Quick Summary)
+                        BDInfo (quick summary)
                     </label>
                 </p>
                 <p class="form__group">
@@ -601,7 +601,7 @@
                         value="1"
                         @checked(old('personal_release'))
                     />
-                    <label class="form__label" for="personal_release">Personal Release?</label>
+                    <label class="form__label" for="personal_release">Personal release?</label>
                 </p>
                 @if ($user->group->is_trusted)
                     <p class="form__group">
@@ -615,7 +615,7 @@
                             @checked(old('mod_queue_opt_in'))
                         />
                         <label class="form__label" for="mod_queue_opt_in">
-                            Opt in to Moderation Queue?
+                            Opt in to moderation queue?
                         </label>
                     </p>
                 @endif
@@ -695,9 +695,9 @@
                 <p>
                     {{ __('torrent.announce-url-desc', ['source' => config('torrent.source')]) }}
                 </p>
-                <p class="text-success">
-                    {!! __('torrent.announce-url-desc-url', ['url' => config('other.upload-guide_url')]) !!}
-                </p>
+                <a href="{{ config('other.upload-guide_url') }}">
+                    {{ __('torrent.announce-url-desc-url') }}
+                </a>
             </div>
         </section>
     @endsection

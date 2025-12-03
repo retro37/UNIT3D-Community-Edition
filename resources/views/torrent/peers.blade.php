@@ -41,7 +41,7 @@
                 class="nav-tab__link"
                 href="{{ route('torrents.external_tracker', ['id' => $torrent]) }}"
             >
-                External Tracker
+                External tracker
             </a>
         </li>
     @endif

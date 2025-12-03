@@ -1,11 +1,11 @@
 @section('title')
     <title>
-        Laravel Log Viewer - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}
+        Laravel log viewer - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}
     </title>
 @endsection
 
 @section('meta')
-    <meta name="description" content="Laravel Log Viewer - {{ __('staff.staff-dashboard') }}" />
+    <meta name="description" content="Laravel log viewer - {{ __('staff.staff-dashboard') }}" />
 @endsection
 
 @section('breadcrumbs')
@@ -14,7 +14,7 @@
             {{ __('staff.staff-dashboard') }}
         </a>
     </li>
-    <li class="breadcrumb--active">Laravel Log Viewer</li>
+    <li class="breadcrumb--active">Laravel log viewer</li>
 @endsection
 
 @section('page', 'page__staff-laravel-log--index')
@@ -31,12 +31,12 @@
         <header class="panel__header">
             <h2 class="panel__heading">
                 <i class="{{ config('other.font-awesome') }} fa-list"></i>
-                Laravel Log Viewer
+                Laravel log viewer
             </h2>
             <div class="panel__actions">
                 <div class="panel__action">
                     <button class="form__button form__button--text" wire:click="clearLatestLog">
-                        Clear Latest Log
+                        Clear latest log
                     </button>
                 </div>
                 <div class="panel__action">
@@ -148,7 +148,7 @@
         @if ($entries->hasMorePages())
             <div class="text-center">
                 <button class="form__button form__button--filled" wire:click.prevent="loadMore">
-                    Load More Entries
+                    Load more entries
                 </button>
             </div>
         @endif

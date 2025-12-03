@@ -148,7 +148,7 @@
                             placeholder=" "
                         />
                         <label class="form__label form__label--floating" for="minSize">
-                            Minimum Size
+                            Minimum size
                         </label>
                     </p>
                     <p class="form__group">
@@ -184,7 +184,7 @@
                             placeholder=" "
                         />
                         <label class="form__label form__label--floating" for="maxSize">
-                            Maximum Size
+                            Maximum size
                         </label>
                     </p>
                     <p class="form__group">
@@ -474,7 +474,7 @@
                                         value="1"
                                         wire:model.live="doubleup"
                                     />
-                                    Double Upload
+                                    Double upload
                                 </label>
                             </p>
                             <p class="form__group">
@@ -638,7 +638,7 @@
                                         value="1"
                                         wire:model.live="notDownloaded"
                                     />
-                                    Not Downloaded
+                                    Not downloaded
                                 </label>
                             </p>
                             <p class="form__group">
@@ -690,7 +690,7 @@
                 </div>
                 <div class="form__group">
                     <fieldset class="form__fieldset">
-                        <legend class="form__legend">Primary Language</legend>
+                        <legend class="form__legend">Primary language</legend>
                         <div class="form__fieldset-checkbox-container">
                             @foreach ($primaryLanguages as $primaryLanguage)
                                 <p class="form__group">

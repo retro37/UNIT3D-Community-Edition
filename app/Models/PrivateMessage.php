@@ -18,6 +18,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\PrivateMessage.
@@ -29,7 +31,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class PrivateMessage extends Model
+#[AllowDynamicProperties]
+final class PrivateMessage extends Model
 {
     /** @use HasFactory<\Database\Factories\PrivateMessageFactory> */
     use HasFactory;
@@ -42,21 +45,21 @@ class PrivateMessage extends Model
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /**
-     * Belongs To A User.
+     * Get the user who sent the private message.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function sender(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function sender(): BelongsTo
     {
         return $this->belongsTo(User::class, 'sender_id');
     }
 
     /**
-     * Belongs To A Conversation.
+     * Get the conversation associated with the private message.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Conversation, $this>
+     * @return BelongsTo<Conversation, $this>
      */
-    public function conversation(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function conversation(): BelongsTo
     {
         return $this->belongsTo(Conversation::class);
     }

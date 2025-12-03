@@ -8,14 +8,15 @@ jobs:
                     - ubuntu-22.04
                 php-version:
                     - '8.4'
+                    - '8.5'
         name: php ${{ matrix.php-version }} on ${{ matrix.operating-system }}
         runs-on: ${{ matrix.operating-system }}
         steps:
             -   name: Checkout
-                uses: actions/checkout@v4
+                uses: actions/checkout@v6
                 with:
                     fetch-depth: 0
-            -   name: Setup PHP 8.4
+            -   name: Setup PHP
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: ${{ matrix.php-version }}
@@ -30,9 +31,9 @@ jobs:
                     COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
                 run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist --optimize-autoloader
             -   name: Run Pint
-                run: ./vendor/bin/pint
+                run: ./vendor/bin/pint -v
             -   name: Commit Changes
-                uses: stefanzweifel/git-auto-commit-action@v5
+                uses: stefanzweifel/git-auto-commit-action@v7
                 with:
                     commit_message: "automation: laravel pint ci"
                     commit_user_name: unit3d-bot

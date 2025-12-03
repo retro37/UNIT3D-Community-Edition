@@ -18,6 +18,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Keyword.
@@ -28,7 +30,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $created_at
  * @property string|null $updated_at
  */
-class Keyword extends Model
+#[AllowDynamicProperties]
+final class Keyword extends Model
 {
     /** @use HasFactory<\Database\Factories\KeywordFactory> */
     use HasFactory;
@@ -43,18 +46,18 @@ class Keyword extends Model
     ];
 
     /**
-     * Indicates If The Model Should Be Timestamped.
+     * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = false;
 
     /**
-     * Belongs To Many Torrents.
+     * Get the torrents that have this keyword.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<Torrent, $this>
+     * @return BelongsToMany<Torrent, $this>
      */
-    public function torrents(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function torrents(): BelongsToMany
     {
         return $this->belongsToMany(Torrent::class);
     }

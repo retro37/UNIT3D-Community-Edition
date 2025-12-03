@@ -17,7 +17,9 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Traits\Auditable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use AllowDynamicProperties;
 
 /**
  * App\Models\InternalUser.
@@ -26,7 +28,8 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
  * @property int $user_id
  * @property int $internal_id
  */
-class InternalUser extends Pivot
+#[AllowDynamicProperties]
+final class InternalUser extends Pivot
 {
     use Auditable;
 
@@ -38,21 +41,21 @@ class InternalUser extends Pivot
     public $incrementing = true;
 
     /**
-     * Belongs to a user.
+     * The user that is a member of the internal group.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
     /**
-     * Belongs to an internal.
+     * The internal group the user is a member of.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Internal, $this>
+     * @return BelongsTo<Internal, $this>
      */
-    public function internal(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function internal(): BelongsTo
     {
         return $this->belongsTo(Internal::class);
     }

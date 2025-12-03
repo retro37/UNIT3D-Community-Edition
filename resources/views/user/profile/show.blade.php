@@ -326,7 +326,7 @@
                                     <td
                                         colspan="{{ \config('announce.connectable_check') === true ? 8 : 7 }}"
                                     >
-                                        No Clients
+                                        No clients
                                     </td>
                                 </tr>
                             @endforelse
@@ -452,7 +452,7 @@
         @endif
 
         @if (auth()->user()->group->is_modo)
-            @include('user.profile.partials.bans', ['bans' => $user->userban])
+            @include('user.profile.partials.bans', ['bans' => $user->bans])
         @endif
 
         @if (auth()->user()->group->is_modo ||auth()->user()->is($user))
@@ -534,9 +534,9 @@
                     <table class="data-table">
                         <thead>
                             <tr>
-                                <th>Watched By</th>
+                                <th>Watched by</th>
                                 <th>Message</th>
-                                <th>Created At</th>
+                                <th>Created at</th>
                                 <th>{{ __('common.action') }}</th>
                             </tr>
                         </thead>
@@ -595,7 +595,7 @@
                 <h2 class="panel__heading">Donations</h2>
                 <dl class="key-value">
                     <div class="key-value__group">
-                        <dt>Active Donor</dt>
+                        <dt>Active donor</dt>
                         <dd>
                             @if ($user->is_donor)
                                 <i
@@ -609,7 +609,7 @@
                         </dd>
                     </div>
                     <div class="key-value__group">
-                        <dt>Lifetime Donor</dt>
+                        <dt>Lifetime donor</dt>
                         <dd>
                             @if ($user->is_lifetime)
                                 <i
@@ -623,23 +623,23 @@
                         </dd>
                     </div>
                     <div class="key-value__group">
-                        <dt>Latest Donation Amount</dt>
+                        <dt>Latest donation amount</dt>
                         <dd>
                             {{ $donation->package->cost ?? 'N/A' }}
                         </dd>
                     </div>
                     <div class="key-value__group">
-                        <dt>Latest Donation Date</dt>
+                        <dt>Latest donation date</dt>
                         <dd>
                             {{ $donation->starts_at ?? 'N/A' }}
                         </dd>
                     </div>
                     <div class="key-value__group">
-                        <dt>Donation Expire Date</dt>
+                        <dt>Donation expire date</dt>
                         <dd>
                             @if ($user->is_lifetime)
-                                Lifetime Donor
-                                <i class="fal fa-star" id="lifeline" title="Lifetime Donor"></i>
+                                Lifetime donor
+                                <i class="fal fa-star" id="lifeline" title="Lifetime donor"></i>
                             @else
                                 {{ $donation->ends_at ?? 'N/A' }}
                             @endif
@@ -713,7 +713,7 @@
         @if (auth()->user()->isAllowed($user, 'profile', 'show_profile_torrent_count'))
             @if (auth()->user()->is($user) || auth()->user()->group->is_modo)
                 <section class="panelV2">
-                    <h2 class="panel__heading">Torrent Count</h2>
+                    <h2 class="panel__heading">Torrent count</h2>
                     <dl class="key-value">
                         <div class="key-value__group">
                             <dt>
@@ -767,7 +767,7 @@
                                 <a
                                     href="{{ route('users.peers.index', ['user' => $user, 'active' => 'exclude']) }}"
                                 >
-                                    Total Inactive Peers
+                                    Total inactive peers
                                 </a>
                             </dt>
                             <dd>{{ $peers->inactive ?? 0 }}</dd>
@@ -776,7 +776,7 @@
                 </section>
             @else
                 <section class="panelV2">
-                    <h2 class="panel__heading">Torrent Count</h2>
+                    <h2 class="panel__heading">Torrent count</h2>
                     <dl class="key-value">
                         <div class="key-value__group">
                             <dt>
@@ -801,7 +801,7 @@
                             <dd>{{ $peers->leeching ?? 0 }}</dd>
                         </div>
                         <div class="key-value__group">
-                            <dt>Total Inactive Peers</dt>
+                            <dt>Total inactive peers</dt>
                             <dd>{{ $peers->inactive ?? 0 }}</dd>
                         </div>
                     </dl>
@@ -885,22 +885,22 @@
         @if (config('announce.external_tracker.is_enabled') && auth()->user()->group->is_modo)
             @if ($externalUser === true)
                 <section class="panelV2">
-                    <h2 class="panel__heading">External Tracker</h2>
+                    <h2 class="panel__heading">External tracker</h2>
                     <div class="panel__body">External tracker not enabled.</div>
                 </section>
             @elseif ($externalUser === false)
                 <section class="panelV2">
-                    <h2 class="panel__heading">External Tracker</h2>
+                    <h2 class="panel__heading">External tracker</h2>
                     <div class="panel__body">User not found.</div>
                 </section>
             @elseif ($externalUser === [])
                 <section class="panelV2">
-                    <h2 class="panel__heading">External Tracker</h2>
+                    <h2 class="panel__heading">External tracker</h2>
                     <div class="panel__body">Tracker returned an error.</div>
                 </section>
             @else
                 <section class="panelV2">
-                    <h2 class="panel__heading">External Tracker</h2>
+                    <h2 class="panel__heading">External tracker</h2>
                     <dl class="key-value">
                         <div class="key-value__group">
                             <dt>{{ __('common.group') }}</dt>
@@ -1040,7 +1040,7 @@
                         <dd>{{ $user->email }}</dd>
                     </div>
                     <div class="key-value__group">
-                        <dt>2FA Enabled</dt>
+                        <dt>2FA enabled</dt>
                         <dd>
                             @if ($user->two_factor_confirmed_at !== null)
                                 <i
@@ -1070,7 +1070,7 @@
                         </dd>
                     </div>
                     <div class="key-value__group">
-                        <dt>Last Action</dt>
+                        <dt>Last action</dt>
                         <dd>
                             @if ($user->last_action === null)
                                 N/A

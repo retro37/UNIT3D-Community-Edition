@@ -207,6 +207,11 @@ document.addEventListener('alpine:init', () => {
                 this.syncStatus();
             });
 
+            this.$watch('state.chat.room', (chatroom, oldChatroom) => {
+                if (chatroom === oldChatroom) return;
+                this.changeRoom(chatroom);
+            });
+
             this.$cleanup = () => {
                 if (this.channel) {
                     window.Echo.leave(`chatroom.${this.state.chat.room}`);
@@ -265,9 +270,6 @@ document.addEventListener('alpine:init', () => {
                     this.state.chat.room = this.auth.chatroom.id;
                     this.state.chat.tab = this.auth.chatroom.name;
                     this.state.chat.activeTab = 'room' + this.state.chat.room;
-
-                    // Immediately load messages for the user's current chatroom
-                    await this.changeRoom(this.auth.chatroom.id);
                 }
             } catch (error) {
                 console.error('Error fetching rooms:', error);
@@ -388,13 +390,17 @@ document.addEventListener('alpine:init', () => {
 
                 let currentRoom = this.echoes.find((o) => o.room && o.room.id == newVal);
                 if (currentRoom) {
-                    this.changeRoom(currentRoom.room.id);
+                    if (this.state.chat.room === currentRoom.room.id) {
+                        this.fetchMessages();
+                    } else {
+                        this.state.chat.room = currentRoom.room.id;
+                    }
                     this.state.message.receiver_id = null;
                     this.state.message.bot_id = null;
                 }
 
                 let currentAudio = this.audibles.find((o) => o.room && o.room.id == newVal);
-                this.state.chat.listening = currentAudio && currentAudio.status == 1 ? 1 : 0;
+                this.state.chat.listening = currentAudio && currentAudio.status ? 1 : 0;
             } else if (typeVal == 'target') {
                 this.state.chat.bot = 0;
                 this.state.chat.tab = newVal;
@@ -410,7 +416,7 @@ document.addEventListener('alpine:init', () => {
                 }
 
                 let currentAudio = this.audibles.find((o) => o.target && o.target.id == newVal);
-                this.state.chat.listening = currentAudio && currentAudio.status == 1 ? 1 : 0;
+                this.state.chat.listening = currentAudio && currentAudio.status ? 1 : 0;
             } else if (typeVal == 'bot') {
                 this.state.chat.target = 0;
                 this.state.chat.tab = newVal;
@@ -426,7 +432,7 @@ document.addEventListener('alpine:init', () => {
                 }
 
                 let currentAudio = this.audibles.find((o) => o.bot && o.bot.id == newVal);
-                this.state.chat.listening = currentAudio && currentAudio.status == 1 ? 1 : 0;
+                this.state.chat.listening = currentAudio && currentAudio.status ? 1 : 0;
             }
         },
 
@@ -460,8 +466,6 @@ document.addEventListener('alpine:init', () => {
 
             // Set up room channel with improved connection handling
             channelHandler.setupRoom(id, this);
-
-            this.state.chat.room = id;
         },
 
         leaveRoom(id) {
@@ -482,7 +486,7 @@ document.addEventListener('alpine:init', () => {
                             } else if (this.chatrooms.length > 0) {
                                 // Default to the first chatroom from the dropdown
                                 const firstChatroom = this.chatrooms[0];
-                                this.changeRoom(firstChatroom.id);
+                                this.state.chat.room = firstChatroom.id;
                             } else {
                                 console.warn('No chat tabs or chatrooms available.');
                             }
@@ -519,7 +523,7 @@ document.addEventListener('alpine:init', () => {
                             } else if (this.chatrooms.length > 0) {
                                 // Default to the first chatroom from the dropdown
                                 const firstChatroom = this.chatrooms[0];
-                                this.changeRoom(firstChatroom.id);
+                                this.state.chat.room = firstChatroom.id;
                             } else {
                                 console.warn('No chat tabs or chatrooms available.');
                             }

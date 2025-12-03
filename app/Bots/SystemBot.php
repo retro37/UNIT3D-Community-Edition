@@ -73,14 +73,13 @@ class SystemBot
     /**
      * Send Gift.
      *
-     * @param array<string> $note
+     * @param numeric-string $amount
      */
-    public function putGift(string $receiver = '', float $amount = 0, array $note = ['']): string
+    public function putGift(string $receiver, string $amount, string $note): string
     {
-        $output = implode(' ', $note);
-        $v = validator(['receiver' => $receiver, 'amount' => $amount, 'note' => $output], [
+        $v = validator(['receiver' => $receiver, 'amount' => $amount, 'note' => $note], [
             'receiver' => 'required|string|exists:users,username',
-            'amount'   => \sprintf('required|numeric|min:1|max:%s', $this->target->seedbonus),
+            'amount'   => \sprintf('required|decimal:0,2|min:1|max:%s', $this->target->seedbonus),
             'note'     => 'required|string',
         ]);
 
@@ -91,15 +90,16 @@ class SystemBot
                 return 'Your BON gift could not be sent.';
             }
 
-            $value = $amount;
-            $recipient->increment('seedbonus', $value);
-            $this->target->decrement('seedbonus', $value);
+            $amount = (float) $amount;
+
+            $recipient->increment('seedbonus', $amount);
+            $this->target->decrement('seedbonus', $amount);
 
             $gift = Gift::create([
                 'sender_id'    => $this->target->id,
                 'recipient_id' => $recipient->id,
-                'bon'          => $value,
-                'message'      => $output,
+                'bon'          => $amount,
+                'message'      => $note,
             ]);
 
             if ($this->target->id !== $recipient->id && $recipient->acceptsNotification($this->target, $recipient, 'bon', 'show_bon_gift')) {
@@ -110,7 +110,7 @@ class SystemBot
             $recipientUrl = href_profile($recipient);
 
             $this->chatRepository->systemMessage(
-                \sprintf('[url=%s]%s[/url] has gifted %s BON to [url=%s]%s[/url]', $profileUrl, $this->target->username, $value, $recipientUrl, $recipient->username)
+                \sprintf('[url=%s]%s[/url] has gifted %s BON to [url=%s]%s[/url]', $profileUrl, $this->target->username, $amount, $recipientUrl, $recipient->username)
             );
 
             return 'Your gift to '.$recipient->username.' for '.$amount.' BON has been sent!';
@@ -173,8 +173,8 @@ class SystemBot
 
             if ($echoes->doesntContain(fn ($echo) => $echo->bot_id == $this->bot->id)) {
                 $echoes->push(UserEcho::create([
-                    'user_id'   => $target->id,
-                    'target_id' => $this->bot->id,
+                    'user_id' => $target->id,
+                    'bot_id'  => $this->bot->id,
                 ]));
 
                 cache()->put('user-echoes'.$target->id, $echoes, 3600);
@@ -191,9 +191,9 @@ class SystemBot
 
             if ($audibles->doesntContain(fn ($audible) => $audible->bot_id == $this->bot->id)) {
                 $audibles->push(UserAudible::create([
-                    'user_id'   => $target->id,
-                    'target_id' => $this->bot->id,
-                    'status'    => 0,
+                    'user_id' => $target->id,
+                    'bot_id'  => $this->bot->id,
+                    'status'  => false,
                 ]));
 
                 cache()->put('user-audibles'.$target->id, $audibles, 3600);

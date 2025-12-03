@@ -19,6 +19,8 @@ namespace App\Models;
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\TicketAttachment.
@@ -33,7 +35,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null                     $deleted_at
  */
-class TicketAttachment extends Model
+#[AllowDynamicProperties]
+final class TicketAttachment extends Model
 {
     use Auditable;
 
@@ -41,21 +44,21 @@ class TicketAttachment extends Model
     use HasFactory;
 
     /**
-     * Belongs To A User.
+     * Get the user who uploaded the ticket attachment.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
     /**
-     * Belongs To A Ticket.
+     * Get the ticket associated with the attachment.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Ticket, $this>
+     * @return BelongsTo<Ticket, $this>
      */
-    public function ticket(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function ticket(): BelongsTo
     {
         return $this->belongsTo(Ticket::class);
     }

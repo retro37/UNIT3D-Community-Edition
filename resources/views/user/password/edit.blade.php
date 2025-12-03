@@ -60,7 +60,7 @@
                             type="password"
                         />
                         <label class="form__label form__label--floating" for="current_password">
-                            Current Password
+                            Current password
                         </label>
                     </p>
                 @endif

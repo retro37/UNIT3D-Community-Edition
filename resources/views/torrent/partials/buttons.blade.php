@@ -29,7 +29,7 @@
             </a>
         @endif
     </li>
-    @if ($fileExists)
+    @if ($fileExists && $torrent->status === \App\Enums\ModerationStatus::APPROVED)
         @if ($torrent->free !== 100 && config('other.freeleech') == false && ! $personal_freeleech && $user->group->is_freeleech == 0 && ! $torrent->freeleechToken_exists)
             <li class="form__group form__group--short-horizontal">
                 <form
@@ -53,7 +53,7 @@
                             confirmAction() {
                                 Swal.fire({
                                     title: 'Are you sure?',
-                                    text: 'This will use one of your Freeleech Tokens!',
+                                    text: 'This will use one of your freeleech tokens!',
                                     icon: 'warning',
                                     showConfirmButton: true,
                                     showCloseButton: true,
@@ -82,7 +82,7 @@
         @endif
     @endif
 
-    @if (config('other.thanks-system.is-enabled'))
+    @if ($torrent->status === \App\Enums\ModerationStatus::APPROVED && config('other.thanks-system.is-enabled'))
         <li class="form__group form__group--short-horizontal">
             @livewire('thank-button', ['torrent' => $torrent])
         </li>
@@ -102,70 +102,73 @@
                 <div class="dialog__form" x-bind="dialogForm">
                     <div class="bbcode-rendered" style="text-align: left">
                         <pre
-                            style="width: max-content"
-                        ><code class="torrent__nfo" style="white-space: pre;">{{ iconv('cp437', 'utf8', $torrent->nfo) }}</code></pre>
+                            class="torrent__nfo-pre"
+                        ><code class="torrent__nfo">{{ iconv('cp437', 'utf8', $torrent->nfo) }}</code></pre>
                     </div>
                 </div>
             </dialog>
         </li>
     @endif
 
-    <li x-data="dialog" class="form__group form__group--short-horizontal">
-        <button
-            class="form__button form__button--outlined form__button--centered"
-            x-bind="showDialog"
-        >
-            <i class="{{ config('other.font-awesome') }} fa-coins"></i>
-            {{ __('torrent.leave-tip') }}
-        </button>
-        <dialog class="dialog" x-bind="dialogElement">
-            <h4 class="dialog__heading">
-                {{ __('torrent.tip-jar') }}
-            </h4>
-            <form
-                class="dialog__form"
-                method="POST"
-                action="{{ route('users.torrent_tips.store', ['user' => auth()->user()]) }}"
-                x-bind="dialogForm"
+    @if ($torrent->status === \App\Enums\ModerationStatus::APPROVED)
+        <li x-data="dialog" class="form__group form__group--short-horizontal">
+            <button
+                class="form__button form__button--outlined form__button--centered"
+                x-bind="showDialog"
             >
-                @csrf
-                <input type="hidden" name="torrent_id" value="{{ $torrent->id }}" />
-                <div>
-                    {!! __('torrent.torrent-tips', ['total' => $torrent->total_tips ?? 0, 'user' => $torrent->user_tips ?? 0]) !!}.
-                    <span>({{ __('torrent.torrent-tips-desc') }})</span>
-                </div>
-                <div class="form__group">
-                    <input
-                        id="bon"
-                        class="form__text"
-                        list="torrent_quick_tips"
-                        name="bon"
-                        placeholder=" "
-                        type="text"
-                        pattern="[0-9]*"
-                        inputmode="numeric"
-                    />
-                    <label class="form__label form__label--floating" for="bon">
-                        {{ __('torrent.define-tip-amount') }}
-                    </label>
-                    <datalist id="torrent_quick_tips">
-                        <option value="1000"></option>
-                        <option value="2000"></option>
-                        <option value="5000"></option>
-                        <option value="10000"></option>
-                        <option value="20000"></option>
-                        <option value="50000"></option>
-                        <option value="100000"></option>
-                    </datalist>
-                </div>
-                <div class="form__group">
-                    <button class="form__button form__button--filled">
-                        {{ __('torrent.leave-tip') }}
-                    </button>
-                </div>
-            </form>
-        </dialog>
-    </li>
+                <i class="{{ config('other.font-awesome') }} fa-coins"></i>
+                {{ __('torrent.leave-tip') }}
+            </button>
+            <dialog class="dialog" x-bind="dialogElement">
+                <h4 class="dialog__heading">
+                    {{ __('torrent.tip-jar') }}
+                </h4>
+                <form
+                    class="dialog__form"
+                    method="POST"
+                    action="{{ route('users.torrent_tips.store', ['user' => auth()->user()]) }}"
+                    x-bind="dialogForm"
+                >
+                    @csrf
+                    <input type="hidden" name="torrent_id" value="{{ $torrent->id }}" />
+                    <div>
+                        {{ __('torrent.torrent-tips', ['total' => $torrent->total_tips ?? 0, 'user' => $torrent->user_tips ?? 0]) }}.
+                        <span>({{ __('torrent.torrent-tips-desc') }})</span>
+                    </div>
+                    <div class="form__group">
+                        <input
+                            id="bon"
+                            class="form__text"
+                            list="torrent_quick_tips"
+                            name="bon"
+                            placeholder=" "
+                            type="text"
+                            pattern="[0-9]*"
+                            inputmode="numeric"
+                        />
+                        <label class="form__label form__label--floating" for="bon">
+                            {{ __('torrent.define-tip-amount') }}
+                        </label>
+                        <datalist id="torrent_quick_tips">
+                            <option value="1000"></option>
+                            <option value="2000"></option>
+                            <option value="5000"></option>
+                            <option value="10000"></option>
+                            <option value="20000"></option>
+                            <option value="50000"></option>
+                            <option value="100000"></option>
+                        </datalist>
+                    </div>
+                    <div class="form__group">
+                        <button class="form__button form__button--filled">
+                            {{ __('torrent.leave-tip') }}
+                        </button>
+                    </div>
+                </form>
+            </dialog>
+        </li>
+    @endif
+
     <li x-data="dialog" class="form__group form__group--short-horizontal">
         <button
             class="form__button form__button--outlined form__button--centered"
@@ -252,15 +255,18 @@
             </div>
         </dialog>
     </li>
-    <li class="form__group form__group--short-horizontal">
-        @livewire('bookmark-button', [
+    @if ($torrent->status === \App\Enums\ModerationStatus::APPROVED)
+        <li class="form__group form__group--short-horizontal">
+            @livewire('bookmark-button', [
             'torrent' => $torrent,
             'isBookmarked' => $torrent->bookmarks_exists,
             'user' => auth()->user(),
             'bookmarksCount' => $torrent->bookmarks_count ?? 0,
         ])
-    </li>
-    @if ($user->playlists->count() > 0)
+        </li>
+    @endif
+
+    @if ($torrent->status === \App\Enums\ModerationStatus::APPROVED && $user->playlists->count() > 0)
         <li x-data="dialog" class="form__group form__group--short-horizontal">
             <button
                 class="form__button form__button--outlined form__button--centered"
@@ -270,7 +276,7 @@
                 {{ __('torrent.add-to-playlist') }}
             </button>
             <dialog class="dialog" x-bind="dialogElement">
-                <h4 class="dialog__heading">Add Torrent To Playlist</h4>
+                <h4 class="dialog__heading">Add torrent to playlist</h4>
                 <form
                     class="dialog__form"
                     method="POST"
@@ -286,7 +292,7 @@
                             @endforeach
                         </select>
                         <label for="playlist_id" class="form__label form__label--floating">
-                            Your Playlists
+                            Your playlists
                         </label>
                     </p>
                     <p class="form__group" style="text-align: left">
@@ -306,7 +312,8 @@
         </li>
     @endif
 
-    @if ($torrent->seeders <= 2 &&
+    @if ($torrent->status === \App\Enums\ModerationStatus::APPROVED &&
+    $torrent->seeders <= 2 &&
     $torrent->history->first() !== null &&
     ! $torrent->history->first()->seeder &&
     $torrent->history->first()->active)
@@ -325,13 +332,13 @@
         </li>
     @endif
 
-    @if ($torrent->resurrections_exists)
+    @if ($torrent->resurrections_exists && $torrent->status === \App\Enums\ModerationStatus::APPROVED)
         <li class="form__group form__group--short-horizontal">
             <button class="form__button form__button--outlined form__button--centered" disabled>
                 {{ strtolower(__('graveyard.pending')) }}
             </button>
         </li>
-    @elseif ($torrent->seeders == 0 && $torrent->created_at->lt(\Illuminate\Support\Carbon::now()->subDays(30)))
+    @elseif ($torrent->seeders == 0 && $torrent->created_at->lt(\Illuminate\Support\Carbon::now()->subDays(30)) && $torrent->status === \App\Enums\ModerationStatus::APPROVED)
         <li class="form__group form__group--short-horizontal" x-data="dialog">
             <button
                 class="form__button form__button--outlined form__button--centered"
@@ -352,26 +359,14 @@
                 >
                     @csrf
                     <input type="hidden" name="torrent_id" value="{{ $torrent->id }}" />
-                    <p class="form__group">
-                        {{ __('graveyard.howto') }}
-                    </p>
                     <p>
-                        {!! __('graveyard.howto-desc1', ['name' => $torrent->name]) !!}
-                        <span class="text-red text-bold">
-                            {{ $torrent->history->first() === null ? '0' : App\Helpers\StringHelper::timeElapsed($torrent->history->first()->seedtime) }}
-                        </span>
-                        {{ strtolower(__('graveyard.howto-hits')) }}
-                        <span class="text-red text-bold">
-                            {{ $torrent->history->first() === null ? App\Helpers\StringHelper::timeElapsed(config('graveyard.time')) : App\Helpers\StringHelper::timeElapsed($torrent->history->first()->seedtime + config('graveyard.time')) }}
-                        </span>
-                        {{ strtolower(__('graveyard.howto-desc2')) }}
-                        <span
-                            class="text-bold text-pink"
-                            style="background-image:url({{ url('/img/sparkels.gif') }};"
-                        >
-                            {{ config('graveyard.reward') }} {{ __('torrent.freeleech') }}
-                            Token(s)!
-                        </span>
+                        {{
+                            __('graveyard.howto-desc', [
+                                'currentSeedtime' => $torrent->history->first() === null ? '0' : App\Helpers\StringHelper::timeElapsed($torrent->history->first()->seedtime),
+                                'requiredSeedtime' => $torrent->history->first() === null ? App\Helpers\StringHelper::timeElapsed(config('graveyard.time')) : App\Helpers\StringHelper::timeElapsed($torrent->history->first()->seedtime + config('graveyard.time')),
+                                'tokens' => config('graveyard.reward'),
+                            ])
+                        }}
                     </p>
                     <p class="form__group" style="text-align: left">
                         <button class="form__button form__button--filled">
@@ -389,57 +384,61 @@
             </dialog>
         </li>
     @endif
-    <li x-data="dialog" class="form__group form__group--short-horizontal">
-        <button
-            class="form__button form__button--outlined form__button--centered"
-            x-bind="showDialog"
-        >
-            <i class="{{ config('other.font-awesome') }} fa-fw fa-eye"></i>
-            {{ __('common.report') }}
-        </button>
-        <dialog class="dialog" x-bind="dialogElement">
-            <h4 class="dialog__heading">
-                {{ __('common.report') }} {{ strtolower(__('torrent.torrent')) }}:
-                {{ $torrent->name }}
-            </h4>
-            <form
-                class="dialog__form"
-                method="POST"
-                action="{{ route('report_torrent', ['id' => $torrent->id]) }}"
-                x-bind="dialogForm"
+    @if ($torrent->status === \App\Enums\ModerationStatus::APPROVED)
+        <li x-data="dialog" class="form__group form__group--short-horizontal">
+            <button
+                class="form__button form__button--outlined form__button--centered"
+                x-bind="showDialog"
+                title="This torrent currently has {{ $torrent->unsolvedReports }} unsolved report(s)"
             >
-                @csrf
-                <input type="hidden" name="torrent_id" value="{{ $torrent->id }}" />
-                <p class="form__group">
-                    <textarea
-                        id="message"
-                        class="form__textarea"
-                        name="message"
-                        required
-                    ></textarea>
-                    <label
-                        for="report_reason"
-                        class="form__label form__label--floating"
-                        for="message"
-                    >
-                        {{ __('common.reason') }}
-                    </label>
-                </p>
-                <p class="form__group" style="text-align: left">
-                    <button class="form__button form__button--filled">
-                        {{ __('common.report') }}
-                    </button>
-                    <button
-                        formmethod="dialog"
-                        formnovalidate
-                        class="form__button form__button--outlined"
-                    >
-                        {{ __('common.cancel') }}
-                    </button>
-                </p>
-            </form>
-        </dialog>
-    </li>
+                <i class="{{ config('other.font-awesome') }} fa-fw fa-eye"></i>
+                {{ __('common.report') }} ({{ $torrent->unsolvedReports }})
+            </button>
+            <dialog class="dialog" x-bind="dialogElement">
+                <h4 class="dialog__heading">
+                    {{ __('common.report') }} {{ strtolower(__('torrent.torrent')) }}:
+                    {{ $torrent->name }}
+                </h4>
+                <form
+                    class="dialog__form"
+                    method="POST"
+                    action="{{ route('report_torrent', ['id' => $torrent->id]) }}"
+                    x-bind="dialogForm"
+                >
+                    @csrf
+                    <input type="hidden" name="torrent_id" value="{{ $torrent->id }}" />
+                    <p class="form__group">
+                        <textarea
+                            id="message"
+                            class="form__textarea"
+                            name="message"
+                            required
+                        ></textarea>
+                        <label
+                            for="report_reason"
+                            class="form__label form__label--floating"
+                            for="message"
+                        >
+                            {{ __('common.reason') }}
+                        </label>
+                    </p>
+                    <p class="form__group" style="text-align: left">
+                        <button class="form__button form__button--filled">
+                            {{ __('common.report') }}
+                        </button>
+                        <button
+                            formmethod="dialog"
+                            formnovalidate
+                            class="form__button form__button--outlined"
+                        >
+                            {{ __('common.cancel') }}
+                        </button>
+                    </p>
+                </form>
+            </dialog>
+        </li>
+    @endif
+
     @if ($user->group->is_modo)
         @if (! $torrent->trump_exists)
             <li x-data="dialog" class="form__group form__group--short-horizontal">
@@ -448,7 +447,7 @@
                     x-bind="showDialog"
                 >
                     <i class="{{ config('other.font-awesome') }} fa-skull-crossbones"></i>
-                    Mark Trumpable
+                    Mark trumpable
                 </button>
                 <dialog class="dialog" x-bind="dialogElement">
                     <h4 class="dialog__heading">
@@ -504,7 +503,7 @@
                     @method('DELETE')
                     <button class="form__button form__button--outlined form__button--centered">
                         <i class="{{ config('other.font-awesome') }} fa-skull-crossbones"></i>
-                        Unmark Trumpable
+                        Unmark trumpable
                     </button>
                 </form>
             </li>

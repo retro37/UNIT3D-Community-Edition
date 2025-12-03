@@ -19,6 +19,8 @@ namespace App\Models;
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Note.
@@ -30,7 +32,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class Note extends Model
+#[AllowDynamicProperties]
+final class Note extends Model
 {
     use Auditable;
 
@@ -38,7 +41,7 @@ class Note extends Model
     use HasFactory;
 
     /**
-     * The Database Table Used By The Model.
+     * The table associated with the model.
      *
      * @var string
      */
@@ -52,11 +55,11 @@ class Note extends Model
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /**
-     * Belongs To A User.
+     * Get the user that was noted.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function noteduser(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id')->withDefault([
             'username' => 'System',
@@ -65,11 +68,11 @@ class Note extends Model
     }
 
     /**
-     * Belongs To A User.
+     * Get the staff user wrote the note.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function staffuser(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function staff(): BelongsTo
     {
         return $this->belongsTo(User::class, 'staff_id')->withDefault([
             'username' => 'System',

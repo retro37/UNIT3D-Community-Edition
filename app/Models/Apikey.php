@@ -17,6 +17,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Apikey.
@@ -27,11 +29,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null                     $created_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
  */
-class Apikey extends Model
+#[AllowDynamicProperties]
+final class Apikey extends Model
 {
     /**
-     * Indicates If The Model Should Be Timestamped.
-     *
      * @var bool
      */
     public $timestamps = false;
@@ -56,11 +57,11 @@ class Apikey extends Model
     }
 
     /**
-     *  Belongs to a user.
+     * Get the user that owns the apikey.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

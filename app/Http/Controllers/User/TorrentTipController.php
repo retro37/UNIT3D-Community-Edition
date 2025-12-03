@@ -39,8 +39,8 @@ class TorrentTipController extends Controller
         return view('user.torrent-tip.index', [
             'user' => $user,
             'tips' => TorrentTip::with([
-                'sender'    => fn ($query) => $query->withTrashed()->with('group'),
-                'recipient' => fn ($query) => $query->withTrashed()->with('group'),
+                'sender.group',
+                'recipient.group',
                 'torrent'
             ])
                 ->where('sender_id', '=', $user->id)

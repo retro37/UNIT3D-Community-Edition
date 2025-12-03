@@ -149,7 +149,7 @@
                     @empty
                         <tr>
                             <td colspan="{{ auth()->user()->group->is_modo ? 10 : 8 }}">
-                                No Invitees
+                                No invitees
                             </td>
                         </tr>
                     @endforelse

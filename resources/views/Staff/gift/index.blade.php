@@ -8,7 +8,7 @@
 @endsection
 
 @section('meta')
-    <meta name="description" content="Gifts Log - {{ __('staff.staff-dashboard') }}" />
+    <meta name="description" content="Gifts log - {{ __('staff.staff-dashboard') }}" />
 @endsection
 
 @section('breadcrumbs')

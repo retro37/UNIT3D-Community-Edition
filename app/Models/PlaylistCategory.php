@@ -19,6 +19,8 @@ namespace App\Models;
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use AllowDynamicProperties;
 
 /**
  * App\Models\PlaylistCategory.
@@ -28,7 +30,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int    $position
  * @property string $description
  */
-class PlaylistCategory extends Model
+#[AllowDynamicProperties]
+final class PlaylistCategory extends Model
 {
     use Auditable;
 
@@ -50,11 +53,11 @@ class PlaylistCategory extends Model
     protected $guarded = [];
 
     /**
-     * Has many playlists.
+     * Get the playlists for this category.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Playlist, $this>
+     * @return HasMany<Playlist, $this>
      */
-    public function playlists(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function playlists(): HasMany
     {
         return $this->hasMany(Playlist::class);
     }

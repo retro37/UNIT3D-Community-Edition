@@ -17,6 +17,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use AllowDynamicProperties;
 
 /**
  * App\Models\IgdbPlatform.
@@ -25,7 +27,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string  $name
  * @property ?string $platform_logo_image_id
  */
-class IgdbPlatform extends Model
+#[AllowDynamicProperties]
+final class IgdbPlatform extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -42,11 +45,11 @@ class IgdbPlatform extends Model
     public $timestamps = false;
 
     /**
-     * Belongs to many games.
+     * Get the games that belong to the platform.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<IgdbGame, $this>
+     * @return BelongsToMany<IgdbGame, $this>
      */
-    public function games(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function games(): BelongsToMany
     {
         return $this->belongsToMany(IgdbGame::class);
     }

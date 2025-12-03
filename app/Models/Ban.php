@@ -18,6 +18,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Ban.
@@ -31,7 +33,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class Ban extends Model
+#[AllowDynamicProperties]
+final class Ban extends Model
 {
     /** @use HasFactory<\Database\Factories\BanFactory> */
     use HasFactory;
@@ -44,11 +47,11 @@ class Ban extends Model
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /**
-     * Belongs To A User.
+     * Get the banned user.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function banneduser(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'owned_by')->withDefault([
             'username' => 'System',
@@ -57,11 +60,11 @@ class Ban extends Model
     }
 
     /**
-     * Belongs To A User.
+     * Get the staff user who issued the ban.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function staffuser(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function staff(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by')->withDefault([
             'username' => 'System',

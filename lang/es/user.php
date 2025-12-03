@@ -18,7 +18,7 @@ return [
     'account-notification' => 'Configuración de notificación de cuenta',
     'account-notification-follow' => 'Recibe una notificación cuando un usuario sigue tu cuenta',
     'account-notification-unfollow' => 'Recibe una notificación cuando un usuario deja de seguir tu cuenta',
-    'account-notification-help' => 'Controla qué notificaciones se envían relacionadas con tu cuenta.  
+    'account-notification-help' => 'Controla qué notificaciones se envían relacionadas con tu cuenta.
 Estos ajustes se anulan si no permites que ningún grupo envíe notificaciones sobre tu cuenta o si <strong>desactivas las notificaciones</strong>',
     'account-settings' => 'Configuraciones de la cuenta',
     'achievement-privacy' => 'Configuraciones de Logros',
@@ -131,11 +131,11 @@ Estos ajustes se anulan si no permites que ningún grupo envíe notificaciones s
     'forums' => 'Foros',
     'general' => 'General',
     'general-settings' => 'Configuración general',
-    'gift-given' => 'Regalo dado',
+    'gift-given' => 'Regalo entregado',
     'gift-received' => 'Regalo recibido',
     'go-public' => 'Volverse publico',
     'go-private' => 'Volverse privado',
-    'history' => 'Historia',
+    'history' => 'Historial',
     'history-table' => 'Mi histórico',
     'hit-n-runs' => 'Multas de descargas no compartidas',
     'hit-n-runs-count' => 'Contador de Multas de descargas no compartidas (Histórico)',
@@ -161,7 +161,14 @@ Estos ajustes se anulan si no permites que ningún grupo envíe notificaciones s
     'invites-disabled' => 'Atención: las invitaciones están deshabilitadas debido a la inscripción abierta!',
     'invites-disabled-desc' => '¡Por favor, revise luego!',
     'invites-disabled-group' => 'Las invitaciones están desactivadas para tu grupo.',
-    'invites-rules' => '<li class="text-success"> Solo invite a personas que conozca y en las que confíe. </li><li class="text-danger"> Serás personalmente responsable por aquellos a quienes invitas. </li><li class="text-danger"> No te invites a ti mismo, verificamos a cada usuario invitado. </li><li class="text-danger"> No intercambies ni vendas invitaciones. </li><li class="text-danger"> Si una persona a la que invitó es atrapada haciendo trampa, intercambiando cuentas o vendiendo / intercambiando invitaciones, se le avisará. </li>',
+    'invites-rules' => [
+        'know-and-trust' => 'Solo invite a personas que conozca y en las que confíe.',
+        'responsible' => 'Serás personalmente responsable por aquellos a quienes invitas.',
+        'yourself' => 'No te invites a ti mismo, verificamos a cada usuario invitado.',
+        'trade-or-sell' => 'No intercambies ni vendas invitaciones.',
+        'caught' => 'Si una persona a la que invitó es atrapada haciendo trampa, intercambiando cuentas o vendiendo / intercambiando invitaciones, se le avisará.',
+        'responsibile' => 'Serás personalmente responsable de las personas que invites.',
+    ],
     'invites-send' => 'Enviar invitación',
     'judge' => 'Juez',
     'last-login' => 'Último inicio de sesión',
@@ -229,14 +236,14 @@ Estos ajustes se anulan si no permites que ningún grupo envíe notificaciones s
     'notification-from-mention-help' => 'Solo recibirás notificaciones de @mention del sistema, del staff y de los siguientes grupos.
     Estos ajustes se anulan si <strong>Desactivas las notificaciones</strong>',
     'notification-from-request' => 'Recibir notificaciones de solicitudes desde',
-    'notification-from-request-help' => 'Solo recibirás notificaciones de solicitudes del sistema, del staff y de los siguientes grupos.  
+    'notification-from-request-help' => 'Solo recibirás notificaciones de solicitudes del sistema, del staff y de los siguientes grupos.
 Estos ajustes se anulan si <strong>desactivas las notificaciones</strong>',
     'notifications' => 'Notificaciones',
     'offline' => '¡Usuario está Desconectado!',
     'online' => '¡Usuario está Conectado!',
     'open-registration' => 'Registro Abierto',
     'options' => 'Opciones',
-    'other-help' => 'Controla el uso compartido de otras estadísticas e información con los grupos que tienen acceso a tu perfil.  
+    'other-help' => 'Controla el uso compartido de otras estadísticas e información con los grupos que tienen acceso a tu perfil.
 Estos ajustes se anulan si no permites que ningún grupo acceda a tus otras estadísticas e información o si <strong>activas el modo privado</strong>',
     'other-privacy' => 'Otros ajustes',
     'other-privacy-online' => 'Permite a los usuarios verte en el bloque de usuarios en línea',
@@ -269,7 +276,7 @@ Estos ajustes se anulan si no permites que ningún grupo acceda a tus otras esta
     'profile-privacy-achievement' => 'Comparte tus logros recientes',
     'profile-privacy-follower' => 'Comparte tus seguidores recientes',
     'profile-privacy-warning' => 'Comparte tus advertencias de H&R',
-    'profile-privacy-help' => 'Controla qué estadísticas e información aparecen en tu perfil.  
+    'profile-privacy-help' => 'Controla qué estadísticas e información aparecen en tu perfil.
 Estos ajustes se anulan si no permites que ningún grupo acceda a tu perfil o si <strong>activas el modo privado</strong>',
     'public-info' => 'Información Pública',
     'reactivate' => 'Reactivar',
@@ -281,7 +288,7 @@ Estos ajustes se anulan si no permites que ningún grupo acceda a tu perfil o si
     'removed' => 'Eliminado',
     'report' => 'Informe',
     'report-sent' => 'Su informe se ha enviado correctamente',
-    'request-help' => 'Controla el uso compartido de estadísticas e información específicas relacionadas con las solicitudes con los grupos que tienen acceso a tu perfil.  
+    'request-help' => 'Controla el uso compartido de estadísticas e información específicas relacionadas con las solicitudes con los grupos que tienen acceso a tu perfil.
 Estos ajustes se anulan si no permites que ningún grupo acceda a tus estadísticas e información relacionada con las solicitudes o si <strong>activas el modo privado</strong>',
     'request' => 'Solicitud',
     'requested' => 'Solicitado',
@@ -295,7 +302,7 @@ Estos ajustes se anulan si no permites que ningún grupo acceda a tus estadísti
     'request-notification-fill-reject' => 'Recibir una notificación cuando un relleno de torrent solicitado sea rechazado',
     'request-notification-claim' => 'Recibir una notificación cuando se reclama un torrent solicitado',
     'request-notification-unclaim' => 'Recibir una notificación cuando un torrent solicitado no sea reclamado',
-    'request-notification-help' => 'Controla qué notificaciones se envían relacionadas con las actividades de solicitudes.  
+    'request-notification-help' => 'Controla qué notificaciones se envían relacionadas con las actividades de solicitudes.
 Estos ajustes se anulan si no permites que ningún grupo envíe notificaciones sobre actividades de solicitudes o si <strong>desactivas las notificaciones</strong>',
     'request-privacy' => 'Configuración de solicitud',
     'request-privacy-requested' => 'Permitir a los usuarios ver una lista de solicitudes que ha realizado',
@@ -324,23 +331,23 @@ Estos ajustes se anulan si no permites que ningún grupo envíe notificaciones s
     'show-passkey' => 'Mostrar PID',
     'soft-deleted-warnings' => 'Eliminar avisos',
     'staff-noted' => 'Cuenta del staff anotada',
-    'statistics' => 'Estadística',
+    'statistics' => 'Estadísticas',
     'subscription-notification' => 'Configuración de notificación de suscripción',
     'subscription-notification-forum' => 'Recibe una notificación cuando un foro suscrito tenga un nuevo tema',
     'subscription-notification-topic' => 'Recibe una notificación cuando un tema suscrito tenga una nueva publicación',
-    'subscription-notification-help' => 'Controla qué notificaciones se envían relacionadas con tus suscripciones.  
+    'subscription-notification-help' => 'Controla qué notificaciones se envían relacionadas con tus suscripciones.
 Estos ajustes se anulan si no permites que ningún grupo envíe notificaciones sobre tus suscripciones o si <strong>desactivas las notificaciones</strong>',
-    'thanks-given' => 'Gracias dadas',
+    'thanks-given' => 'Agradecimientos expresados',
     'thanks-received' => 'Gracias recibidas',
     'tips-given' => 'Consejos dados',
     'tips-received' => 'Consejos recibidos',
     'title' => 'Título',
     'top-bankers' => 'Los más ricos',
     'top-bountied' => 'Top recompensado',
-    'top-completed' => 'Top completado',
+    'top-completed' => 'Los más completados',
     'top-downloaders-data' => 'Los más descargadores (datos)',
-    'top-dead' => 'Top muertos',
-    'top-dying' => 'Top moribundos',
+    'top-dead' => 'Los más muertos',
+    'top-dying' => 'Los más moribundos',
     'top-leeched' => 'Más descargados',
     'top-leechers' => 'Los más descargando actualmente',
     'top-leechers-count' => 'Los más descargando actualmente (Contador)',
@@ -354,13 +361,13 @@ Estos ajustes se anulan si no permites que ningún grupo envíe notificaciones s
     'topics' => 'Temas',
     'topics-started' => 'Temas del foro empezados',
     'torrent-comments' => 'Comentarios de torrent realizados',
-    'torrent-help' => 'Controla el uso compartido de estadísticas e información específicas relacionadas con torrents con los grupos que tienen acceso a tu perfil.  
+    'torrent-help' => 'Controla el uso compartido de estadísticas e información específicas relacionadas con torrents con los grupos que tienen acceso a tu perfil.
 Estos ajustes se anulan si no permites que ningún grupo acceda a tus estadísticas e información relacionadas con torrents o si <strong>activas el modo privado</strong>',
     'torrent-notification' => 'Configuración de notificación de torrent',
     'torrent-notification-comment' => 'Recibe una notificación cuando un torrent cargado recibe un nuevo comentario',
     'torrent-notification-thank' => 'Recibe una notificación cuando un torrent subido reciba un nuevo agradecimiento',
     'torrent-notification-tip' => 'Recibe una notificación cuando un torrent subido reciba una nueva propina',
-    'torrent-notification-help' => 'Controla qué notificaciones se envían relacionadas con las actividades de torrents.  
+    'torrent-notification-help' => 'Controla qué notificaciones se envían relacionadas con las actividades de torrents.
 Estos ajustes se anulan si no permites que ningún grupo envíe notificaciones sobre actividades de torrents o si <strong>desactivas las notificaciones</strong>',
     'torrent-privacy' => 'Configuraciones Torrent',
     'torrent-privacy-download' => 'Permitir que los usuarios vean una lista de torrents que ha descargado',
@@ -407,25 +414,25 @@ Estos ajustes se anulan si no permites que ningún grupo envíe notificaciones s
     'user-id' => 'ID de usuario',
     'username-seedbox' => 'Nombre de usuario Seedbox',
     'visible-to-achievement' => 'Logros visibles para',
-    'visible-to-achievement-help' => 'Tus logros solo serán visibles para el staff y los siguientes grupos.  
+    'visible-to-achievement-help' => 'Tus logros solo serán visibles para el staff y los siguientes grupos.
 Estos ajustes se anulan si <strong>activas el modo privado</strong>',
     'visible-to-follower' => 'Seguidores visibles para',
-    'visible-to-follower-help' => 'Tus seguidores solo serán visibles para el staff y los siguientes grupos.  
+    'visible-to-follower-help' => 'Tus seguidores solo serán visibles para el staff y los siguientes grupos.
 Estos ajustes se anulan si <strong>activas el modo privado</strong>',
     'visible-to-forum' => 'Información del foro visible para',
-    'visible-to-forum-help' => 'La información de tu foro solo será visible para el staff y los siguientes grupos.  
+    'visible-to-forum-help' => 'La información de tu foro solo será visible para el staff y los siguientes grupos.
 Estos ajustes se anulan si <strong>activas el modo privado</strong>',
     'visible-to-other' => 'Otros visibles para',
-    'visible-to-other-help' => 'Otra información relacionada con tu cuenta solo será visible para el staff y los siguientes grupos.  
+    'visible-to-other-help' => 'Otra información relacionada con tu cuenta solo será visible para el staff y los siguientes grupos.
 Estos ajustes se anulan si <strong>activas el modo privado</strong> o si <strong>activas el modo oculto</strong>',
     'visible-to-profile' => 'Perfil visible para',
-    'visible-to-profile-help' => 'Tu perfil solo será visible para el staff y los siguientes grupos.  
+    'visible-to-profile-help' => 'Tu perfil solo será visible para el staff y los siguientes grupos.
 Estos ajustes se anulan si <strong>activas el modo privado</strong>',
     'visible-to-request' => 'Solicitud de información visible para',
-    'visible-to-request-help' => 'La información de tus solicitudes solo será visible para el staff y los siguientes grupos.  
+    'visible-to-request-help' => 'La información de tus solicitudes solo será visible para el staff y los siguientes grupos.
 Estos ajustes se anulan si <strong>activas el modo privado</strong>',
     'visible-to-torrent' => 'Información del torrente visible para',
-    'visible-to-torrent-help' => 'La información de tus torrents solo será visible para el staff y los siguientes grupos.  
+    'visible-to-torrent-help' => 'La información de tus torrents solo será visible para el staff y los siguientes grupos.
 Estos ajustes se anulan si <strong>activas el modo privado</strong> o si <strong>activas el modo oculto</strong>',
     'warned-by' => 'Advertido por',
     'warned-on' => 'Advertido hace',
@@ -448,4 +455,5 @@ Estos ajustes se anulan si <strong>activas el modo privado</strong> o si <strong
     'homepage-block-top-torrents-visible' => 'Mostrar los mejores torrents',
     'homepage-block-top-users-visible' => 'Mostrar los mejores usuarios',
     'unregistered-info-hashes' => 'Hashes de información no registrados',
+    'show-adult-content' => 'Mostrar contenido para adultos enel buscador de torrents y en la página de inicio',
 ];

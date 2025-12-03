@@ -23,7 +23,7 @@
 
 @section('main')
     <section class="panelV2">
-        <h2 class="panel__heading">Top Users by Message Count</h2>
+        <h2 class="panel__heading">Top users by message count</h2>
         <div class="data-table-wrapper">
             <table class="data-table">
                 <thead>

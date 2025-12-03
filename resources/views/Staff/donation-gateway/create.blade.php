@@ -9,7 +9,7 @@
     <li class="breadcrumbV2">
         <a href="{{ route('staff.gateways.index') }}" class="breadcrumb__link">Gateways</a>
     </li>
-    <li class="breadcrumb--active">Create Gateway</li>
+    <li class="breadcrumb--active">Create gateway</li>
 @endsection
 
 @section('page', 'page__staff-donation-gateway--create')
@@ -17,7 +17,7 @@
 @section('main')
     <section class="panelV2">
         <header class="panel__header">
-            <h2 class="panel__heading">Add New Gateway</h2>
+            <h2 class="panel__heading">Add new gateway</h2>
         </header>
         <div class="data-table-wrapper">
             <form role="form" method="POST" action="{{ route('staff.gateways.store') }}">

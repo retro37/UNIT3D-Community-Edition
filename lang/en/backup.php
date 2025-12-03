@@ -16,7 +16,7 @@ declare(strict_types=1);
 return [
     /*
     |--------------------------------------------------------------------------
-    | Backup Language Lines
+    | Backup language lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are used by the backup system.
@@ -25,17 +25,17 @@ return [
     */
 
     'backup'                         => 'Backup',
-    'backup_process_started'         => 'New Backup Process Started',
-    'create_a_new_backup'            => 'Create Full Backup',
-    'create_a_new_files_backup'      => 'Create Files Backup',
-    'create_a_new_db_backup'         => 'Create Database Backup',
+    'backup_process_started'         => 'New backup process started',
+    'create_a_new_backup'            => 'Create full backup',
+    'create_a_new_files_backup'      => 'Create files backup',
+    'create_a_new_db_backup'         => 'Create database backup',
     'existing_backups'               => 'Existing backups',
     'date'                           => 'Date',
     'file_size'                      => 'File size',
     'actions'                        => 'Actions',
     'download'                       => 'Download',
     'delete'                         => 'Delete',
-    'delete_confirm'                 => 'Are your sure you want to delete this backup file?',
+    'delete_confirm'                 => 'Are you sure you want to delete this backup file?',
     'delete_confirmation_title'      => 'Done',
     'delete_confirmation_message'    => 'The backup file was deleted.',
     'delete_error_title'             => 'Error',

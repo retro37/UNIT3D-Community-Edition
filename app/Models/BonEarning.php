@@ -17,6 +17,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use AllowDynamicProperties;
 
 /**
  * App\Models\BonEarning.
@@ -29,10 +31,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property string                                                                                                         $name
  * @property string                                                                                                         $description
  */
-class BonEarning extends Model
+#[AllowDynamicProperties]
+final class BonEarning extends Model
 {
     /**
-     * Indicates If The Model Should Be Timestamped.
+     * Indicates if the model should be timestamped.
      *
      * @var bool
      */
@@ -46,11 +49,11 @@ class BonEarning extends Model
     protected $guarded = [];
 
     /**
-     * Has Many Bon Earning Conditions.
+     * Get the conditions for the bon earning.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<BonEarningCondition, $this>
+     * @return HasMany<BonEarningCondition, $this>
      */
-    public function conditions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function conditions(): HasMany
     {
         return $this->hasMany(BonEarningCondition::class);
     }

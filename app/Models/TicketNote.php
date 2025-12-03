@@ -17,6 +17,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\TicketNote.
@@ -28,7 +30,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class TicketNote extends Model
+#[AllowDynamicProperties]
+final class TicketNote extends Model
 {
     /**
      * The attributes that aren't mass assignable.
@@ -38,21 +41,21 @@ class TicketNote extends Model
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /**
-     * Belongs To A User.
+     * Get the user that wrote the note.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
     /**
-     * Belongs To A Ticket.
+     * Get the ticket associated with the note.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Ticket, $this>
+     * @return BelongsTo<Ticket, $this>
      */
-    public function ticket(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function ticket(): BelongsTo
     {
         return $this->belongsTo(Ticket::class);
     }

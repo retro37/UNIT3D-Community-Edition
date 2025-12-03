@@ -21,6 +21,7 @@ use App\Traits\Auditable;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Page.
@@ -31,7 +32,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class Page extends Model
+#[AllowDynamicProperties]
+final class Page extends Model
 {
     use Auditable;
 
@@ -46,7 +48,7 @@ class Page extends Model
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /**
-     * Set The Pages Content After Its Been Purified.
+     * Set the pages content after it has been purified.
      */
     public function setContentAttribute(?string $value): void
     {
@@ -54,7 +56,7 @@ class Page extends Model
     }
 
     /**
-     * Parse Content And Return Valid HTML.
+     * Parse content and return valid HTML.
      */
     public function getContentHtml(): string
     {

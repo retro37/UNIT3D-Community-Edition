@@ -19,6 +19,8 @@ namespace App\Models;
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Option.
@@ -30,7 +32,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class Option extends Model
+#[AllowDynamicProperties]
+final class Option extends Model
 {
     use Auditable;
 
@@ -47,11 +50,11 @@ class Option extends Model
     ];
 
     /**
-     * Belongs To A Poll.
+     * Get the poll that owns the option.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Poll, $this>
+     * @return BelongsTo<Poll, $this>
      */
-    public function poll(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function poll(): BelongsTo
     {
         return $this->belongsTo(Poll::class);
     }

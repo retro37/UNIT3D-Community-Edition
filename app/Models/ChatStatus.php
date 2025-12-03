@@ -19,6 +19,8 @@ namespace App\Models;
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use AllowDynamicProperties;
 
 /**
  * App\Models\ChatStatus.
@@ -30,7 +32,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class ChatStatus extends Model
+#[AllowDynamicProperties]
+final class ChatStatus extends Model
 {
     use Auditable;
 
@@ -45,11 +48,11 @@ class ChatStatus extends Model
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /**
-     * A Status Has Many Users.
+     * Get the users that have this chat status.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<User, $this>
+     * @return HasMany<User, $this>
      */
-    public function users(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function users(): HasMany
     {
         return $this->hasMany(User::class, 'chat_status_id', 'id');
     }

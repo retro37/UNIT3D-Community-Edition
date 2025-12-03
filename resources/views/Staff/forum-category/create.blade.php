@@ -1,11 +1,11 @@
 @extends('layout.with-main')
 
 @section('title')
-    <title>Add Forums - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}</title>
+    <title>Add forums - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}</title>
 @endsection
 
 @section('meta')
-    <meta name="description" content="Add Forums - {{ __('staff.staff-dashboard') }}" />
+    <meta name="description" content="Add forums - {{ __('staff.staff-dashboard') }}" />
 @endsection
 
 @section('breadcrumbs')
@@ -16,7 +16,7 @@
     </li>
     <li class="breadcrumbV2">
         <a href="{{ route('staff.forum_categories.index') }}" class="breadcrumb__link">
-            Forum Categories
+            Forum categories
         </a>
     </li>
     <li class="breadcrumb--active">
@@ -28,7 +28,7 @@
 
 @section('main')
     <section class="panelV2">
-        <h2 class="panel__heading">Add a new Forum Category</h2>
+        <h2 class="panel__heading">Add a new forum category</h2>
         <div class="panel__body">
             <form class="form" method="POST" action="{{ route('staff.forum_categories.store') }}">
                 @csrf
@@ -62,7 +62,7 @@
                     </label>
                 </p>
                 <p class="form__group">
-                    <button class="form__button form__button--filled">Save Forum</button>
+                    <button class="form__button form__button--filled">Save forum</button>
                 </p>
             </form>
         </div>

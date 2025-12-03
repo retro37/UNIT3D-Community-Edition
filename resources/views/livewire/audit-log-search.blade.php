@@ -23,7 +23,7 @@
                             <option value="{{ $modelName }}">{{ $modelName }}</option>
                         @endforeach
                     </select>
-                    <label class="form__label form__label--floating" for="model">Model Name</label>
+                    <label class="form__label form__label--floating" for="model">Model name</label>
                 </div>
             </div>
             <div class="panel__action">
@@ -36,7 +36,7 @@
                         wire:model.live="modelId"
                         placeholder=" "
                     />
-                    <label class="form__label form__label--floating" for="modelId">Model Id</label>
+                    <label class="form__label form__label--floating" for="modelId">Model ID</label>
                 </div>
             </div>
             <div class="panel__action">
@@ -119,8 +119,10 @@
                                             overflow-wrap: break-word;
                                         "
                                     >
-                                        {{ $key }}: {{ Js::from($value['old']) }} &rarr;
-                                        {{ Js::from($value['new']) }}
+                                        {{ $key }}:
+                                        {{ json_encode($value['old'], JSON_THROW_ON_ERROR) }}
+                                        &rarr;
+                                        {{ json_encode($value['new'], JSON_THROW_ON_ERROR) }}
                                     </li>
                                 @endforeach
                             </ul>

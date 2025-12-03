@@ -18,6 +18,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\UserPrivacy.
@@ -66,20 +68,21 @@ use Illuminate\Database\Eloquent\Model;
  * @property list<int> $json_request_groups
  * @property list<int> $json_other_groups
  */
-class UserPrivacy extends Model
+#[AllowDynamicProperties]
+final class UserPrivacy extends Model
 {
     /** @use HasFactory<\Database\Factories\UserPrivacyFactory> */
     use HasFactory;
 
     /**
-     * Indicates If The Model Should Be Timestamped.
+     * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = false;
 
     /**
-     * The Database Table Used By The Model.
+     * The table associated with the model.
      *
      * @var string
      */
@@ -116,11 +119,11 @@ class UserPrivacy extends Model
     }
 
     /**
-     * Belongs To A User.
+     * Get the user that owns the privacy settings.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }

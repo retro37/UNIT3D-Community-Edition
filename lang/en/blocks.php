@@ -15,36 +15,36 @@ declare(strict_types=1);
 
 return [
     // Chat
-    'chatbox'          => 'Chat Box',
+    'chatbox'          => 'Chat box',
     'click'            => 'Click',
     'to-enable-editor' => 'to enable editor',
 
-    // Featured Torrents
+    // Featured torrents
     'featured-by'             => 'Featured by',
-    'featured-torrents'       => 'Featured Torrents',
-    'featured-torrents-intro' => 'Get Them While You Can!',
+    'featured-torrents'       => 'Featured torrents',
+    'featured-torrents-intro' => 'Get them while you can!',
     'featured-until'          => 'This is a featured torrent until',
 
-    // Latest Torrents
-    'top-torrents' => 'Top Torrents',
+    // Latest torrents
+    'top-torrents' => 'Top torrents',
 
-    // Latest Posts
-    'latest-posts' => 'Latest Posts',
+    // Latest posts
+    'latest-posts' => 'Latest posts',
 
-    // Latest Topics
-    'latest-topics' => 'Latest Topics',
+    // Latest topics
+    'latest-topics' => 'Latest topics',
 
-    // Latest Comments
-    'latest-comments' => 'Latest Comments',
+    // Latest comments
+    'latest-comments' => 'Latest comments',
 
-    // Users Online
+    // Users online
     'active-in-last' => 'Active in last',
-    'users-online'   => 'Users Online',
+    'users-online'   => 'Users online',
 
     // News/Articles
-    'check-news' => 'Latest News',
-    'new-news'   => 'New News',
+    'check-news' => 'Latest news',
+    'new-news'   => 'New news',
 
-    // Top Torrents
-    'new-torrents' => 'New Torrents',
+    // Top torrents
+    'new-torrents' => 'New torrents',
 ];

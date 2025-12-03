@@ -14,7 +14,7 @@
 @section('main')
     <section class="panelV2">
         <header class="panel__header">
-            <h2 class="panel__heading">Donation Statistics</h2>
+            <h2 class="panel__heading">Donation statistics</h2>
         </header>
         <div class="chart-wrapper">
             <div>
@@ -87,7 +87,7 @@
                                 @if ($donation->package->donor_value === null)
                                     Lifetime
                                 @else
-                                    {{ $donation->package->donor_value }} Days
+                                    {{ $donation->package->donor_value }} days
                                 @endif
                             </td>
                             <td>
@@ -152,10 +152,10 @@
     @vite('resources/js/vendor/chart.js')
     <script nonce="{{ HDVinnie\SecureHeaders\SecureHeaders::nonce('script') }}">
         document.addEventListener('DOMContentLoaded', function () {
-            const dailyDonations = {!! Js::encode($dailyDonations) !!};
-            const monthlyDonations = {!! Js::encode($monthlyDonations) !!};
+            const dailyDonations = {{ Js::from($dailyDonations) }};
+            const monthlyDonations = {{ Js::from($monthlyDonations) }};
 
-            // Daily Donations Chart
+            // Daily donations chart
             const dailyCtx = document.getElementById('dailyDonationsChart').getContext('2d');
             new Chart(dailyCtx, {
                 type: 'line',
@@ -163,7 +163,7 @@
                     labels: dailyDonations.map((donation) => donation.date),
                     datasets: [
                         {
-                            label: 'Daily Donations',
+                            label: 'Daily donations',
                             data: dailyDonations.map((donation) => donation.total),
                             backgroundColor: getComputedStyle(
                                 document.documentElement,
@@ -184,7 +184,7 @@
                 },
             });
 
-            // Monthly Donations Chart
+            // Monthly donations chart
             const monthlyCtx = document.getElementById('monthlyDonationsChart').getContext('2d');
             new Chart(monthlyCtx, {
                 type: 'line',
@@ -194,7 +194,7 @@
                     ),
                     datasets: [
                         {
-                            label: 'Monthly Donations',
+                            label: 'Monthly donations',
                             data: monthlyDonations.map((donation) => donation.total),
                             backgroundColor: getComputedStyle(
                                 document.documentElement,

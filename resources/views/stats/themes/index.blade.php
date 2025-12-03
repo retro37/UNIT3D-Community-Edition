@@ -17,7 +17,7 @@
 
 @section('main')
     <section class="panelV2">
-        <h2 class="panel__heading">Site Stylesheets</h2>
+        <h2 class="panel__heading">Site stylesheets</h2>
         <div class="data-table-wrapper">
             <table class="data-table">
                 @forelse ($siteThemes as $siteTheme)
@@ -26,76 +26,76 @@
                         <td>
                             @switch($siteTheme->total_style)
                                 @case('0')
-                                    Light Theme
+                                    Light theme
 
                                     @break
                                 @case('1')
-                                    Galactic Theme
+                                    Galactic theme
 
                                     @break
                                 @case('2')
-                                    Dark Blue Theme
+                                    Dark blue theme
 
                                     @break
                                 @case('3')
-                                    Dark Green Theme
+                                    Dark green theme
 
                                     @break
                                 @case('4')
-                                    Dark Pink Theme
+                                    Dark pink theme
 
                                     @break
                                 @case('5')
-                                    Dark Purple Theme
+                                    Dark purple theme
 
                                     @break
                                 @case('6')
-                                    Dark Red Theme
+                                    Dark red theme
 
                                     @break
                                 @case('7')
-                                    Dark Teal Theme
+                                    Dark teal theme
 
                                     @break
                                 @case('8')
-                                    Dark Yellow Theme
+                                    Dark yellow theme
 
                                     @break
                                 @case('9')
-                                    Cosmic Void Theme
+                                    Cosmic void theme
 
                                     @break
                                 @case('10')
-                                    Nord Theme
+                                    Nord theme
 
                                     @break
                                 @case('11')
-                                    Revel Theme
+                                    Revel theme
 
                                     @break
                                 @case('12')
-                                    Material Design 3 Light Theme
+                                    Material design 3 light theme
 
                                     @break
                                 @case('13')
-                                    Material Design 3 Dark Theme
+                                    Material design 3 dark theme
 
                                     @break
                                 @case('14')
-                                    Material Design 3 Amoled Theme
+                                    Material design 3 amoled theme
 
                                     @break
                                 @case('15')
-                                    Material Design 3 Navy Theme
+                                    Material design 3 navy theme
 
                                     @break
                             @endswitch
                         </td>
-                        <td>Used By {{ $siteTheme->value }} Users</td>
+                        <td>Used by {{ $siteTheme->value }} users</td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="3">None Used</td>
+                        <td colspan="3">None used</td>
                     </tr>
                 @endforelse
             </table>
@@ -103,18 +103,18 @@
     </section>
 
     <section class="panelV2">
-        <h2 class="panel__heading">External CSS Stylesheets (Stacks on top of above site theme)</h2>
+        <h2 class="panel__heading">External CSS stylesheets (stacks on top of above site theme)</h2>
         <div class="data-table-wrapper">
             <table class="data-table">
                 @forelse ($customThemes as $customTheme)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $customTheme->custom_css }}</td>
-                        <td>Used By {{ $customTheme->value }} Users</td>
+                        <td>Used by {{ $customTheme->value }} users</td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="3">None Used</td>
+                        <td colspan="3">None used</td>
                     </tr>
                 @endforelse
             </table>
@@ -122,18 +122,18 @@
     </section>
 
     <section class="panelV2">
-        <h2 class="panel__heading">Standalone CSS Stylesheets (No site theme used)</h2>
+        <h2 class="panel__heading">Standalone CSS stylesheets (no site theme used)</h2>
         <div class="data-table-wrapper">
             <table class="data-table">
                 @forelse ($standaloneThemes as $standaloneTheme)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $standaloneTheme->standalone_css }}</td>
-                        <td>Used By {{ $standaloneTheme->value }} Users</td>
+                        <td>Used by {{ $standaloneTheme->value }} users</td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="3">None Used</td>
+                        <td colspan="3">None used</td>
                     </tr>
                 @endforelse
             </table>

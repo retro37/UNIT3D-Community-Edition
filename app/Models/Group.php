@@ -19,48 +19,51 @@ namespace App\Models;
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Group.
  *
- * @property int      $id
- * @property string   $name
- * @property string   $slug
- * @property int      $position
- * @property int      $level
- * @property int|null $download_slots
- * @property string   $description
- * @property string   $color
- * @property string   $icon
- * @property string   $effect
- * @property bool     $is_uploader
- * @property bool     $is_internal
- * @property bool     $is_editor
- * @property bool     $is_torrent_modo
- * @property bool     $is_owner
- * @property bool     $is_admin
- * @property bool     $is_modo
- * @property bool     $is_trusted
- * @property bool     $is_immune
- * @property bool     $is_freeleech
- * @property bool     $is_double_upload
- * @property bool     $is_refundable
- * @property bool     $can_chat
- * @property bool     $can_comment
- * @property bool     $can_invite
- * @property bool     $can_request
- * @property bool     $can_upload
- * @property bool     $is_incognito
- * @property bool     $autogroup
- * @property bool     $system_required
- * @property int      $min_uploaded
- * @property int      $min_seedsize
- * @property int      $min_avg_seedtime
- * @property string   $min_ratio
- * @property int      $min_age
- * @property int      $min_uploads
+ * @property int         $id
+ * @property string      $name
+ * @property string      $slug
+ * @property int         $position
+ * @property int         $level
+ * @property int|null    $download_slots
+ * @property string      $description
+ * @property string      $color
+ * @property string      $icon
+ * @property string      $effect
+ * @property bool        $is_uploader
+ * @property bool        $is_internal
+ * @property bool        $is_editor
+ * @property bool        $is_torrent_modo
+ * @property bool        $is_owner
+ * @property bool        $is_admin
+ * @property bool        $is_modo
+ * @property bool        $is_trusted
+ * @property bool        $is_immune
+ * @property bool        $is_freeleech
+ * @property bool        $is_double_upload
+ * @property bool        $is_refundable
+ * @property bool        $can_chat
+ * @property bool        $can_comment
+ * @property bool        $can_invite
+ * @property bool        $can_request
+ * @property bool        $can_upload
+ * @property bool        $is_incognito
+ * @property bool        $autogroup
+ * @property bool        $system_required
+ * @property int|null    $min_uploaded
+ * @property int|null    $min_seedsize
+ * @property int|null    $min_avg_seedtime
+ * @property string|null $min_ratio
+ * @property int|null    $min_age
+ * @property int|null    $min_uploads
  */
-class Group extends Model
+#[AllowDynamicProperties]
+final class Group extends Model
 {
     use Auditable;
 
@@ -129,28 +132,28 @@ class Group extends Model
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /**
-     * Indicates If The Model Should Be Timestamped.
+     * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = false;
 
     /**
-     * Has Many Users.
+     * Get the users for the group.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<User, $this>
+     * @return HasMany<User, $this>
      */
-    public function users(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function users(): HasMany
     {
         return $this->hasMany(User::class);
     }
 
     /**
-     * Has Many Permissions.
+     * Get the forum permissions for the group.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<ForumPermission, $this>
+     * @return HasMany<ForumPermission, $this>
      */
-    public function permissions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function permissions(): HasMany
     {
         return $this->hasMany(ForumPermission::class);
     }

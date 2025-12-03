@@ -129,7 +129,7 @@
                             Freeleech
                         </button>
                         <dialog class="dialog" x-bind="dialogElement">
-                            <h4 class="dialog__heading">Edit Freeleech</h4>
+                            <h4 class="dialog__heading">Edit freeleech</h4>
                             <div x-bind="dialogForm">
                                 <form
                                     class="dialog__form"
@@ -168,7 +168,7 @@
                                     </p>
                                     <p class="form__group">
                                         <select id="fl_until" class="form__select" name="fl_until">
-                                            <option value="">No Limit</option>
+                                            <option value="">No limit</option>
                                             <option value="1">1 Day</option>
                                             <option value="2">2 Days</option>
                                             <option value="3">3 Days</option>
@@ -182,7 +182,7 @@
                                             class="form__label form__label--floating"
                                             for="fl_until"
                                         >
-                                            Buff Time
+                                            Buff time
                                         </label>
                                     </p>
                                     <p class="form__group">
@@ -204,10 +204,10 @@
                     <li x-data="dialog">
                         <button class="form__button form__button--outlined" x-bind="showDialog">
                             <i class="{{ config('other.font-awesome') }} fa-chevron-double-up"></i>
-                            Double Upload
+                            Double upload
                         </button>
                         <dialog class="dialog" x-bind="dialogElement">
-                            <h4 class="dialog__heading">Edit Double Upload</h4>
+                            <h4 class="dialog__heading">Edit double upload</h4>
                             <div x-bind="dialogForm">
                                 <form
                                     class="dialog__form"
@@ -217,7 +217,7 @@
                                     @csrf
                                     <p class="form__group">
                                         <select id="du_until" class="form__select" name="du_until">
-                                            <option value="">No Limit</option>
+                                            <option value="">No limit</option>
                                             <option value="1">1 Day</option>
                                             <option value="2">2 Days</option>
                                             <option value="3">3 Days</option>
@@ -230,7 +230,7 @@
                                             class="form__label form__label--floating"
                                             for="du_until"
                                         >
-                                            Buff Time
+                                            Buff time
                                         </label>
                                     </p>
                                     <p class="form__group">
@@ -539,17 +539,17 @@
                     <li>
                         @switch($torrent->status)
                             @case(\App\Enums\ModerationStatus::APPROVED)
-                                Approved By:
+                                Approved by:
                                 <x-user-tag :user="$torrent->moderated" :anon="false" />
 
                                 @break
                             @case(\App\Enums\ModerationStatus::POSTPONED)
-                                Postponed By:
+                                Postponed by:
                                 <x-user-tag :user="$torrent->moderated" :anon="false" />
 
                                 @break
                             @case(\App\Enums\ModerationStatus::REJECTED)
-                                Rejected By:
+                                Rejected by:
                                 <x-user-tag :user="$torrent->moderated" :anon="false" />
 
                                 @break

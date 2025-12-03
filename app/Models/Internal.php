@@ -19,6 +19,8 @@ namespace App\Models;
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Internal.
@@ -28,7 +30,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $icon
  * @property string $effect
  */
-class Internal extends Model
+#[AllowDynamicProperties]
+final class Internal extends Model
 {
     use Auditable;
 
@@ -43,18 +46,18 @@ class Internal extends Model
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /**
-     * Indicates If The Model Should Be Timestamped.
+     * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = false;
 
     /**
-     * Has Many Users.
+     * Get the users that belong to the internal group.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<User, $this, InternalUser>
+     * @return BelongsToMany<User, $this, InternalUser>
      */
-    public function users(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class)
             ->using(InternalUser::class)

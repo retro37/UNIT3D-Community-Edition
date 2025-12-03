@@ -25,7 +25,7 @@ class TorrentTools
     /**
      * Moves and decodes the torrent.
      *
-     * @return array<mixed>>
+     * @return array<mixed>
      */
     public static function normalizeTorrent(UploadedFile $torrentFile)
     {
@@ -173,6 +173,8 @@ class TorrentTools
             || preg_match('/^\.?____padding.*$/i', $filename)
             // BEP 47 torrent padding files that many clients aren't able to handle
             || str_starts_with($filename, '.pad')
+            // Tilde home expansion on linux
+            || str_starts_with($filename, '~')
         );
     }
 

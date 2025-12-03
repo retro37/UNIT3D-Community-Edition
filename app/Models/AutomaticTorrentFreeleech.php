@@ -18,39 +18,42 @@ namespace App\Models;
 
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
-class AutomaticTorrentFreeleech extends Model
+#[AllowDynamicProperties]
+final class AutomaticTorrentFreeleech extends Model
 {
     use Auditable;
 
     protected $guarded = [];
 
     /**
-     * Belongs To A Category.
+     * Get the category that owns automatic torrent freeleech.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Category, $this>
+     * @return BelongsTo<Category, $this>
      */
-    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
     /**
-     * Belongs To A Type.
+     * Get the type that owns automatic torrent freeleech.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Type, $this>
+     * @return BelongsTo<Type, $this>
      */
-    public function type(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function type(): BelongsTo
     {
         return $this->belongsTo(Type::class);
     }
 
     /**
-     * Belongs To A Resolution.
+     * Get the resolution that owns automatic torrent freeleech.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Resolution, $this>
+     * @return BelongsTo<Resolution, $this>
      */
-    public function resolution(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function resolution(): BelongsTo
     {
         return $this->belongsTo(Resolution::class);
     }

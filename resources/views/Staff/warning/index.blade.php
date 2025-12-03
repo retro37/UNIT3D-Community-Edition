@@ -1,11 +1,11 @@
 @extends('layout.with-main')
 
 @section('title')
-    <title>Warnings Log - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}</title>
+    <title>Warnings log - {{ __('staff.staff-dashboard') }} - {{ config('other.title') }}</title>
 @endsection
 
 @section('meta')
-    <meta name="description" content="Warnings Log - {{ __('staff.staff-dashboard') }}" />
+    <meta name="description" content="Warnings log - {{ __('staff.staff-dashboard') }}" />
 @endsection
 
 @section('breadcrumbs')

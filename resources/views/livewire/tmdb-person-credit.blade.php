@@ -79,7 +79,7 @@
             x-on:click="tab = {{ App\Enums\Occupation::PRODUCTION_DESIGNER->value }}"
             x-show="{{ $productionDesignedCount }} > 0"
         >
-            Production Designer ({{ $productionDesignedCount }})
+            Production designer ({{ $productionDesignedCount }})
         </li>
         <li
             class="panel__tab"
@@ -89,7 +89,7 @@
             x-on:click="tab = {{ App\Enums\Occupation::ART_DIRECTOR->value }}"
             x-show="{{ $artDirectedCount }} > 0"
         >
-            Art Director ({{ $artDirectedCount }})
+            Art director ({{ $artDirectedCount }})
         </li>
         <li
             class="panel__tab"
@@ -115,7 +115,7 @@
                     @break
             @endswitch
         @empty
-            No Media
+            No media
         @endforelse
     </div>
 </section>

@@ -17,6 +17,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use AllowDynamicProperties;
 
 /**
  * App\Models\IgdbGenre.
@@ -24,7 +26,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int    $id
  * @property string $name
  */
-class IgdbGenre extends Model
+#[AllowDynamicProperties]
+final class IgdbGenre extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -41,11 +44,11 @@ class IgdbGenre extends Model
     public $timestamps = false;
 
     /**
-     * Belongs to many games.
+     * Get the games that belong to the genre.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<IgdbGame, $this>
+     * @return BelongsToMany<IgdbGame, $this>
      */
-    public function games(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function games(): BelongsToMany
     {
         return $this->belongsToMany(IgdbGame::class);
     }

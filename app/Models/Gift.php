@@ -17,6 +17,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Gift.
@@ -28,7 +30,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string                     $message
  * @property \Illuminate\Support\Carbon $created_at
  */
-class Gift extends Model
+#[AllowDynamicProperties]
+final class Gift extends Model
 {
     protected $guarded = [];
 
@@ -47,18 +50,22 @@ class Gift extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * Get the user that sent the gift.
+     *
+     * @return BelongsTo<User, $this>
      */
-    public function sender(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function sender(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withTrashed();
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * Get the user that received the gift.
+     *
+     * @return BelongsTo<User, $this>
      */
-    public function recipient(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function recipient(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withTrashed();
     }
 }

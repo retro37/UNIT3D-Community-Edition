@@ -17,6 +17,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Announce.
@@ -35,7 +37,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $event
  * @property string $key
  */
-class Announce extends Model
+#[AllowDynamicProperties]
+final class Announce extends Model
 {
     /**
      * Indicates if the model should be timestamped.
@@ -52,21 +55,21 @@ class Announce extends Model
     protected $guarded = ['id'];
 
     /**
-     * Belongs to a torrent.
+     * Get the torrent that was announced.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Torrent, $this>
+     * @return BelongsTo<Torrent, $this>
      */
-    public function torrents(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function torrent(): BelongsTo
     {
         return $this->belongsTo(Torrent::class);
     }
 
     /**
-     * Belongs to a user.
+     * Get the user that announced.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function requests(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

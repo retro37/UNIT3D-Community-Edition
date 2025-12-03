@@ -86,7 +86,7 @@
                 @if ($torrentRequest->season_number !== null && $torrentRequest->episode_number !== null)
                     @if ($torrentRequest->season_number === 0 && $torrentRequest->episode_number === 0)
                         <li class="request__season">
-                            <span>Complete Pack</span>
+                            <span>Complete pack</span>
                         </li>
                     @elseif ($torrentRequest->season_number === 0 && $torrentRequest->episode_number !== 0)
                         <li class="request__season">
@@ -277,13 +277,13 @@
                         <i
                             class="{{ config('other.font-awesome') }} fa-plus-circle fa-pull-right"
                         ></i>
-                        Show More
+                        Show more
                     </div>
                     <div x-show="isToggledOn" x-cloak>
                         <i
                             class="{{ config('other.font-awesome') }} fa-minus-circle fa-pull-right"
                         ></i>
-                        Show Less
+                        Show less
                     </div>
                 @endif
             </header>

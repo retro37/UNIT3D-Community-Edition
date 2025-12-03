@@ -9,7 +9,7 @@
     <li class="breadcrumbV2">
         <a href="{{ route('staff.packages.index') }}" class="breadcrumb__link">Packages</a>
     </li>
-    <li class="breadcrumb--active">Edit Package</li>
+    <li class="breadcrumb--active">Edit package</li>
 @endsection
 
 @section('page', 'page__staff-donation-package--edit')

@@ -37,7 +37,7 @@ return [
     'completed_at' => 'Selesai di',
     'completed-not-seeding' => 'Anda Lengkapkan Muat Turun Ini Tetapi Tidak Ada Lagi Pembenihan Ia',
     'created_at' => 'Dicipta pada',
-    'credited' => 'Dikreditkan',
+    'credited' => 'Telah dikreditkan (Credited)',
     'current' => 'Semasa',
     'current-filters' => 'Penapis Semasa',
     'currently-leeching' => 'Pada masa ini Leeching',
@@ -183,7 +183,7 @@ return [
     'top-seeded' => 'Top Seeded',
     'torrent' => 'Torrent',
     'torrent-request' => 'Permintaan Torrent',
-    'torrent-tips' => 'Dalam Jumlah <span class="text-red text-bold">: jumlah</span> BON telah diberikan kepada pemuat naik, yang mana <span class="text-red text-bold">: pengguna</span> berasal dari anda',
+    'torrent-tips' => 'Dalam Jumlah : jumlah BON telah diberikan kepada pemuat naik, yang mana : pengguna berasal dari anda',
     'torrent-tips-desc' => 'Ini akan ditolak dari mata bonus anda yang ada',
     'torrents' => 'Torrents',
     'trailer' => 'Lihat treler',
@@ -206,4 +206,5 @@ return [
     'resolution' => 'Resolusi',
     'resolutions' => 'Resoluti-resolusi',
     'staff-tools' => 'Alat Kakitangan',
+    'add-to-playlist' => 'Tambah ke dalam playlist',
 ];

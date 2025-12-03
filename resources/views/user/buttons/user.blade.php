@@ -307,10 +307,10 @@
                 @endif
 
                 <li class="nav-tabV2" x-data="dialog">
-                    <a class="nav-tab__link" x-bind="showDialog">Download Torrent Files</a>
+                    <a class="nav-tab__link" x-bind="showDialog">Download torrent files</a>
 
                     <dialog class="dialog" x-bind="dialogElement">
-                        <h3 class="dialog__heading">Download Torrent Files</h3>
+                        <h3 class="dialog__heading">Download torrent files</h3>
                         <form
                             class="dialog__form"
                             action="{{ route('users.torrent_zip.show', ['user' => $user]) }}"
@@ -327,7 +327,7 @@
                                         value="false"
                                         checked
                                     />
-                                    <label for="history" class="form__label">All History</label>
+                                    <label for="history" class="form__label">All history</label>
                                 </div>
                                 <div class="form__group">
                                     <input
@@ -337,7 +337,7 @@
                                         name="type"
                                         value="true"
                                     />
-                                    <label for="peer" class="form__label">Active Peers</label>
+                                    <label for="peer" class="form__label">Active peers</label>
                                 </div>
                             </fieldset>
                             <p class="form__group">

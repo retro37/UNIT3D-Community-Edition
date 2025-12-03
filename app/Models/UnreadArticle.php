@@ -17,6 +17,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\UnreadArticle.
@@ -25,7 +27,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $article_id
  * @property int $user_id
  */
-class UnreadArticle extends Model
+#[AllowDynamicProperties]
+final class UnreadArticle extends Model
 {
     /**
      * Indicates if the model should be timestamped.
@@ -42,21 +45,21 @@ class UnreadArticle extends Model
     protected $guarded = [];
 
     /**
-     * Belongs to an article.
+     * Get the article that is unread.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Article, $this>
+     * @return BelongsTo<Article, $this>
      */
-    public function article(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function article(): BelongsTo
     {
         return $this->belongsTo(Article::class);
     }
 
     /**
-     * Belongs to a user.
+     * Get the user that hasn't read the article.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

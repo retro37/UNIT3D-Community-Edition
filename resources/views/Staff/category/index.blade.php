@@ -33,11 +33,11 @@
                         <th>{{ __('common.name') }}</th>
                         <th>{{ __('common.icon') }}</th>
                         <th>{{ __('common.image') }}</th>
-                        <th>Movie Meta</th>
-                        <th>TV Meta</th>
-                        <th>Game Meta</th>
-                        <th>Music Meta</th>
-                        <th>No Meta</th>
+                        <th>Movie meta</th>
+                        <th>TV meta</th>
+                        <th>Game meta</th>
+                        <th>Music meta</th>
+                        <th>No meta</th>
                         <th>{{ __('common.action') }}</th>
                     </tr>
                 </thead>

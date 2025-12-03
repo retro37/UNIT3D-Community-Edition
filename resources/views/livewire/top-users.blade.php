@@ -1,5 +1,5 @@
 <section class="panelV2 blocks__uploaders" x-data="{ tab: @entangle('tab').live }">
-    <h2 class="panel__heading">Top Users</h2>
+    <h2 class="panel__heading">Top users</h2>
     <menu class="panel__tabs">
         <li
             class="panel__tab"
@@ -55,7 +55,7 @@
             x-bind:class="tab === 'served' && 'panel__tab--active'"
             x-on:click="tab = 'served'"
         >
-            Users Served
+            Users served
         </li>
         <li
             class="panel__tab"
@@ -98,7 +98,7 @@
             x-bind:class="tab === 'personals' && 'panel__tab--active'"
             x-on:click="tab = 'personals'"
         >
-            Personal Releases
+            Personal releases
         </li>
     </menu>
     <div class="panel__body" wire:loading.block>Loading...</div>
@@ -117,7 +117,7 @@
                                     {{ Number::ordinal($loop->iteration) }}
                                 </div>
                             </h3>
-                            <h4 class="user-stat-card__stat">{{ $uploader->value }} Uploads</h4>
+                            <h4 class="user-stat-card__stat">{{ $uploader->value }} uploads</h4>
 
                             @if ($uploader->user->privacy?->private_profile)
                                 <img
@@ -149,7 +149,7 @@
                                 </div>
                             </h3>
                             <h4 class="user-stat-card__stat">
-                                {{ $downloader->value }} Downloads
+                                {{ $downloader->value }} downloads
                             </h4>
 
                             @if ($downloader->user->privacy?->private_profile)
@@ -249,7 +249,7 @@
                                     {{ Number::ordinal($loop->iteration) }}
                                 </div>
                             </h3>
-                            <h4 class="user-stat-card__stat">{{ $seeder->value }} Seeds</h4>
+                            <h4 class="user-stat-card__stat">{{ $seeder->value }} seeds</h4>
 
                             @if ($seeder->user->privacy?->private_profile)
                                 <img
@@ -315,7 +315,7 @@
                                 </div>
                             </h3>
                             <h4 class="user-stat-card__stat">
-                                {{ $serve->upload_snatches_count }} Users Served
+                                {{ $serve->upload_snatches_count }} users served
                             </h4>
 
                             @if ($serve->privacy?->private_profile)
@@ -348,7 +348,7 @@
                                 </div>
                             </h3>
                             <h4 class="user-stat-card__stat">
-                                {{ $commenter->value }} Comments Made
+                                {{ $commenter->value }} comments made
                             </h4>
 
                             @if ($commenter->user->privacy?->private_profile)
@@ -380,7 +380,7 @@
                                     {{ Number::ordinal($loop->iteration) }}
                                 </div>
                             </h3>
-                            <h4 class="user-stat-card__stat">{{ $poster->value }} Posts Made</h4>
+                            <h4 class="user-stat-card__stat">{{ $poster->value }} posts made</h4>
 
                             @if ($poster->user->privacy?->private_profile)
                                 <img
@@ -412,7 +412,7 @@
                                 </div>
                             </h3>
                             <h4 class="user-stat-card__stat">
-                                {{ $thanked->value }} Thanks Received
+                                {{ $thanked->value }} thanks received
                             </h4>
 
                             @if ($thanked->user->privacy?->private_profile)
@@ -445,7 +445,7 @@
                                 </div>
                             </h3>
                             <h4 class="user-stat-card__stat">
-                                {{ $thanker->value }} Thanks Given
+                                {{ $thanker->value }} thanks given
                             </h4>
 
                             @if ($thanker->user->privacy?->private_profile)
@@ -478,7 +478,7 @@
                                 </div>
                             </h3>
                             <h4 class="user-stat-card__stat">
-                                {{ $personal->value }} Personal Releases
+                                {{ $personal->value }} personal releases
                             </h4>
 
                             @if ($personal->user->privacy?->private_profile)

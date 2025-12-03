@@ -2,6 +2,32 @@
 
 declare(strict_types=1);
 
+/**
+ * @param  string       $word
+ * @return list<string>
+ */
+$generateCasePermutations = function (string $word): array {
+    $count = 2 ** mb_strlen($word);
+    $chars = mb_str_split($word);
+    $permutations = [];
+
+    for ($i = 0; $i < $count; $i++) {
+        $permutation = '';
+
+        foreach ($chars as $j => $char) {
+            if ($i & (1 << $j)) {
+                $permutation .= strtoupper($char);
+            } else {
+                $permutation .= strtolower($char);
+            }
+        }
+
+        $permutations[] = $permutation;
+    }
+
+    return $permutations;
+};
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -249,6 +275,61 @@ return [
                     'created_at',
                     'bumped_at',
                     'sticky',
+                ],
+                'rankingRules' => [
+                    'sort',
+                    'attribute',
+                    'exactness',
+                    'words',
+                    'typo',
+                    'proximity',
+                ],
+                'facetSearch'        => false,
+                'proximityPrecision' => 'byAttribute',
+                'typoTolerance'      => [
+                    'disableOnWords' => [
+                        // cspell:ignore bluray
+                        'bluray',
+                        'blu-ray',
+                    ],
+                ],
+                "dictionary" => [
+                    ...$generateCasePermutations('blu-ray'),
+                ],
+            ],
+            'people' => [
+                'searchableAttributes' => [
+                    'name',
+                ],
+                'filterableAttributes' => [
+                    [
+                        'attributePatterns' => [
+                            'id',
+                        ],
+                        "features" => [
+                            "facetSearch" => false,
+                            "filter"      => [
+                                "equality"   => true,
+                                "comparison" => false,
+                            ],
+                        ]
+                    ],
+                    [
+                        'attributePatterns' => [
+                            'birthday',
+                        ],
+                        "features" => [
+                            "facetSearch" => false,
+                            "filter"      => [
+                                "equality"   => true,
+                                "comparison" => true,
+                            ],
+                        ]
+                    ],
+                ],
+                'sortableAttributes' => [
+                    'name',
+                    'birthday',
                 ],
                 'rankingRules' => [
                     'sort',

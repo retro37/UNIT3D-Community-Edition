@@ -17,6 +17,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\ClaimedPrize.
@@ -29,7 +31,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class ClaimedPrize extends Model
+#[AllowDynamicProperties]
+final class ClaimedPrize extends Model
 {
     /**
      * The attributes that aren't mass assignable.
@@ -39,21 +42,21 @@ class ClaimedPrize extends Model
     protected $guarded = [];
 
     /**
-     * Belongs to a user.
+     * Get the user that owns this claimed prize.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
     /**
-     * Belongs to an event.
+     * Get the event that owns this claimed prize.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Event, $this>
+     * @return BelongsTo<Event, $this>
      */
-    public function event(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class);
     }

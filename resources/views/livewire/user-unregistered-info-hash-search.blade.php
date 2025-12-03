@@ -1,5 +1,5 @@
 <section class="panelV2">
-    <h2 class="panel__heading">Unregistered Info Hashes</h2>
+    <h2 class="panel__heading">Unregistered info hashes</h2>
     <div class="data-table-wrapper">
         <table class="data-table">
             <thead>

@@ -32,7 +32,11 @@
             </p>
             <p class="form__group" x-show="isToggledOn" x-cloak>
                 <button type="submit" class="form__button form__button--filled">Comment</button>
-                <button type="reset" class="form__button form__button--text">
+                <button
+                    type="reset"
+                    class="form__button form__button--text"
+                    x-on:click="toggleOff"
+                >
                     {{ __('common.cancel') }}
                 </button>
             </p>
@@ -50,7 +54,7 @@
         @if ($comments->hasMorePages())
             <div class="text-center">
                 <button class="form__button form__button--filled" wire:click.prevent="loadMore">
-                    Load More Comments
+                    Load more comments
                 </button>
             </div>
         @endif

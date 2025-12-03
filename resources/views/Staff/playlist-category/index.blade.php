@@ -6,7 +6,7 @@
             {{ __('staff.staff-dashboard') }}
         </a>
     </li>
-    <li class="breadcrumb--active">Playlist Categories</li>
+    <li class="breadcrumb--active">Playlist categories</li>
 @endsection
 
 @section('page', 'page__staff-playlist-category--index')
@@ -14,7 +14,7 @@
 @section('main')
     <section class="panelV2">
         <header class="panel__header">
-            <h2 class="panel__heading">Playlist Categories</h2>
+            <h2 class="panel__heading">Playlist categories</h2>
             <div class="panel__actions">
                 <form
                     class="panel__action"

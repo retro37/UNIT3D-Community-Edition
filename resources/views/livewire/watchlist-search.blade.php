@@ -40,7 +40,7 @@
                         @include('livewire.includes._sort-icon', ['field' => 'user_id'])
                     </th>
                     <th wire:click="sortBy('staff_id')" role="columnheader button">
-                        Watched By
+                        Watched by
                         @include('livewire.includes._sort-icon', ['field' => 'staff_id'])
                     </th>
                     <th wire:click="sortBy('message')" role="columnheader button">
@@ -48,7 +48,7 @@
                         @include('livewire.includes._sort-icon', ['field' => 'message'])
                     </th>
                     <th wire:click="sortBy('created_at')" role="columnheader button">
-                        Created At
+                        Created at
                         @include('livewire.includes._sort-icon', ['field' => 'created_at'])
                     </th>
                     <th>{{ __('common.action') }}</th>

@@ -19,7 +19,9 @@ namespace App\Models;
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Chatroom.
@@ -29,7 +31,8 @@ use Illuminate\Notifications\Notifiable;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class Chatroom extends Model
+#[AllowDynamicProperties]
+final class Chatroom extends Model
 {
     use Auditable;
 
@@ -47,21 +50,21 @@ class Chatroom extends Model
     ];
 
     /**
-     * A User Has Many Messages.
+     * Get the messages in the chat room.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Message, $this>
+     * @return HasMany<Message, $this>
      */
-    public function messages(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function messages(): HasMany
     {
         return $this->hasMany(Message::class);
     }
 
     /**
-     * A Chat Room Has Many Users.
+     * Get the users in the chat room.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<User, $this>
+     * @return HasMany<User, $this>
      */
-    public function users(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function users(): HasMany
     {
         return $this->hasMany(User::class);
     }

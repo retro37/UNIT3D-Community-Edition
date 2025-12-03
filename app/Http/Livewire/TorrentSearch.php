@@ -265,10 +265,7 @@ class TorrentSearch extends Component
     final public function updating(string $field, mixed &$value): void
     {
         $this->castLivewireProperties($field, $value);
-    }
 
-    final public function updatingName(): void
-    {
         $this->resetPage();
     }
 
@@ -719,93 +716,7 @@ class TorrentSearch extends Component
                 $torrents = $torrents->get();
             }
 
-            $groupedTorrents = [];
-
-            foreach ($torrents as &$torrent) {
-                // Memoizing and avoiding casts reduces runtime duration from 70ms to 40ms.
-                // If accessing laravel's attributes array directly, it's reduced to 11ms,
-                // but the attributes array is marked as protected so we can't access it.
-                $tmdb = $torrent->getAttributeValue('tmdb_movie_id') ?: $torrent->getAttributeValue('tmdb_tv_id');
-                $type = $torrent->getRelationValue('type')->getAttributeValue('name');
-
-                switch ($torrent->getAttributeValue('meta')) {
-                    case 'movie':
-                        $groupedTorrents['movie'][$tmdb]['Movie'][$type][] = $torrent;
-                        $groupedTorrents['movie'][$tmdb]['category_id'] = $torrent->getAttributeValue('category_id');
-
-                        break;
-                    case 'tv':
-                        $episode = $torrent->getAttributeValue('episode_number');
-                        $season = $torrent->getAttributeValue('season_number');
-
-                        if ($season == 0) {
-                            if ($episode == 0) {
-                                $groupedTorrents['tv'][$tmdb]['Complete Pack'][$type][] = $torrent;
-                            } else {
-                                $groupedTorrents['tv'][$tmdb]['Specials']["Special {$episode}"][$type][] = $torrent;
-                            }
-                        } else {
-                            if ($episode == 0) {
-                                $groupedTorrents['tv'][$tmdb]['Seasons']["Season {$season}"]['Season Pack'][$type][] = $torrent;
-                            } else {
-                                $groupedTorrents['tv'][$tmdb]['Seasons']["Season {$season}"]['Episodes']["Episode {$episode}"][$type][] = $torrent;
-                            }
-                        }
-
-                        $groupedTorrents['tv'][$tmdb]['category_id'] = $torrent->getAttributeValue('category_id');
-                }
-            }
-
-            foreach ($groupedTorrents as $mediaType => &$workTorrents) {
-                switch ($mediaType) {
-                    case 'movie':
-                        foreach ($workTorrents as &$movieTorrents) {
-                            $this->sortTorrentTypes($movieTorrents['Movie']);
-                        }
-
-                        break;
-                    case 'tv':
-                        foreach ($workTorrents as &$tvTorrents) {
-                            foreach ($tvTorrents as $packOrSpecialOrSeasonsType => &$packOrSpecialOrSeasons) {
-                                switch ($packOrSpecialOrSeasonsType) {
-                                    case 'Complete Pack':
-                                        $this->sortTorrentTypes($packOrSpecialOrSeasons);
-
-                                        break;
-                                    case 'Specials':
-                                        krsort($packOrSpecialOrSeasons, SORT_NATURAL);
-
-                                        foreach ($packOrSpecialOrSeasons as &$specialTorrents) {
-                                            $this->sortTorrentTypes($specialTorrents);
-                                        }
-
-                                        break;
-                                    case 'Seasons':
-                                        krsort($packOrSpecialOrSeasons, SORT_NATURAL);
-
-                                        foreach ($packOrSpecialOrSeasons as &$season) {
-                                            foreach ($season as $packOrEpisodesType => &$packOrEpisodes) {
-                                                switch ($packOrEpisodesType) {
-                                                    case 'Season Pack':
-                                                        $this->sortTorrentTypes($packOrEpisodes);
-
-                                                        break;
-                                                    case 'Episodes':
-                                                        krsort($packOrEpisodes, SORT_NATURAL);
-
-                                                        foreach ($packOrEpisodes as &$episodeTorrents) {
-                                                            $this->sortTorrentTypes($episodeTorrents);
-                                                        }
-
-                                                        break;
-                                                }
-                                            }
-                                        }
-                                }
-                            }
-                        }
-                }
-            }
+            $groupedTorrents = self::groupTorrents($torrents);
 
             $medias = $groups->through(function ($group) use ($groupedTorrents, $movies, $tv) {
                 switch ($group->meta) {
@@ -839,31 +750,6 @@ class TorrentSearch extends Component
             });
 
             return $medias;
-        }
-    }
-
-    /**
-     * @param array<Torrent> $torrentTypeTorrents
-     */
-    private function sortTorrentTypes(&$torrentTypeTorrents): void
-    {
-        uasort(
-            $torrentTypeTorrents,
-            fn ($a, $b) => $a[0]->getRelationValue('type')->getAttributeValue('position')
-                <=> $b[0]->getRelationValue('type')->getAttributeValue('position')
-        );
-
-        foreach ($torrentTypeTorrents as &$torrents) {
-            usort(
-                $torrents,
-                fn ($a, $b) => [
-                    $a->getRelationValue('resolution')->getAttributeValue('position'),
-                    $a->getAttributeValue('name')
-                ] <=> [
-                    $b->getRelationValue('resolution')->getAttributeValue('position'),
-                    $b->getAttributeValue('name')
-                ]
-            );
         }
     }
 

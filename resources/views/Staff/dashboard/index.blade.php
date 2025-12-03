@@ -249,7 +249,7 @@
                         href="{{ route('staff.whitelisted_image_urls.index') }}"
                     >
                         <i class="{{ config('other.font-awesome') }} fa-globe"></i>
-                        Whitelisted Image URLs
+                        Whitelisted image URLs
                     </a>
                 </p>
                 <p class="form__group form__group--horizontal">
@@ -276,7 +276,7 @@
                         href="{{ route('staff.playlist_categories.index') }}"
                     >
                         <i class="{{ config('other.font-awesome') }} fa-list"></i>
-                        Playlist Categories
+                        Playlist categories
                     </a>
                 </p>
             </div>
@@ -329,7 +329,7 @@
                         href="{{ route('staff.regions.index') }}"
                     >
                         <i class="{{ config('other.font-awesome') }} fa-columns"></i>
-                        Torrent Regions
+                        Torrent regions
                     </a>
                 </p>
                 <p class="form__group form__group--horizontal">
@@ -338,7 +338,7 @@
                         href="{{ route('staff.distributors.index') }}"
                     >
                         <i class="{{ config('other.font-awesome') }} fa-columns"></i>
-                        Torrent Distributors
+                        Torrent distributors
                     </a>
                 </p>
                 <p class="form__group form__group--horizontal">
@@ -347,7 +347,7 @@
                         href="{{ route('staff.automatic_torrent_freeleeches.index') }}"
                     >
                         <i class="{{ config('other.font-awesome') }} fa-columns"></i>
-                        Automatic Torrent Freeleeches
+                        Automatic torrent freeleeches
                     </a>
                 </p>
                 <p class="form__group form__group--horizontal">
@@ -392,7 +392,7 @@
                         href="{{ route('staff.unregistered_info_hashes.index') }}"
                     >
                         <i class="{{ config('other.font-awesome') }} fa-columns"></i>
-                        Unregistered Info Hashes
+                        Unregistered info hashes
                     </a>
                 </p>
                 <p class="form__group form__group--horizontal">
@@ -419,7 +419,7 @@
                         href="{{ route('staff.cheated_torrents.index') }}"
                     >
                         <i class="{{ config('other.font-awesome') }} fa-question"></i>
-                        Cheated Torrents
+                        Cheated torrents
                     </a>
                 </p>
                 @if (config('announce.log_announces'))
@@ -729,7 +729,7 @@
 
 @section('sidebar')
     <section class="panelV2">
-        <h2 class="panel__heading">SSL Certificate</h2>
+        <h2 class="panel__heading">SSL certificate</h2>
         <dl class="key-value">
             <div class="key-value__group">
                 <dt>URL</dt>
@@ -741,26 +741,26 @@
                     <dd>Secure</dd>
                 </div>
                 <div class="key-value__group">
-                    <dt>Issued By</dt>
+                    <dt>Issued by</dt>
                     <dd>
-                        {{ ! is_string($certificate) ? $certificate->getIssuer() : 'No Certificate Info Found' }}
+                        {{ ! is_string($certificate) ? $certificate->getIssuer() : 'No certificate info found' }}
                     </dd>
                 </div>
                 <div class="key-value__group">
                     <dt>Expires</dt>
                     <dd>
-                        {{ ! is_string($certificate) ? $certificate->expirationDate()->diffForHumans() : 'No Certificate Info Found' }}
+                        {{ ! is_string($certificate) ? $certificate->expirationDate()->diffForHumans() : 'No certificate info found' }}
                     </dd>
                 </div>
             @else
                 <div class="key-value__group">
                     <dt>Connection</dt>
                     <dd>
-                        <strong>Not Secure</strong>
+                        <strong>Not secure</strong>
                     </dd>
                 </div>
                 <div class="key-value__group">
-                    <dt>Issued By</dt>
+                    <dt>Issued by</dt>
                     <dd>N/A</dd>
                 </div>
                 <div class="key-value__group">
@@ -771,7 +771,7 @@
         </dl>
     </section>
     <section class="panelV2">
-        <h2 class="panel__heading">Server Information</h2>
+        <h2 class="panel__heading">Server information</h2>
         <dl class="key-value">
             <div class="key-value__group">
                 <dt>OS</dt>
@@ -898,7 +898,7 @@
             </dl>
         </section>
         <section class="panelV2 panel--grid-item">
-            <h2 class="panel__heading">Load Average</h2>
+            <h2 class="panel__heading">Load average</h2>
             <dl class="key-value">
                 <div class="key-value__group">
                     <dt>1 minute</dt>
@@ -916,7 +916,7 @@
         </section>
     </div>
     <section class="panelV2">
-        <h2 class="panel__heading">Directory Permissions</h2>
+        <h2 class="panel__heading">Directory permissions</h2>
         <div class="data-table-wrapper">
             <table class="data-table">
                 <thead>
@@ -953,22 +953,22 @@
     @if (config('announce.external_tracker.is_enabled'))
         @if ($externalTrackerStats === true)
             <section class="panelV2">
-                <h2 class="panel__heading">External Tracker Stats</h2>
+                <h2 class="panel__heading">External tracker stats</h2>
                 <div class="panel__body">External tracker not enabled.</div>
             </section>
         @elseif ($externalTrackerStats === false)
             <section class="panelV2">
-                <h2 class="panel__heading">External Tracker Stats</h2>
+                <h2 class="panel__heading">External tracker stats</h2>
                 <div class="panel__body">Stats endpoint not found.</div>
             </section>
         @elseif ($externalTrackerStats === [])
             <section class="panelV2">
-                <h2 class="panel__heading">External Tracker Stats</h2>
+                <h2 class="panel__heading">External tracker stats</h2>
                 <div class="panel__body">Tracker returned an error.</div>
             </section>
         @else
             <section class="panelV2">
-                <h2 class="panel__heading">External Tracker Stats</h2>
+                <h2 class="panel__heading">External tracker stats</h2>
                 <dl class="key-value">
                     @php
                         $createdAt = \Illuminate\Support\Carbon::createFromTimestampUTC($externalTrackerStats['created_at']);
@@ -988,7 +988,7 @@
                         </dd>
                     </div>
                     <div class="key-value__group">
-                        <dt>Last Request At</dt>
+                        <dt>Last request at</dt>
                         <dd>
                             <time
                                 title="{{ $lastRequestAt->format('Y-m-d h:i:s') }}"
@@ -999,7 +999,7 @@
                         </dd>
                     </div>
                     <div class="key-value__group">
-                        <dt>Last Successful Response At</dt>
+                        <dt>Last successful response at</dt>
                         <dd>
                             <time
                                 title="{{ $lastAnnounceResponseAt->format('Y-m-d h:i:s') }}"

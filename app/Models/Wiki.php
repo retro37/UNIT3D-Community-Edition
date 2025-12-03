@@ -20,6 +20,8 @@ use App\Helpers\Bbcode;
 use App\Traits\Auditable;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Wiki.
@@ -31,24 +33,25 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class Wiki extends Model
+#[AllowDynamicProperties]
+final class Wiki extends Model
 {
     use Auditable;
 
     protected $guarded = [];
 
     /**
-     * Belongs To A Category.
+     * Get the category associated with the wiki.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<WikiCategory, $this>
+     * @return BelongsTo<WikiCategory, $this>
      */
-    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function category(): BelongsTo
     {
         return $this->belongsTo(WikiCategory::class);
     }
 
     /**
-     * Parse Content And Return Valid HTML.
+     * Parse content and get valid HTML.
      */
     public function getContentHtml(): string
     {

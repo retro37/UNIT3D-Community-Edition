@@ -16,7 +16,7 @@
                 href="{{ route('users.achievements.index', ['user' => auth()->user()]) }}"
                 class="form__button form__button--outlined"
             >
-                All Achievements
+                All achievements
             </a>
         </p>
     </div>

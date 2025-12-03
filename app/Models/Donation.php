@@ -19,6 +19,8 @@ namespace App\Models;
 use App\Enums\ModerationStatus;
 use App\Traits\Encryptable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Donation.
@@ -35,7 +37,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class Donation extends Model
+#[AllowDynamicProperties]
+final class Donation extends Model
 {
     use Encryptable;
 
@@ -72,7 +75,7 @@ class Donation extends Model
     protected $guarded = ['id'];
 
     /**
-     * The Attributes That Are Encrypted.
+     * The attributes that are encrypted.
      *
      * @var string[]
      */
@@ -81,21 +84,21 @@ class Donation extends Model
     ];
 
     /**
-     * Belongs To A User.
+     * Get the user that donated.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
     /**
-     * Belongs To A Package.
+     * Get the package that was donated.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<DonationPackage, $this>
+     * @return BelongsTo<DonationPackage, $this>
      */
-    public function package(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function package(): BelongsTo
     {
         return $this->belongsTo(DonationPackage::class)->withTrashed();
     }

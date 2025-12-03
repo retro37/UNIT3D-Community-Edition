@@ -5,7 +5,7 @@
 @endsection
 
 @section('meta')
-    <meta name="description" content="Create Playlist" />
+    <meta name="description" content="Create playlist" />
 @endsection
 
 @section('breadcrumbs')

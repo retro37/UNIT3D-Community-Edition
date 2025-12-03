@@ -19,6 +19,8 @@ namespace App\Models;
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Voter.
@@ -29,7 +31,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class Voter extends Model
+#[AllowDynamicProperties]
+final class Voter extends Model
 {
     use Auditable;
 
@@ -39,21 +42,21 @@ class Voter extends Model
     protected $guarded = [];
 
     /**
-     * Belongs To A Poll.
+     * Get the poll that was voted on.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Poll, $this>
+     * @return BelongsTo<Poll, $this>
      */
-    public function poll(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function poll(): BelongsTo
     {
         return $this->belongsTo(Poll::class);
     }
 
     /**
-     * Belongs To A User.
+     * Get the user that voted.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class)->withDefault([
             'username' => 'System',

@@ -19,6 +19,9 @@ namespace App\Models;
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Wish.
@@ -31,7 +34,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class Wish extends Model
+#[AllowDynamicProperties]
+final class Wish extends Model
 {
     use Auditable;
 
@@ -39,39 +43,39 @@ class Wish extends Model
     use HasFactory;
 
     /**
-     * The Attributes That Aren't Mass Assignable.
+     * The attributes that aren't mass assignable.
      *
      * @var string[]
      */
     protected $guarded = [];
 
     /**
-     * Belongs To A User.
+     * Get the user that owns the wish.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
     /**
-     * Has many torrents.
+     * Get the movie torrents for the wish.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Torrent, $this>
+     * @return HasMany<Torrent, $this>
      */
-    public function movieTorrents(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function movieTorrents(): HasMany
     {
         return $this->hasMany(Torrent::class, 'tmdb_movie_id', 'tmdb_movie_id')
             ->whereRelation('category', 'movie_meta', '=', true);
     }
 
     /**
-     * Has many torrents.
+     * Get the tv torrents for the wish.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Torrent, $this>
+     * @return HasMany<Torrent, $this>
      */
-    public function tvTorrents(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function tvTorrents(): HasMany
     {
         return $this->hasMany(Torrent::class, 'tmdb_tv_id', 'tmdb_tv_id')
             ->whereRelation('category', 'tv_meta', '=', true);

@@ -66,7 +66,7 @@
                         id="icon"
                         class="form__text"
                         name="icon"
-                        placeholder="Enter Font Awesome Code Here..."
+                        placeholder="Enter Font Awesome code here..."
                         required
                         type="text"
                         value="{{ $chatstatus->icon }}"

@@ -17,9 +17,9 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Actions\Fortify\CreateNewUser;
-use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
+use App\Models\BlockedIp;
 use App\Models\FailedLoginAttempt;
 use App\Models\Group;
 use App\Models\User;
@@ -27,8 +27,8 @@ use App\Notifications\FailedLogin;
 use App\Services\Unit3dAnnounce;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rule;
@@ -37,8 +37,8 @@ use Laravel\Fortify\Contracts\LoginResponse;
 use Laravel\Fortify\Contracts\RegisterViewResponse;
 use Laravel\Fortify\Contracts\VerifyEmailResponse;
 use Laravel\Fortify\Fortify;
-use Laravel\Fortify\Http\Responses\FailedPasswordResetLinkRequestResponse;
-use Laravel\Fortify\Http\Responses\SuccessfulPasswordResetLinkRequestResponse;
+
+use function Illuminate\Support\defer;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -135,8 +135,6 @@ class FortifyServiceProvider extends ServiceProvider
                     ->withErrors(trans('auth.activation-error'));
             }
         });
-
-        $this->app->extend(FailedPasswordResetLinkRequestResponse::class, fn () => new SuccessfulPasswordResetLinkRequestResponse(Password::RESET_LINK_SENT));
     }
 
     /**
@@ -148,15 +146,9 @@ class FortifyServiceProvider extends ServiceProvider
         RateLimiter::for('fortify-login-get', fn (Request $request) => Limit::perMinute(5)->by('fortify-login'.$request->ip()));
         RateLimiter::for('fortify-register-get', fn (Request $request) => Limit::perMinute(5)->by('fortify-register'.$request->ip()));
         RateLimiter::for('fortify-register-post', fn (Request $request) => Limit::perMinute(5)->by('fortify-register'.$request->ip()));
-        RateLimiter::for('fortify-forgot-password-get', fn (Request $request) => Limit::perMinute(5)->by('fortify-forgot-password'.$request->ip()));
-        RateLimiter::for('fortify-forgot-password-post', fn (Request $request) => Limit::perMinute(5)->by('fortify-forgot-password'.$request->ip()));
-        RateLimiter::for('fortify-reset-password-get', fn (Request $request) => Limit::perMinute(5)->by('fortify-reset-password'.$request->ip()));
-        RateLimiter::for('fortify-reset-password-post', fn (Request $request) => Limit::perMinute(5)->by('fortify-reset-password'.$request->ip()));
         RateLimiter::for('two-factor', fn (Request $request) => Limit::perMinute(5)->by('fortify-two-factor'.$request->session()->get('login.id')));
 
         Fortify::loginView(fn () => view('auth.login'));
-        Fortify::requestPasswordResetLinkView(fn () => view('auth.passwords.email'));
-        Fortify::resetPasswordView(fn (Request $request) => view('auth.passwords.reset', ['request' => $request]));
         Fortify::confirmPasswordView(fn () => view('auth.confirm-password'));
         Fortify::twoFactorChallengeView(fn () => view('auth.two-factor-challenge'));
         Fortify::verifyEmailView(fn () => view('auth.verify-email'));
@@ -164,7 +156,6 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
-        Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
         Fortify::authenticateUsing(function (Request $request): \Illuminate\Database\Eloquent\Model {
             $request->validate([
@@ -184,15 +175,51 @@ class FortifyServiceProvider extends ServiceProvider
             $password = Hash::check($request->password, $user->password);
 
             if ($password === false) {
-                FailedLoginAttempt::create([
-                    'user_id'    => $user->id,
-                    'username'   => $request->username,
-                    'ip_address' => $request->ip(),
-                ]);
+                defer(function () use ($user, $request): void {
+                    $ip = $request->ip();
 
-                $user->notify(new FailedLogin(
-                    $request->ip() ?? 'Invalid IP'
-                ));
+                    FailedLoginAttempt::create([
+                        'user_id'    => $user->id,
+                        'username'   => $request->username,
+                        'ip_address' => $ip,
+                    ]);
+
+                    $otherUsernamesAttempted = FailedLoginAttempt::query()
+                        ->select('username')
+                        ->distinct()
+                        ->where('ip_address', '=', $ip)
+                        ->where('created_at', '>', now()->subDay())
+                        ->pluck('username');
+
+                    if ($otherUsernamesAttempted->count() > 1) {
+                        BlockedIp::query()->upsert([[
+                            'ip_address' => $ip,
+                            'user_id'    => User::SYSTEM_USER_ID,
+                            'reason'     => 'Multi-account abuse: Attempted '.$otherUsernamesAttempted->count().' separate usernames: '.$otherUsernamesAttempted->join(', '),
+                            'expires_at' => now()->addDay(),
+                        ]], ['ip_address']);
+
+                        cache()->forget('blocked-ips');
+                    }
+
+                    $ipAttemptCount = FailedLoginAttempt::query()
+                        ->where('ip_address', '=', $ip)
+                        ->where('created_at', '>', now()->subDay())
+                        ->count();
+
+                    if ($ipAttemptCount > 5) {
+                        BlockedIp::upsert([[
+                            'ip_address' => $ip,
+                            'user_id'    => User::SYSTEM_USER_ID,
+                            'reason'     => 'Brute-force attempt: 6 failed attempts in last 4h',
+                            'expires_at' => now()->addHours(4),
+                        ]], ['ip_address'], ['expires_at' => DB::raw('expires_at')]);
+
+                        cache()->forget('blocked-ips');
+                    }
+
+                    $user->notify(new FailedLogin($ip ?? 'Invalid IP'));
+                })->always();
 
                 throw ValidationException::withMessages([
                     Fortify::username() => __('auth.failed'),

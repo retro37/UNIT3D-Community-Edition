@@ -39,7 +39,7 @@ class AutoDeactivateWarning extends Command
      *
      * @var string
      */
-    protected $description = 'Automatically Deactivates User Warnings If Expired';
+    protected $description = 'Automatically deactivates user warnings if expired';
 
     /**
      * Execute the console command.
@@ -58,7 +58,7 @@ class AutoDeactivateWarning extends Command
                 fn ($query) => $query
                     ->where('expires_on', '<=', $current)
                     ->orWhereHas(
-                        'torrenttitle.history',
+                        'torrent.history',
                         fn ($query) => $query
                             ->whereColumn('history.user_id', '=', 'warnings.user_id')
                             ->where('history.seedtime', '>=', config('hitrun.seedtime'))
@@ -70,7 +70,7 @@ class AutoDeactivateWarning extends Command
                     $warning->update(['active' => false]);
 
                     // Add user to usersWithExpiredWarnings array
-                    $usersWithExpiredWarnings[$warning->user_id] = $warning->warneduser;
+                    $usersWithExpiredWarnings[$warning->user_id] = $warning->user;
                 }
             });
 
@@ -80,21 +80,21 @@ class AutoDeactivateWarning extends Command
         }
 
         // Calculate User Warning Count and Enable DL Priv If Required.
-        Warning::with('warneduser')
+        Warning::with('user')
             ->select(DB::raw('user_id, SUM(active = TRUE) as value'))
             ->groupBy('user_id')
             ->having('value', '<', config('hitrun.max_warnings'))
-            ->whereRelation('warneduser', 'can_download', '=', false)
+            ->whereRelation('user', 'can_download', '=', false)
             ->chunkById(100, function ($warnings): void {
                 foreach ($warnings as $warning) {
-                    $warning->warneduser->update(['can_download' => 1]);
+                    $warning->user->update(['can_download' => 1]);
 
-                    cache()->forget('user:'.$warning->warneduser->passkey);
+                    cache()->forget('user:'.$warning->user->passkey);
 
-                    Unit3dAnnounce::addUser($warning->warneduser);
+                    Unit3dAnnounce::addUser($warning->user);
                 }
             }, 'user_id');
 
-        $this->comment('Automated Warning Deactivation Command Complete');
+        $this->comment('Automated warning deactivation command complete');
     }
 }

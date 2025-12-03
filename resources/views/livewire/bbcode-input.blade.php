@@ -70,7 +70,7 @@
         <hr class="bbcode-input__icon-separator" />
         <li>
             <button type="button" class="form__standard-icon-button" x-on:click="insertImage">
-                <abbr title="Insert Image">
+                <abbr title="Insert image">
                     <i class="{{ config('other.font-awesome') }} fa-image"></i>
                 </abbr>
             </button>
@@ -96,7 +96,7 @@
                 class="form__standard-icon-button"
                 x-on:click="insertUnorderedList"
             >
-                <abbr title="Unordered List">
+                <abbr title="Unordered list">
                     <i class="{{ config('other.font-awesome') }} fa-list"></i>
                 </abbr>
             </button>
@@ -107,7 +107,7 @@
                 class="form__standard-icon-button"
                 x-on:click="insertOrderedList"
             >
-                <abbr title="Ordered List">
+                <abbr title="Ordered list">
                     <i class="{{ config('other.font-awesome') }} fa-list-ol"></i>
                 </abbr>
             </button>
@@ -115,14 +115,14 @@
         <hr class="bbcode-input__icon-separator" />
         <li>
             <button type="button" class="form__standard-icon-button" x-on:click="insertColor">
-                <abbr title="Font Color">
+                <abbr title="Font color">
                     <i class="{{ config('other.font-awesome') }} fa-palette"></i>
                 </abbr>
             </button>
         </li>
         <li>
             <button type="button" class="form__standard-icon-button" x-on:click="insertSize">
-                <abbr title="Font Size">
+                <abbr title="Font size">
                     <i class="{{ config('other.font-awesome') }} fa-text-size"></i>
                 </abbr>
             </button>
@@ -133,7 +133,7 @@
                 class="form__button form__button--text"
                 x-on:click="insertFont"
             >
-                <abbr title="Font Family">Font</abbr>
+                <abbr title="Font family">Font</abbr>
             </button>
         </li>
         <hr class="bbcode-input__icon-separator" />
@@ -325,7 +325,7 @@
                     this.insert('\n[right]\n', '\n[/right]\n');
                 },
                 insertQuote() {
-                    this.insert('[quote]', '[/quote]');
+                    this.insert('\n[quote]\n', '\n[/quote]\n');
                 },
                 insertCode() {
                     this.insert('[code]', '[/code]');
@@ -344,7 +344,7 @@
                 },
                 insertEmoji() {
                     Swal.fire({
-                        title: 'Emoji Picker',
+                        title: 'Emoji picker',
                         html: 'If using macOS, press Ctrl + Cmd + Space bar<br>If using Windows or Linux, press Windows logo key + .',
                         icon: 'info',
                         showConfirmButton: true,

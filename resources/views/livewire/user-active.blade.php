@@ -314,7 +314,7 @@
                                     @if ($connectable === null)
                                         <i
                                             class="{{ config('other.font-awesome') }} text-blue fa-question"
-                                            title="Unknown Connectable Status"
+                                            title="Unknown connectable status"
                                         ></i>
                                     @else
                                         @if ($connectable)
@@ -325,7 +325,7 @@
                                         @else
                                             <i
                                                 class="{{ config('other.font-awesome') }} text-red fa-wifi-slash"
-                                                title="Not Connectable"
+                                                title="Not connectable"
                                             ></i>
                                         @endif
                                     @endif

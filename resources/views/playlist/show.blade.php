@@ -57,7 +57,7 @@
 {{ old('torrent_urls') }}</textarea
                                 >
                                 <label class="form__label form__label--floating" for="torrent_urls">
-                                    Torrent IDs/URLs (One per line)
+                                    Torrent IDs/URLs (one per line)
                                 </label>
                             </p>
                             <p class="form__group">
@@ -194,7 +194,7 @@
                     class="form__button form__button--filled form__button--centered"
                 >
                     <i class="{{ config('other.font-awesome') }} fa-eye"></i>
-                    Playlist Torrents List
+                    Playlist torrents list
                 </a>
             </p>
         </div>
@@ -410,7 +410,7 @@
                                                         for="rejection_message{{ $playlistSuggestion->id }}"
                                                         class="form__label form__label--floating"
                                                     >
-                                                        Rejection Message
+                                                        Rejection message
                                                     </label>
                                                     <span class="form__hint">
                                                         This message is sent to the suggester

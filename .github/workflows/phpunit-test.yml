@@ -9,6 +9,7 @@ jobs:
                     - ubuntu-22.04
                 php-version:
                     - '8.4'
+                    - '8.5'
         name: php ${{ matrix.php-version }} on ${{ matrix.operating-system }}
         runs-on: ${{ matrix.operating-system }}
         services:
@@ -31,10 +32,10 @@ jobs:
                     --health-retries 5
         steps:
             -   name: Checkout
-                uses: actions/checkout@v4
+                uses: actions/checkout@v6
                 with:
                     fetch-depth: 0
-            -   name: Setup PHP 8.4
+            -   name: Setup PHP
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: ${{ matrix.php-version }}
@@ -47,7 +48,7 @@ jobs:
             -   name: Prepare The Laravel Environment
                 run: cp .env.example .env
             -   name: Configure Bun
-                uses: oven-sh/setup-bun@v1
+                uses: oven-sh/setup-bun@v2
                 with:
                     bun-version: latest
             -   name: Install Composer Dependencies
@@ -55,7 +56,7 @@ jobs:
                     COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
                 run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist --optimize-autoloader
             -   name: Install JS Dependencies
-                run: bun install
+                run: bun ci
             -   name: Compile Assets (Vite)
                 run: bun run build
             -   name: Generate Application Key

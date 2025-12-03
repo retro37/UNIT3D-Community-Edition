@@ -19,6 +19,8 @@ namespace App\Models;
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Report.
@@ -26,10 +28,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property int                             $id
  * @property string                          $type
  * @property int                             $reporter_id
- * @property int|null                        $staff_id
+ * @property int                             $reported_user_id
+ * @property int                             $reported_torrent_id
+ * @property int                             $reported_request_id
  * @property string                          $title
  * @property string                          $message
- * @property bool                            $solved
+ * @property int|null                        $solved_by
+ * @property int|null                        $assigned_to
  * @property string|null                     $verdict
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -38,7 +43,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null                        $request_id
  * @property \Illuminate\Support\Carbon|null $snoozed_until
  */
-class Report extends Model
+#[AllowDynamicProperties]
+final class Report extends Model
 {
     use Auditable;
 
@@ -55,63 +61,73 @@ class Report extends Model
     /**
      * Get the attributes that should be cast.
      *
-     * @return array{solved: 'bool', snoozed_until: 'datetime'}
+     * @return array{snoozed_until: 'datetime', solved_at: 'datetime'}
      */
     protected function casts(): array
     {
         return [
-            'solved'        => 'bool',
             'snoozed_until' => 'datetime',
+            'solved_at'     => 'datetime',
         ];
     }
 
     /**
-     * Belongs To A Request.
+     * Get the request that was reported.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<TorrentRequest, $this>
+     * @return BelongsTo<TorrentRequest, $this>
      */
-    public function request(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function request(): BelongsTo
     {
-        return $this->belongsTo(TorrentRequest::class, 'request_id');
+        return $this->belongsTo(TorrentRequest::class, 'reported_request_id');
     }
 
     /**
-     * Belongs To A Torrent.
+     * Get the torrent that was reported.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Torrent, $this>
+     * @return BelongsTo<Torrent, $this>
      */
-    public function torrent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function torrent(): BelongsTo
     {
-        return $this->belongsTo(Torrent::class, 'torrent_id');
+        return $this->belongsTo(Torrent::class, 'reported_torrent_id');
     }
 
     /**
-     * Belongs To A User.
+     * Get the user that reported.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function reporter(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function reporter(): BelongsTo
     {
         return $this->belongsTo(User::class, 'reporter_id')->withTrashed();
     }
 
     /**
-     * Belongs To A User.
+     * Get the user that was reported.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function reported(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function reported(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'reported_user')->withTrashed();
+        return $this->belongsTo(User::class, 'reported_user_id')->withTrashed();
     }
 
     /**
-     * Belongs To A Staff Member.
+     * Get the staff user that is assigned to the report.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function staff(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function assignee(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'staff_id')->withTrashed();
+        return $this->belongsTo(User::class, 'assigned_to')->withTrashed();
+    }
+
+    /**
+     * Get the staff user that solved the report.
+     *
+     * @return BelongsTo<User, $this>
+     */
+    public function judge(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'solved_by')->withTrashed();
     }
 }

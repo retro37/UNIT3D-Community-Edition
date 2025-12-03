@@ -19,6 +19,8 @@ namespace App\Models;
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Type.
@@ -27,7 +29,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $name
  * @property int    $position
  */
-class Type extends Model
+#[AllowDynamicProperties]
+final class Type extends Model
 {
     use Auditable;
 
@@ -35,7 +38,7 @@ class Type extends Model
     use HasFactory;
 
     /**
-     * Indicates If The Model Should Be Timestamped.
+     * Indicates if the model should be timestamped.
      *
      * @var bool
      */
@@ -49,21 +52,21 @@ class Type extends Model
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /**
-     * Has Many Torrents.
+     * Get the torrents for the type.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Torrent, $this>
+     * @return HasMany<Torrent, $this>
      */
-    public function torrents(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function torrents(): HasMany
     {
         return $this->hasMany(Torrent::class);
     }
 
     /**
-     * Has Many Torrent Requests.
+     * Get the requests for the type.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<TorrentRequest, $this>
+     * @return HasMany<TorrentRequest, $this>
      */
-    public function requests(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function requests(): HasMany
     {
         return $this->hasMany(TorrentRequest::class);
     }

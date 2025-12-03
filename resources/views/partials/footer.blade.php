@@ -58,7 +58,7 @@
                     @endforeach
 
                     <li>
-                        <a href="{{ route('pages.index') }}">[View All]</a>
+                        <a href="{{ route('pages.index') }}">[View all]</a>
                     </li>
                 </ul>
             </section>
@@ -81,9 +81,9 @@
                 </li>
                 <li>
                     <a
-                        href="https://github.com/HDInnovations/UNIT3D-Community-Edition/wiki/Torrent-API-(UNIT3D-v8.x.x)"
+                        href="https://github.com/HDInnovations/UNIT3D/wiki/Torrent-API-(UNIT3D-v8.x.x)"
                     >
-                        API Documentation
+                        API documentation
                     </a>
                 </li>
             </ul>
@@ -256,7 +256,7 @@
             Site and design &copy;
             {{ date('Y', strtotime(config('other.birthdate'))) }}-{{ date('Y') }}
             {{ config('other.title') }} |
-            <a href="https://github.com/HDInnovations/UNIT3D-Community-Edition">
+            <a href="https://github.com/HDInnovations/UNIT3D">
                 UNIT3D {{ config('unit3d.version') }}
             </a>
             @if (config('announce.external_tracker.is_enabled'))

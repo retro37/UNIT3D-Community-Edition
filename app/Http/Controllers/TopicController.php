@@ -158,10 +158,17 @@ class TopicController extends Controller
                 $staffer->notify(new NewTopic('staff', $user, $topic, $post));
             }
         } else {
-            if ($post->anon) {
-                $this->chatRepository->systemMessage(\sprintf('An anonymous user has created a new topic [url=%s]%s[/url]', $topicUrl, $topic->name));
-            } else {
-                $this->chatRepository->systemMessage(\sprintf('[url=%s]%s[/url] has created a new topic [url=%s]%s[/url]', $profileUrl, $user->username, $topicUrl, $topic->name));
+            $isChatboxPrivy = $forum->permissions()
+                ->where('read_topic', '=', true)
+                ->whereRelation('group', 'slug', '=', 'user')
+                ->exists();
+
+            if ($isChatboxPrivy) {
+                if ($post->anon) {
+                    $this->chatRepository->systemMessage(\sprintf('An anonymous user has created a new topic [url=%s]%s[/url]', $topicUrl, $topic->name));
+                } else {
+                    $this->chatRepository->systemMessage(\sprintf('[url=%s]%s[/url] has created a new topic [url=%s]%s[/url]', $profileUrl, $user->username, $topicUrl, $topic->name));
+                }
             }
 
             $subscribers = User::query()
@@ -198,7 +205,7 @@ class TopicController extends Controller
         }
 
         return to_route('topics.show', ['id' => $topic->id])
-            ->with('success', 'Topic Created Successfully!');
+            ->with('success', 'Topic created successfully!');
     }
 
     /**
@@ -286,7 +293,7 @@ class TopicController extends Controller
         }
 
         return to_route('topics.show', ['id' => $topic->id])
-            ->with('success', 'Topic Successfully Edited');
+            ->with('success', 'Topic successfully edited');
     }
 
     /**
@@ -316,7 +323,7 @@ class TopicController extends Controller
         ]);
 
         return to_route('forums.show', ['id' => $forum->id])
-            ->with('success', 'This Topic Is Now Deleted!');
+            ->with('success', 'This topic is now deleted!');
     }
 
     /**
@@ -329,7 +336,7 @@ class TopicController extends Controller
         $topic->save();
 
         return to_route('topics.show', ['id' => $topic->id])
-            ->with('success', 'This Topic Is Now Closed!');
+            ->with('success', 'This topic is now closed!');
     }
 
     /**
@@ -342,7 +349,7 @@ class TopicController extends Controller
         $topic->save();
 
         return to_route('topics.show', ['id' => $topic->id])
-            ->with('success', 'This Topic Is Now Open!');
+            ->with('success', 'This topic is now open!');
     }
 
     /**
@@ -355,7 +362,7 @@ class TopicController extends Controller
         $topic->save();
 
         return to_route('topics.show', ['id' => $topic->id])
-            ->with('success', 'This Topic Is Now Pinned!');
+            ->with('success', 'This topic is now pinned!');
     }
 
     /**
@@ -368,7 +375,7 @@ class TopicController extends Controller
         $topic->save();
 
         return to_route('topics.show', ['id' => $topic->id])
-            ->with('success', 'This Topic Is Now Unpinned!');
+            ->with('success', 'This topic is now unpinned!');
     }
 
     /**

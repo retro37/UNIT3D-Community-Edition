@@ -17,6 +17,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Gift.
@@ -28,7 +30,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string                     $bon
  * @property \Illuminate\Support\Carbon $created_at
  */
-class PostTip extends Model
+#[AllowDynamicProperties]
+final class PostTip extends Model
 {
     protected $guarded = [];
 
@@ -47,25 +50,31 @@ class PostTip extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * Get the user that sent the post tip.
+     *
+     * @return BelongsTo<User, $this>
      */
-    public function sender(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function sender(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withTrashed();
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * Get the user that received the post tip.
+     *
+     * @return BelongsTo<User, $this>
      */
-    public function recipient(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function recipient(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withTrashed();
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Post, $this>
+     * Get the post associated with the post tip.
+     *
+     * @return BelongsTo<Post, $this>
      */
-    public function post(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function post(): BelongsTo
     {
         return $this->belongsTo(Post::class);
     }

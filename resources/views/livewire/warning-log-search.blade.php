@@ -10,7 +10,7 @@
                         type="checkbox"
                         wire:model.live="show"
                     />
-                    <label class="form__label" for="show">Show Soft Deletes</label>
+                    <label class="form__label" for="show">Show soft deletes</label>
                 </div>
             </div>
             <div class="panel__action">
@@ -118,17 +118,17 @@
             @forelse ($warnings as $warning)
                 <tr>
                     <td>
-                        <x-user-tag :anon="false" :user="$warning->warneduser" />
+                        <x-user-tag :anon="false" :user="$warning->user" />
                     </td>
                     <td>
-                        <x-user-tag :anon="false" :user="$warning->staffuser" />
+                        <x-user-tag :anon="false" :user="$warning->staff" />
                     </td>
                     <td>
                         @isset($warning->torrent)
                             <a
-                                href="{{ route('torrents.show', ['id' => $warning->torrenttitle->id]) }}"
+                                href="{{ route('torrents.show', ['id' => $warning->torrent->id]) }}"
                             >
-                                {{ $warning->torrenttitle->name }}
+                                {{ $warning->torrent->name }}
                             </a>
                         @else
                             n/a

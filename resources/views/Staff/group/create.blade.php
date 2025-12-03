@@ -20,7 +20,7 @@
 
 @section('main')
     <section class="panelV2" x-data="{ autogroup: false }">
-        <h2 class="panel__heading">Add New Group</h2>
+        <h2 class="panel__heading">Add new group</h2>
         <div class="panel__body">
             <form class="form" method="POST" action="{{ route('staff.groups.store') }}">
                 @csrf
@@ -79,7 +79,7 @@
                         placeholder=" "
                     />
                     <label class="form__label form__label--floating" for="download_slots">
-                        DL Slots
+                        DL slots
                     </label>
                 </p>
                 <p class="form__group">
@@ -103,7 +103,7 @@
                         placeholder=" "
                     />
                     <label class="form__label form__label--floating" for="icon">
-                        FontAwesome Icon (e.g. fas fa-user)
+                        FontAwesome icon (e.g. fas fa-user)
                     </label>
                 </p>
                 <p class="form__group">
@@ -113,7 +113,7 @@
                         type="text"
                         name="group[effect]"
                         value="none"
-                        placeholder="GIF Effect"
+                        placeholder="GIF effect"
                     />
                     <label class="form__label form__label--floating" for="effect">
                         Effect (e.g. url(/img/sparkels.gif))
@@ -161,7 +161,7 @@
                         type="checkbox"
                         value="1"
                     />
-                    <label class="form__label" for="is_torrent_modo">Torrent Modo</label>
+                    <label class="form__label" for="is_torrent_modo">Torrent modo</label>
                 </p>
 
                 <p class="form__group">
@@ -239,7 +239,7 @@
                         type="checkbox"
                         value="1"
                     />
-                    <label class="form__label" for="is_double_upload">Double Upload</label>
+                    <label class="form__label" for="is_double_upload">Double upload</label>
                 </p>
                 <p class="form__group">
                     <input name="group[is_refundable]" type="hidden" value="0" />
@@ -250,7 +250,7 @@
                         type="checkbox"
                         value="1"
                     />
-                    <label class="form__label" for="is_refundable">Refundable Download</label>
+                    <label class="form__label" for="is_refundable">Refundable download</label>
                 </p>
                 <p class="form__group">
                     <input name="group[is_incognito]" type="hidden" value="0" />
@@ -411,7 +411,7 @@
                         >
                             <thead>
                                 <tr>
-                                    <th x-bind="columnHeader">Forum Category</th>
+                                    <th x-bind="columnHeader">Forum category</th>
                                     <th x-bind="columnHeader">Forum</th>
                                     <th x-bind="columnHeader">Read topics</th>
                                     <th x-bind="columnHeader">Start new topic</th>

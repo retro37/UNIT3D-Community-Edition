@@ -22,7 +22,7 @@
 @section('main')
     <section class="panelV2">
         <h2 class="panel__heading">
-            {{ __('common.edit') }} Internal Group: {{ $internal->name }}
+            {{ __('common.edit') }} internal group: {{ $internal->name }}
         </h2>
         <div class="panel__body">
             <form

@@ -17,6 +17,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Note.
@@ -26,7 +28,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class UnregisteredInfoHash extends Model
+#[AllowDynamicProperties]
+final class UnregisteredInfoHash extends Model
 {
     /**
      * The attributes that aren't mass assignable.
@@ -36,21 +39,21 @@ class UnregisteredInfoHash extends Model
     protected $guarded = [];
 
     /**
-     * Belongs To A User.
+     * Get the user that announced the unregistered info hash.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
     /**
-     * Belongs To A Torrent.
+     * Get the torrent matching the unregistered info hash.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Torrent, $this>
+     * @return BelongsTo<Torrent, $this>
      */
-    public function torrent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function torrent(): BelongsTo
     {
         return $this->belongsTo(Torrent::class, 'info_hash', 'info_hash');
     }

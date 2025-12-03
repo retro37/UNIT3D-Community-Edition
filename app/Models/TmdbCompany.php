@@ -18,6 +18,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use AllowDynamicProperties;
 
 /**
  * App\Models\TmdbCompany.
@@ -30,7 +32,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $logo
  * @property string|null $origin_country
  */
-class TmdbCompany extends Model
+#[AllowDynamicProperties]
+final class TmdbCompany extends Model
 {
     /** @use HasFactory<\Database\Factories\TmdbCompanyFactory> */
     use HasFactory;
@@ -40,33 +43,41 @@ class TmdbCompany extends Model
     public $timestamps = false;
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<TmdbMovie, $this>
+     * Get the movies that belong to the company.
+     *
+     * @return BelongsToMany<TmdbMovie, $this>
      */
-    public function movie(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function movie(): BelongsToMany
     {
         return $this->belongsToMany(TmdbMovie::class);
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<TmdbTv, $this>
+     * Get the tv shows that belong to the company.
+     *
+     * @return BelongsToMany<TmdbTv, $this>
      */
-    public function tv(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function tv(): BelongsToMany
     {
         return $this->belongsToMany(TmdbTv::class);
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<Torrent, $this>
+     * Get the movie torrents that belong to the company.
+     *
+     * @return BelongsToMany<Torrent, $this>
      */
-    public function movieTorrents(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function movieTorrents(): BelongsToMany
     {
         return $this->belongsToMany(Torrent::class, 'tmdb_company_tmdb_movie', 'tmdb_company_id', 'tmdb_movie_id', 'id', 'tmdb_movie_id')->whereRelation('category', 'movie_meta', '=', true);
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<Torrent, $this>
+     * Get the tv torrents that belong to the company.
+     *
+     * @return BelongsToMany<Torrent, $this>
      */
-    public function tvTorrents(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function tvTorrents(): BelongsToMany
     {
         return $this->belongsToMany(Torrent::class, 'tmdb_company_tmdb_tv', 'tmdb_company_id', 'tmdb_tv_id', 'id', 'tmdb_tv_id')->whereRelation('category', 'tv_meta', '=', true);
     }

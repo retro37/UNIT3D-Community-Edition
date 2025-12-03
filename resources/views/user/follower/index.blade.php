@@ -51,7 +51,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="3">No Followers</td>
+                                <td colspan="3">No followers</td>
                             </tr>
                         @endforelse
                     </tbody>

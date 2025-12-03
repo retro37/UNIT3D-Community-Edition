@@ -136,7 +136,14 @@ return [
     'invites-count' => 'Du har :count invitation/er',
     'invites-disabled' => 'OBS: Invitationer er deaktiveret på grund af åben registrering!',
     'invites-disabled-desc' => 'Kom snart igen!',
-    'invites-rules' => '<li class="text-success">Inviter kun folk, du kender og stoler på.</li><li class="text-danger">Du vil blive holdt personligt ansvarlig for dem, du inviterer.</li><li class="text-danger">Inviter ikke dig selv, vi tjekker alle inviterede brugere.</li><li class="text-danger">Du må ikke forhandle eller sælge invitationer.</li><li class="text-danger">Hvis en person, du har inviteret, bliver fanget i snyd, handle med konti eller sælger/forhandler invitationer, vil du blive advaret med stor risiko for udelukkelse.</li>',
+    'invites-rules' => [
+        'know-and-trust' => 'Inviter kun folk, du kender og stoler på.',
+        'responsible' => 'Du vil blive holdt personligt ansvarlig for dem, du inviterer.',
+        'yourself' => 'Inviter ikke dig selv, vi tjekker alle inviterede brugere.',
+        'trade-or-sell' => 'Du må ikke forhandle eller sælge invitationer.',
+        'caught' => 'Hvis en person, du har inviteret, bliver fanget i snyd, handle med konti eller sælger/forhandler invitationer, vil du blive advaret med stor risiko for udelukkelse.',
+        'responsibile' => 'Du vil blive holdt personligt ansvarlig for dem, du inviterer.',
+    ],
     'invites-send' => 'Invitationer afsendt',
     'judge' => 'Dom',
     'last-login' => 'Sidste login',
@@ -418,4 +425,5 @@ return [
     'homepage-block-top-torrents-visible' => 'Vis Top Torrents',
     'homepage-block-top-users-visible' => 'Vis Top Brugere',
     'unregistered-info-hashes' => 'Uregistrerede Info Hashes',
+    'show-adult-content' => 'Vis indhold for voksne i torrentsøgning og forsideblokke',
 ];

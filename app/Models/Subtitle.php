@@ -22,6 +22,8 @@ use App\Helpers\StringHelper;
 use App\Models\Scopes\ApprovedScope;
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Subtitle.
@@ -44,7 +46,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class Subtitle extends Model
+#[AllowDynamicProperties]
+final class Subtitle extends Model
 {
     use Auditable;
 
@@ -73,11 +76,11 @@ class Subtitle extends Model
     }
 
     /**
-     * Belongs To A User.
+     * Get the user that uploaded the subtitle.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class)->withDefault([
             'username' => 'System',
@@ -86,27 +89,27 @@ class Subtitle extends Model
     }
 
     /**
-     * Belongs To A Torrent.
+     * Get the torrent associated with the subtitle.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Torrent, $this>
+     * @return BelongsTo<Torrent, $this>
      */
-    public function torrent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function torrent(): BelongsTo
     {
         return $this->belongsTo(Torrent::class);
     }
 
     /**
-     * Belongs To A Media Language.
+     * Get the language associated with the subtitle.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<MediaLanguage, $this>
+     * @return BelongsTo<MediaLanguage, $this>
      */
-    public function language(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function language(): BelongsTo
     {
         return $this->belongsTo(MediaLanguage::class);
     }
 
     /**
-     * Returns The Size In Human Format.
+     * Gets the size in human format.
      */
     public function getSize(): string
     {

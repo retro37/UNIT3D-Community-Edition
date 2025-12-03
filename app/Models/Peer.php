@@ -19,6 +19,8 @@ namespace App\Models;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Peer.
@@ -39,7 +41,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property bool                            $connectable
  * @property bool                            $active
  */
-class Peer extends Model
+#[AllowDynamicProperties]
+final class Peer extends Model
 {
     /** @use HasFactory<\Database\Factories\PeerFactory> */
     use HasFactory;
@@ -67,11 +70,11 @@ class Peer extends Model
     }
 
     /**
-     * Belongs To A User.
+     * Get the user associated with the peer.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class)->withDefault([
             'username' => 'System',
@@ -80,21 +83,21 @@ class Peer extends Model
     }
 
     /**
-     * Belongs To A Torrent.
+     * Get the torrent associated with the peer.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Torrent, $this>
+     * @return BelongsTo<Torrent, $this>
      */
-    public function torrent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function torrent(): BelongsTo
     {
         return $this->belongsTo(Torrent::class);
     }
 
     /**
-     * Belongs To A Seed.
+     * Get the torrent associated with the peer.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Torrent, $this>
+     * @return BelongsTo<Torrent, $this>
      */
-    public function seed(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function seed(): BelongsTo
     {
         return $this->belongsTo(Torrent::class, 'torrents.id', 'torrent_id');
     }

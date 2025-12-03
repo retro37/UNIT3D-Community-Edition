@@ -20,6 +20,8 @@ use App\Traits\Auditable;
 use App\Traits\Encryptable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\Seedbox.
@@ -31,7 +33,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class Seedbox extends Model
+#[AllowDynamicProperties]
+final class Seedbox extends Model
 {
     use Auditable;
     use Encryptable;
@@ -40,7 +43,7 @@ class Seedbox extends Model
     use HasFactory;
 
     /**
-     * The Attributes That Are Encrypted.
+     * The attributes that are encrypted.
      *
      * @var string[]
      */
@@ -51,11 +54,11 @@ class Seedbox extends Model
     protected $guarded = [];
 
     /**
-     * Belongs To A User.
+     * Get the user that owns the seedbox.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class)->withDefault([
             'username' => 'System',

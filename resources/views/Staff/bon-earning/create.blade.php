@@ -209,7 +209,7 @@
                                 <option class="form__option" value="<=">&leq;</option>
                                 <option class="form__option" value=">=">&geq;</option>
                                 <option class="form__option" value="=">&equals;</option>
-                                <option class="form__option" value="<>">&ne;</option>
+                                <option class="form__option" value="!=">&ne;</option>
                             </select>
                             <label
                                 class="form__label form__label--floating"
@@ -240,13 +240,13 @@
                         x-on:click.prevent="conditions++"
                         class="form__button form__button--outlined"
                     >
-                        Add Condition
+                        Add condition
                     </button>
                     <button
                         class="form__button form__button--outlined"
                         x-on:click.prevent="conditions = Math.max(0, conditions - 1)"
                     >
-                        Delete Condition
+                        Delete condition
                     </button>
                 </p>
                 <p class="form__group">

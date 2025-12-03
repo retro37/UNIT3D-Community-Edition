@@ -8,7 +8,7 @@
     </li>
     <li class="breadcrumbV2">
         <a href="{{ route('staff.wiki_categories.index') }}" class="breadcrumb__link">
-            Wiki Categories
+            Wiki categories
         </a>
     </li>
     <li class="breadcrumbV2">
@@ -24,7 +24,7 @@
 @section('main')
     <section class="panelV2">
         <h2 class="panel__heading">
-            {{ __('common.edit') }} Wiki Category: {{ $wikiCategory->name }}
+            {{ __('common.edit') }} wiki category: {{ $wikiCategory->name }}
         </h2>
         <div class="panel__body">
             <form

@@ -25,10 +25,14 @@ use App\Http\Requests\StoreTorrentRequest;
 use App\Http\Requests\UpdateTorrentRequest;
 use App\Models\Category;
 use App\Models\Distributor;
+use App\Models\History;
+use App\Models\IgdbGame;
 use App\Models\Keyword;
 use App\Models\Region;
 use App\Models\Resolution;
 use App\Models\Scopes\ApprovedScope;
+use App\Models\TmdbMovie;
+use App\Models\TmdbTv;
 use App\Models\Torrent;
 use App\Models\TorrentFile;
 use App\Models\Type;
@@ -42,6 +46,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Intervention\Image\Facades\Image;
 use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 use ReflectionException;
@@ -117,8 +122,9 @@ class TorrentController extends Controller
                 'bookmarks',
                 'files',
                 'thanks',
-                'seeds'   => fn ($query) => $query->where('active', '=', true)->where('visible', '=', true),
-                'leeches' => fn ($query) => $query->where('active', '=', true)->where('visible', '=', true),
+                'seeds'                      => fn ($query) => $query->where('active', '=', true)->where('visible', '=', true),
+                'leeches'                    => fn ($query) => $query->where('active', '=', true)->where('visible', '=', true),
+                'reports as unsolvedReports' => fn ($query) => $query->whereNull('solved_by'),
             ])
             ->withExists([
                 'featured as featured',
@@ -219,6 +225,91 @@ class TorrentController extends Controller
             'personal_freeleech' => cache()->get('personal_freeleech:'.$user->id),
             'mediaInfo'          => $torrent->mediainfo !== null ? (new MediaInfo())->parse($torrent->mediainfo) : null,
             'fileTree'           => $fileTree,
+            'alsoDownloaded'     => cache()->flexible(
+                'also-downloaded:by-torrent-id:'.$torrent->id,
+                [3600 * 12, 3600 * 24 * 14],
+                match (true) {
+                    $torrent->category->movie_meta => fn () => TmdbMovie::query()
+                        ->joinSub(
+                            Torrent::query()
+                                ->select([
+                                    'tmdb_movie_id',
+                                    DB::raw('COUNT(DISTINCT history.user_id) AS total'),
+                                    DB::raw('MIN(category_id) AS category_id')
+                                ])
+                                ->join('history', 'torrents.id', '=', 'history.torrent_id')
+                                ->whereIn(
+                                    'history.user_id',
+                                    History::query()
+                                        ->select('user_id')
+                                        ->where('torrent_id', '=', $torrent->id)
+                                        ->where('history.created_at', '>', $torrent->created_at->addMinutes(30))
+                                )
+                                ->where('tmdb_movie_id', '!=', $torrent->tmdb_movie_id)
+                                ->whereRaw('history.created_at > torrents.created_at + INTERVAL 30 MINUTE')
+                                ->groupBy('tmdb_movie_id')
+                                ->orderByDesc('total')
+                                ->limit(30),
+                            'also_downloaded',
+                            fn ($join) => $join->on('tmdb_movies.id', '=', 'also_downloaded.tmdb_movie_id')
+                        )
+                        ->orderByDesc('total')
+                        ->get(),
+                    $torrent->category->tv_meta => fn () => TmdbTv::query()
+                        ->joinSub(
+                            Torrent::query()
+                                ->select([
+                                    'tmdb_tv_id',
+                                    DB::raw('COUNT(DISTINCT history.user_id) AS total'),
+                                    DB::raw('MIN(category_id) AS category_id')
+                                ])
+                                ->join('history', 'torrents.id', '=', 'history.torrent_id')
+                                ->whereIn(
+                                    'history.user_id',
+                                    History::query()
+                                        ->select('user_id')
+                                        ->where('torrent_id', '=', $torrent->id)
+                                        ->where('history.created_at', '>', $torrent->created_at->addMinutes(30))
+                                )
+                                ->where('tmdb_tv_id', '!=', $torrent->tmdb_tv_id)
+                                ->whereRaw('history.created_at > torrents.created_at + INTERVAL 30 MINUTE')
+                                ->groupBy('tmdb_tv_id')
+                                ->orderByDesc('total')
+                                ->limit(30),
+                            'also_downloaded',
+                            fn ($join) => $join->on('tmdb_tv.id', '=', 'also_downloaded.tmdb_tv_id')
+                        )
+                        ->orderByDesc('total')
+                        ->get(),
+                    $torrent->category->game_meta => fn () => IgdbGame::query()
+                        ->joinSub(
+                            Torrent::query()
+                                ->select([
+                                    'igdb',
+                                    DB::raw('COUNT(DISTINCT history.user_id) AS total'),
+                                    DB::raw('MIN(category_id) AS category_id')
+                                ])
+                                ->join('history', 'torrents.id', '=', 'history.torrent_id')
+                                ->whereIn(
+                                    'history.user_id',
+                                    History::query()
+                                        ->select('user_id')
+                                        ->where('torrent_id', '=', $torrent->id)
+                                        ->where('history.created_at', '>', $torrent->created_at->addMinutes(30))
+                                )
+                                ->where('igdb', '!=', $torrent->tmdb_tv_id)
+                                ->whereRaw('history.created_at > torrents.created_at + INTERVAL 30 MINUTE')
+                                ->groupBy('igdb')
+                                ->orderByDesc('total')
+                                ->limit(30),
+                            'also_downloaded',
+                            fn ($join) => $join->on('igdb_games.id', '=', 'also_downloaded.igdb')
+                        )
+                        ->orderByDesc('total')
+                        ->get(),
+                    default => fn () => collect(),
+                }
+            )
         ]);
     }
 
@@ -317,8 +408,6 @@ class TorrentController extends Controller
             Keyword::upsert($keywords->toArray(), ['torrent_id', 'name']);
         }
 
-        $category = $torrent->category;
-
         // Meta
 
         match (true) {
@@ -329,7 +418,7 @@ class TorrentController extends Controller
         };
 
         return to_route('torrents.show', ['id' => $id])
-            ->with('success', 'Successfully Edited!');
+            ->with('success', 'Successfully edited!');
     }
 
     /**
@@ -367,7 +456,7 @@ class TorrentController extends Controller
         $torrent->comments()->delete();
         $torrent->peers()->delete();
         $torrent->history()->delete();
-        $torrent->hitrun()->delete();
+        $torrent->warnings()->delete();
         $torrent->files()->delete();
         $torrent->playlists()->detach();
         $torrent->subtitles()->delete();
@@ -389,7 +478,7 @@ class TorrentController extends Controller
         $torrent->delete();
 
         return to_route('torrents.index')
-            ->with('success', 'Torrent Has Been Deleted!');
+            ->with('success', 'Torrent has been deleted!');
     }
 
     /**

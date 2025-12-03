@@ -19,6 +19,8 @@ namespace App\Models;
 use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use AllowDynamicProperties;
 
 /**
  * App\Models\ApplicationImageProof.
@@ -29,7 +31,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class ApplicationImageProof extends Model
+#[AllowDynamicProperties]
+final class ApplicationImageProof extends Model
 {
     use Auditable;
 
@@ -47,11 +50,11 @@ class ApplicationImageProof extends Model
     ];
 
     /**
-     * Belongs To A Application.
+     * Get the application that owns the image proof.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Application, $this>
+     * @return BelongsTo<Application, $this>
      */
-    public function application(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function application(): BelongsTo
     {
         return $this->belongsTo(Application::class);
     }

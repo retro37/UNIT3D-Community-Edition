@@ -2,7 +2,7 @@
 
 @section('title')
     <title>
-        {{ __('common.edit') }} Forums - {{ __('staff.staff-dashboard') }} -
+        {{ __('common.edit') }} forums - {{ __('staff.staff-dashboard') }} -
         {{ config('other.title') }}
     </title>
 @endsection
@@ -10,7 +10,7 @@
 @section('meta')
     <meta
         name="description"
-        content="{{ __('common.edit') }} Forums - {{ __('staff.staff-dashboard') }}"
+        content="{{ __('common.edit') }} forums - {{ __('staff.staff-dashboard') }}"
     />
 @endsection
 
@@ -82,7 +82,7 @@
                     </label>
                 </p>
                 <p class="form__group">
-                    <button class="form__button form__button--filled">Save Forum</button>
+                    <button class="form__button form__button--filled">Save forum</button>
                 </p>
             </form>
         </div>

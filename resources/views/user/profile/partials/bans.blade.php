@@ -122,10 +122,10 @@
                 @forelse ($bans as $ban)
                     <tr>
                         <td>
-                            <x-user-tag :user="$ban->banneduser" :anon="false" />
+                            <x-user-tag :user="$ban->user" :anon="false" />
                         </td>
                         <td>
-                            <x-user-tag :user="$ban->staffuser" :anon="false" />
+                            <x-user-tag :user="$ban->staff" :anon="false" />
                         </td>
                         <td>{{ $ban->ban_reason }}</td>
                         <td>{{ $ban->unban_reason }}</td>

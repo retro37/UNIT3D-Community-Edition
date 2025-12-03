@@ -53,8 +53,8 @@ class GiftLogSearch extends Component
     final protected \Illuminate\Pagination\LengthAwarePaginator $gifts {
         get => Gift::query()
             ->with([
-                'sender'    => fn ($query) => $query->withTrashed()->with('group'),
-                'recipient' => fn ($query) => $query->withTrashed()->with('group'),
+                'sender.group',
+                'recipient.group',
             ])
             ->when($this->sender, fn ($query) => $query->whereRelation('sender', 'username', '=', $this->sender))
             ->when($this->receiver, fn ($query) => $query->whereRelation('recipient', 'username', '=', $this->receiver))

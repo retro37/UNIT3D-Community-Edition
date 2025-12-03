@@ -71,7 +71,7 @@ namespace App\Helpers;
  */
 class MediaInfo
 {
-    private const REGEX_SECTION = "/^(?:(?:general|video|audio|text|menu)(?:\s\#\d+?)*)$/i";
+    private const REGEX_SECTION = "/^(?:(?:general|video|audio|text|image|menu)(?:\s\#\d+?)*)$/i";
 
     /**
      * @var string[]
