@@ -390,7 +390,11 @@ document.addEventListener('alpine:init', () => {
 
                 let currentRoom = this.echoes.find((o) => o.room && o.room.id == newVal);
                 if (currentRoom) {
-                    this.state.chat.room = currentRoom.room.id;
+                    if (this.state.chat.room === currentRoom.room.id) {
+                        this.fetchMessages();
+                    } else {
+                        this.state.chat.room = currentRoom.room.id;
+                    }
                     this.state.message.receiver_id = null;
                     this.state.message.bot_id = null;
                 }
